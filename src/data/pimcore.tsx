@@ -6,35 +6,29 @@
 // Hero Section
 export const heroData = {
   image: {
-    src: 'http://localhost:3845/assets/pimcore-hero.png',
-    alt: 'Pimcore Platform Preview',
-    width: 350,
-    height: 212,
+    src: 'http://localhost:3845/assets/50d0af2992ff5b06e849ddaf2d61a42006f4ed24.png',
+    alt: 'Pimcore Platform Login Screen',
+    width: 403,
+    height: 222,
   },
   title: (
     <>
-      <span className="font-extrabold">Enterprise PIM Platform: </span>
-      <span className="font-normal">UX Redesign for Complex Data Management</span>
+      <span className="font-extrabold">Pimcore Platform</span>
     </>
   ),
   description: (
     <>
       <p>
-        Pimcore is an enterprise-grade Product Information Management (PIM) platform
-        that helps organizations centralize and manage complex product data across
-        multiple channels and markets.
-      </p>
-      <p className="mt-4">
-        The challenge was to redesign the platform's user experience to reduce
-        complexity for non-technical users while maintaining the power and flexibility
-        that enterprise clients require for managing millions of product attributes.
+        Pimcore is an open-source enterprise platform that combines PIM, DAM, CMS, and
+        eCommerce to manage data and content—enabling businesses to deliver consistent,
+        personalized, and omnichannel digital experiences.
       </p>
     </>
   ),
   tags: [
-    { label: 'UX Research' },
-    { label: 'Enterprise UX' },
-    { label: 'Data Visualization' },
+    { label: 'UX / UI Design' },
+    { label: 'Design System' },
+    { label: '2+ years full time' },
   ],
 };
 
@@ -42,32 +36,31 @@ export const heroData = {
 export const projectScopeData = {
   scope: {
     items: [
-      { label: 'My role', value: 'UX Design Lead, Research' },
-      { label: 'Tools', value: 'Figma, Miro, Confluence' },
-      { label: 'Skills involved', value: 'user research, enterprise UX, data visualization, design systems, stakeholder management' },
-      { label: 'Team', value: 'collaboration with Product Managers, Developers, and Data Engineers' },
-      { label: 'Time frame', value: 'six months' },
+      { label: 'My role', value: 'UX Design and Research, UI Design' },
+      { label: 'Tools', value: 'Figma, FigJam, Github' },
+      { label: 'Skills involved', value: 'user research, design systems, accessibility, JTBD, mental models, cross-functional collaboration, affinity diagram, usability testing, prototyping' },
+      { label: 'Team', value: '10+ developers, 2 Project Managers, CPO, CTO, DevOps' },
+      { label: 'Time frame', value: '2 years' },
     ],
   },
   results: [
-    'Reduced task completion time by 40% for content managers',
-    'Improved user satisfaction scores from 5.2 to 8.1 out of 10',
-    'Decreased training time for new users by 60%',
-    'Increased daily active users by 25% within the first quarter',
+    'Translated complex legacy structures into a scalable, user-centered design system',
+    'Grounded design decisions in real-world user research and long-term mental models',
+    'Delivered a seamless user transition without breaking existing workflows',
   ],
 };
 
 // Contribution Section
 export const contributionData = {
   label: 'CONTRIBUTION',
-  title: 'Simplifying complexity without losing power',
+  title: 'Transition and upgrade of the front end',
   description:
-    'Through extensive user research with content managers, data stewards, and administrators, I identified critical pain points in the existing interface. Users struggled with information overload, complex navigation patterns, and inconsistent interactions across different modules.',
+    'My main responsibility was to ensure we are building an intuitive and future proof user experience during a major upgrade of the existing platform. Used by over 118,000 companies, one of the biggest challenges was addressing the long-standing mental models of the users who have adapted to non-intuitive workflows over the years. My approach combined deep UX research, strong system thinking, and a scalable design foundation.',
   directionPoints: [
-    'Streamline navigation and information architecture',
-    'Create role-based dashboards for different user types',
-    'Implement progressive disclosure for complex data structures',
-    'Design a scalable component system for consistent UX',
+    'UX Research & Analysis: Conducted surveys, interviews, and group discussions with implementation partners, end users, and community members',
+    'Design System Strategy: Selected and extended a third-party design system matching our tech stack',
+    'Scalable & Modular Layout Design: Multiple iterations led to a modern, flexible layout with widget zones and drag-and-drop flexibility',
+    'Tested Interactions & Accessibility: No feature was removed—less-critical elements were made collapsible or relocated for clarity',
   ],
 };
 
@@ -79,34 +72,34 @@ export const keyFeaturesData = {
     'The redesigned platform focuses on making complex data management intuitive and efficient for enterprise users.',
   features: [
     {
-      title: 'Smart Data Grid',
+      title: 'UX Research & Analysis',
       description:
-        'An advanced data grid with customizable columns, filters, and bulk operations. Users can save views and share configurations with team members.',
+        'I conducted surveys, interviews, and group discussions with implementation partners, end users, and community members. These insights were mapped into an affinity diagram and user personas that still guide our design decisions and redesigns today.',
     },
     {
-      title: 'Visual Workflow Builder',
+      title: 'Design System Strategy',
       description:
-        'A drag-and-drop interface for creating and managing data workflows. Non-technical users can automate complex data processes without writing code.',
+        'We selected and extended a third-party design system that matched our tech stack and supported themes, tokens, accessibility, and UI scalability. It was developed for internal use and external collaboration via a shared component library.',
     },
     {
-      title: 'Contextual Navigation',
+      title: 'Scalable & Modular Layout Design',
       description:
-        'An adaptive navigation system that shows relevant actions and related data based on the user\'s current context and role.',
+        'Multiple iterations led to a modern, flexible layout capable of supporting Pimcore\'s diverse use cases. With widget zones, expandable tab areas, and drag-and-drop flexibility, we struck a balance between structure and personalisation.',
     },
     {
-      title: 'Intelligent Search',
+      title: 'Tested Interactions & Accessibility',
       description:
-        'AI-powered search with filters, saved searches, and recent items. Users can quickly find products across millions of records.',
+        'No feature was removed — instead, less-critical elements were made collapsible, hover-based, or relocated for clarity. Testing methods like A/B tests and think-aloud protocols validated improvements and ensured WCAG alignment.',
     },
     {
-      title: 'Collaboration Hub',
+      title: 'User Guidelines & Consistency Rules',
       description:
-        'Built-in commenting, annotations, and task assignment features that enable teams to collaborate directly within the platform.',
+        'We defined key interaction standards — from naming buttons ("Add" vs. "New") to keybindings and casing — to ensure system-wide coherence. Navigation elements like the toolbar and sidebar remained visually and functionally consistent across screens.',
     },
     {
-      title: 'Audit & Versioning',
+      title: 'Existing vs. Anticipated Experience',
       description:
-        'Comprehensive change tracking with visual diff views, allowing users to compare versions and understand data evolution over time.',
+        'We selected and extended an existing system that matched our tech stack and supported themes, tokens, accessibility, and UI scalability. It was developed for internal use and external collaboration via a shared component library.',
     },
   ],
 };
@@ -147,12 +140,16 @@ export const reflectionData = {
         This project taught me the importance of balancing power with simplicity in
         enterprise software. By focusing on progressive disclosure and role-based
         customization, we were able to serve both power users and occasional users
-        within the same interface.
+        within the same interface. The Pimcore platform upgrade was a significant
+        undertaking that required deep understanding of user mental models formed over
+        years of using the legacy system.
       </p>
       <p className="mt-4">
         The success of this redesign has led to a company-wide initiative to apply
         these UX principles across all Pimcore products, establishing a consistent
-        design language for the entire ecosystem.
+        design language for the entire ecosystem. The design system we created continues
+        to evolve and support new features while maintaining the accessibility and
+        usability standards we established.
       </p>
     </>
   ),
