@@ -1,0 +1,314 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e5]:
+  - complementary [ref=e7]:
+    - generic [ref=e11]: Ida
+    - navigation [ref=e12]:
+      - link "Intro" [ref=e13] [cursor=pointer]:
+        - /url: /case-studies/ergowork#intro
+        - generic [ref=e14]: Intro
+      - link "Selected work" [ref=e16] [cursor=pointer]:
+        - /url: /case-studies/ergowork#work
+        - generic [ref=e17]: Selected work
+      - link "Pimcore Platform" [ref=e19] [cursor=pointer]:
+        - /url: /case-studies/pimcore
+        - generic [ref=e20]: Pimcore Platform
+      - link "ErgoWork" [ref=e21] [cursor=pointer]:
+        - /url: /case-studies/ergowork
+        - generic [ref=e22]:
+          - img [ref=e23]
+          - text: ErgoWork
+      - link "Dermatik" [ref=e25] [cursor=pointer]:
+        - /url: /case-studies/dermatik
+        - generic [ref=e26]: Dermatik
+      - link "Flutter" [ref=e27] [cursor=pointer]:
+        - /url: /case-studies/flutter
+        - generic [ref=e28]: Flutter
+      - link "Buzz" [ref=e29] [cursor=pointer]:
+        - /url: /case-studies/buzz
+        - generic [ref=e30]: Buzz
+      - link "About" [ref=e31] [cursor=pointer]:
+        - /url: /about
+        - generic [ref=e32]: About
+    - generic [ref=e33]:
+      - link "ivanova.contact@gmail.com" [ref=e34] [cursor=pointer]:
+        - /url: mailto:ivanova.contact@gmail.com
+      - generic [ref=e35]: +43 678 79 169
+      - link "LinkedIn" [ref=e36] [cursor=pointer]:
+        - /url: https://linkedin.com
+  - generic [ref=e38]:
+    - link "Back to Home" [ref=e39] [cursor=pointer]:
+      - /url: /
+      - img [ref=e40]
+      - text: Back to Home
+    - generic [ref=e42]:
+      - generic [ref=e44]:
+        - img "ErgoWork Project Preview" [ref=e46]
+        - generic [ref=e47]:
+          - generic [ref=e48]:
+            - 'heading "Conversion by Design: UX Strategy for B2B and B2C Alignment" [level=1] [ref=e49]'
+            - generic [ref=e50]:
+              - paragraph [ref=e51]: ErgoWork is an Austrian brand aiming to bridge quality craftsmanship with scalable ergonomic solutions for both private and business users.
+              - paragraph [ref=e52]: "While demand for standing desks and hybrid workspace solutions is growing, ErgoWork faced a challenge: their online presence lacked structure, clarity, and user segmentation - making it difficult for potential customers to understand the offer or navigate toward a purchase."
+          - generic [ref=e53]:
+            - generic [ref=e54]: UX Research
+            - generic [ref=e55]: UX Audit
+            - generic [ref=e56]: Competitor Analysis
+      - generic [ref=e59]:
+        - generic [ref=e60]:
+          - heading "Project Scope" [level=3] [ref=e61]
+          - generic [ref=e63]:
+            - paragraph [ref=e64]:
+              - generic [ref=e65]: "My role:"
+              - text: UX Design and Research, UI Design
+            - paragraph [ref=e66]:
+              - generic [ref=e67]: "Tools:"
+              - text: Figma, Miro
+            - paragraph [ref=e68]:
+              - generic [ref=e69]: "Skills involved:"
+              - text: user research, cross-functional collaboration, sitemap delivery, customer journey mapping, brand design and strategy, Wordpress with Elementor knowledge
+            - paragraph [ref=e70]:
+              - generic [ref=e71]: "Team:"
+              - text: alignment with the CEO and Marketing Expert
+            - paragraph [ref=e72]:
+              - generic [ref=e73]: "Time frame:"
+              - text: one week
+        - generic [ref=e74]:
+          - heading "Results" [level=3] [ref=e75]
+          - generic [ref=e77]:
+            - paragraph [ref=e78]: A validated UX architecture that balances exploration and conversion for both B2B and B2C audiences
+            - paragraph [ref=e79]: Clear decision paths mapped to core personas and user intents
+            - paragraph [ref=e80]: A modular sitemap and interface structure, ready for phased rollout for development
+      - generic [ref=e81]:
+        - generic [ref=e82]:
+          - generic [ref=e83]: CONTRIBUTION
+          - heading "Uncovering UX gaps & setting the course" [level=2] [ref=e84]
+          - generic [ref=e85]:
+            - paragraph [ref=e86]: Through an in-depth UX research and analysis process, I identified critical gaps in the user journey and touch points. B2B users hesitated due to unclear pricing and fragmented value communication. B2C users struggled to differentiate between models and often preferred direct support (via phone calls and less often via mail) instead of exploring the catalog independently. Analytics revealed high mobile traffic but low engagement, signaling an urgent need to support both quick entry and deeper desktop research.
+            - paragraph [ref=e87]: "The design direction was set as follows:"
+        - generic [ref=e88]:
+          - generic [ref=e90]: Clarify product value and positioning
+          - generic [ref=e92]: Streamline the decision-making process
+          - generic [ref=e94]: Support mobile-first discovery and desktop-first research
+          - generic [ref=e96]: Bridge the gap between marketing and product structure
+      - generic [ref=e98]:
+        - generic [ref=e99]:
+          - generic [ref=e100]: RESEARCH
+          - heading "Key insights" [level=2] [ref=e101]
+          - generic [ref=e102]: "The UX redesign was shaped by competitor analysis (8 competitors have been reviewed) and strategic insights, leading to the following six key experience goals:"
+        - generic [ref=e103]:
+          - generic [ref=e104]:
+            - heading "Guided Exploration to Boost Conversion" [level=3] [ref=e105]
+            - paragraph [ref=e106]: Structured layouts, consistent tabs, and comparison tools reduce cognitive load and guide users confidently through the catalog.
+          - generic [ref=e107]:
+            - heading "Self-Qualification & Confidence-Building Tools" [level=3] [ref=e108]
+            - paragraph [ref=e109]: A quiz-based selection process, overview pages, and comparison features help users find the right desk without friction.
+          - generic [ref=e110]:
+            - heading "Trust Signals Integrated Across Flows" [level=3] [ref=e111]
+            - paragraph [ref=e112]: Testimonials, service guarantees, and quality badges are embedded into key content areas to build long-term trust and reduce bounce.
+          - generic [ref=e113]:
+            - heading "UI Simplicity Paired with Communicated Value" [level=3] [ref=e114]
+            - paragraph [ref=e115]: The clean UI is leveraged to highlight customizability, local production, quality, and service—making benefits instantly recognizable.
+          - generic [ref=e116]:
+            - heading "Mobile Touchpoint, Desktop Research Logic" [level=3] [ref=e117]
+            - paragraph [ref=e118]: Mobile users are led with highlights and visuals. Desktop experience is structured for comparison, exploration, and quote generation.
+          - generic [ref=e119]:
+            - heading "B2B Value Needs Early & Clear Communication" [level=3] [ref=e120]
+            - paragraph [ref=e121]: A dedicated B2B overview page and embedded CTAs ensure business users are clearly guided toward fast quoting and contact.
+      - generic [ref=e123]:
+        - generic [ref=e124]:
+          - generic [ref=e125]: BRAND IDENTITY BOOST
+          - heading "Refined brand identity and supportive UI" [level=2] [ref=e126]
+          - generic [ref=e127]:
+            - paragraph [ref=e128]: While my initial focus was on the sitemap and product page flows, it became clear that the brand identity and overall interface design needed significant attention. For users to confidently explore, compare, and select the right desk - without resorting to direct contact - the interface had to provide clarity, guidance, and visual credibility. At the same time, the brand needed to convey trust and stability to match the quality of the offering.
+            - paragraph [ref=e129]: "Selected pieces overview of brand and system kit that was delivered:"
+        - generic [ref=e130]:
+          - img "Brand Identity 1" [ref=e132]
+          - img "Brand Identity 2" [ref=e134]
+          - img "Brand Identity 3" [ref=e136]
+          - img "Brand Identity 4" [ref=e138]
+          - img "Brand Identity 5" [ref=e140]
+          - img "Brand Identity 6" [ref=e142]
+          - img "Brand Identity 7" [ref=e144]
+          - img "Brand Identity 8" [ref=e146]
+          - img "Brand Identity 9" [ref=e148]
+          - img "Brand Identity 10" [ref=e150]
+      - generic [ref=e152]:
+        - generic [ref=e153]:
+          - generic [ref=e154]: SITEMAP
+          - heading "Information architecture for dual audiences" [level=2] [ref=e155]
+          - generic [ref=e156]: Taking the current navigation and transforming it into a sitemap gave more clarity for the whole team - the marketing expert contributed with knowledge on conversion, the CEO on the other hand with product and market knowledge and all that lead to a new clean navigation serving the user needs.
+        - generic [ref=e157]:
+          - generic [ref=e158]:
+            - img "Sitemap Diagram" [ref=e160]
+            - img "Footer Diagram" [ref=e162]
+            - img "Landing Pages" [ref=e164]
+          - generic [ref=e165]:
+            - paragraph [ref=e166]: Following established conventions and well known demands from user perspective, the footer structure is supportive to the main navigation and relevant for the experience in each page.
+            - paragraph [ref=e167]: The landing pages seen on a side are supplementary page meaning that the user will be exposed to them only in a context specific situation. For example, if the user is looking for a bundle order to set up an office environment of 10 desk, then service such as assembling is not only nice to have option but even a necessity in most of the cases. Same goes for making an order with the incentive on making more purchases in future. In B2B world that appears to be quite common - a company purchases 10 ergonomic desks and when there is demand for more to be upgraded from normal to ergonomic desks in future, a loyalty or bonus program becomes quite relevant.
+      - generic [ref=e169]:
+        - generic [ref=e170]:
+          - generic [ref=e171]: PERSONAS
+          - heading "Mapping users to design logic" [level=2] [ref=e172]
+          - generic [ref=e173]:
+            - paragraph [ref=e174]: YouGrow, an independent collaborator for Growth Analysis has uncovered four key persona types. The competitor analysis together with the strategic points and the provided personas built the design logic. The four personas informed the hierarchy, page logic, and tone of content throughout the site.
+            - paragraph [ref=e175]: The personas below helped validate our decision to provide both structured exploration and fast-track paths toward contact or checkout.
+        - generic [ref=e176]:
+          - generic [ref=e177]:
+            - img "Florian - SME Buyer" [ref=e179]
+            - generic [ref=e180]:
+              - generic [ref=e181]:
+                - paragraph [ref=e182]: Florian
+                - paragraph [ref=e183]: SME Buyer
+              - generic [ref=e184]:
+                - paragraph [ref=e185]:
+                  - generic [ref=e186]: "Goal:"
+                  - text: Find a reliable local vendor with assembly support
+                - paragraph [ref=e187]:
+                  - generic [ref=e188]: "Needs:"
+                  - text: Transparent pricing, low order threshold, custom options
+                - paragraph [ref=e189]:
+                  - generic [ref=e190]: "Entry Point:"
+                  - text: Homepage → Business Customers → Request Offer
+          - generic [ref=e191]:
+            - img "Julia - Corporate Procurement" [ref=e193]
+            - generic [ref=e194]:
+              - generic [ref=e195]:
+                - paragraph [ref=e196]: Julia
+                - paragraph [ref=e197]: Corporate Procurement
+              - generic [ref=e198]:
+                - paragraph [ref=e199]:
+                  - generic [ref=e200]: "Goal:"
+                  - text: Source ergonomic desks to match internal health goals
+                - paragraph [ref=e201]:
+                  - generic [ref=e202]: "Needs:"
+                  - text: Installation service, visual documentation, fast quoting
+                - paragraph [ref=e203]:
+                  - generic [ref=e204]: "Entry Point:"
+                  - text: (potentially Homepage) → Business Page → PDF/Configurator → Contact
+          - generic [ref=e205]:
+            - img "Eva - Private Professional" [ref=e207]
+            - generic [ref=e208]:
+              - generic [ref=e209]:
+                - paragraph [ref=e210]: Eva
+                - paragraph [ref=e211]: Private Professional
+              - generic [ref=e212]:
+                - paragraph [ref=e213]:
+                  - generic [ref=e214]: "Goal:"
+                  - text: Invest in a premium home office setup
+                - paragraph [ref=e215]:
+                  - generic [ref=e216]: "Needs:"
+                  - text: Quality guarantee, aesthetic variety, local craftsmanship
+                - paragraph [ref=e217]:
+                  - generic [ref=e218]: "Entry Point:"
+                  - text: Adjustable Tables → Highlights → Product Page
+          - generic [ref=e219]:
+            - img "James - Remote Worker/Gamer" [ref=e221]
+            - generic [ref=e222]:
+              - generic [ref=e223]:
+                - paragraph [ref=e224]: James
+                - paragraph [ref=e225]: Remote Worker/Gamer
+              - generic [ref=e226]:
+                - paragraph [ref=e227]:
+                  - generic [ref=e228]: "Goal:"
+                  - text: Buy an ergonomic desk that suits work and play
+                - paragraph [ref=e229]:
+                  - generic [ref=e230]: "Needs:"
+                  - text: Customization, detailed visuals, fast delivery
+                - paragraph [ref=e231]:
+                  - generic [ref=e232]: "Entry Point:"
+                  - text: Mobile Ad / Recommendation → Product Page → Add to Cart or Explore
+      - generic [ref=e236]:
+        - generic [ref=e237]: FLOWS
+        - heading "Page-by-page experience design" [level=2] [ref=e238]
+        - paragraph [ref=e240]: Each core page was structured to reflect a specific user intent and interaction depth, mapped to persona behavior and conversion triggers. Below shown you can see examples of sections with relative important for the pages.
+      - generic [ref=e241]:
+        - generic [ref=e242]:
+          - img "Homepage Flow" [ref=e244]
+          - generic [ref=e245]:
+            - heading "Homepage" [level=3] [ref=e246]
+            - generic [ref=e247]:
+              - paragraph [ref=e248]: "Intent: Offer visual guidance and self-segmentation (B2B vs B2C)"
+              - paragraph [ref=e249]: "Objective: Eva and Florian land here - one wants to explore, the other needs fast validation."
+              - paragraph [ref=e250]: "Key Actions:"
+              - list [ref=e251]:
+                - listitem [ref=e252]: First impression matters - quick overview, trustworthy visuals and copy
+                - listitem [ref=e253]: Scan featured products, understand what is the value of the products
+                - listitem [ref=e254]: Enter the comparison hub or request an offer
+                - listitem [ref=e255]: Contact a desk expert if needed
+        - generic [ref=e257]:
+          - img "Homepage Mockup 1" [ref=e259]
+          - img "Homepage Mockup 2" [ref=e261]
+      - generic [ref=e263]:
+        - generic [ref=e264]:
+          - img "Business Customers Page" [ref=e266]
+          - generic [ref=e267]:
+            - heading "Business Customers Page" [level=3] [ref=e268]
+            - generic [ref=e269]:
+              - paragraph [ref=e270]: "Intent: Provide clear, credible B2B value without delay"
+              - paragraph [ref=e271]: "Objective: Julia and Florian don't browse - they validate and act"
+              - paragraph [ref=e272]: "Key Actions:"
+              - list [ref=e273]:
+                - listitem [ref=e274]: Generate offer instantly or download spec sheet
+                - listitem [ref=e275]: View testimonials and use cases
+                - listitem [ref=e276]: Discover scalable pricing models
+                - listitem [ref=e277]: Imagine purchase process - amount, steps, delivery, services
+              - paragraph [ref=e279]: The possibility to get in touch on this page is very prominent - the potential customer get a custom offer as the first CTA on the page and further down when he has seen more - he can see the products in real life in one of the showrooms.
+        - generic [ref=e280]:
+          - img "Business Page Mockup 1" [ref=e282]
+          - img "Business Page Mockup 2" [ref=e284]
+      - generic [ref=e287]:
+        - generic [ref=e288]:
+          - generic [ref=e289]:
+            - heading "Adjustable Tables" [level=3] [ref=e290]
+            - generic [ref=e291]:
+              - paragraph [ref=e292]: "Intent: Allow effortless comparison, filtering, and guided selection"
+              - paragraph [ref=e293]: "Objective: James and Eva want to scan quickly and get inspired"
+              - paragraph [ref=e294]: "Key Actions:"
+              - list [ref=e295]:
+                - listitem [ref=e296]: Explore model differences
+                - listitem [ref=e297]: Enter configurator flow
+                - listitem [ref=e298]: View top-picks or ergonomic bundles
+          - generic [ref=e300]:
+            - paragraph [ref=e301]: "This page is delivered as a strategic section flow with clear CTAs - presented in mockup form without finalized content. Each block targets specific user needs: quick filtering, easy comparison, social proof, and customization."
+            - paragraph [ref=e302]: Personas are guided through a relevant journey - e.g., gamers, office workers - toward key actions like "See X desk" or "Get a custom offer", reducing friction and aligning with value-driven exploration.
+        - img "Adjustable Tables Page" [ref=e304]
+      - generic [ref=e306]:
+        - generic [ref=e307]:
+          - img "Product Detail Page" [ref=e309]
+          - generic [ref=e310]:
+            - heading "Product Detail Page" [level=3] [ref=e311]
+            - generic [ref=e312]:
+              - paragraph [ref=e313]: "Intent: Offer detailed reassurance and close the decision gap"
+              - paragraph [ref=e314]: "Objective: Eva and James need more information or support"
+              - paragraph [ref=e315]: "Key Actions:"
+              - list [ref=e316]:
+                - listitem [ref=e317]: View gallery, specs, badges, and how-to video
+                - listitem [ref=e318]: Start configurator or CTA toward quote
+                - listitem [ref=e319]: See loyalty perks or social proof
+              - generic [ref=e320]:
+                - paragraph [ref=e321]: "Deliverable includes:"
+                - list [ref=e322]:
+                  - listitem [ref=e323]: 3 variants of the product customization for the main product types
+                  - listitem [ref=e324]: Additional suggestions for the future expansion of the page (currently the testimonials and customer images are limited)
+        - img "Product Detail Full Width" [ref=e326]
+      - generic [ref=e329]:
+        - img "Request Offer Form" [ref=e331]
+        - generic [ref=e332]:
+          - heading "Request an offer (form)" [level=3] [ref=e333]
+          - generic [ref=e334]:
+            - paragraph [ref=e335]: "Intent: Provide a low-barrier entry for high-intent users"
+            - paragraph [ref=e336]: "Objective: Julia and Florian are ready to act but want clarity"
+            - paragraph [ref=e337]: "Key Actions:"
+            - list [ref=e338]:
+              - listitem [ref=e339]: Submit project form or book a call
+              - listitem [ref=e340]: Jump back into B2B content or explore desks
+              - listitem [ref=e341]: Download brochure or discount logic
+      - generic [ref=e344]:
+        - generic [ref=e345]: REFLECTION & OUTLOOK
+        - heading "Uncovering UX gaps & setting the course" [level=2] [ref=e346]
+        - generic [ref=e347]:
+          - paragraph [ref=e348]: Beyond individual screens, this project focused on building a cohesive UX system that connects user behavior, product structure, and brand messaging. With defined journeys and decision flows mapped to real personas, ErgoWork now has a strategic foundation to grow from - supporting future improvements in SEO, campaign-specific landing pages, and scalable customization tools.
+          - paragraph [ref=e349]: The groundwork is set for consistent, user-centered digital expansion. This project is still in development and therefore results can not be estimated as for now.
+```

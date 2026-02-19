@@ -33,11 +33,11 @@ export const heroData = {
     },
   ],
   floatingTags: [
-    { label: 'Plants lover', position: { left: 663.5, top: 127 }, variant: 'default' },
-    { label: 'Team Player', position: { left: 574.5, top: 458 }, variant: 'default' },
-    { label: 'II', position: { left: 555.5, top: 251 }, variant: 'bordered' },
-    { label: 'EU Volunteer', position: { left: 59.5, top: 96 }, variant: 'default' },
-    { label: 'Creative thinker', position: { left: 162.5, top: 419 }, variant: 'accent' },
+    { label: 'Plants lover', position: { left: 663.5, top: 127 }, variant: 'default' as const },
+    { label: 'Team Player', position: { left: 574.5, top: 458 }, variant: 'default' as const },
+    { label: 'II', position: { left: 555.5, top: 251 }, variant: 'bordered' as const },
+    { label: 'EU Volunteer', position: { left: 59.5, top: 96 }, variant: 'default' as const },
+    { label: 'Creative thinker', position: { left: 162.5, top: 419 }, variant: 'accent' as const },
   ],
   intro: {
     title: "Hi, I'm Ida. I like smart design, plants, art and other funny and silly stuff.",

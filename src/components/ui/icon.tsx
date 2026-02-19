@@ -35,7 +35,7 @@ interface IconProps extends React.SVGAttributes<SVGSVGElement> {
 
 // Icon component
 const Icon = React.forwardRef<SVGSVGElement, IconProps>(
-  ({ name, size = 'md', color, strokeWidth = 2, className, ...props }, ref) => {
+  ({ name, size = 'md', color, strokeWidth = 2, className, ...props }, _ref) => {
     // Get the icon component from Lucide
     const LucideIcon = LucideIcons[name] as React.ComponentType<{
       size?: number;
@@ -54,7 +54,6 @@ const Icon = React.forwardRef<SVGSVGElement, IconProps>(
 
     return (
       <LucideIcon
-        ref={ref as React.Ref<SVGSVGElement>}
         size={sizeInPixels}
         color={color}
         strokeWidth={strokeWidth}

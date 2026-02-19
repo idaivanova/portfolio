@@ -32,7 +32,7 @@ export function CTASection() {
                 </Button>
                 <Button
                   size="lg"
-                  variant="outline"
+                  variant="secondary-white"
                   className="w-full sm:w-auto border-cream/30 text-cream hover:bg-cream/10 hover:text-cream"
                 >
                   View resume

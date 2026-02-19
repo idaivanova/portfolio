@@ -1,4 +1,3 @@
-import { Button } from '../ui/button';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '../animations/ScrollReveal';
 import { ArrowRight, Palette, Layout, Code, Sparkles, Users } from 'lucide-react';
 
@@ -59,20 +58,27 @@ export function Hero() {
           {/* CTA Buttons - merged style */}
           <ScrollReveal delay={0.3}>
             <div className="flex flex-col sm:flex-row items-start gap-4 mb-16">
-              <Button
-                size="lg"
-                className="bg-accent hover:bg-accent-dark text-cream group"
+              <a
+                href="/#projects"
+                className="inline-flex items-center justify-center gap-2 h-12 px-8 py-3 bg-accent hover:bg-accent-dark text-cream font-medium rounded-md transition-colors group"
+                onClick={(e) => {
+                  // Smooth scroll to projects section
+                  const projectsSection = document.getElementById('projects');
+                  if (projectsSection) {
+                    e.preventDefault();
+                    projectsSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
               >
                 View My Projects
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-cream/20 text-cream hover:bg-cream/10"
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </a>
+              <a
+                href="mailto:ivanova.contact@gmail.com"
+                className="inline-flex items-center justify-center gap-2 h-12 px-8 py-3 border border-cream/20 text-cream hover:bg-cream/10 font-medium rounded-md transition-colors"
               >
                 Get in Touch
-              </Button>
+              </a>
             </div>
           </ScrollReveal>
 

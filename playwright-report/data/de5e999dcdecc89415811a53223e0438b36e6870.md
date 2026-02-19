@@ -1,0 +1,172 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e5]:
+  - banner [ref=e6]:
+    - generic [ref=e8]:
+      - link "I da" [ref=e9] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e10]: I
+        - generic [ref=e11]: da
+      - navigation [ref=e12]:
+        - link "HOME" [ref=e13] [cursor=pointer]:
+          - /url: /
+          - text: HOME
+        - link "ABOUT" [ref=e15] [cursor=pointer]:
+          - /url: /about
+        - link "PROJECTS" [ref=e16] [cursor=pointer]:
+          - /url: /#projects
+      - link "LinkedIn" [ref=e18] [cursor=pointer]:
+        - /url: https://linkedin.com
+        - img [ref=e19]
+        - generic [ref=e23]: LinkedIn
+  - main [ref=e24]:
+    - generic [ref=e31]:
+      - paragraph [ref=e33]: Senior UX/UI Designer
+      - heading "Hey there! I'm Ida, a designer with experience across diverse industries" [level=1] [ref=e35]
+      - generic [ref=e37]:
+        - generic [ref=e38]: User Interface Design
+        - generic [ref=e39]: User Experience Design
+        - generic [ref=e40]: Design Systems
+      - generic [ref=e42]:
+        - link "View My Projects" [ref=e43] [cursor=pointer]:
+          - /url: /#projects
+          - text: View My Projects
+          - img [ref=e44]
+        - button "Get in Touch" [ref=e46]
+      - generic [ref=e48]:
+        - paragraph [ref=e49]: Areas of expertise
+        - generic [ref=e50]:
+          - generic [ref=e52]:
+            - img [ref=e54]
+            - generic [ref=e60]: UI Design
+          - generic [ref=e62]:
+            - img [ref=e64]
+            - generic [ref=e66]: UX Research
+          - generic [ref=e68]:
+            - img [ref=e70]
+            - generic [ref=e73]: Prototyping
+          - generic [ref=e75]:
+            - img [ref=e77]
+            - generic [ref=e80]: Design Systems
+          - generic [ref=e82]:
+            - img [ref=e84]
+            - generic [ref=e89]: User Testing
+    - generic [ref=e91]:
+      - generic [ref=e93]:
+        - heading "Trusted by teams worldwide" [level=2] [ref=e94]
+        - paragraph [ref=e95]: Delivering exceptional design solutions across diverse industries
+      - generic [ref=e96]:
+        - generic [ref=e98]:
+          - generic [ref=e99]: 5+
+          - generic [ref=e100]: Years Experience
+        - generic [ref=e102]:
+          - generic [ref=e103]: 50+
+          - generic [ref=e104]: Projects Completed
+        - generic [ref=e106]:
+          - generic [ref=e107]: "4"
+          - generic [ref=e108]: Industries Served
+        - generic [ref=e110]:
+          - generic [ref=e111]: 100%
+          - generic [ref=e112]: Client Satisfaction
+    - generic [ref=e114]:
+      - generic [ref=e116]:
+        - heading "Featured work" [level=2] [ref=e117]
+        - paragraph [ref=e118]: A selection of projects across different industries and design challenges
+      - generic [ref=e119]:
+        - generic [ref=e122]:
+          - img [ref=e124]
+          - 'heading "Flutter: Butterfly Garden Explorer" [level=3] [ref=e127]'
+          - paragraph [ref=e128]: A whimsical UX experiment showcasing playful motion design. Every interaction flutters with nature-inspired animations and delightful micro-interactions.
+          - link "Explore Flutter" [ref=e129] [cursor=pointer]:
+            - /url: /case-studies/flutter
+            - text: Explore Flutter
+            - img [ref=e130]
+        - generic [ref=e134]:
+          - img [ref=e136]
+          - 'heading "Buzz: Bumblebee Conservation App" [level=3] [ref=e138]'
+          - paragraph [ref=e139]: Making environmental conservation adorable through gamification and character-driven UX design. Conservation meets delight.
+          - link "Meet Buzz" [ref=e140] [cursor=pointer]:
+            - /url: /case-studies/buzz
+            - text: Meet Buzz
+            - img [ref=e141]
+        - generic [ref=e145]:
+          - img [ref=e147]
+          - heading "B2B SaaS Product Design" [level=3] [ref=e150]
+          - paragraph [ref=e151]: Designed enterprise platforms that streamline complex workflows. From dashboards to data visualization, I create interfaces that power business decisions.
+          - link "View case study" [ref=e152] [cursor=pointer]:
+            - /url: /case-studies/pimcore
+            - text: View case study
+            - img [ref=e153]
+        - generic [ref=e157]:
+          - img [ref=e159]
+          - heading "Healthcare & Medical Apps" [level=3] [ref=e161]
+          - paragraph [ref=e162]: Created patient-centered healthcare experiences. Focused on accessibility, clarity, and compliance with medical industry standards.
+          - link "View case study" [ref=e163] [cursor=pointer]:
+            - /url: /case-studies/dermatik
+            - text: View case study
+            - img [ref=e164]
+    - generic [ref=e173]:
+      - heading "Let's work together" [level=2] [ref=e174]
+      - paragraph [ref=e175]: Have a project in mind? I'm always excited to discuss new opportunities and challenges in UX/UI design.
+      - generic [ref=e176]:
+        - button "Get in touch" [ref=e177]:
+          - text: Get in touch
+          - img [ref=e178]
+        - button "View resume" [ref=e180]
+  - contentinfo [ref=e181]:
+    - generic [ref=e184]:
+      - generic [ref=e185]:
+        - heading "Contact" [level=3] [ref=e186]
+        - list [ref=e187]:
+          - listitem [ref=e188]:
+            - link "ivanova.contact@gmail.com" [ref=e189] [cursor=pointer]:
+              - /url: mailto:ivanova.contact@gmail.com
+          - listitem [ref=e190]:
+            - link "+43 678 79 169" [ref=e191] [cursor=pointer]:
+              - /url: tel:+4367879169
+          - listitem [ref=e192]:
+            - generic [ref=e193]:
+              - link "LinkedIn" [ref=e194] [cursor=pointer]:
+                - /url: https://linkedin.com
+                - img [ref=e195]
+              - link "GitHub" [ref=e199] [cursor=pointer]:
+                - /url: https://github.com
+                - img [ref=e200]
+      - generic [ref=e203]:
+        - heading "Navigation" [level=3] [ref=e204]
+        - list [ref=e205]:
+          - listitem [ref=e206]:
+            - link "Home" [ref=e207] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e208]:
+            - link "About" [ref=e209] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=e210]:
+            - link "Projects" [ref=e211] [cursor=pointer]:
+              - /url: /#projects
+      - generic [ref=e212]:
+        - heading "Projects" [level=3] [ref=e213]
+        - list [ref=e214]:
+          - listitem [ref=e215]:
+            - link "Pimcore Platform" [ref=e216] [cursor=pointer]:
+              - /url: /case-studies/pimcore
+          - listitem [ref=e217]:
+            - link "ErgoWork" [ref=e218] [cursor=pointer]:
+              - /url: /case-studies/ergowork
+          - listitem [ref=e219]:
+            - link "Dermatik" [ref=e220] [cursor=pointer]:
+              - /url: /case-studies/dermatik
+      - generic [ref=e221]:
+        - heading "Links" [level=3] [ref=e222]
+        - list [ref=e223]:
+          - listitem [ref=e224]:
+            - link "Personal Website" [ref=e225] [cursor=pointer]:
+              - /url: https://p5aholic.me/
+          - listitem [ref=e226]:
+            - link "Experiments" [ref=e227] [cursor=pointer]:
+              - /url: https://experiments.p5aholic.me/
+    - generic [ref=e230]:
+      - paragraph [ref=e231]: © 2026 Idas Portfolio. All rights reserved.
+      - paragraph [ref=e232]: UX/UI Designer based in Austria
+```

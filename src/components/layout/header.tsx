@@ -7,13 +7,13 @@ import * as React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '../../lib/utils';
-import { IconButton } from '../ui/button';
+import { IconButton } from '../ui/icon';
 import { LinkedInIcon } from '../ui/icon';
 
 // Navigation items
 const navItems = [
   { label: 'HOME', href: '/' },
-  { label: 'ABOUT', href: '/case-studies/about' },
+  { label: 'ABOUT', href: '/about' },
   { label: 'PROJECTS', href: '/#projects' },
 ];
 

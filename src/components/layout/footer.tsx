@@ -34,7 +34,7 @@ const socialLinks = [
 // Quick navigation links
 const quickLinks = [
   { label: 'Home', href: '/' },
-  { label: 'About', href: '/case-studies/about' },
+  { label: 'About', href: '/about' },
   { label: 'Projects', href: '/#projects' },
 ];
 
@@ -244,7 +244,7 @@ export function Footer({ className, showCTA = true }: FooterProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-cream/50">
-              © {currentYear} Ida Ivanova. All rights reserved.
+              © {currentYear} Idas Portfolio. All rights reserved.
             </p>
             <p className="text-sm text-cream/50">
               UX/UI Designer based in Austria

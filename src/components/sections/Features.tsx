@@ -1,42 +1,41 @@
-import { Link } from 'react-router-dom';
 import { ScrollReveal } from '../animations/ScrollReveal';
 import { Card, CardContent } from '../ui/card';
-import { ArrowRight, Layers, Lightbulb, Box, Monitor } from 'lucide-react';
+import { ArrowRight, Sparkles, Heart } from 'lucide-react';
 
 const features = [
   {
-    icon: Layers,
+    icon: Sparkles,
+    title: 'Flutter: Butterfly Garden Explorer',
+    description: 'A whimsical UX experiment showcasing playful motion design. Every interaction flutters with nature-inspired animations and delightful micro-interactions.',
+    cta: 'Explore Flutter',
+    href: '/case-studies/flutter',
+  },
+  {
+    icon: Heart,
+    title: 'Buzz: Bumblebee Conservation App',
+    description: 'Making environmental conservation adorable through gamification and character-driven UX design. Conservation meets delight.',
+    cta: 'Meet Buzz',
+    href: '/case-studies/buzz',
+  },
+  {
+    icon: Sparkles,
     title: 'B2B SaaS Product Design',
     description: 'Designed enterprise platforms that streamline complex workflows. From dashboards to data visualization, I create interfaces that power business decisions.',
     cta: 'View case study',
     href: '/case-studies/pimcore',
   },
   {
-    icon: Lightbulb,
-    title: 'Complex Enterprise Applications',
-    description: 'Solved intricate UX challenges for large-scale applications. My designs balance powerful functionality with intuitive usability.',
-    cta: 'View case study',
-    href: '/case-studies/ergowork',
-  },
-  {
-    icon: Box,
+    icon: Heart,
     title: 'Healthcare & Medical Apps',
     description: 'Created patient-centered healthcare experiences. Focused on accessibility, clarity, and compliance with medical industry standards.',
     cta: 'View case study',
     href: '/case-studies/dermatik',
   },
-  {
-    icon: Monitor,
-    title: 'Developer-Facing Dashboards',
-    description: 'Built interfaces for technical users including API dashboards and IoT management platforms. Designed for power users who demand efficiency.',
-    cta: 'View case study',
-    href: '/case-studies/pimcore',
-  },
 ];
 
 export function Features() {
   return (
-    <section className="py-20 lg:py-28">
+    <section className="py-20 lg:py-28" id="projects">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="text-center mb-16 lg:mb-24">
@@ -63,13 +62,13 @@ export function Features() {
                   <p className="text-cream/60 leading-relaxed mb-6 flex-1">
                     {feature.description}
                   </p>
-                  <Link
-                    to={feature.href}
+                  <a
+                    href={feature.href}
                     className="group/btn inline-flex items-center p-0 h-auto font-semibold text-accent hover:text-accent-light"
                   >
                     {feature.cta}
                     <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                  </Link>
+                  </a>
                 </CardContent>
               </Card>
             </ScrollReveal>
