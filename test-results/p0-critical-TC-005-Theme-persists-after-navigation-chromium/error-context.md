@@ -1,187 +1,218 @@
 # Page snapshot
 
 ```yaml
-- generic [ref=e3]:
-  - generic [ref=e4]:
-    - generic [ref=e5]:
-      - banner [ref=e6]:
-        - generic [ref=e8]:
-          - link "I da" [ref=e9] [cursor=pointer]:
-            - /url: /
-            - generic [ref=e10]: I
-            - generic [ref=e11]: da
-          - navigation [ref=e12]:
-            - link "HOME" [ref=e13] [cursor=pointer]:
-              - /url: /
-              - text: HOME
-            - link "ABOUT" [ref=e15] [cursor=pointer]:
-              - /url: /about
-            - button "PROJECTS" [ref=e17]:
-              - text: PROJECTS
-              - img [ref=e18]
-          - generic [ref=e20]:
-            - button "Select language" [ref=e22]:
-              - generic [ref=e23]: 🇬🇧
-              - generic [ref=e24]: EN
-              - img [ref=e25]
-            - button "Switch to dark mode" [ref=e27]:
-              - img [ref=e29]
-              - generic [ref=e35]: Switch to dark mode
-            - link "LinkedIn" [ref=e36] [cursor=pointer]:
-              - /url: https://linkedin.com
-              - img [ref=e37]
-              - generic [ref=e41]: LinkedIn
-      - main [ref=e42]:
-        - generic [ref=e49]:
-          - paragraph [ref=e51]: Senior UX/UI Designer
-          - heading "Hey there! I'm Ida, a designer with experience across diverse industries" [level=1] [ref=e53]
-          - generic [ref=e55]:
-            - generic [ref=e56]: User Interface Design
-            - generic [ref=e57]: User Experience Design
-            - generic [ref=e58]: Design Systems
-          - generic [ref=e60]:
-            - link "View My Projects" [ref=e61] [cursor=pointer]:
-              - /url: /#projects
-              - text: View My Projects
-              - img [ref=e62]
-            - link "Get in Touch" [ref=e64] [cursor=pointer]:
+- generic [ref=e5]:
+  - link "Skip to main content" [ref=e6] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e7]:
+    - generic [ref=e9]:
+      - link "I da" [ref=e10] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e11]: I
+        - generic [ref=e12]: da
+      - navigation [ref=e13]:
+        - link "HOME" [ref=e14] [cursor=pointer]:
+          - /url: /
+        - link "ABOUT" [ref=e15] [cursor=pointer]:
+          - /url: /about
+          - text: ABOUT
+        - button "PROJECTS" [ref=e18]:
+          - text: PROJECTS
+          - img [ref=e19]
+      - generic [ref=e21]:
+        - button "Select language" [ref=e23]:
+          - generic [ref=e24]: 🇬🇧
+          - generic [ref=e25]: EN
+          - img [ref=e26]
+        - button "Switch to light mode" [ref=e28]:
+          - img [ref=e30]
+          - generic [ref=e32]: Switch to light mode
+        - link "LinkedIn" [ref=e33] [cursor=pointer]:
+          - /url: https://linkedin.com
+          - img [ref=e34]
+          - generic [ref=e38]: LinkedIn
+  - main [ref=e39]:
+    - generic [ref=e40]:
+      - complementary [ref=e42]:
+        - generic [ref=e46]: Ida
+        - navigation [ref=e47]:
+          - link "Intro" [ref=e48] [cursor=pointer]:
+            - /url: /about#intro
+            - generic [ref=e49]: Intro
+          - generic [ref=e52]: Selected work
+          - link "Pimcore Platform" [ref=e54] [cursor=pointer]:
+            - /url: /case-studies/pimcore
+            - generic [ref=e55]: Pimcore Platform
+          - link "ErgoWork" [ref=e56] [cursor=pointer]:
+            - /url: /case-studies/ergowork
+            - generic [ref=e57]: ErgoWork
+          - link "Dermatik" [ref=e58] [cursor=pointer]:
+            - /url: /case-studies/dermatik
+            - generic [ref=e59]: Dermatik
+          - link "SDZRN" [ref=e60] [cursor=pointer]:
+            - /url: /case-studies/sdzrn
+            - generic [ref=e61]: SDZRN
+          - generic [ref=e63]: Playground
+          - link "Buzz" [ref=e64] [cursor=pointer]:
+            - /url: /case-studies/buzz
+            - generic [ref=e65]: Buzz
+          - link "Flutter" [ref=e66] [cursor=pointer]:
+            - /url: /case-studies/flutter
+            - generic [ref=e67]: Flutter
+          - link "Buzz HQ" [ref=e68] [cursor=pointer]:
+            - /url: /case-studies/buzz-hq
+            - generic [ref=e69]: Buzz HQ
+          - link "Flutter Fields" [ref=e70] [cursor=pointer]:
+            - /url: /case-studies/flutter-fields
+            - generic [ref=e71]: Flutter Fields
+          - link "About" [ref=e72] [cursor=pointer]:
+            - /url: /about
+            - generic [ref=e73]: About
+        - generic [ref=e74]:
+          - link "ivanova.contact@gmail.com" [ref=e75] [cursor=pointer]:
+            - /url: mailto:ivanova.contact@gmail.com
+          - generic [ref=e76]: +43 678 79 169
+          - link "LinkedIn" [ref=e77] [cursor=pointer]:
+            - /url: https://linkedin.com
+      - generic [ref=e79]:
+        - link "Back to Home" [ref=e80] [cursor=pointer]:
+          - /url: /
+          - img [ref=e81]
+          - text: Back to Home
+        - generic [ref=e83]:
+          - generic [ref=e84]:
+            - generic [ref=e85]:
+              - img "Personal Photo 1" [ref=e87]
+              - img "Personal Photo 2" [ref=e89]
+              - img "Personal Photo 3" [ref=e91]
+              - img "Personal Photo 4" [ref=e93]
+              - img "CV Photo" [ref=e95]
+              - generic [ref=e97]: Plants lover
+              - generic [ref=e99]: Team Player
+              - generic [ref=e101]: II
+              - generic [ref=e103]: EU Volunteer
+              - generic [ref=e105]: Creative thinker
+            - generic [ref=e106]:
+              - paragraph [ref=e107]: Hi, I'm Ida. I like smart design, plants, art and other funny and silly stuff.
+              - paragraph [ref=e108]: Your favourite Teams pause button has arrived!
+              - link "Download my CV" [ref=e110] [cursor=pointer]:
+                - /url: "#cv"
+          - generic [ref=e112]:
+            - heading "Experience" [level=2] [ref=e113]
+            - generic [ref=e114]:
+              - heading "Companies" [level=3] [ref=e115]
+              - generic [ref=e116]:
+                - img "Company 1" [ref=e118]
+                - img "Trifork" [ref=e120]
+                - img "SIA Connect" [ref=e122]
+                - img "Company 4" [ref=e124]
+                - img "Company 5" [ref=e126]
+            - generic [ref=e127]:
+              - heading "Freelance Clients" [level=3] [ref=e128]
+              - generic [ref=e129]:
+                - img "Client 1" [ref=e131]
+                - img "Client 2" [ref=e133]
+                - img "Client 3" [ref=e135]
+                - img "Client 4" [ref=e137]
+                - img "Client 5" [ref=e139]
+                - img "Client 6" [ref=e141]
+            - generic [ref=e142]:
+              - heading "Education" [level=3] [ref=e143]
+              - generic [ref=e144]:
+                - generic [ref=e145]:
+                  - paragraph [ref=e146]: MSc in IT - Web Communication Design
+                  - paragraph [ref=e147]: Southern University of Denmark, 2023
+                - generic [ref=e148]:
+                  - paragraph [ref=e149]: BA in Digital Concept Development
+                  - paragraph [ref=e150]: Business Academy Aarhus, 2021
+          - generic [ref=e152]:
+            - heading "Keywords" [level=2] [ref=e153]
+            - generic [ref=e154]:
+              - generic [ref=e155]:
+                - generic [ref=e156]:
+                  - img [ref=e159]
+                  - heading "Industries" [level=3] [ref=e161]
+                - generic [ref=e162]:
+                  - generic [ref=e163]: Enterprise Software
+                  - generic [ref=e164]: IIoT
+                  - generic [ref=e165]: Business Process Optimization
+                  - generic [ref=e166]: Sports Data
+                  - generic [ref=e167]: Education
+                  - generic [ref=e168]: Advertising
+              - generic [ref=e169]:
+                - heading "Domains / Solutions" [level=3] [ref=e171]
+                - generic [ref=e172]:
+                  - generic [ref=e173]: B2B SaaS Product Design
+                  - generic [ref=e174]: Complex Enterprise Application
+                  - generic [ref=e175]: Developer-Facing API Dashboards
+                  - generic [ref=e176]: Project Management & Quality Management Systems
+                  - generic [ref=e177]: B2B website
+                  - generic [ref=e178]: B2B webshop
+                  - generic [ref=e179]: B2B & B2C website
+              - generic [ref=e180]:
+                - heading "Core UX Areas" [level=3] [ref=e182]
+                - generic [ref=e183]:
+                  - generic [ref=e184]: Iterative Design Process
+                  - generic [ref=e185]: Design Systems
+                  - generic [ref=e186]: User Flows
+                  - generic [ref=e187]: Information Architecture
+                  - generic [ref=e188]: UX Research
+                  - generic [ref=e189]: Persona Development
+                  - generic [ref=e190]: Accessibility
+                  - generic [ref=e191]: Interdisciplinary Insight Mapping
+  - contentinfo [ref=e192]:
+    - generic [ref=e195]:
+      - generic [ref=e196]:
+        - heading "Contact" [level=3] [ref=e197]
+        - list [ref=e198]:
+          - listitem [ref=e199]:
+            - link "ivanova.contact@gmail.com" [ref=e200] [cursor=pointer]:
               - /url: mailto:ivanova.contact@gmail.com
-          - generic [ref=e66]:
-            - paragraph [ref=e67]: Areas of expertise
-            - generic [ref=e68]:
-              - generic [ref=e70]:
-                - img [ref=e72]
-                - generic [ref=e78]: UI Design
-              - generic [ref=e80]:
-                - img [ref=e82]
-                - generic [ref=e84]: UX Research
-              - generic [ref=e86]:
-                - img [ref=e88]
-                - generic [ref=e91]: Prototyping
-              - generic [ref=e93]:
-                - img [ref=e95]
-                - generic [ref=e98]: Design Systems
-              - generic [ref=e100]:
-                - img [ref=e102]
-                - generic [ref=e107]: User Testing
-        - generic [ref=e109]:
-          - generic [ref=e111]:
-            - heading "Trusted by teams worldwide" [level=2] [ref=e112]
-            - paragraph [ref=e113]: Delivering exceptional design solutions across diverse industries
-          - generic [ref=e114]:
-            - generic [ref=e116]:
-              - generic [ref=e117]: 5+
-              - generic [ref=e118]: Years Experience
-            - generic [ref=e120]:
-              - generic [ref=e121]: 50+
-              - generic [ref=e122]: Projects Completed
-            - generic [ref=e124]:
-              - generic [ref=e125]: "4"
-              - generic [ref=e126]: Industries Served
-            - generic [ref=e128]:
-              - generic [ref=e129]: 100%
-              - generic [ref=e130]: Client Satisfaction
-        - generic [ref=e132]:
-          - generic [ref=e134]:
-            - heading "Featured work" [level=2] [ref=e135]
-            - paragraph [ref=e136]: A selection of projects across different industries and design challenges
-          - generic [ref=e137]:
-            - generic [ref=e140]:
-              - generic [ref=e141]:
-                - img [ref=e143]
-                - generic [ref=e148]: B2B SaaS
-              - heading "Pimcore Platform" [level=3] [ref=e149]
-              - paragraph [ref=e150]: Enterprise PIM platform redesign for a global tech company. Streamlined complex workflows and improved user efficiency by 40%.
-              - link "View Case Study" [ref=e151] [cursor=pointer]:
-                - /url: /case-studies/pimcore
-                - text: View Case Study
-                - img [ref=e152]
-            - generic [ref=e156]:
-              - generic [ref=e157]:
-                - img [ref=e159]
-                - generic [ref=e165]: B2B Platform
-              - heading "ErgoWork" [level=3] [ref=e166]
-              - paragraph [ref=e167]: Ergonomics platform for workplace wellness. Designed an intuitive B2B platform helping businesses create healthier workspaces.
-              - link "View Case Study" [ref=e168] [cursor=pointer]:
-                - /url: /case-studies/ergowork
-                - text: View Case Study
-                - img [ref=e169]
-            - generic [ref=e173]:
-              - generic [ref=e174]:
-                - img [ref=e176]
-                - generic [ref=e179]: Healthcare
-              - heading "Dermatik" [level=3] [ref=e180]
-              - paragraph [ref=e181]: Healthcare app for dermatology patients. Created accessible, patient-centered experiences focused on clarity and compliance.
-              - link "View Case Study" [ref=e182] [cursor=pointer]:
-                - /url: /case-studies/dermatik
-                - text: View Case Study
-                - img [ref=e183]
-        - generic [ref=e192]:
-          - heading "Let's work together" [level=2] [ref=e193]
-          - paragraph [ref=e194]: Have a project in mind? I'm always excited to discuss new opportunities and challenges in UX/UI design.
-          - generic [ref=e195]:
-            - button "Get in touch" [ref=e196]:
-              - text: Get in touch
-              - img [ref=e197]
-            - button "View resume" [ref=e199]
-      - contentinfo [ref=e200]:
-        - generic [ref=e203]:
-          - generic [ref=e204]:
-            - heading "Contact" [level=3] [ref=e205]
-            - list [ref=e206]:
-              - listitem [ref=e207]:
-                - link "ivanova.contact@gmail.com" [ref=e208] [cursor=pointer]:
-                  - /url: mailto:ivanova.contact@gmail.com
-              - listitem [ref=e209]:
-                - link "+43 678 79 169" [ref=e210] [cursor=pointer]:
-                  - /url: tel:+4367879169
-              - listitem [ref=e211]:
-                - generic [ref=e212]:
-                  - link "LinkedIn" [ref=e213] [cursor=pointer]:
-                    - /url: https://linkedin.com
-                    - img [ref=e214]
-                  - link "GitHub" [ref=e218] [cursor=pointer]:
-                    - /url: https://github.com
-                    - img [ref=e219]
-          - generic [ref=e222]:
-            - heading "Navigation" [level=3] [ref=e223]
-            - list [ref=e224]:
-              - listitem [ref=e225]:
-                - link "HOME" [ref=e226] [cursor=pointer]:
-                  - /url: /
-              - listitem [ref=e227]:
-                - link "ABOUT" [ref=e228] [cursor=pointer]:
-                  - /url: /about
-              - listitem [ref=e229]:
-                - link "PROJECTS" [ref=e230] [cursor=pointer]:
-                  - /url: /#projects
-          - generic [ref=e231]:
-            - heading "Projects" [level=3] [ref=e232]
-            - list [ref=e233]:
-              - listitem [ref=e234]:
-                - link "Pimcore Platform" [ref=e235] [cursor=pointer]:
-                  - /url: /case-studies/pimcore
-              - listitem [ref=e236]:
-                - link "ErgoWork" [ref=e237] [cursor=pointer]:
-                  - /url: /case-studies/ergowork
-              - listitem [ref=e238]:
-                - link "Dermatik" [ref=e239] [cursor=pointer]:
-                  - /url: /case-studies/dermatik
-          - generic [ref=e240]:
-            - heading "Links" [level=3] [ref=e241]
-            - list [ref=e242]:
-              - listitem [ref=e243]:
-                - link "Personal Website" [ref=e244] [cursor=pointer]:
-                  - /url: https://p5aholic.me/
-              - listitem [ref=e245]:
-                - link "Experiments" [ref=e246] [cursor=pointer]:
-                  - /url: https://experiments.p5aholic.me/
-        - generic [ref=e249]:
-          - paragraph [ref=e250]: © 2026 Ida's Portfolio. All rights reserved.
-          - paragraph [ref=e251]: UX/UI Designer based in Austria
-    - generic [ref=e252] [cursor=pointer]:
-      - generic [ref=e253]: 👋 Click to shoo away!
-      - img [ref=e254]
-  - generic:
-    - img
+          - listitem [ref=e201]:
+            - link "+43 678 79 169" [ref=e202] [cursor=pointer]:
+              - /url: tel:+4367879169
+          - listitem [ref=e203]:
+            - generic [ref=e204]:
+              - link "LinkedIn" [ref=e205] [cursor=pointer]:
+                - /url: https://linkedin.com
+                - img [ref=e206]
+              - link "GitHub" [ref=e210] [cursor=pointer]:
+                - /url: https://github.com
+                - img [ref=e211]
+      - generic [ref=e214]:
+        - heading "Navigation" [level=3] [ref=e215]
+        - list [ref=e216]:
+          - listitem [ref=e217]:
+            - link "HOME" [ref=e218] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e219]:
+            - link "ABOUT" [ref=e220] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=e221]:
+            - link "PROJECTS" [ref=e222] [cursor=pointer]:
+              - /url: /#projects
+      - generic [ref=e223]:
+        - heading "Projects" [level=3] [ref=e224]
+        - list [ref=e225]:
+          - listitem [ref=e226]:
+            - link "Pimcore Platform" [ref=e227] [cursor=pointer]:
+              - /url: /case-studies/pimcore
+          - listitem [ref=e228]:
+            - link "ErgoWork" [ref=e229] [cursor=pointer]:
+              - /url: /case-studies/ergowork
+          - listitem [ref=e230]:
+            - link "Dermatik" [ref=e231] [cursor=pointer]:
+              - /url: /case-studies/dermatik
+      - generic [ref=e232]:
+        - heading "Links" [level=3] [ref=e233]
+        - list [ref=e234]:
+          - listitem [ref=e235]:
+            - link "Personal Website" [ref=e236] [cursor=pointer]:
+              - /url: https://p5aholic.me/
+          - listitem [ref=e237]:
+            - link "Experiments" [ref=e238] [cursor=pointer]:
+              - /url: https://experiments.p5aholic.me/
+    - generic [ref=e241]:
+      - paragraph [ref=e242]: © 2026 Ida's Portfolio. All rights reserved.
+      - paragraph [ref=e243]: UX/UI Designer based in Austria
 ```
