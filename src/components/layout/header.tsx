@@ -80,7 +80,7 @@ function DesktopNav({ currentPath }: DesktopNavProps) {
               'hover:text-accent',
               isActive
                 ? 'text-accent'
-                : 'text-foreground/70'
+                : 'text-slate-600 dark:text-cream/70'
             )}
           >
             {item.label}
