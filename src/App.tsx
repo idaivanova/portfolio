@@ -5,6 +5,7 @@ import { Features } from './components/sections/Features';
 import { CTASection } from './components/sections/CTASection';
 import { Header } from './components/layout/header';
 import { Footer } from './components/layout/footer';
+import { SkipLink } from './components/ui/SkipLink';
 import { RaccoonWrapper, InteractiveBumblebeeWrapper } from './components/animations';
 import { LanguageProvider } from './lib/LanguageContext';
 import { ThemeProvider } from './lib/ThemeContext';
@@ -22,8 +23,9 @@ import SDZRNPage from './pages/SDZRNPage';
 function AboutPage() {
   return (
     <div className="min-h-screen flex flex-col bg-navy-darkest text-cream font-sans">
+      <SkipLink />
       <Header />
-      <main className="flex-1 pt-16 md:pt-20">
+      <main id="main-content" className="flex-1 pt-16 md:pt-20">
         <AboutMePage />
       </main>
       <Footer showCTA={false} />
@@ -35,8 +37,9 @@ function AboutPage() {
 function HomePage() {
   return (
     <div className="min-h-screen flex flex-col bg-navy-darkest text-cream font-sans">
+      <SkipLink />
       <Header />
-      <main className="flex-1 pt-16 md:pt-20">
+      <main id="main-content" className="flex-1 pt-16 md:pt-20">
         <Hero />
         <Stats />
         <Features />

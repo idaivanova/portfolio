@@ -61,7 +61,7 @@ export function Sidebar({
           if (item.isSection) {
             return (
               <React.Fragment key={item.label}>
-                <!-- Divider before each section -->
+                {/* Divider before each section */}
                 {index > 0 && (
                   <div className="h-px w-full bg-[#173748] my-1" />
                 )}

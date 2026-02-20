@@ -1,0 +1,138 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - generic [ref=e5]:
+    - complementary [ref=e7]:
+      - generic [ref=e11]: Ida
+      - navigation [ref=e12]:
+        - link "Intro" [ref=e13] [cursor=pointer]:
+          - /url: /case-studies/pimcore#intro
+          - generic [ref=e14]: Intro
+        - generic [ref=e17]: Selected work
+        - link "Pimcore Platform" [ref=e19] [cursor=pointer]:
+          - /url: /case-studies/pimcore
+          - generic [ref=e20]:
+            - img [ref=e21]
+            - text: Pimcore Platform
+        - link "ErgoWork" [ref=e23] [cursor=pointer]:
+          - /url: /case-studies/ergowork
+          - generic [ref=e24]: ErgoWork
+        - link "Dermatik" [ref=e25] [cursor=pointer]:
+          - /url: /case-studies/dermatik
+          - generic [ref=e26]: Dermatik
+        - link "SDZRN" [ref=e27] [cursor=pointer]:
+          - /url: /case-studies/sdzrn
+          - generic [ref=e28]: SDZRN
+        - generic [ref=e30]: Playground
+        - link "Buzz" [ref=e31] [cursor=pointer]:
+          - /url: /case-studies/buzz
+          - generic [ref=e32]: Buzz
+        - link "Flutter" [ref=e33] [cursor=pointer]:
+          - /url: /case-studies/flutter
+          - generic [ref=e34]: Flutter
+        - link "Buzz HQ" [ref=e35] [cursor=pointer]:
+          - /url: /case-studies/buzz-hq
+          - generic [ref=e36]: Buzz HQ
+        - link "Flutter Fields" [ref=e37] [cursor=pointer]:
+          - /url: /case-studies/flutter-fields
+          - generic [ref=e38]: Flutter Fields
+        - link "About" [ref=e39] [cursor=pointer]:
+          - /url: /about
+          - generic [ref=e40]: About
+      - generic [ref=e41]:
+        - link "ivanova.contact@gmail.com" [ref=e42] [cursor=pointer]:
+          - /url: mailto:ivanova.contact@gmail.com
+        - generic [ref=e43]: +43 678 79 169
+        - link "LinkedIn" [ref=e44] [cursor=pointer]:
+          - /url: https://linkedin.com
+    - generic [ref=e46]:
+      - link "Back to Home" [ref=e47] [cursor=pointer]:
+        - /url: /
+        - img [ref=e48]
+        - text: Back to Home
+      - generic [ref=e50]:
+        - generic [ref=e52]:
+          - img "Pimcore Platform Login Screen" [ref=e54]
+          - generic [ref=e55]:
+            - generic [ref=e56]:
+              - heading "Pimcore Platform" [level=1] [ref=e57]
+              - paragraph [ref=e59]: Pimcore is an open-source enterprise platform that combines PIM, DAM, CMS, and eCommerce to manage data and content—enabling businesses to deliver consistent, personalized, and omnichannel digital experiences.
+            - generic [ref=e60]:
+              - generic [ref=e61]: UX / UI Design
+              - generic [ref=e62]: Design System
+              - generic [ref=e63]: 2+ years full time
+        - generic [ref=e66]:
+          - generic [ref=e67]:
+            - heading "Project Scope" [level=3] [ref=e68]
+            - generic [ref=e70]:
+              - paragraph [ref=e71]:
+                - generic [ref=e72]: "My role:"
+                - text: UX Design and Research, UI Design
+              - paragraph [ref=e73]:
+                - generic [ref=e74]: "Tools:"
+                - text: Figma, FigJam, Github
+              - paragraph [ref=e75]:
+                - generic [ref=e76]: "Skills involved:"
+                - text: user research, design systems, accessibility, JTBD, mental models, cross-functional collaboration, affinity diagram, usability testing, prototyping
+              - paragraph [ref=e77]:
+                - generic [ref=e78]: "Team:"
+                - text: 10+ developers, 2 Project Managers, CPO, CTO, DevOps
+              - paragraph [ref=e79]:
+                - generic [ref=e80]: "Time frame:"
+                - text: 2 years
+          - heading "Results" [level=3] [ref=e82]
+        - generic [ref=e83]:
+          - generic [ref=e84]:
+            - generic [ref=e85]: CONTRIBUTION
+            - heading "Transition and upgrade of the front end" [level=2] [ref=e86]
+            - generic [ref=e87]: My main responsibility was to ensure we are building an intuitive and future proof user experience during a major upgrade of the existing platform. Used by over 118,000 companies, one of the biggest challenges was addressing the long-standing mental models of the users who have adapted to non-intuitive workflows over the years. My approach combined deep UX research, strong system thinking, and a scalable design foundation.
+          - generic [ref=e88]:
+            - generic [ref=e89]:
+              - generic [ref=e90]: "1"
+              - generic [ref=e91]: "UX Research & Analysis: Conducted surveys, interviews, and group discussions with implementation partners, end users, and community members"
+            - generic [ref=e92]:
+              - generic [ref=e93]: "2"
+              - generic [ref=e94]: "Design System Strategy: Selected and extended a third-party design system matching our tech stack"
+            - generic [ref=e95]:
+              - generic [ref=e96]: "3"
+              - generic [ref=e97]: "Scalable & Modular Layout Design: Multiple iterations led to a modern, flexible layout with widget zones and drag-and-drop flexibility"
+            - generic [ref=e98]:
+              - generic [ref=e99]: "4"
+              - generic [ref=e100]: "Tested Interactions & Accessibility: No feature was removed—less-critical elements were made collapsible or relocated for clarity"
+        - generic [ref=e102]:
+          - generic [ref=e103]:
+            - generic [ref=e104]: KEY FEATURES
+            - heading "Core platform capabilities" [level=2] [ref=e105]
+            - generic [ref=e106]: The redesigned platform focuses on making complex data management intuitive and efficient for enterprise users.
+          - generic [ref=e108]:
+            - generic [ref=e109]:
+              - heading "UX Research & Analysis" [level=3] [ref=e110]
+              - paragraph [ref=e111]: I conducted surveys, interviews, and group discussions with implementation partners, end users, and community members. These insights were mapped into an affinity diagram and user personas that still guide our design decisions and redesigns today.
+            - generic [ref=e112]:
+              - heading "Design System Strategy" [level=3] [ref=e113]
+              - paragraph [ref=e114]: We selected and extended a third-party design system that matched our tech stack and supported themes, tokens, accessibility, and UI scalability. It was developed for internal use and external collaboration via a shared component library.
+            - generic [ref=e115]:
+              - heading "Scalable & Modular Layout Design" [level=3] [ref=e116]
+              - paragraph [ref=e117]: Multiple iterations led to a modern, flexible layout capable of supporting Pimcore's diverse use cases. With widget zones, expandable tab areas, and drag-and-drop flexibility, we struck a balance between structure and personalisation.
+            - generic [ref=e118]:
+              - heading "Tested Interactions & Accessibility" [level=3] [ref=e119]
+              - paragraph [ref=e120]: No feature was removed — instead, less-critical elements were made collapsible, hover-based, or relocated for clarity. Testing methods like A/B tests and think-aloud protocols validated improvements and ensured WCAG alignment.
+            - generic [ref=e121]:
+              - heading "User Guidelines & Consistency Rules" [level=3] [ref=e122]
+              - paragraph [ref=e123]: We defined key interaction standards — from naming buttons ("Add" vs. "New") to keybindings and casing — to ensure system-wide coherence. Navigation elements like the toolbar and sidebar remained visually and functionally consistent across screens.
+            - generic [ref=e124]:
+              - heading "Existing vs. Anticipated Experience" [level=3] [ref=e125]
+              - paragraph [ref=e126]: We selected and extended an existing system that matched our tech stack and supported themes, tokens, accessibility, and UI scalability. It was developed for internal use and external collaboration via a shared component library.
+        - generic [ref=e128]:
+          - generic [ref=e129]:
+            - generic [ref=e130]: REFLECTION & OUTLOOK
+            - heading "Lessons learned and future direction" [level=2] [ref=e131]
+          - generic [ref=e132]:
+            - paragraph [ref=e133]: This project taught me the importance of balancing power with simplicity in enterprise software. By focusing on progressive disclosure and role-based customization, we were able to serve both power users and occasional users within the same interface. The Pimcore platform upgrade was a significant undertaking that required deep understanding of user mental models formed over years of using the legacy system.
+            - paragraph [ref=e134]: The success of this redesign has led to a company-wide initiative to apply these UX principles across all Pimcore products, establishing a consistent design language for the entire ecosystem. The design system we created continues to evolve and support new features while maintaining the accessibility and usability standards we established.
+  - generic:
+    - generic: 👋 Hi! I'm Buzz!
+  - generic:
+    - img
+```
