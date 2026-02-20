@@ -9,6 +9,8 @@ import { Link, useLocation } from 'react-router-dom';
 import { cn } from '../../lib/utils';
 import { IconButton } from '../ui/icon';
 import { LinkedInIcon } from '../ui/icon';
+import { LanguageToggle } from '../ui/LanguageToggle';
+import { ThemeToggle } from '../ui/ThemeToggle';
 import { ChevronDown } from 'lucide-react';
 
 // Navigation items
@@ -17,18 +19,39 @@ const navItems = [
   { label: 'ABOUT', href: '/about' },
 ];
 
-// Case studies for dropdown
-const caseStudies = [
-  // Real case studies
-  { label: 'Pimcore Platform', href: '/case-studies/pimcore', description: 'Enterprise PIM redesign' },
-  { label: 'ErgoWork', href: '/case-studies/ergowork', description: 'Ergonomics platform' },
-  { label: 'Dermatik', href: '/case-studies/dermatik', description: 'Healthcare app' },
-  // Experimental projects
-  { label: 'Buzz', href: '/case-studies/buzz', description: 'Conservation app' },
-  { label: 'Flutter', href: '/case-studies/flutter', description: 'Motion design' },
-  { label: 'Buzz HQ 🆕', href: '/case-studies/buzz-hq', description: 'Bumblebee playground' },
-  { label: 'Flutter Fields 🆕', href: '/case-studies/flutter-fields', description: 'Motion experiments' },
+// ============================================
+// PROJECTS CONFIGURATION
+// Separated into Real Case Studies and Playground/Experimental
+// ============================================
+
+// Type for project category
+type ProjectCategory = 'real' | 'playground';
+
+interface ProjectItem {
+  label: string;
+  href: string;
+  description: string;
+  category: ProjectCategory;
+}
+
+// Real case studies - Actual client work
+const realCaseStudies: ProjectItem[] = [
+  { label: 'Pimcore Platform', href: '/case-studies/pimcore', description: 'Enterprise PIM redesign', category: 'real' },
+  { label: 'ErgoWork', href: '/case-studies/ergowork', description: 'Ergonomics platform', category: 'real' },
+  { label: 'Dermatik', href: '/case-studies/dermatik', description: 'Healthcare app', category: 'real' },
+  { label: 'SDZRN', href: '/case-studies/sdzrn', description: 'Brand identity concept', category: 'real' },
 ];
+
+// Playground - Experimental/Fictional projects showcasing skills
+const playgroundProjects: ProjectItem[] = [
+  { label: 'Buzz', href: '/case-studies/buzz', description: 'Conservation app', category: 'playground' },
+  { label: 'Flutter', href: '/case-studies/flutter', description: 'Motion design', category: 'playground' },
+  { label: 'Buzz HQ', href: '/case-studies/buzz-hq', description: 'Interactive bee', category: 'playground' },
+  { label: 'Flutter Fields', href: '/case-studies/flutter-fields', description: 'Motion experiments', category: 'playground' },
+];
+
+// All projects combined
+const caseStudies: ProjectItem[] = [...realCaseStudies, ...playgroundProjects];
 
 // ============================================
 // Desktop Navigation with Projects Dropdown
@@ -57,7 +80,7 @@ function DesktopNav({ currentPath }: DesktopNavProps) {
               'hover:text-accent',
               isActive
                 ? 'text-accent'
-                : 'text-cream/70'
+                : 'text-foreground/70'
             )}
           >
             {item.label}
@@ -102,9 +125,43 @@ function DesktopNav({ currentPath }: DesktopNavProps) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
               transition={{ duration: 0.15 }}
-              className="absolute top-full left-0 mt-2 w-64 bg-navy-dark border border-cream/10 rounded-lg shadow-xl overflow-hidden z-50"
+              className="absolute top-full left-0 mt-2 w-72 bg-navy-dark border border-cream/10 rounded-lg shadow-xl overflow-hidden z-50"
             >
-              {caseStudies.map((project) => {
+              {/* Real Case Studies Section */}
+              <div className="px-3 py-2 bg-navy-mid/30">
+                <span className="text-xs font-semibold uppercase tracking-wider text-cream/50">
+                  Case Studies
+                </span>
+              </div>
+              {realCaseStudies.map((project) => {
+                const isActive = currentPath === project.href;
+                return (
+                  <Link
+                    key={project.href}
+                    to={project.href}
+                    className={cn(
+                      'block px-4 py-3 transition-colors duration-150',
+                      isActive
+                        ? 'bg-accent/20 text-accent'
+                        : 'text-cream/80 hover:bg-cream/5 hover:text-cream'
+                    )}
+                  >
+                    <span className="font-medium text-sm">{project.label}</span>
+                    <p className="text-xs text-cream/50 mt-0.5">{project.description}</p>
+                  </Link>
+                );
+              })}
+
+              {/* Divider */}
+              <div className="border-t border-cream/10 my-1" />
+
+              {/* Playground Section */}
+              <div className="px-3 py-2 bg-navy-mid/30">
+                <span className="text-xs font-semibold uppercase tracking-wider text-cream/50">
+                  Playground
+                </span>
+              </div>
+              {playgroundProjects.map((project) => {
                 const isActive = currentPath === project.href;
                 return (
                   <Link
@@ -318,7 +375,7 @@ export function Header({ className }: HeaderProps) {
         className={cn(
           'fixed top-0 left-0 right-0 z-30 transition-all duration-300',
           isScrolled
-            ? 'bg-navy-darkest/90 backdrop-blur-md border-b border-cream/10'
+            ? 'bg-background/90 backdrop-blur-md border-b border-border'
             : 'bg-transparent',
           className
         )}
@@ -338,7 +395,13 @@ export function Header({ className }: HeaderProps) {
             <DesktopNav currentPath={currentPath} />
 
             {/* Right side actions */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
+              {/* Language Toggle */}
+              <LanguageToggle />
+              
+              {/* Theme Toggle */}
+              <ThemeToggle />
+
               {/* LinkedIn Link (Desktop) */}
               <a
                 href="https://linkedin.com"

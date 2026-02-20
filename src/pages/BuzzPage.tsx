@@ -18,7 +18,7 @@ import {
 
 export default function BuzzPage() {
   return (
-    <CaseStudyLayout activeProject="Buzz">
+    <CaseStudyLayout>
       {/* Hero Section */}
       <ScrollReveal>
         <section id="intro" className="mb-16">

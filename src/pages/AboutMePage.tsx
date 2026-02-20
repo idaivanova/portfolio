@@ -16,7 +16,7 @@ import { heroData, experienceData, keywordsData } from '@/data/about';
 
 export default function AboutMePage() {
   return (
-    <CaseStudyLayout activeProject="About">
+    <CaseStudyLayout>
       {/* Hero Section with Image Collage */}
       <section id="hero" className="flex flex-col gap-10 items-center">
         <ImageCollage

@@ -4,14 +4,13 @@
 // ============================================
 
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { Sidebar, Logo } from './Sidebar';
 import { ArrowLeft } from 'lucide-react';
 
 export interface CaseStudyLayoutProps {
   children: React.ReactNode;
-  activeProject: string;
   className?: string;
 }
 
@@ -21,8 +20,6 @@ const defaultNavItems = [
   { label: 'Pimcore Platform', href: '/case-studies/pimcore', isIndented: true },
   { label: 'ErgoWork', href: '/case-studies/ergowork', isIndented: true },
   { label: 'Dermatik', href: '/case-studies/dermatik', isIndented: true },
-  { label: 'Flutter', href: '/case-studies/flutter', isIndented: true },
-  { label: 'Buzz', href: '/case-studies/buzz', isIndented: true },
   { label: 'About', href: '/about' },
 ];
 
@@ -34,10 +31,20 @@ const defaultContactInfo = {
 
 export function CaseStudyLayout({
   children,
-  activeProject,
   className,
 }: CaseStudyLayoutProps) {
-  // Update nav items to show active state
+  const location = useLocation();
+  
+  const getActiveProject = () => {
+    const path = location.pathname;
+    if (path.includes('/case-studies/pimcore')) return 'Pimcore Platform';
+    if (path.includes('/case-studies/ergowork')) return 'ErgoWork';
+    if (path.includes('/case-studies/dermatik')) return 'Dermatik';
+    return null;
+  };
+
+  const activeProject = getActiveProject();
+
   const navItems = defaultNavItems.map((item) => ({
     ...item,
     isActive: item.label === activeProject,

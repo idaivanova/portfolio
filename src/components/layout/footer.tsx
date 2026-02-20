@@ -8,6 +8,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { cn } from '../../lib/utils';
 import { LinkedInIcon, GithubIcon } from '../ui/icon';
+import { useLanguage } from '../../lib/LanguageContext';
 
 // Contact information
 const contactInfo = {
@@ -32,17 +33,17 @@ const socialLinks = [
 ];
 
 // Quick navigation links
-const quickLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'About', href: '/about' },
-  { label: 'Projects', href: '/#projects' },
+const quickLinksData = [
+  { labelKey: 'home', href: '/' },
+  { labelKey: 'about', href: '/about' },
+  { labelKey: 'projects', href: '/#projects' },
 ];
 
 // Projects list
-const projectLinks = [
-  { label: 'Pimcore Platform', href: '/case-studies/pimcore' },
-  { label: 'ErgoWork', href: '/case-studies/ergowork' },
-  { label: 'Dermatik', href: '/case-studies/dermatik' },
+const projectLinksData = [
+  { labelKey: 'pimcore', href: '/case-studies/pimcore' },
+  { labelKey: 'ergowork', href: '/case-studies/ergowork' },
+  { labelKey: 'dermatik', href: '/case-studies/dermatik' },
 ];
 
 // ============================================
@@ -117,7 +118,18 @@ interface FooterProps {
 }
 
 export function Footer({ className, showCTA = true }: FooterProps) {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
+
+  const quickLinks = quickLinksData.map((link) => ({
+    ...link,
+    label: t.nav[link.labelKey as keyof typeof t.nav],
+  }));
+
+  const projectLinks = projectLinksData.map((link) => ({
+    ...link,
+    label: t.features.caseStudies[link.labelKey as keyof typeof t.features.caseStudies].title,
+  }));
 
   return (
     <footer className={cn('w-full bg-navy-dark/50', className)}>
@@ -132,23 +144,23 @@ export function Footer({ className, showCTA = true }: FooterProps) {
               className="text-center"
             >
               <h2 className="text-3xl md:text-4xl font-bold text-cream mb-4">
-                Let&apos;s work together
+                {t.footer.ctaHeading}
               </h2>
               <p className="text-lg text-cream/60 mb-8 max-w-2xl mx-auto">
-                Have a project in mind? Let&apos;s discuss how I can help bring your ideas to life.
+                {t.footer.ctaSubheading}
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
                   href={`mailto:${contactInfo.email}`}
                   className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-cream bg-accent rounded-lg hover:bg-accent-dark transition-colors shadow-sm hover:shadow-md"
                 >
-                  Get in Touch
+                  {t.footer.ctaGetInTouch}
                 </a>
                 <a
                   href="#projects"
                   className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-accent border-2 border-accent rounded-lg hover:bg-accent/10 transition-colors"
                 >
-                  View Projects
+                  {t.footer.ctaViewProjects}
                 </a>
               </div>
             </motion.div>
@@ -161,7 +173,7 @@ export function Footer({ className, showCTA = true }: FooterProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             {/* Brand & Contact */}
-            <FooterSection title="Contact" delay={0}>
+            <FooterSection title={t.footer.contactHeading} delay={0}>
               <ul className="space-y-3">
                 <li>
                   <a
@@ -199,7 +211,7 @@ export function Footer({ className, showCTA = true }: FooterProps) {
             </FooterSection>
 
             {/* Quick Links */}
-            <FooterSection title="Navigation" delay={0.1}>
+            <FooterSection title={t.footer.navigationHeading} delay={0.1}>
               <ul className="space-y-3">
                 {quickLinks.map((link) => (
                   <li key={link.href}>
@@ -210,7 +222,7 @@ export function Footer({ className, showCTA = true }: FooterProps) {
             </FooterSection>
 
             {/* Projects */}
-            <FooterSection title="Projects" delay={0.2}>
+            <FooterSection title={t.footer.projectsHeading} delay={0.2}>
               <ul className="space-y-3">
                 {projectLinks.map((link) => (
                   <li key={link.href}>
@@ -221,16 +233,16 @@ export function Footer({ className, showCTA = true }: FooterProps) {
             </FooterSection>
 
             {/* Personal Links */}
-            <FooterSection title="Links" delay={0.3}>
+            <FooterSection title={t.footer.linksHeading} delay={0.3}>
               <ul className="space-y-3">
                 <li>
                   <FooterLink href={contactInfo.website} external>
-                    Personal Website
+                    {t.footer.personalWebsite}
                   </FooterLink>
                 </li>
                 <li>
                   <FooterLink href={contactInfo.experiments} external>
-                    Experiments
+                    {t.footer.experiments}
                   </FooterLink>
                 </li>
               </ul>
@@ -244,10 +256,10 @@ export function Footer({ className, showCTA = true }: FooterProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-cream/50">
-              © {currentYear} Idas Portfolio. All rights reserved.
+              © {currentYear} Ida&apos;s Portfolio. {t.footer.allRightsReserved}.
             </p>
             <p className="text-sm text-cream/50">
-              UX/UI Designer based in Austria
+              {t.footer.uxDesignerBasedIn}
             </p>
           </div>
         </div>

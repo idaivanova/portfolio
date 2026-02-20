@@ -18,7 +18,7 @@ import {
 
 export default function FlutterPage() {
   return (
-    <CaseStudyLayout activeProject="Flutter">
+    <CaseStudyLayout>
       {/* Hero Section */}
       <ScrollReveal>
         <section id="intro" className="mb-16">

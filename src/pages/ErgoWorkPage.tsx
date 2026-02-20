@@ -34,7 +34,7 @@ import {
 
 export default function ErgoWorkPage() {
   return (
-    <CaseStudyLayout activeProject="ErgoWork">
+    <CaseStudyLayout>
       {/* Hero Section */}
       <section id="hero">
         <CaseStudyHeader

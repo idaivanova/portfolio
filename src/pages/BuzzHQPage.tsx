@@ -20,7 +20,7 @@ export default function BuzzHQPage() {
   return (
     <BumblebeeWrapper>
       <BumblebeeCursorWrapper>
-        <CaseStudyLayout activeProject="Buzz HQ">
+        <CaseStudyLayout>
         {/* Hero Section */}
         <ScrollReveal>
           <section id="intro" className="mb-16">

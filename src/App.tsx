@@ -5,7 +5,9 @@ import { Features } from './components/sections/Features';
 import { CTASection } from './components/sections/CTASection';
 import { Header } from './components/layout/header';
 import { Footer } from './components/layout/footer';
-import { BumblebeeWrapper, RaccoonWrapper } from './components/animations';
+import { RaccoonWrapper, InteractiveBumblebeeWrapper } from './components/animations';
+import { LanguageProvider } from './lib/LanguageContext';
+import { ThemeProvider } from './lib/ThemeContext';
 import ErgoWorkPage from './pages/ErgoWorkPage';
 import DermatikPage from './pages/DermatikPage';
 import AboutMePage from './pages/AboutMePage';
@@ -14,6 +16,7 @@ import FlutterPage from './pages/FlutterPage';
 import BuzzPage from './pages/BuzzPage';
 import BuzzHQPage from './pages/BuzzHQPage';
 import FlutterFieldsPage from './pages/FlutterFieldsPage';
+import SDZRNPage from './pages/SDZRNPage';
 
 // About page with header/footer (not case study layout)
 function AboutPage() {
@@ -62,6 +65,7 @@ function AppContent() {
       {/* Experimental project pages */}
       <Route path="/case-studies/buzz-hq" element={<BuzzHQPage />} />
       <Route path="/case-studies/flutter-fields" element={<FlutterFieldsPage />} />
+      <Route path="/case-studies/sdzrn" element={<SDZRNPage />} />
       
       {/* Legacy route redirects */}
       <Route path="/case-studies/about" element={<Navigate replace to="/about" />} />
@@ -76,11 +80,15 @@ function AppContent() {
 function App() {
   return (
     <BrowserRouter>
-      <RaccoonWrapper>
-        <BumblebeeWrapper>
-          <AppContent />
-        </BumblebeeWrapper>
-      </RaccoonWrapper>
+      <ThemeProvider>
+        <LanguageProvider>
+          <InteractiveBumblebeeWrapper>
+            <RaccoonWrapper>
+              <AppContent />
+            </RaccoonWrapper>
+          </InteractiveBumblebeeWrapper>
+        </LanguageProvider>
+      </ThemeProvider>
     </BrowserRouter>
   );
 }

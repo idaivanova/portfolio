@@ -15,7 +15,7 @@ import {
 
 export default function FlutterFieldsPage() {
   return (
-    <CaseStudyLayout activeProject="Flutter Fields">
+    <CaseStudyLayout>
       {/* Hero Section */}
       <ScrollReveal>
         <section id="intro" className="mb-16">

@@ -22,7 +22,7 @@ import {
 
 export default function PimcorePage() {
   return (
-    <CaseStudyLayout activeProject="Pimcore Platform">
+    <CaseStudyLayout>
       {/* Hero Section */}
       <section id="hero">
         <CaseStudyHeader

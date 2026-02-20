@@ -27,7 +27,7 @@ import {
 
 export default function DermatikPage() {
   return (
-    <CaseStudyLayout activeProject="Dermatik">
+    <CaseStudyLayout>
       {/* Hero Section */}
       <section id="hero">
         <CaseStudyHeader

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": [
+    "AGENTS.md"
+  ],
+  "mcp": {
+    "filesystem": {
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-filesystem", "/Users/dinz/Coding Projects/ida portfolio/idas-portfolio"]
+    },
+    "playwright": {
+      "type": "local",
+      "command": ["npx", "-y", "@playwright/mcp@latest"],
+      "enabled": true
+    }
+  },
+  "permissions": {
+    "allow": [
+      "Bash(*)",
+      "mcp__filesystem__*",
+      "mcp__playwright-mcp__*",
+      "Read(*)",
+      "Write(*)",
+      "Glob(*)",
+      "Grep(*)",
+      "Edit(*)",
+      "WebFetch(*)"
+    ]
+  }
+}
