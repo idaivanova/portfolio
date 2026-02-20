@@ -6,7 +6,7 @@
 // Hero Section
 export const heroData = {
   image: {
-    src: 'http://localhost:3845/assets/logo-dermatik.png', // Will use placeholder
+    src: '/assets/dermatik/placeholder.svg',
     alt: 'Dermatik Logo',
     width: 213,
     height: 213,
@@ -78,7 +78,7 @@ export const designProcessData = {
     { label: 'Test', value: 'Usability testing with patients' },
   ],
   image: {
-    src: 'http://localhost:3845/assets/design-process-dermatik.png',
+    src: '/assets/dermatik/placeholder.svg',
     alt: 'Design Process Diagram',
     width: 500,
     height: 96,
@@ -154,7 +154,7 @@ export const patientFlowData = {
         </>
       ),
       image: {
-        src: 'http://localhost:3845/assets/appointment-calendar.png',
+        src: '/assets/dermatik/placeholder.svg',
         alt: 'Appointment Booking Screen',
         width: 246,
         height: 438,
@@ -182,7 +182,7 @@ export const patientFlowData = {
         </>
       ),
       image: {
-        src: 'http://localhost:3845/assets/ai-diagnosis.png',
+        src: '/assets/dermatik/placeholder.svg',
         alt: 'AI Diagnosis Screen',
         width: 291,
         height: 517,
@@ -210,7 +210,7 @@ export const patientFlowData = {
         </>
       ),
       image: {
-        src: 'http://localhost:3845/assets/doctor-chat.png',
+        src: '/assets/dermatik/placeholder.svg',
         alt: 'Doctor Chat Screen',
         width: 305,
         height: 543,
@@ -247,7 +247,7 @@ export const reflectionData = {
 // Profile Screen Section
 export const profileData = {
   image: {
-    src: 'http://localhost:3845/assets/profile-screen.png',
+    src: '/assets/dermatik/placeholder.svg',
     alt: 'Patient Profile Screen',
     width: 349,
     height: 621,

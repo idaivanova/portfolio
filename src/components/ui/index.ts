@@ -11,6 +11,31 @@ export {
 } from './button';
 
 export {
+  Badge,
+  badgeVariants,
+} from './badge';
+
+export {
+  Input,
+  Textarea,
+  inputVariants,
+} from './input';
+
+export {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogImage,
+  DialogCaption,
+  ImageLightbox,
+} from './dialog';
+
+// Animated Components (inspired by React Bits)
+export { CountUp } from './CountUp';
+export { GradientText } from './GradientText';
+export { SpotlightCard } from './SpotlightCard';
+
+export {
   Heading,
   Text,
   Label,
@@ -42,6 +67,15 @@ export {
 export type {
   ButtonProps,
 } from './button';
+
+export type {
+  BadgeProps,
+} from './badge';
+
+export type {
+  InputProps,
+  TextareaProps,
+} from './input';
 
 export type {
   IconSize,

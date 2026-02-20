@@ -6,7 +6,7 @@
 // Hero Section
 export const heroData = {
   image: {
-    src: 'http://localhost:3845/assets/bumblebee-app-hero.png',
+    src: '/assets/buzz/placeholder.svg',
     alt: 'Bumblebee Conservation App Interface',
     width: 450,
     height: 280,

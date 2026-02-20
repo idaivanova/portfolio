@@ -1,6 +1,6 @@
 // ============================================
 // Header Component
-// Responsive navigation with mobile menu
+// Responsive navigation with mobile menu and projects dropdown
 // ============================================
 
 import * as React from 'react';
@@ -9,16 +9,29 @@ import { Link, useLocation } from 'react-router-dom';
 import { cn } from '../../lib/utils';
 import { IconButton } from '../ui/icon';
 import { LinkedInIcon } from '../ui/icon';
+import { ChevronDown } from 'lucide-react';
 
 // Navigation items
 const navItems = [
   { label: 'HOME', href: '/' },
   { label: 'ABOUT', href: '/about' },
-  { label: 'PROJECTS', href: '/#projects' },
+];
+
+// Case studies for dropdown
+const caseStudies = [
+  // Real case studies
+  { label: 'Pimcore Platform', href: '/case-studies/pimcore', description: 'Enterprise PIM redesign' },
+  { label: 'ErgoWork', href: '/case-studies/ergowork', description: 'Ergonomics platform' },
+  { label: 'Dermatik', href: '/case-studies/dermatik', description: 'Healthcare app' },
+  // Experimental projects
+  { label: 'Buzz', href: '/case-studies/buzz', description: 'Conservation app' },
+  { label: 'Flutter', href: '/case-studies/flutter', description: 'Motion design' },
+  { label: 'Buzz HQ 🆕', href: '/case-studies/buzz-hq', description: 'Bumblebee playground' },
+  { label: 'Flutter Fields 🆕', href: '/case-studies/flutter-fields', description: 'Motion experiments' },
 ];
 
 // ============================================
-// Desktop Navigation
+// Desktop Navigation with Projects Dropdown
 // ============================================
 
 interface DesktopNavProps {
@@ -26,6 +39,8 @@ interface DesktopNavProps {
 }
 
 function DesktopNav({ currentPath }: DesktopNavProps) {
+  const [isProjectsOpen, setIsProjectsOpen] = React.useState(false);
+
   return (
     <nav className="hidden md:flex items-center gap-8">
       {navItems.map((item) => {
@@ -56,12 +71,67 @@ function DesktopNav({ currentPath }: DesktopNavProps) {
           </Link>
         );
       })}
+
+      {/* Projects Dropdown */}
+      <div
+        className="relative"
+        onMouseEnter={() => setIsProjectsOpen(true)}
+        onMouseLeave={() => setIsProjectsOpen(false)}
+      >
+        <button
+          className={cn(
+            'flex items-center gap-1 text-sm font-medium tracking-wider uppercase transition-colors duration-200',
+            'hover:text-accent',
+            currentPath.startsWith('/case-studies')
+              ? 'text-accent'
+              : 'text-cream/70'
+          )}
+        >
+          PROJECTS
+          <ChevronDown className={cn(
+            'w-4 h-4 transition-transform duration-200',
+            isProjectsOpen && 'rotate-180'
+          )} />
+        </button>
+
+        {/* Dropdown Menu */}
+        <AnimatePresence>
+          {isProjectsOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              transition={{ duration: 0.15 }}
+              className="absolute top-full left-0 mt-2 w-64 bg-navy-dark border border-cream/10 rounded-lg shadow-xl overflow-hidden z-50"
+            >
+              {caseStudies.map((project) => {
+                const isActive = currentPath === project.href;
+                return (
+                  <Link
+                    key={project.href}
+                    to={project.href}
+                    className={cn(
+                      'block px-4 py-3 transition-colors duration-150',
+                      isActive
+                        ? 'bg-accent/20 text-accent'
+                        : 'text-cream/80 hover:bg-cream/5 hover:text-cream'
+                    )}
+                  >
+                    <span className="font-medium text-sm">{project.label}</span>
+                    <p className="text-xs text-cream/50 mt-0.5">{project.description}</p>
+                  </Link>
+                );
+              })}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </nav>
   );
 }
 
 // ============================================
-// Mobile Navigation
+// Mobile Navigation with Projects Section
 // ============================================
 
 interface MobileNavProps {
@@ -71,6 +141,8 @@ interface MobileNavProps {
 }
 
 function MobileNav({ isOpen, onClose, currentPath }: MobileNavProps) {
+  const [isProjectsExpanded, setIsProjectsExpanded] = React.useState(false);
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -91,7 +163,7 @@ function MobileNav({ isOpen, onClose, currentPath }: MobileNavProps) {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            className="fixed top-0 right-0 bottom-0 w-[280px] bg-navy-dark z-50 md:hidden shadow-2xl border-l border-cream/10"
+            className="fixed top-0 right-0 bottom-0 w-[300px] bg-navy-dark z-50 md:hidden shadow-2xl border-l border-cream/10 overflow-y-auto"
           >
             <div className="flex flex-col h-full">
               {/* Close button */}
@@ -106,7 +178,7 @@ function MobileNav({ isOpen, onClose, currentPath }: MobileNavProps) {
                 />
               </div>
 
-              {/* Navigation links */}
+              {/* Main Navigation links */}
               <nav className="flex flex-col p-4 gap-2">
                 {navItems.map((item, index) => {
                   const isActive = currentPath === item.href ||
@@ -135,6 +207,51 @@ function MobileNav({ isOpen, onClose, currentPath }: MobileNavProps) {
                     </motion.div>
                   );
                 })}
+
+                {/* Projects Section (expandable) */}
+                <div className="mt-2 pt-2 border-t border-cream/10">
+                  <button
+                    onClick={() => setIsProjectsExpanded(!isProjectsExpanded)}
+                    className="flex items-center justify-between w-full py-3 px-4 text-lg font-medium tracking-wider uppercase rounded-lg transition-colors text-cream/80 hover:bg-cream/5"
+                  >
+                    <span>PROJECTS</span>
+                    <ChevronDown className={cn(
+                      'w-5 h-5 transition-transform duration-200',
+                      isProjectsExpanded && 'rotate-180'
+                    )} />
+                  </button>
+
+                  <AnimatePresence>
+                    {isProjectsExpanded && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="overflow-hidden"
+                      >
+                        {caseStudies.map((project) => {
+                          const isActive = currentPath === project.href;
+                          return (
+                            <Link
+                              key={project.href}
+                              to={project.href}
+                              onClick={onClose}
+                              className={cn(
+                                'block py-2.5 pl-8 pr-4 text-base font-medium tracking-wider transition-colors rounded-lg',
+                                isActive
+                                  ? 'bg-accent/20 text-accent'
+                                  : 'text-cream/60 hover:bg-cream/5 hover:text-cream/80'
+                              )}
+                            >
+                              {project.label}
+                            </Link>
+                          );
+                        })}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               </nav>
 
               {/* Contact info at bottom */}

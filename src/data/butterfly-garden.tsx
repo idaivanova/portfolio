@@ -6,7 +6,7 @@
 // Hero Section
 export const heroData = {
   image: {
-    src: 'http://localhost:3845/assets/butterfly-garden-hero.png',
+    src: '/assets/flutter/placeholder.svg',
     alt: 'Butterfly Garden Explorer Interface',
     width: 450,
     height: 280,

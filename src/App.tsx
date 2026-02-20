@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Hero } from './components/sections/Hero';
 import { Stats } from './components/sections/Stats';
 import { Features } from './components/sections/Features';
@@ -12,6 +12,8 @@ import AboutMePage from './pages/AboutMePage';
 import PimcorePage from './pages/PimcorePage';
 import FlutterPage from './pages/FlutterPage';
 import BuzzPage from './pages/BuzzPage';
+import BuzzHQPage from './pages/BuzzHQPage';
+import FlutterFieldsPage from './pages/FlutterFieldsPage';
 
 // About page with header/footer (not case study layout)
 function AboutPage() {
@@ -42,33 +44,31 @@ function HomePage() {
   );
 }
 
-// App content with routing
+// App content with consolidated routing
 function AppContent() {
-  const location = useLocation();
-
-  // Check if we're on a case study page (uses case study layout)
-  const isCaseStudy = location.pathname.startsWith('/case-studies');
-
-  if (isCaseStudy) {
-    return (
-      <Routes>
-        <Route path="/case-studies/pimcore" element={<PimcorePage />} />
-        <Route path="/case-studies/ergowork" element={<ErgoWorkPage />} />
-        <Route path="/case-studies/dermatik" element={<DermatikPage />} />
-        <Route path="/case-studies/flutter" element={<FlutterPage />} />
-        <Route path="/case-studies/buzz" element={<BuzzPage />} />
-        {/* Redirect /case-studies/about to /about */}
-        <Route path="/case-studies/about" element={<Navigate replace to="/about" />} />
-        {/* Redirect old singular routes to plural */}
-        <Route path="/case-study/:project" element={<Navigate replace to={location.pathname.replace('/case-study/', '/case-studies/')} />} />
-      </Routes>
-    );
-  }
-
+  // All routes consolidated in one place
   return (
     <Routes>
+      {/* Main pages with header/footer */}
       <Route path="/" element={<HomePage />} />
       <Route path="/about" element={<AboutPage />} />
+      
+      {/* Case study pages - use CaseStudyLayout with sidebar */}
+      <Route path="/case-studies/pimcore" element={<PimcorePage />} />
+      <Route path="/case-studies/ergowork" element={<ErgoWorkPage />} />
+      <Route path="/case-studies/dermatik" element={<DermatikPage />} />
+      <Route path="/case-studies/flutter" element={<FlutterPage />} />
+      <Route path="/case-studies/buzz" element={<BuzzPage />} />
+      {/* Experimental project pages */}
+      <Route path="/case-studies/buzz-hq" element={<BuzzHQPage />} />
+      <Route path="/case-studies/flutter-fields" element={<FlutterFieldsPage />} />
+      
+      {/* Legacy route redirects */}
+      <Route path="/case-studies/about" element={<Navigate replace to="/about" />} />
+      <Route path="/case-study/:project" element={<Navigate replace to="/case-studies" />} />
+      
+      {/* Catch all - redirect to home */}
+      <Route path="*" element={<Navigate replace to="/" />} />
     </Routes>
   );
 }

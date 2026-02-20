@@ -56,7 +56,7 @@ export const projectScopeData = {
     content: (
       <div className="space-y-4">
         <p>Unified workspace supporting 4 interaction modes (text, voice, image, code)</p>
-        <p>AI response time < 200ms for 95% of interactions</p>
+        <p>AI response time under 200ms for 95% of interactions</p>
         <p>40% reduction in context-switching for creative workflows</p>
         <p>Beta users reported 3.5x faster content creation</p>
       </div>

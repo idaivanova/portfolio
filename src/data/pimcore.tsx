@@ -6,7 +6,7 @@
 // Hero Section
 export const heroData = {
   image: {
-    src: 'http://localhost:3845/assets/50d0af2992ff5b06e849ddaf2d61a42006f4ed24.png',
+    src: '/assets/pimcore/placeholder.svg',
     alt: 'Pimcore Platform Login Screen',
     width: 403,
     height: 222,

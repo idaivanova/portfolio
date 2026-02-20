@@ -6,7 +6,7 @@
 // Hero Section
 export const heroData = {
   image: {
-    src: 'http://localhost:3845/assets/59233f4e1db1f8af1d1b498bff5e4793a814e999.png',
+    src: '/assets/ergowork/placeholder.svg',
     alt: 'ErgoWork Project Preview',
     width: 350,
     height: 212,
@@ -150,55 +150,54 @@ export const brandIdentityData = {
       <p className="mt-4">Selected pieces overview of brand and system kit that was delivered:</p>
     </>
   ),
-  // Image mosaic configuration
   mosaicImages: [
     {
-      src: 'http://localhost:3845/assets/88bf948e475f041a947efc24184bffdcced4479c.png',
+      src: '/assets/ergowork/placeholder.svg',
       alt: 'Brand Identity 1',
       position: { top: 0, left: 8, width: 462, height: 175 },
     },
     {
-      src: 'http://localhost:3845/assets/d16fe6fa0e3f08a8dff0f91d060f9b8d19dc878a.png',
+      src: '/assets/ergowork/placeholder.svg',
       alt: 'Brand Identity 2',
       position: { top: 17, left: 622, width: 271, height: 102 },
     },
     {
-      src: 'http://localhost:3845/assets/8da2e8346865bdd1d07e5c27736aa9d8733e92eb.png',
+      src: '/assets/ergowork/placeholder.svg',
       alt: 'Brand Identity 3',
       position: { top: 17, left: 478, width: 121, height: 158 },
     },
     {
-      src: 'http://localhost:3845/assets/222a1ac72f125537a58128ba71ca22e7695d1bfe.png',
+      src: '/assets/ergowork/placeholder.svg',
       alt: 'Brand Identity 4',
       position: { top: 318, left: 59, width: 325, height: 166 },
     },
     {
-      src: 'http://localhost:3845/assets/984f65c1f8345270bd33d0991bd03fe9666254e9.png',
+      src: '/assets/ergowork/placeholder.svg',
       alt: 'Brand Identity 5',
       position: { top: 318, left: 483, width: 439, height: 183 },
     },
     {
-      src: 'http://localhost:3845/assets/3e44373253a37395236dd6c17fb715ecb726273f.png',
+      src: '/assets/ergowork/placeholder.svg',
       alt: 'Brand Identity 6',
       position: { top: 126, left: 867, width: 85, height: 72 },
     },
     {
-      src: 'http://localhost:3845/assets/24589bf54ace48e7a39791f9a39b074b09458c56.png',
+      src: '/assets/ergowork/placeholder.svg',
       alt: 'Brand Identity 7',
       position: { top: 231, left: 14, width: 323, height: 54 },
     },
     {
-      src: 'http://localhost:3845/assets/098a9e275262521894ab1c7d43ddd0b39c7af054.png',
+      src: '/assets/ergowork/placeholder.svg',
       alt: 'Brand Identity 8',
       position: { top: 126, left: 308, width: 150, height: 118 },
     },
     {
-      src: 'http://localhost:3845/assets/277a3c8cf1843e58eafd09a89ccf1e4941ca1c36.png',
+      src: '/assets/ergowork/placeholder.svg',
       alt: 'Brand Identity 9',
       position: { top: 185, left: 470, width: 409, height: 92 },
     },
     {
-      src: 'http://localhost:3845/assets/52f8e695c0dcee8a8c5150b7a04efdb9c42d024d.png',
+      src: '/assets/ergowork/placeholder.svg',
       alt: 'Brand Identity 10',
       position: { top: 185, left: 31, width: 256, height: 26 },
     },
@@ -213,19 +212,19 @@ export const sitemapData = {
   description:
     'Taking the current navigation and transforming it into a sitemap gave more clarity for the whole team - the marketing expert contributed with knowledge on conversion, the CEO on the other hand with product and market knowledge and all that lead to a new clean navigation serving the user needs.',
   mainImage: {
-    src: 'http://localhost:3845/assets/d40974c1cc67049f73edffadd3faa98d318da229.png',
+    src: '/assets/ergowork/placeholder.svg',
     alt: 'Sitemap Diagram',
     width: 681,
     height: 189,
   },
   overlayImages: [
     {
-      src: 'http://localhost:3845/assets/615d3d3164b612a3a9143a96708cf5f758ed5c24.png',
+      src: '/assets/ergowork/placeholder.svg',
       alt: 'Footer Diagram',
       position: { top: 185, left: 48, width: 405, height: 143 },
     },
     {
-      src: 'http://localhost:3845/assets/788b2eb1f909649b81e3c7053ebb8434d51245cc.png',
+      src: '/assets/ergowork/placeholder.svg',
       alt: 'Landing Pages',
       position: { top: 253, left: 608, width: 337, height: 84 },
     },
@@ -274,7 +273,7 @@ export const personasData = {
   personas: [
     {
       image: {
-        src: 'http://localhost:3845/assets/062e08579f24e4a2d7bb45b7b37535038edb48fa.png',
+        src: '/assets/ergowork/placeholder.svg',
         alt: 'Florian - SME Buyer',
       },
       name: 'Florian',
@@ -296,7 +295,7 @@ export const personasData = {
     },
     {
       image: {
-        src: 'http://localhost:3845/assets/84052c8c53e1036f59fe8cb5f22772bd1087f884.png',
+        src: '/assets/ergowork/placeholder.svg',
         alt: 'Julia - Corporate Procurement',
       },
       name: 'Julia',
@@ -318,7 +317,7 @@ export const personasData = {
     },
     {
       image: {
-        src: 'http://localhost:3845/assets/312ac3c43d9d88443e1b43ca866c2e785e2b225c.png',
+        src: '/assets/ergowork/placeholder.svg',
         alt: 'Eva - Private Professional',
       },
       name: 'Eva',
@@ -340,7 +339,7 @@ export const personasData = {
     },
     {
       image: {
-        src: 'http://localhost:3845/assets/9a69dbd3da9ef8e154a5581e82e5da2dbeac76ad.png',
+        src: '/assets/ergowork/placeholder.svg',
         alt: 'James - Remote Worker/Gamer',
       },
       name: 'James',
@@ -380,7 +379,7 @@ export const pageFlowsData = {
     {
       direction: 'right' as const,
       image: {
-        src: 'http://localhost:3845/assets/3329d65c5eac78ecf60ec4e258ab17d6c0b9090e.png',
+        src: '/assets/ergowork/placeholder.svg',
         alt: 'Homepage Flow',
         width: 493,
         height: 298,
@@ -398,7 +397,7 @@ export const pageFlowsData = {
     {
       direction: 'left' as const,
       image: {
-        src: 'http://localhost:3845/assets/a800c1694a18abf7f8f21c0f37074864e6c683be.png',
+        src: '/assets/ergowork/placeholder.svg',
         alt: 'Business Customers Page',
         width: 439,
         height: 364,
@@ -425,7 +424,7 @@ export const pageFlowsData = {
     {
       isSplitLayout: true,
       image: {
-        src: 'http://localhost:3845/assets/68b3e997b2a7e79e6d695d0a114385118c953d5b.png',
+        src: '/assets/ergowork/placeholder.svg',
         alt: 'Adjustable Tables Page',
         width: '100%',
         height: 'auto',
@@ -458,7 +457,7 @@ export const pageFlowsData = {
     {
       direction: 'left' as const,
       image: {
-        src: 'http://localhost:3845/assets/d36dc5b28259a10fe037304d63a5efb00268b4dc.png',
+        src: '/assets/ergowork/placeholder.svg',
         alt: 'Product Detail Page',
         width: 498,
         height: 320,
@@ -487,7 +486,7 @@ export const pageFlowsData = {
     {
       direction: 'right' as const,
       image: {
-        src: 'http://localhost:3845/assets/00277f394e254703e169cc1aa6664250ad35747c.png',
+        src: '/assets/ergowork/placeholder.svg',
         alt: 'Request Offer Form',
         width: 538,
         height: 239,
@@ -529,13 +528,13 @@ export const reflectionData = {
 export const fullWidthImages = {
   homepagePair: [
     {
-      src: 'http://localhost:3845/assets/469c94b87943deaca26accbbee43eaea6c94ac6e.png',
+      src: '/assets/ergowork/placeholder.svg',
       alt: 'Homepage Mockup 1',
       width: 455,
       height: 271,
     },
     {
-      src: 'http://localhost:3845/assets/dedf063d07cc47bede214d9f41d4b82b6dc386a3.png',
+      src: '/assets/ergowork/placeholder.svg',
       alt: 'Homepage Mockup 2',
       width: 510,
       height: 256,
@@ -543,20 +542,20 @@ export const fullWidthImages = {
   ],
   businessPair: [
     {
-      src: 'http://localhost:3845/assets/72a0b06b16d0ea5415db18aad96a998c8ccfefe4.png',
+      src: '/assets/ergowork/placeholder.svg',
       alt: 'Business Page Mockup 1',
       width: 443,
       height: 128,
     },
     {
-      src: 'http://localhost:3845/assets/8347229fba86216e32016b3665d68f438736ed8f.png',
+      src: '/assets/ergowork/placeholder.svg',
       alt: 'Business Page Mockup 2',
       width: 518,
       height: 276,
     },
   ],
   productDetail: {
-    src: 'http://localhost:3845/assets/2ec78ddc624ffa6c4a6da4ffdc8b288d7e4845fc.png',
+    src: '/assets/ergowork/placeholder.svg',
     alt: 'Product Detail Full Width',
     width: '100%',
     height: 'auto',
