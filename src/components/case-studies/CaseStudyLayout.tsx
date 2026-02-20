@@ -16,10 +16,18 @@ export interface CaseStudyLayoutProps {
 
 const defaultNavItems = [
   { label: 'Intro', href: '#intro' },
-  { label: 'Selected work', href: '#work', isIndented: false },
-  { label: 'Pimcore Platform', href: '/case-studies/pimcore', isIndented: true },
-  { label: 'ErgoWork', href: '/case-studies/ergowork', isIndented: true },
-  { label: 'Dermatik', href: '/case-studies/dermatik', isIndented: true },
+  { label: 'Selected work', href: '#work', isIndented: false, isSection: true },
+  // Real Case Studies
+  { label: 'Pimcore Platform', href: '/case-studies/pimcore', isIndented: true, category: 'real' },
+  { label: 'ErgoWork', href: '/case-studies/ergowork', isIndented: true, category: 'real' },
+  { label: 'Dermatik', href: '/case-studies/dermatik', isIndented: true, category: 'real' },
+  { label: 'SDZRN', href: '/case-studies/sdzrn', isIndented: true, category: 'real' },
+  // Playground Section
+  { label: 'Playground', href: '#playground', isIndented: false, isSection: true, category: 'playground' },
+  { label: 'Buzz', href: '/case-studies/buzz', isIndented: true, category: 'playground' },
+  { label: 'Flutter', href: '/case-studies/flutter', isIndented: true, category: 'playground' },
+  { label: 'Buzz HQ', href: '/case-studies/buzz-hq', isIndented: true, category: 'playground' },
+  { label: 'Flutter Fields', href: '/case-studies/flutter-fields', isIndented: true, category: 'playground' },
   { label: 'About', href: '/about' },
 ];
 
@@ -40,6 +48,11 @@ export function CaseStudyLayout({
     if (path.includes('/case-studies/pimcore')) return 'Pimcore Platform';
     if (path.includes('/case-studies/ergowork')) return 'ErgoWork';
     if (path.includes('/case-studies/dermatik')) return 'Dermatik';
+    if (path.includes('/case-studies/sdzrn')) return 'SDZRN';
+    if (path.includes('/case-studies/buzz') && !path.includes('hq')) return 'Buzz';
+    if (path.includes('/case-studies/buzz-hq')) return 'Buzz HQ';
+    if (path.includes('/case-studies/flutter') && !path.includes('fields')) return 'Flutter';
+    if (path.includes('/case-studies/flutter-fields')) return 'Flutter Fields';
     return null;
   };
 

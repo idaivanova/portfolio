@@ -12,6 +12,8 @@ export interface NavItem {
   href: string;
   isActive?: boolean;
   isIndented?: boolean;
+  isSection?: boolean;     // Section header like "Selected work" or "Playground"
+  category?: 'real' | 'playground';  // Project category for styling
 }
 
 export interface SidebarProps {
@@ -54,6 +56,24 @@ export function Sidebar({
         {navItems.map((item, index) => {
           const external = isExternalLink(item.href);
           const anchor = isAnchorLink(item.href);
+
+          // Section headers (like "Selected work" or "Playground")
+          if (item.isSection) {
+            return (
+              <React.Fragment key={item.label}>
+                <!-- Divider before each section -->
+                {index > 0 && (
+                  <div className="h-px w-full bg-[#173748] my-1" />
+                )}
+                <span className={cn(
+                  "font-body text-sm font-semibold uppercase tracking-wider",
+                  item.category === 'playground' ? "text-cream/50" : "text-cream/70"
+                )}>
+                  {item.label}
+                </span>
+              </React.Fragment>
+            );
+          }
 
           // Combine current path with anchor for proper navigation
           const linkHref = anchor
