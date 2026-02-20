@@ -230,7 +230,7 @@ export function RaccoonManager({
     // Initial delay before first appearance
     const initialTimer = setTimeout(() => {
       scheduleAppearance();
-    }, 10000); // Start after 10 seconds
+    }, 3000); // Start after 3 seconds
     
     return () => clearTimeout(initialTimer);
   }, [appearanceChance, getNextAppearanceTime]);
@@ -262,9 +262,9 @@ export function RaccoonWrapper({ children }: RaccoonWrapperProps) {
     <div className="relative">
       {children}
       <RaccoonManager
-        appearanceChance={0.15}
-        minInterval={60000}
-        maxInterval={120000}
+        appearanceChance={0.25}
+        minInterval={8000}
+        maxInterval={15000}
       />
     </div>
   );

@@ -403,7 +403,7 @@ export function InteractiveBumblebee({ enabled = true }: InteractiveBumblebeePro
         setHint('👋 Hi! I\'m Buzz!');
         setTimeout(() => setHint(null), 2500);
       }, 2000);
-    }, 3000);
+    }, 1500);
 
     return () => {
       clearTimeout(entranceDelay);
