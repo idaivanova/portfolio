@@ -194,6 +194,8 @@ export function InteractiveBumblebee({ enabled = true }: InteractiveBumblebeePro
   const isIdle = useRef(false);
   const lastMouseMoveTime = useRef(Date.now());
   const isBeeActive = useRef(false);
+  const isFlyingAcross = useRef(false);
+  const flyAcrossPhase = useRef<'to_edge' | 'crossing' | 'returning' | null>(null);
 
   const animateBee = useCallback(() => {
     if (!isBeeActive.current) return;
@@ -364,6 +366,65 @@ export function InteractiveBumblebee({ enabled = true }: InteractiveBumblebeePro
     setTimeout(() => setHint(null), 2000);
   }, []);
 
+  const startFlyAcrossSequence = useCallback(async () => {
+    if (isFlyingAcross.current || hasLanded.current || isIdle.current) return;
+    
+    isFlyingAcross.current = true;
+    flyAcrossPhase.current = 'to_edge';
+    
+    const edges = [
+      { start: { x: -80, y: Math.random() * window.innerHeight }, end: { x: window.innerWidth + 80, y: Math.random() * window.innerHeight } },
+      { start: { x: window.innerWidth + 80, y: Math.random() * window.innerHeight }, end: { x: -80, y: Math.random() * window.innerHeight } },
+      { start: { x: Math.random() * window.innerWidth, y: -80 }, end: { x: Math.random() * window.innerWidth, y: window.innerHeight + 80 } },
+      { start: { x: Math.random() * window.innerWidth, y: window.innerHeight + 80 }, end: { x: Math.random() * window.innerWidth, y: -80 } },
+    ];
+    
+    const edge = edges[Math.floor(Math.random() * edges.length)];
+    
+    targetRef.current = { x: edge.start.x - 28, y: edge.start.y - 28 };
+    setEmotion('flying');
+    
+    await new Promise(resolve => setTimeout(resolve, 600));
+    
+    flyAcrossPhase.current = 'crossing';
+    
+    const steps = 20;
+    const dx = (edge.end.x - edge.start.x) / steps;
+    const dy = (edge.end.y - edge.start.y) / steps;
+    
+    for (let i = 0; i < steps; i++) {
+      targetRef.current = {
+        x: edge.start.x + dx * (i + 1) - 28,
+        y: edge.start.y + dy * (i + 1) - 28,
+      };
+      
+      setTrailDots(prev => {
+        const newDot = {
+          id: trailIdCounter.current++,
+          x: edge.start.x + dx * (i + 1),
+          y: edge.start.y + dy * (i + 1),
+          createdAt: Date.now(),
+        };
+        return [...prev.slice(-50), newDot];
+      });
+      
+      await new Promise(resolve => setTimeout(resolve, 80));
+    }
+    
+    flyAcrossPhase.current = 'returning';
+    
+    const returnX = mouseRef.current.x - 28;
+    const returnY = mouseRef.current.y - 28;
+    targetRef.current = { x: returnX, y: returnY };
+    
+    await new Promise(resolve => setTimeout(resolve, 800));
+    
+    isFlyingAcross.current = false;
+    flyAcrossPhase.current = null;
+    
+    setEmotion('flying');
+  }, []);
+
   const handleMouseEnter = useCallback(() => {
     if (emotion !== 'sleeping') {
       setEmotion('startled');
@@ -423,6 +484,25 @@ export function InteractiveBumblebee({ enabled = true }: InteractiveBumblebeePro
       window.removeEventListener('mousemove', handleMouseMove);
     };
   }, [isVisible, enabled, handleMouseMove]);
+
+  useEffect(() => {
+    if (!isVisible || !enabled) return;
+
+    const scheduleFlyAcross = () => {
+      const delay = 10000 + Math.random() * 10000;
+      const timerId = window.setTimeout(() => {
+        startFlyAcrossSequence();
+        scheduleFlyAcross();
+      }, delay);
+      return timerId;
+    };
+
+    const timerId = scheduleFlyAcross();
+
+    return () => {
+      clearTimeout(timerId);
+    };
+  }, [isVisible, enabled, startFlyAcrossSequence]);
 
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
   const beeScale = isMobile ? 0.75 : 1;
