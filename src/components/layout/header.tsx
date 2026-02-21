@@ -107,7 +107,7 @@ function DesktopNav({ currentPath }: DesktopNavProps) {
             'hover:text-accent',
             currentPath.startsWith('/case-studies')
               ? 'text-accent'
-              : 'text-cream/70'
+              : 'text-foreground/70'
           )}
         >
           PROJECTS
