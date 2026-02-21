@@ -18,7 +18,7 @@ export function Hero() {
       {/* Animated gradient blob backgrounds - from Figma design */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-accent/20 rounded-full blur-[100px] animate-blob" />
-        <div className="absolute top-1/2 right-1/4 w-[400px] h-[400px] bg-navy-mid/40 rounded-full blur-[80px] animate-blob-delayed" />
+        <div className="absolute top-1/2 right-1/4 w-[400px] h-[400px] bg-muted/40 rounded-full blur-[80px] animate-blob-delayed" />
         <div className="absolute bottom-1/4 left-1/3 w-[300px] h-[300px] bg-accent-light/10 rounded-full blur-[60px] animate-blob-slow" />
       </div>
 
@@ -26,7 +26,7 @@ export function Hero() {
         <div className="max-w-4xl">
           {/* Welcome message - Figma style */}
           <ScrollReveal>
-            <p className="text-sm sm:text-base text-cream/60 font-medium mb-4 tracking-wide uppercase">
+            <p className="text-sm sm:text-base text-muted-foreground font-medium mb-4 tracking-wide uppercase">
               {t.hero.subheading}
             </p>
           </ScrollReveal>
@@ -44,7 +44,7 @@ export function Hero() {
               {t.hero.skills.map((skill) => (
                 <span
                   key={skill}
-                  className="px-4 py-2 rounded-full bg-navy-mid/60 text-cream/80 text-sm border border-cream/10"
+                  className="px-4 py-2 rounded-full bg-muted/60 text-muted-foreground text-sm border border-border"
                 >
                   {skill}
                 </span>
@@ -57,7 +57,7 @@ export function Hero() {
             <div className="flex flex-col sm:flex-row items-start gap-4 mb-16">
               <a
                 href="/#projects"
-                className="inline-flex items-center justify-center gap-2 h-12 px-8 py-3 bg-accent hover:bg-accent-dark text-cream font-medium rounded-md transition-colors group"
+                className="inline-flex items-center justify-center gap-2 h-12 px-8 py-3 bg-accent hover:bg-accent/90 text-foreground font-medium rounded-md transition-colors group"
                 onClick={(e) => {
                   // Smooth scroll to projects section
                   const projectsSection = document.getElementById('projects');
@@ -72,7 +72,7 @@ export function Hero() {
               </a>
               <a
                 href="mailto:ivanova.contact@gmail.com"
-                className="inline-flex items-center justify-center gap-2 h-12 px-8 py-3 border border-cream/20 text-cream hover:bg-cream/10 font-medium rounded-md transition-colors"
+                className="inline-flex items-center justify-center gap-2 h-12 px-8 py-3 border border-border text-foreground hover:bg-muted font-medium rounded-md transition-colors"
               >
                 {t.hero.getInTouch}
               </a>
@@ -81,8 +81,8 @@ export function Hero() {
 
           {/* Expertise row - keeping from existing design */}
           <ScrollReveal delay={0.4}>
-            <div className="border-t border-cream/10 pt-8">
-              <p className="text-sm text-cream/40 mb-6">
+            <div className="border-t border-border pt-8">
+              <p className="text-sm text-muted-foreground/40 mb-6">
                 Areas of expertise
               </p>
               <StaggerContainer
@@ -95,7 +95,7 @@ export function Hero() {
                       <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
                         <item.icon className="w-6 h-6 text-accent" />
                       </div>
-                      <span className="text-sm font-medium text-cream/60 group-hover:text-cream/80 transition-colors">
+                      <span className="text-sm font-medium text-muted-foreground/60 group-hover:text-muted-foreground/80 transition-colors">
                         {item.label}
                       </span>
                     </div>

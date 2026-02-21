@@ -34,7 +34,7 @@ type Feature = {
 function FeatureCard({ feature, index }: { feature: Feature; index: number }) {
   return (
     <ScrollReveal delay={index * 0.1}>
-      <Card className="h-full group bg-navy-dark/50 border-cream/10 hover:border-accent/30 transition-all duration-300">
+      <Card className="h-full group bg-card border-border hover:border-accent transition-all duration-300">
         <CardContent className="p-6 lg:p-8 flex flex-col h-full">
           <div className="flex items-start justify-between mb-4">
             <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
@@ -47,16 +47,16 @@ function FeatureCard({ feature, index }: { feature: Feature; index: number }) {
                 </span>
               )}
               {feature.category && (
-                <span className="px-3 py-1 text-xs font-medium text-cream/50 bg-navy-mid/50 rounded-full">
+                <span className="px-3 py-1 text-xs font-medium text-muted-foreground bg-muted rounded-full">
                   {feature.category}
                 </span>
               )}
             </div>
           </div>
-          <h3 className="text-xl lg:text-2xl font-bold text-cream mb-3">
+          <h3 className="text-xl lg:text-2xl font-bold text-foreground mb-3">
             {feature.title}
           </h3>
-          <p className="text-cream/60 leading-relaxed mb-6 flex-1">
+          <p className="text-muted-foreground leading-relaxed mb-6 flex-1">
             {feature.description}
           </p>
           <a
@@ -92,10 +92,10 @@ export function Features() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="text-center mb-16 lg:mb-24">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-cream mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
               {t.features.heading}
             </h2>
-            <p className="text-lg text-cream/60 max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               {t.features.subheading}
             </p>
           </div>

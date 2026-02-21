@@ -66,7 +66,7 @@ export function CaseStudyLayout({
   return (
     <div
       className={cn(
-        'min-h-screen flex gap-10 px-[50px] bg-navy-darkest',
+        'min-h-screen flex gap-10 px-[50px] bg-background',
         className
       )}
     >
@@ -80,12 +80,12 @@ export function CaseStudyLayout({
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 bg-[#081827] min-h-screen">
+      <div className="flex-1 bg-card min-h-screen">
         <div className="p-[50px]">
           {/* Back Button */}
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-cream/60 hover:text-accent transition-colors mb-8"
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors mb-8"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Home

@@ -22,7 +22,7 @@ import SDZRNPage from './pages/SDZRNPage';
 // About page with header/footer (not case study layout)
 function AboutPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-navy-darkest text-cream font-sans">
+    <div className="min-h-screen flex flex-col bg-background text-foreground font-sans">
       <SkipLink />
       <Header />
       <main id="main-content" className="flex-1 pt-16 md:pt-20">
@@ -36,7 +36,7 @@ function AboutPage() {
 // Homepage component
 function HomePage() {
   return (
-    <div className="min-h-screen flex flex-col bg-navy-darkest text-cream font-sans">
+    <div className="min-h-screen flex flex-col bg-background text-foreground font-sans">
       <SkipLink />
       <Header />
       <main id="main-content" className="flex-1 pt-16 md:pt-20">

@@ -12,14 +12,14 @@ export function Stats() {
   const { t } = useLanguage();
 
   return (
-    <section className="py-20 lg:py-28 bg-navy-dark/50">
+    <section className="py-20 lg:py-28 bg-muted">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-cream mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
               {t.stats.heading}
             </h2>
-            <p className="text-lg text-cream/60 max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               {t.stats.subheading}
             </p>
           </div>
@@ -35,7 +35,7 @@ export function Stats() {
                 <div className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-br from-accent to-accent-light bg-clip-text text-transparent mb-2">
                   {stat.value}
                 </div>
-                <div className="text-sm sm:text-base text-cream/60">
+                <div className="text-sm sm:text-base text-muted-foreground">
                   {t.stats[stat.key as keyof typeof t.stats]}
                 </div>
               </div>
