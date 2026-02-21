@@ -385,7 +385,7 @@ export function Header({ className }: HeaderProps) {
             {/* Logo */}
             <Link
               to="/"
-              className="flex items-center gap-2 text-xl font-bold text-cream hover:text-accent transition-colors font-display"
+              className="flex items-center gap-2 text-xl font-bold text-foreground hover:text-accent transition-colors font-display"
             >
               <span className="text-accent">I</span>
               <span>da</span>
@@ -407,7 +407,7 @@ export function Header({ className }: HeaderProps) {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden md:flex items-center gap-2 text-sm font-medium text-cream/70 hover:text-accent transition-colors"
+                className="hidden md:flex items-center gap-2 text-sm font-medium text-foreground/70 hover:text-accent transition-colors"
               >
                 <LinkedInIcon size="sm" />
                 <span className="sr-only">LinkedIn</span>
@@ -418,7 +418,7 @@ export function Header({ className }: HeaderProps) {
                 iconName="Menu"
                 variant="ghost"
                 size="icon"
-                className="md:hidden text-cream hover:bg-cream/10"
+                className="md:hidden text-foreground hover:bg-muted"
                 onClick={() => setIsMobileMenuOpen(true)}
                 aria-label="Open menu"
               />
