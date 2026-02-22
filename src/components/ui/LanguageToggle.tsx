@@ -8,9 +8,14 @@ import { ChevronDown } from 'lucide-react';
 interface LanguageToggleProps {
   className?: string;
   menuPlacement?: 'up' | 'down';
+  menuAlign?: 'left' | 'right';
 }
 
-export function LanguageToggle({ className, menuPlacement = 'down' }: LanguageToggleProps) {
+export function LanguageToggle({
+  className,
+  menuPlacement = 'down',
+  menuAlign = 'right',
+}: LanguageToggleProps) {
   const { language, setLanguage } = useLanguage();
   const [isOpen, setIsOpen] = React.useState(false);
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -64,7 +69,8 @@ export function LanguageToggle({ className, menuPlacement = 'down' }: LanguageTo
             exit={{ opacity: 0, y: 8, scale: 0.95 }}
             transition={{ duration: 0.15 }}
             className={cn(
-              'absolute right-0 w-48 bg-navy-dark border border-cream/10 rounded-lg shadow-xl overflow-hidden z-[10080]',
+              'absolute w-48 bg-navy-dark border border-cream/10 rounded-lg shadow-xl overflow-hidden z-[10080]',
+              menuAlign === 'left' ? 'left-0' : 'right-0',
               menuPlacement === 'up' ? 'bottom-full mb-2' : 'top-full mt-2'
             )}
             role="listbox"

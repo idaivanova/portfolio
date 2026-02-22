@@ -7,27 +7,86 @@ import { LanguageToggle } from '../ui/LanguageToggle';
 import { ThemeToggle } from '../ui/ThemeToggle';
 import { LinkedInIcon } from '../ui/icon';
 import { useLanguage } from '../../lib/LanguageContext';
+import type { Language, Translations } from '../../lib/i18n';
 
 interface LeftRailNavProps {
   className?: string;
 }
 
 interface RailLink {
-  label: string;
+  id: 'home' | 'about' | 'pimcore' | 'ergowork' | 'dermatik' | 'sdzrn' | 'buzz-hq';
   href: string;
-  description?: string;
   section: 'main' | 'real' | 'playground';
 }
 
 const railLinks: RailLink[] = [
-  { label: 'HOME', href: '/', section: 'main' },
-  { label: 'ABOUT', href: '/about', section: 'main' },
-  { label: 'Pimcore Platform', href: '/case-studies/pimcore', description: 'Enterprise PIM redesign', section: 'real' },
-  { label: 'ErgoWork', href: '/case-studies/ergowork', description: 'Ergonomics platform', section: 'real' },
-  { label: 'Dermatik', href: '/case-studies/dermatik', description: 'Healthcare app', section: 'real' },
-  { label: 'SDZRN', href: '/case-studies/sdzrn', description: 'Brand identity concept', section: 'playground' },
-  { label: 'Buzz HQ', href: '/case-studies/buzz-hq', description: 'Interactive bee', section: 'playground' },
+  { id: 'home', href: '/', section: 'main' },
+  { id: 'about', href: '/about', section: 'main' },
+  { id: 'pimcore', href: '/case-studies/pimcore', section: 'real' },
+  { id: 'ergowork', href: '/case-studies/ergowork', section: 'real' },
+  { id: 'dermatik', href: '/case-studies/dermatik', section: 'real' },
+  { id: 'sdzrn', href: '/case-studies/sdzrn', section: 'playground' },
+  { id: 'buzz-hq', href: '/case-studies/buzz-hq', section: 'playground' },
 ];
+
+const navSectionLabels: Record<Language, { caseStudies: string; playground: string; projects: string }> = {
+  en: { caseStudies: 'Case Studies', playground: 'Playground', projects: 'Projects' },
+  de: { caseStudies: 'Fallstudien', playground: 'Spielwiese', projects: 'Projekte' },
+  bg: { caseStudies: 'Кейс проекти', playground: 'Експерименти', projects: 'Проекти' },
+  da: { caseStudies: 'Case studies', playground: 'Legeplads', projects: 'Projekter' },
+};
+
+const projectDescriptions: Record<Language, Record<'pimcore' | 'ergowork' | 'dermatik' | 'sdzrn' | 'buzz-hq', string>> = {
+  en: {
+    pimcore: 'Enterprise PIM redesign',
+    ergowork: 'Ergonomics platform',
+    dermatik: 'Healthcare app',
+    sdzrn: 'Brand identity concept',
+    'buzz-hq': 'Interactive bee',
+  },
+  de: {
+    pimcore: 'Enterprise-PIM Redesign',
+    ergowork: 'Ergonomie-Plattform',
+    dermatik: 'Healthcare-App',
+    sdzrn: 'Markenidentitätskonzept',
+    'buzz-hq': 'Interaktive Biene',
+  },
+  bg: {
+    pimcore: 'Редизайн на Enterprise PIM',
+    ergowork: 'Ергономична платформа',
+    dermatik: 'Здравно приложение',
+    sdzrn: 'Концепция за бранд идентичност',
+    'buzz-hq': 'Интерактивна пчела',
+  },
+  da: {
+    pimcore: 'Enterprise PIM-redesign',
+    ergowork: 'Ergonomisk platform',
+    dermatik: 'Sundhedsapp',
+    sdzrn: 'Brandidentitetskoncept',
+    'buzz-hq': 'Interaktiv bi',
+  },
+};
+
+function localizeRailLink(item: RailLink, t: Translations, language: Language) {
+  switch (item.id) {
+    case 'home':
+      return { label: t.nav.home };
+    case 'about':
+      return { label: t.nav.about };
+    case 'pimcore':
+      return { label: t.features.caseStudies.pimcore.title, description: projectDescriptions[language].pimcore };
+    case 'ergowork':
+      return { label: t.features.caseStudies.ergowork.title, description: projectDescriptions[language].ergowork };
+    case 'dermatik':
+      return { label: t.features.caseStudies.dermatik.title, description: projectDescriptions[language].dermatik };
+    case 'sdzrn':
+      return { label: 'SDZRN', description: projectDescriptions[language].sdzrn };
+    case 'buzz-hq':
+      return { label: t.features.playground.buzzHQ.title, description: projectDescriptions[language]['buzz-hq'] };
+    default:
+      return { label: item.id };
+  }
+}
 
 const triggerLogoClicked = (clickCount: number) => {
   window.dispatchEvent(new CustomEvent('logo-clicked', {
@@ -37,7 +96,7 @@ const triggerLogoClicked = (clickCount: number) => {
 
 function DesktopRailNav({ className }: LeftRailNavProps) {
   const location = useLocation();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [logoClickCount, setLogoClickCount] = React.useState(0);
   const [isLogoAnimating, setIsLogoAnimating] = React.useState(false);
 
@@ -52,6 +111,7 @@ function DesktopRailNav({ className }: LeftRailNavProps) {
   const mainLinks = railLinks.filter((item) => item.section === 'main');
   const realLinks = railLinks.filter((item) => item.section === 'real');
   const playgroundLinks = railLinks.filter((item) => item.section === 'playground');
+  const sectionLabels = navSectionLabels[language];
 
   return (
     <aside
@@ -90,6 +150,7 @@ function DesktopRailNav({ className }: LeftRailNavProps) {
           <div className="space-y-1">
             {mainLinks.map((item) => {
               const active = location.pathname === item.href;
+              const localized = localizeRailLink(item, t, language);
               return (
                 <Link
                   key={item.href}
@@ -99,7 +160,7 @@ function DesktopRailNav({ className }: LeftRailNavProps) {
                     active ? 'bg-accent/15 text-accent' : 'text-foreground/70 hover:bg-muted hover:text-foreground'
                   )}
                 >
-                  {item.label === 'HOME' ? t.nav.home : t.nav.about}
+                  {localized.label}
                 </Link>
               );
             })}
@@ -108,11 +169,12 @@ function DesktopRailNav({ className }: LeftRailNavProps) {
           <div className="my-3 h-px bg-border" />
 
           <p className="px-2.5 pb-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-foreground/45">
-            Case Studies
+            {sectionLabels.caseStudies}
           </p>
           <div className="space-y-0.5">
             {realLinks.map((item) => {
               const active = location.pathname === item.href;
+              const localized = localizeRailLink(item, t, language);
               return (
                 <Link
                   key={item.href}
@@ -122,9 +184,9 @@ function DesktopRailNav({ className }: LeftRailNavProps) {
                     active ? 'bg-accent/12 text-accent' : 'text-foreground/70 hover:bg-muted hover:text-foreground'
                   )}
                 >
-                  <span className="block text-[12px] lg:text-[13px] font-medium leading-tight">{item.label}</span>
-                  {item.description && (
-                    <span className="mt-0.5 hidden lg:block text-[11px] text-foreground/45 leading-tight">{item.description}</span>
+                  <span className="block text-[12px] lg:text-[13px] font-medium leading-tight">{localized.label}</span>
+                  {localized.description && (
+                    <span className="mt-0.5 hidden lg:block text-[11px] text-foreground/45 leading-tight">{localized.description}</span>
                   )}
                 </Link>
               );
@@ -134,11 +196,12 @@ function DesktopRailNav({ className }: LeftRailNavProps) {
           <div className="my-3 h-px bg-border" />
 
           <p className="px-2.5 pb-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-foreground/45">
-            Playground
+            {sectionLabels.playground}
           </p>
           <div className="space-y-0.5">
             {playgroundLinks.map((item) => {
               const active = location.pathname === item.href;
+              const localized = localizeRailLink(item, t, language);
               return (
                 <Link
                   key={item.href}
@@ -148,9 +211,9 @@ function DesktopRailNav({ className }: LeftRailNavProps) {
                     active ? 'bg-accent/12 text-accent' : 'text-foreground/70 hover:bg-muted hover:text-foreground'
                   )}
                 >
-                  <span className="block text-[12px] lg:text-[13px] font-medium leading-tight">{item.label}</span>
-                  {item.description && (
-                    <span className="mt-0.5 hidden lg:block text-[11px] text-foreground/45 leading-tight">{item.description}</span>
+                  <span className="block text-[12px] lg:text-[13px] font-medium leading-tight">{localized.label}</span>
+                  {localized.description && (
+                    <span className="mt-0.5 hidden lg:block text-[11px] text-foreground/45 leading-tight">{localized.description}</span>
                   )}
                 </Link>
               );
@@ -160,7 +223,7 @@ function DesktopRailNav({ className }: LeftRailNavProps) {
 
         <div className="mt-3 border-t border-border pt-2.5">
           <div className="mb-2.5 flex items-center gap-2">
-            <LanguageToggle menuPlacement="up" />
+            <LanguageToggle menuPlacement="up" menuAlign="left" />
             <ThemeToggle />
           </div>
           <a
@@ -180,7 +243,7 @@ function DesktopRailNav({ className }: LeftRailNavProps) {
 
 function MobilePortfolioNav() {
   const location = useLocation();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [isProjectsOpen, setIsProjectsOpen] = React.useState(false);
   const [beeTapCount, setBeeTapCount] = React.useState(0);
   const closeButtonRef = React.useRef<HTMLButtonElement | null>(null);
@@ -188,6 +251,7 @@ function MobilePortfolioNav() {
 
   const realLinks = railLinks.filter((item) => item.section === 'real');
   const playgroundLinks = railLinks.filter((item) => item.section === 'playground');
+  const sectionLabels = navSectionLabels[language];
 
   const handleBeeTap = () => {
     const nextClickCount = beeTapCount >= 5 ? 1 : beeTapCount + 1;
@@ -243,7 +307,7 @@ function MobilePortfolioNav() {
               transition={{ duration: 0.18 }}
             >
               <div className="mb-3 flex items-center justify-between">
-                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-foreground/55">Projects</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-foreground/55">{sectionLabels.projects}</p>
                 <button
                   type="button"
                   ref={closeButtonRef}
@@ -256,42 +320,48 @@ function MobilePortfolioNav() {
               </div>
 
               <div className="grid grid-cols-1 gap-1.5">
-                {realLinks.map((item) => (
-                  <Link
-                    key={item.href}
-                    to={item.href}
-                    onClick={() => setIsProjectsOpen(false)}
-                    className={cn(
-                      'rounded-lg px-3 py-2',
-                      location.pathname === item.href ? 'bg-accent/12 text-accent' : 'text-foreground/78 hover:bg-muted hover:text-foreground'
-                    )}
-                  >
-                    <span className="block text-sm font-medium">{item.label}</span>
-                    <span className="block text-[11px] text-foreground/45">{item.description}</span>
-                  </Link>
-                ))}
+                {realLinks.map((item) => {
+                  const localized = localizeRailLink(item, t, language);
+                  return (
+                    <Link
+                      key={item.href}
+                      to={item.href}
+                      onClick={() => setIsProjectsOpen(false)}
+                      className={cn(
+                        'rounded-lg px-3 py-2',
+                        location.pathname === item.href ? 'bg-accent/12 text-accent' : 'text-foreground/78 hover:bg-muted hover:text-foreground'
+                      )}
+                    >
+                      <span className="block text-sm font-medium">{localized.label}</span>
+                      {localized.description && <span className="block text-[11px] text-foreground/45">{localized.description}</span>}
+                    </Link>
+                  );
+                })}
 
                 <div className="my-1 h-px bg-border" />
 
-                {playgroundLinks.map((item) => (
-                  <Link
-                    key={item.href}
-                    to={item.href}
-                    onClick={() => setIsProjectsOpen(false)}
-                    className={cn(
-                      'rounded-lg px-3 py-2',
-                      location.pathname === item.href ? 'bg-accent/12 text-accent' : 'text-foreground/78 hover:bg-muted hover:text-foreground'
-                    )}
-                  >
-                    <span className="block text-sm font-medium">{item.label}</span>
-                    <span className="block text-[11px] text-foreground/45">{item.description}</span>
-                  </Link>
-                ))}
+                {playgroundLinks.map((item) => {
+                  const localized = localizeRailLink(item, t, language);
+                  return (
+                    <Link
+                      key={item.href}
+                      to={item.href}
+                      onClick={() => setIsProjectsOpen(false)}
+                      className={cn(
+                        'rounded-lg px-3 py-2',
+                        location.pathname === item.href ? 'bg-accent/12 text-accent' : 'text-foreground/78 hover:bg-muted hover:text-foreground'
+                      )}
+                    >
+                      <span className="block text-sm font-medium">{localized.label}</span>
+                      {localized.description && <span className="block text-[11px] text-foreground/45">{localized.description}</span>}
+                    </Link>
+                  );
+                })}
               </div>
 
               <div className="mt-3 flex items-center justify-between border-t border-border pt-2.5">
                 <div className="flex items-center gap-2">
-                  <LanguageToggle menuPlacement="up" />
+                  <LanguageToggle menuPlacement="up" menuAlign="left" />
                   <ThemeToggle />
                 </div>
                 <a
@@ -342,7 +412,7 @@ function MobilePortfolioNav() {
             className="flex flex-col items-center justify-center rounded-xl py-1.5 text-[11px] font-medium text-foreground/70"
           >
             <Layers3 className="mb-0.5 h-4 w-4" />
-            <span>Projects</span>
+            <span>{sectionLabels.projects}</span>
           </button>
 
           <button

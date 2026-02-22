@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import { Hero } from './components/sections/Hero';
 import { Stats } from './components/sections/Stats';
 import { Features } from './components/sections/Features';
@@ -72,11 +72,35 @@ function AppContent() {
 }
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-  }, [pathname]);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+
+    const frame = window.requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    });
+
+    const t1 = window.setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }, 0);
+
+    const t2 = window.setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }, 180);
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.clearTimeout(t1);
+      window.clearTimeout(t2);
+    };
+  }, [pathname, search]);
 
   return null;
 }
