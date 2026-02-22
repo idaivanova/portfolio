@@ -224,7 +224,7 @@ const de: Translations = {
     contact: 'KONTAKT',
   },
   hero: {
-    heading: 'Hallo! Ich bin Ida, eine Designerin mit Erfahrung in verschiedenen Branchen',
+    heading: 'Hallo! Ich bin Ida, UX/UI-Designerin mit Erfahrung in unterschiedlichsten Branchen',
     subheading: 'Senior UX/UI Designerin',
     skills: ['UI-Design', 'UX-Design', 'Design-Systeme'],
     viewProjects: 'Meine Projekte',
@@ -268,7 +268,7 @@ const de: Translations = {
       },
       flutter: {
         title: 'Flutter: Motion Design',
-        description: 'Verspieltes UX-Experiment, das verspieltes Motion-Design präsentiert. Jede Interaktion flattert mit naturinspirierten Animationen.',
+        description: 'Ein verspieltes UX-Experiment mit naturinspirierten Motion-Interaktionen und lebendigen Mikroanimationen.',
         cta: 'Flutter erkunden',
         category: 'Motion Design',
       },
@@ -278,7 +278,7 @@ const de: Translations = {
       subheading: 'Experimentelle Projekte, die innovative Interaktionsmuster erkunden',
       buzzHQ: {
         title: 'Buzz HQ',
-        description: 'Experimenteller Spielplatz! Eine cursor-folgende Hummel, die untersucht, bestäubt und auf UI-Elementen landet. UX-Forschung trifft verspielte Interaktion.',
+        description: 'Ein experimenteller Spielplatz: Eine cursorfolgende Hummel untersucht, bestaubt und landet auf UI-Elementen. UX-Forschung trifft verspielte Interaktion.',
         cta: 'Bella kennenlernen',
         category: 'UX Lab',
       },
@@ -346,7 +346,7 @@ const bg: Translations = {
   },
   hero: {
     heading: 'Здравейте! Аз съм Ида, дизайнер с опит в различни индустрии',
-    subheading: 'Senior UX/UI Дизайнер',
+    subheading: 'Senior UX/UI дизайнер',
     skills: ['Дизайн на потребителски интерфейс', 'Дизайн на потребителско изживяване', 'Дизайн системи'],
     viewProjects: 'Моите проекти',
     getInTouch: 'Свържи се с мен',
@@ -356,7 +356,7 @@ const bg: Translations = {
     subheading: 'Доставяне на изключителни дизайнерски решения в различни индустрии',
     yearsExperience: 'Години опит',
     projectsCompleted: 'Завършени проекти',
-    industriesServed: 'Отрасъла',
+    industriesServed: 'Индустрии',
     clientSatisfaction: 'Удовлетвореност на клиентите',
   },
   features: {
@@ -365,13 +365,13 @@ const bg: Translations = {
     caseStudies: {
       pimcore: {
         title: 'Pimcore Platform',
-        description: 'Пълна промяна на корпоративна PIM платформа за глобална технологична компания. Оптимизира сложни работни процеси и подобри потребителската ефективност с 40%.',
+        description: 'Редизайн на корпоративна PIM платформа за глобална технологична компания. Оптимизирах сложни работни процеси и повиших ефективността на потребителите с 40%.',
         cta: 'Виж case study',
         category: 'B2B SaaS',
       },
       ergowork: {
         title: 'ErgoWork',
-        description: 'Ергономична платформа за благополучие на работното място. Проектира интуитивна B2B платформа, помагаща на бизнеса да създава по-здрави работни пространства.',
+        description: 'Ергономична платформа за благосъстояние на работното място. Създадох интуитивна B2B платформа, която помага на компаниите да изграждат по-здравословна работна среда.',
         cta: 'Виж case study',
         category: 'B2B Platform',
       },
@@ -383,29 +383,29 @@ const bg: Translations = {
       },
       buzz: {
         title: 'Buzz: Опазване на пчелите',
-        description: 'Забавно UX експеримент, който прави опазването на околната среда очарователно чрез геймификация и дизайн, воден от герои.',
+        description: 'Забавен UX експеримент, който прави опазването на околната среда по-достъпно чрез геймификация и дизайн, воден от персонажи.',
         cta: 'Запознай се с Buzz',
         category: 'Mobile App',
       },
       flutter: {
         title: 'Flutter: Motion Design',
-        description: 'Фантастично UX експеримент, показващ игрив motion дизайн. Всяка взаимодействие трепти с анимации, вдъхновени от природата.',
+        description: 'Игрив UX експеримент, който демонстрира motion дизайн с вдъхновени от природата анимации и микроинтеракции.',
         cta: 'Разгледай Flutter',
         category: 'Motion Design',
       },
     },
     playground: {
       heading: 'UX Playground',
-      subheading: 'Експериментални проекти, изследващи иновационни модели на взаимодействие',
+      subheading: 'Експериментални проекти, изследващи иновативни модели на взаимодействие',
       buzzHQ: {
         title: 'Buzz HQ',
-        description: 'Експериментална площадка! Пчела, следваща курсора, която изследва, опрашва и каца върху UI елементи. UX изследванията се срещат с игриво взаимодействие.',
+        description: 'Експериментална площадка: пчела, която следва курсора, изследва, опрашва и каца върху UI елементи. UX изследването среща игривата интеракция.',
         cta: 'Запознай се с Bella',
         category: 'UX Lab',
       },
       flutterFields: {
         title: 'Flutter Fields',
-        description: 'Експерименти с motion дизайн, изследващи анимации, вдъхновени от пеперудите, взаимодействия, базирани на физика, и прекрасни микро движения.',
+        description: 'Експерименти с motion дизайн, изследващи анимации, вдъхновени от пеперуди, физично-базирани взаимодействия и фини микродвижения.',
         cta: 'Разгледай Motion',
         category: 'UX Lab',
       },
@@ -415,7 +415,7 @@ const bg: Translations = {
     heading: 'Нека работим заедно',
     subheading: 'Имате проект предвид? Винаги съм развълнувана да обсъждам нови възможности и предизвикателства в UX/UI дизайна.',
     getInTouch: 'Свържи се с мен',
-    viewResume: 'Виж автобиография',
+    viewResume: 'Виж CV',
   },
   common: {
     viewProject: 'Виж проекта',
@@ -454,7 +454,7 @@ const bg: Translations = {
     ctaGetInTouch: 'Свържи се',
     ctaViewProjects: 'Виж проекти',
     personalWebsite: 'Личен уебсайт',
-    uxDesignerBasedIn: 'UX/UI Дизайнер базиран в Австрия',
+    uxDesignerBasedIn: 'UX/UI дизайнер, базиран в Австрия',
   },
 };
 
@@ -486,7 +486,7 @@ const da: Translations = {
     caseStudies: {
       pimcore: {
         title: 'Pimcore Platform',
-        description: 'Enterprise PIM platform redesign for en global teknologivirksomhed. Strømlinede komplekse arbejdsgange og forbedrede brugeffektiviteten med 40%.',
+        description: 'Redesign af en enterprise PIM-platform for en global teknologivirksomhed. Strømlinede komplekse arbejdsgange og forbedrede brugereffektiviteten med 40%.',
         cta: 'Se case study',
         category: 'B2B SaaS',
       },
@@ -504,13 +504,13 @@ const da: Translations = {
       },
       buzz: {
         title: 'Buzz: Biernes Bevarelse',
-        description: 'Et legesygt UX eksperiment, der gør miljøbevarelse bedårende gennem gamification og karaterdrevet design.',
+        description: 'Et legende UX-eksperiment, der gør naturbevarelse nærværende gennem gamification og karakterdrevet design.',
         cta: 'Mød Buzz',
         category: 'Mobile App',
       },
       flutter: {
         title: 'Flutter: Motion Design',
-        description: 'Fantastisk UX eksperiment, der viser legesygt motion design. Hver interaktion flakker med naturinspirerede animationer.',
+        description: 'Et legende UX-eksperiment med naturinspireret motion design og levende mikrointeraktioner.',
         cta: 'Udforsk Flutter',
         category: 'Motion Design',
       },
@@ -520,7 +520,7 @@ const da: Translations = {
       subheading: 'Eksperimentelle projekter, der udforsker innovative interaktionsmønstre',
       buzzHQ: {
         title: 'Buzz HQ',
-        description: 'Eksperimentelt legeplads! En cursor-følgende bi, der undersøger, bestøver og lander på UI-elementer. UX forskning møder legesygt interaktion.',
+        description: 'En eksperimentel legeplads: En markørfølgende bi, der undersøger, bestøver og lander på UI-elementer. UX-forskning møder legende interaktion.',
         cta: 'Mød Bella',
         category: 'UX Lab',
       },

@@ -5,9 +5,11 @@ import { motion, useAnimation } from 'framer-motion';
 // RACCOON EASTER EGG COMPONENT
 // Occasionally appears from screen edges to hide navigation buttons
 // Must click the raccoon to make it move away
+// With logo click trigger for fun easter egg behavior
 // ========================
 
 type RaccoonPosition = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+type RaccoonMood = 'calm' | 'curious' | 'startled' | 'silly' | 'drunk';
 
 interface RaccoonScenario {
   id: number;
@@ -23,6 +25,15 @@ const SCENARIOS: RaccoonScenario[] = [
   { id: 3, position: 'bottom-left', name: 'Bottom Left Raccoon', description: 'Appears from bottom-left corner' },
   { id: 4, position: 'bottom-right', name: 'Bottom Right Raccoon', description: 'Appears from bottom-right corner' },
 ];
+
+// Raccoon mood messages
+const RACCOON_MOOD_MESSAGES: Record<RaccoonMood, string[]> = {
+  calm: ['Cool.', 'Chill.', 'Peace.', 'Relax.'],
+  curious: ['Hmm?', 'What?', 'See you!', 'Hiding.'],
+  startled: ['Yikes!', 'Whoa!', 'Sneaky!', 'Found me!'],
+  silly: ['Boing!', 'Wobble!', 'Silly!', 'Haha!'],
+  drunk: ['Spinning...', 'Whoops...', 'Zzz...', 'Wheee!'],
+};
 
 // Get position styles based on corner
 const getPositionStyles = (position: RaccoonPosition) => {
@@ -114,14 +125,62 @@ function RaccoonIcon({ className, style }: { className?: string; style?: React.C
 interface RaccoonProps {
   position: RaccoonPosition;
   onRemove: () => void;
+  onLogoClick?: () => void;
 }
 
-function Raccoon({ position, onRemove }: RaccoonProps) {
+function Raccoon({ position, onRemove, onLogoClick }: RaccoonProps) {
   const controls = useAnimation();
   const [isLeaving, setIsLeaving] = useState(false);
+  const [mood, setMood] = useState<RaccoonMood>('calm');
   
   const startPos = getPositionStyles(position);
   const targetPos = getTargetPosition(position);
+  
+  // Trigger shake animation on logo click
+  useEffect(() => {
+    if (!onLogoClick) return;
+
+    const handleLogoClick = () => {
+      // Set random mood
+      const moods: RaccoonMood[] = ['startled', 'silly', 'drunk', 'curious'];
+      setMood(moods[Math.floor(Math.random() * moods.length)]);
+      
+      // Perform shake animation based on mood
+      if (mood === 'drunk') {
+        // Spin and wobble
+        controls.start({
+          rotate: [0, 15, -15, 360],
+          x: [0, 10, -10, 0],
+          transition: { duration: 0.8, ease: 'easeInOut' },
+        }).then(() => setMood('calm'));
+      } else if (mood === 'startled') {
+        // Jump and shake
+        controls.start({
+          y: [0, -50, 20, 0],
+          rotate: [0, -10, 10, 0],
+          transition: { duration: 0.6, ease: 'backOut' },
+        });
+      } else if (mood === 'silly') {
+        // Wiggle and bounce
+        controls.start({
+          rotate: [0, 20, -20, 0],
+          x: [0, 15, -15, 0],
+          transition: { duration: 0.5, repeat: 2, repeatType: 'reverse', ease: 'easeInOut' },
+        });
+      } else {
+        // Curious - bounce slightly
+        controls.start({
+          y: [0, -20, 0],
+          transition: { duration: 0.3, repeat: 1, repeatType: 'reverse', ease: 'easeInOut' },
+        });
+      }
+    };
+
+    window.addEventListener('logo-clicked', handleLogoClick as EventListener);
+    return () => {
+      window.removeEventListener('logo-clicked', handleLogoClick as EventListener);
+    };
+  }, [controls, mood, onLogoClick]);
   
   useEffect(() => {
     // Animate in from edge

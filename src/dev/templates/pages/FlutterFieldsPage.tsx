@@ -11,7 +11,7 @@ import {
   motionPatternsData,
   butterfliesData,
   microInteractionsData,
-} from '@/data/flutter-fields';
+} from '@/dev/templates/data/flutter-fields';
 
 export default function FlutterFieldsPage() {
   return (

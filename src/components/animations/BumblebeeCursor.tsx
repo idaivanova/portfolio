@@ -98,7 +98,8 @@ function BumblebeeIcon({ emotion }: { emotion: 'idle' | 'curious' | 'startled' |
         stroke="#1F2937"
         strokeWidth="2"
         fill="none"
-        animate={emotion === 'happy' ? { d: ['M28 18 Q24 12 26 8', 'M28 18 Q20 14 22 10', 'M28 18 Q24 12 26 8'] } : {}}
+        style={{ transformOrigin: '28px 18px' }}
+        animate={emotion === 'happy' ? { rotate: [0, -10, 8, 0] } : { rotate: 0 }}
         transition={{ duration: 0.3, repeat: emotion === 'happy' ? Infinity : 0 }}
       />
       <motion.path
@@ -106,7 +107,8 @@ function BumblebeeIcon({ emotion }: { emotion: 'idle' | 'curious' | 'startled' |
         stroke="#1F2937"
         strokeWidth="2"
         fill="none"
-        animate={emotion === 'happy' ? { d: ['M36 18 Q40 12 38 8', 'M36 18 Q44 14 42 10', 'M36 18 Q40 12 38 8'] } : {}}
+        style={{ transformOrigin: '36px 18px' }}
+        animate={emotion === 'happy' ? { rotate: [0, 10, -8, 0] } : { rotate: 0 }}
         transition={{ duration: 0.3, repeat: emotion === 'happy' ? Infinity : 0 }}
       />
       

@@ -1,9 +1,12 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
 
-type BeeEmotion = 'idle' | 'flying' | 'curious' | 'startled' | 'happy' | 'sleeping' | 'waking' | 'walking' | 'landing' | 'investigating';
+type BeeEmotion = 'idle' | 'flying' | 'curious' | 'startled' | 'happy' | 'sleeping' | 'waking' | 'walking' | 'landing' | 'investigating' | 'drunk' | 'excited' | 'dizzy' | 'party' | 'zen';
 
-type MovementMode = 'flying' | 'walking' | 'hovering' | 'resting';
+type MovementMode = 'flying' | 'walking' | 'hovering' | 'resting' | 'chaotic' | 'spiraling';
+
+type BeePersonality = 'friendly' | 'shy' | 'energetic' | 'calm' | 'curious' | 'playful' | 'sleepy' | 'adventurous' | 'silly' | 'wise';
 
 interface TrailDot {
   id: number;
@@ -25,6 +28,29 @@ interface TouchTarget {
 }
 
 const isMobile = () => typeof window !== 'undefined' && window.innerWidth < 768;
+
+// Bee personalities with emoji-only feedback
+const BEE_PERSONALITIES: Record<BeePersonality, { emoji: string; emotes: string[]; speed: number }> = {
+  friendly: { emoji: '🐝', emotes: ['🐝', '🙂', '✨', '🌼'], speed: 1 },
+  shy: { emoji: '😳', emotes: ['😳', '🙈', '🫣', '🌙'], speed: 0.72 },
+  energetic: { emoji: '⚡', emotes: ['⚡', '🔥', '💨', '🎯'], speed: 1.28 },
+  calm: { emoji: '🧘', emotes: ['🧘', '🌿', '☁️', '🫧'], speed: 0.58 },
+  curious: { emoji: '🤔', emotes: ['🤔', '🔎', '🌸', '🧭'], speed: 0.92 },
+  playful: { emoji: '🎉', emotes: ['🎉', '😄', '🫶', '🎈'], speed: 1.1 },
+  sleepy: { emoji: '😴', emotes: ['😴', '💤', '🌙', '🛌'], speed: 0.48 },
+  adventurous: { emoji: '🗺️', emotes: ['🗺️', '🧭', '🌍', '✨'], speed: 1.02 },
+  silly: { emoji: '🤪', emotes: ['🤪', '🌀', '😆', '🎲'], speed: 1.2 },
+  wise: { emoji: '🦉', emotes: ['🦉', '✨', '📚', '🌟'], speed: 0.66 },
+};
+
+// Escalation level emoji sets
+const ESCALATION_EMOTES = [
+  ['🐝', '🙂', '🌼'],
+  ['😄', '✨', '💨'],
+  ['⚡', '🎉', '🫧'],
+  ['🌀', '🔥', '🌪️'],
+  ['🌪️', '🤪', '⚡', '💥'],
+];
 
 const PollinationTrail = ({ dots, color = '#FFB800' }: { dots: TrailDot[]; color?: string }) => {
   const now = Date.now();
@@ -197,7 +223,8 @@ const BumblebeeIcon = ({
           stroke="#1F2937"
           strokeWidth="2"
           fill="none"
-          animate={antennaWiggle ? { d: ['M28 18 Q24 12 26 8', 'M28 18 Q22 14 23 10', 'M28 18 Q24 12 26 8'] } : {}}
+          style={{ transformOrigin: '28px 18px' }}
+          animate={antennaWiggle ? { rotate: [0, -12, 8, 0] } : { rotate: 0 }}
           transition={{ duration: emotion === 'curious' || movementMode === 'walking' ? 0.15 : 0.25, repeat: antennaWiggle ? Infinity : 0 }}
         />
         <motion.path
@@ -205,7 +232,8 @@ const BumblebeeIcon = ({
           stroke="#1F2937"
           strokeWidth="2"
           fill="none"
-          animate={antennaWiggle ? { d: ['M36 18 Q40 12 38 8', 'M36 18 Q42 14 41 10', 'M36 18 Q40 12 38 8'] } : {}}
+          style={{ transformOrigin: '36px 18px' }}
+          animate={antennaWiggle ? { rotate: [0, 12, -8, 0] } : { rotate: 0 }}
           transition={{ duration: emotion === 'curious' || movementMode === 'walking' ? 0.15 : 0.25, repeat: antennaWiggle ? Infinity : 0 }}
         />
         
@@ -246,8 +274,8 @@ export function InteractiveBumblebee({
   const [emotion, setEmotion] = useState<BeeEmotion>('idle');
   const [movementMode, setMovementMode] = useState<MovementMode>('flying');
   const [trailDots, setTrailDots] = useState<TrailDot[]>([]);
-  const [hint, setHint] = useState<string | null>(null);
   const [rotation, setRotation] = useState(0);
+  const [speechBubble, setSpeechBubble] = useState<{ text: string; visible: boolean }>({ text: '', visible: false });
   
   const beeRef = useRef<HTMLDivElement>(null);
   const positionRef = useRef({ x: -100, y: 100 });
@@ -269,8 +297,63 @@ export function InteractiveBumblebee({
   const isResting = useRef(false);
   const activityStartTime = useRef(Date.now());
   const longPressTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const speechTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const lastSpeechAtRef = useRef(0);
   const isLongPress = useRef(false);
   const mobileDetected = useRef(isMobile());
+  const hasClaimedGlobalInstance = useRef(false);
+  
+  // Store personality in a ref to avoid re-renders
+  const personalityRef = useRef<BeePersonality>('friendly');
+
+  // Select random personality on mount
+  useEffect(() => {
+    const personalities: BeePersonality[] = ['friendly', 'shy', 'energetic', 'calm', 'curious', 'playful', 'sleepy', 'adventurous', 'silly', 'wise'];
+    const randomPersonality = personalities[Math.floor(Math.random() * personalities.length)];
+    personalityRef.current = randomPersonality;
+  }, []);
+
+  const showSpeechBubble = useCallback((emoji: string, duration = 900, cooldown = 1800) => {
+    const now = Date.now();
+    if (now - lastSpeechAtRef.current < cooldown) return;
+
+    lastSpeechAtRef.current = now;
+    setSpeechBubble({ text: emoji, visible: true });
+
+    if (speechTimerRef.current) {
+      clearTimeout(speechTimerRef.current);
+    }
+
+    speechTimerRef.current = setTimeout(() => {
+      setSpeechBubble({ text: '', visible: false });
+    }, duration);
+  }, []);
+
+  const hideSpeechBubble = useCallback(() => {
+    if (speechTimerRef.current) {
+      clearTimeout(speechTimerRef.current);
+    }
+    setSpeechBubble({ text: '', visible: false });
+  }, []);
+
+  useEffect(() => {
+    if (!enabled || typeof window === 'undefined') return;
+
+    const globalWindow = window as Window & { __idaGlobalBeeMounted?: boolean };
+    if (globalWindow.__idaGlobalBeeMounted) {
+      hasClaimedGlobalInstance.current = false;
+      return;
+    }
+
+    globalWindow.__idaGlobalBeeMounted = true;
+    hasClaimedGlobalInstance.current = true;
+
+    return () => {
+      if (hasClaimedGlobalInstance.current) {
+        globalWindow.__idaGlobalBeeMounted = false;
+      }
+    };
+  }, [enabled]);
 
   const EDGE_THRESHOLD = 40;
   const CORNER_THRESHOLD = 60;
@@ -287,14 +370,15 @@ export function InteractiveBumblebee({
   }, []);
 
   const getUIElements = useCallback((): UIElement[] => {
-    if (!mobileDetected.current) return [];
-    
     const elements: UIElement[] = [];
     const interactiveSelectors = 'button, a, [role="button"], input, textarea, select, [tabindex]:not([tabindex="-1"])';
     
     document.querySelectorAll(interactiveSelectors).forEach((el) => {
       const rect = el.getBoundingClientRect();
-      if (rect.width > 0 && rect.height > 0) {
+      const styles = window.getComputedStyle(el);
+      const inViewport = rect.bottom > 0 && rect.right > 0 && rect.top < window.innerHeight && rect.left < window.innerWidth;
+
+      if (rect.width > 0 && rect.height > 0 && inViewport && styles.visibility !== 'hidden' && styles.display !== 'none') {
         const tagName = el.tagName.toLowerCase();
         let type: 'button' | 'link' | 'interactive' = 'interactive';
         if (tagName === 'a') type = 'link';
@@ -410,7 +494,7 @@ export function InteractiveBumblebee({
     fromEdge: 'top' | 'right' | 'bottom' | 'left'
   ) => {
     setEmotion('curious');
-    setHint('🔍 Corner!');
+    showSpeechBubble('🔍', 700, 600);
     
     const cornerPos = {
       'top-left': { x: 30, y: 30 },
@@ -441,7 +525,7 @@ export function InteractiveBumblebee({
       }
     }
     
-    setHint(null);
+    hideSpeechBubble();
     
     const nextEdgeMap: Record<string, 'top' | 'right' | 'bottom' | 'left'> = {
       'top-left-top': 'left',
@@ -456,7 +540,7 @@ export function InteractiveBumblebee({
     const nextEdge = nextEdgeMap[`${corner}-${fromEdge}`] || fromEdge;
     
     return nextEdge;
-  }, []);
+  }, [hideSpeechBubble, showSpeechBubble]);
 
   const investigateUIElement = useCallback(async (uiElement: UIElement) => {
     if (isInvestigatingUI.current) return;
@@ -464,7 +548,7 @@ export function InteractiveBumblebee({
     
     setEmotion('investigating');
     setMovementMode('hovering');
-    setHint('🌸 Flower?');
+    showSpeechBubble('🌸', 700, 500);
     
     const { rect } = uiElement;
     const centerX = rect.left + rect.width / 2;
@@ -485,7 +569,7 @@ export function InteractiveBumblebee({
     
     targetRef.current = { x: centerX, y: centerY };
     setMovementMode('walking');
-    setHint('🍯 Yum!');
+    showSpeechBubble('🍯', 700, 500);
     await new Promise(resolve => setTimeout(resolve, 500));
     
     setEmotion('happy');
@@ -496,13 +580,13 @@ export function InteractiveBumblebee({
       y: centerY - 50,
     };
     
-    setHint(null);
+    hideSpeechBubble();
     setMovementMode('flying');
     setEmotion('flying');
     setRotation(0);
     
     isInvestigatingUI.current = false;
-  }, []);
+  }, [hideSpeechBubble, showSpeechBubble]);
 
   const startResting = useCallback(async () => {
     if (isResting.current) return;
@@ -526,10 +610,8 @@ export function InteractiveBumblebee({
     
     setMovementMode('resting');
     setEmotion('sleeping');
-    setHint('💤 Zzz...');
-    
-    setTimeout(() => setHint(null), 2000);
-  }, []);
+    showSpeechBubble('💤', 1200, 1000);
+  }, [showSpeechBubble]);
 
   const wakeUp = useCallback(() => {
     if (!isResting.current) return;
@@ -539,19 +621,19 @@ export function InteractiveBumblebee({
     activityStartTime.current = Date.now();
     
     setEmotion('waking');
-    setHint('☀️ Good morning!');
+    showSpeechBubble('☀️', 800, 400);
     
     setTimeout(() => {
       setMovementMode('flying');
       setEmotion('flying');
-      setHint(null);
+      hideSpeechBubble();
       
       targetRef.current = {
         x: window.innerWidth * 0.2 + (Math.random() - 0.5) * 100,
         y: window.innerHeight * 0.3 + (Math.random() - 0.5) * 100,
       };
     }, 500);
-  }, []);
+  }, [hideSpeechBubble, showSpeechBubble]);
 
   const handleTouchStart = useCallback((e: TouchEvent) => {
     const touch = e.touches[0];
@@ -615,7 +697,7 @@ export function InteractiveBumblebee({
           wakeUp();
         } else {
           setEmotion('startled');
-          setHint('💛 Buzz!');
+          showSpeechBubble('💛', 700, 450);
           
           const corners = [
             { x: -80, y: -80 },
@@ -634,8 +716,7 @@ export function InteractiveBumblebee({
               y: window.innerHeight * 0.2 + (Math.random() - 0.5) * 100,
             };
             setEmotion('flying');
-            setHint('👋 I\'m back!');
-            setTimeout(() => setHint(null), 2000);
+            showSpeechBubble('👋', 800, 400);
           }, 1200);
         }
         return;
@@ -646,7 +727,7 @@ export function InteractiveBumblebee({
       wakeUp();
     } else if (!isInvestigatingUI.current) {
       setEmotion('curious');
-      setHint('🤔 What\'s there?');
+      showSpeechBubble('🤔', 700, 450);
       
       targetRef.current = { x: touchX, y: touchY };
       
@@ -661,15 +742,15 @@ export function InteractiveBumblebee({
         });
         
         if (nearbyElement) {
-          setHint('🌸 Ooh, a flower!');
+          showSpeechBubble('🌸', 700, 450);
           await investigateUIElement(nearbyElement);
         }
       }
-      
-      setHint(null);
+
+      hideSpeechBubble();
       setEmotion('flying');
     }
-  }, [wakeUp, getUIElements, investigateUIElement, startResting]);
+  }, [wakeUp, getUIElements, investigateUIElement, startResting, hideSpeechBubble, showSpeechBubble]);
 
   const animateBee = useCallback(() => {
     if (!isBeeActive.current) return;
@@ -678,7 +759,12 @@ export function InteractiveBumblebee({
     const dy = targetRef.current.y - positionRef.current.y;
     const distance = Math.sqrt(dx * dx + dy * dy);
     
-    const speed = movementMode === 'walking' ? 0.03 : movementMode === 'resting' ? 0.01 : 0.08;
+    const personalitySpeed = BEE_PERSONALITIES[personalityRef.current]?.speed ?? 1;
+    const speed = movementMode === 'walking'
+      ? 0.02
+      : movementMode === 'resting'
+        ? 0.008
+        : 0.045 * personalitySpeed;
     
     if (distance > 1) {
       positionRef.current.x += dx * speed;
@@ -696,10 +782,10 @@ export function InteractiveBumblebee({
     }
 
     if (movementMode === 'flying' && !hasLanded.current && !isWalkingEdge.current && !isInvestigatingUI.current && isBeeActive.current) {
-      if (Math.random() > 0.96) {
+      if (Math.random() > 0.965) {
         const buzzOffset = {
-          x: (Math.random() - 0.5) * 8,
-          y: (Math.random() - 0.5) * 8,
+          x: (Math.random() - 0.5) * 14,
+          y: (Math.random() - 0.5) * 14,
         };
         targetRef.current = {
           x: targetRef.current.x + buzzOffset.x,
@@ -758,11 +844,14 @@ export function InteractiveBumblebee({
     }
 
     if (!hasLanded.current && !isFollowingCursor.current && isBeeActive.current && !isInvestigatingUI.current) {
-      targetRef.current = {
-        x: mouseRef.current.x + (Math.random() - 0.5) * 60 - 28,
-        y: mouseRef.current.y + (Math.random() - 0.5) * 60 - 28,
-      };
-      
+      const shouldFollowCursor = Math.random() < 0.24;
+      if (shouldFollowCursor) {
+        targetRef.current = {
+          x: mouseRef.current.x + (Math.random() - 0.5) * 120 - 28,
+          y: mouseRef.current.y + (Math.random() - 0.5) * 120 - 28,
+        };
+      }
+
       if (emotion !== 'flying' && emotion !== 'curious') {
         setEmotion('flying');
       }
@@ -781,7 +870,7 @@ export function InteractiveBumblebee({
 
     if (isDoubleClick) {
       setEmotion('happy');
-      setHint('🎉 Yay!');
+      showSpeechBubble('🎉', 700, 500);
       
       isFollowingCursor.current = true;
       for (let i = 0; i < 3; i++) {
@@ -801,14 +890,14 @@ export function InteractiveBumblebee({
       isFollowingCursor.current = false;
       
       setTimeout(() => {
-        setHint(null);
+        hideSpeechBubble();
         setEmotion('flying');
       }, 1000);
       return;
     }
 
     setEmotion('startled');
-    setHint('💛 Buzz!');
+    showSpeechBubble('💛', 700, 500);
 
     const corners = [
       { x: -80, y: -80 },
@@ -829,10 +918,9 @@ export function InteractiveBumblebee({
       };
       setEmotion('flying');
       hasLanded.current = false;
-      setHint('👋 I\'m back!');
-      setTimeout(() => setHint(null), 2000);
+      showSpeechBubble('👋', 900, 500);
     }, 1500);
-  }, [emotion, wakeUp]);
+  }, [emotion, hideSpeechBubble, showSpeechBubble, wakeUp]);
 
   const handleIdle = useCallback(async () => {
     if (hasLanded.current) return;
@@ -851,12 +939,11 @@ export function InteractiveBumblebee({
     targetRef.current = corner;
     
     setEmotion('sleeping');
-    
+
     await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setHint('💤 Zzz...');
-    setTimeout(() => setHint(null), 2000);
-  }, []);
+
+    showSpeechBubble('💤', 1200, 900);
+  }, [showSpeechBubble]);
 
   const startFlyAcrossSequence = useCallback(async () => {
     if (isFlyingAcross.current || hasLanded.current || isIdle.current || isResting.current) return;
@@ -904,12 +991,28 @@ export function InteractiveBumblebee({
     }
     
     flyAcrossPhase.current = 'returning';
-    
-    const returnX = mouseRef.current.x - 28;
-    const returnY = mouseRef.current.y - 28;
-    targetRef.current = { x: returnX, y: returnY };
-    
-    await new Promise(resolve => setTimeout(resolve, 800));
+
+    const shouldPassBy = Math.random() < 0.55;
+    if (shouldPassBy) {
+      const offscreenTarget = {
+        x: Math.random() > 0.5 ? window.innerWidth + 120 : -120,
+        y: Math.random() * window.innerHeight,
+      };
+      targetRef.current = offscreenTarget;
+      await new Promise(resolve => setTimeout(resolve, 1400));
+
+      const reEntry = {
+        x: 80 + Math.random() * (window.innerWidth - 160),
+        y: 80 + Math.random() * (window.innerHeight - 220),
+      };
+      targetRef.current = reEntry;
+      await new Promise(resolve => setTimeout(resolve, 900));
+    } else {
+      const returnX = mouseRef.current.x - 28;
+      const returnY = mouseRef.current.y - 28;
+      targetRef.current = { x: returnX, y: returnY };
+      await new Promise(resolve => setTimeout(resolve, 900));
+    }
     
     isFlyingAcross.current = false;
     flyAcrossPhase.current = null;
@@ -929,9 +1032,10 @@ export function InteractiveBumblebee({
   }, [emotion]);
 
   useEffect(() => {
-    if (!enabled) return;
+    if (!enabled || !hasClaimedGlobalInstance.current) return;
 
-    const determinedProbability = appearanceProbability ?? (mobileDetected.current ? 1.0 : 0.15 + Math.random() * 0.1);
+    // Always show the bumblebee (changed from random 15-25% probability)
+    const determinedProbability = appearanceProbability ?? 1.0;
     const shouldShow = Math.random() < determinedProbability;
     
     if (!shouldShow) return;
@@ -941,6 +1045,7 @@ export function InteractiveBumblebee({
       isBeeActive.current = true;
       activityStartTime.current = Date.now();
       
+      // Set initial position immediately
       const startX = mobileDetected.current 
         ? window.innerWidth * (0.1 + Math.random() * 0.8)
         : window.innerWidth * 0.1;
@@ -961,21 +1066,72 @@ export function InteractiveBumblebee({
 
       animationFrameRef.current = requestAnimationFrame(animateBee);
 
+      // Show personality-based emoji greeting after entrance
       setTimeout(() => {
         setEmotion('flying');
-        setHint(mobileDetected.current ? '🐝 Tap me!' : '👋 Hi! I\'m Buzz!');
-        setTimeout(() => setHint(null), 2500);
-      }, 2000);
+        showSpeechBubble(BEE_PERSONALITIES[personalityRef.current]?.emoji || '🐝', 900, 0);
+      }, 1800);
     }, 1500);
 
     return () => {
       clearTimeout(entranceDelay);
+      hideSpeechBubble();
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
       }
       isBeeActive.current = false;
     };
-  }, [enabled, animateBee, appearanceProbability]);
+  }, [appearanceProbability, animateBee, enabled, hideSpeechBubble, showSpeechBubble]);
+
+  // Handle logo click event for easter egg triggering
+  useEffect(() => {
+    if (!enabled || !isVisible) return;
+
+    const handleLogoClick = (event: CustomEvent<{ clickCount: number }>) => {
+      const clickCount = event.detail?.clickCount || 1;
+      
+      // Clear any existing speech bubble first
+      hideSpeechBubble();
+      
+      // Trigger behavior based on escalation level
+      switch (Math.min(clickCount, 5)) {
+        case 1:
+          setEmotion('happy');
+          showSpeechBubble(BEE_PERSONALITIES[personalityRef.current].emoji, 800, 0);
+          break;
+        case 2:
+          setEmotion('excited');
+          setMovementMode('chaotic');
+          showSpeechBubble(ESCALATION_EMOTES[1][Math.floor(Math.random() * ESCALATION_EMOTES[1].length)], 800, 0);
+          // Quick position jump
+          targetRef.current = {
+            x: positionRef.current.x + (Math.random() - 0.5) * 100,
+            y: positionRef.current.y - 80,
+          };
+          break;
+        case 3:
+          setEmotion('excited');
+          setMovementMode('chaotic');
+          showSpeechBubble(ESCALATION_EMOTES[2][Math.floor(Math.random() * ESCALATION_EMOTES[2].length)], 800, 0);
+          break;
+        case 4:
+          setEmotion('party');
+          setMovementMode('chaotic');
+          showSpeechBubble(ESCALATION_EMOTES[3][Math.floor(Math.random() * ESCALATION_EMOTES[3].length)], 900, 0);
+          break;
+        case 5:
+          setEmotion('dizzy');
+          setMovementMode('spiraling');
+          showSpeechBubble(ESCALATION_EMOTES[4][Math.floor(Math.random() * ESCALATION_EMOTES[4].length)], 900, 0);
+          break;
+      }
+    };
+
+    window.addEventListener('logo-clicked', handleLogoClick as EventListener);
+    return () => {
+      window.removeEventListener('logo-clicked', handleLogoClick as EventListener);
+    };
+  }, [enabled, hideSpeechBubble, isVisible, showSpeechBubble]);
 
   useEffect(() => {
     if (!isVisible || !enabled) return;
@@ -1022,7 +1178,7 @@ export function InteractiveBumblebee({
       };
     } else {
       const scheduleFlyAcross = () => {
-        const delay = 10000 + Math.random() * 10000;
+        const delay = 14000 + Math.random() * 14000;
         const timerId = window.setTimeout(() => {
           startFlyAcrossSequence();
           scheduleFlyAcross();
@@ -1030,15 +1186,49 @@ export function InteractiveBumblebee({
         return timerId;
       };
 
+      const triggerDesktopInvestigation = () => {
+        if (isResting.current || isWalkingEdge.current || isInvestigatingUI.current || isFlyingAcross.current) {
+          return;
+        }
+
+        const uiElements = getUIElements();
+        if (uiElements.length === 0) return;
+
+        const target = uiElements[Math.floor(Math.random() * uiElements.length)];
+        investigateUIElement(target);
+      };
+
+      const initialDesktopInvestigation = window.setTimeout(() => {
+        triggerDesktopInvestigation();
+      }, 7000);
+
+      const desktopUiInterval = window.setInterval(() => {
+        if (Math.random() < 0.35) triggerDesktopInvestigation();
+      }, 12000);
+
+      const roamingInterval = window.setInterval(() => {
+        if (isResting.current || isWalkingEdge.current || isInvestigatingUI.current || isFlyingAcross.current) {
+          return;
+        }
+
+        targetRef.current = {
+          x: 60 + Math.random() * (window.innerWidth - 120),
+          y: 60 + Math.random() * (window.innerHeight - 220),
+        };
+      }, 4200);
+
       const timerId = scheduleFlyAcross();
 
       return () => {
+        clearTimeout(initialDesktopInvestigation);
         clearTimeout(timerId);
+        clearInterval(desktopUiInterval);
+        clearInterval(roamingInterval);
       };
     }
   }, [isVisible, enabled, startFlyAcrossSequence, getUIElements, investigateUIElement, walkAlongEdge, getViewportEdges]);
 
-  const beeScale = mobileDetected.current ? 1 : 1;
+  const beeScale = mobileDetected.current ? 0.95 : 0.82;
 
   if (!enabled) return null;
 
@@ -1048,16 +1238,32 @@ export function InteractiveBumblebee({
         {trailDots.length > 0 && <PollinationTrail dots={trailDots} />}
       </AnimatePresence>
 
+      {/* Speech bubble attached to bee coordinates */}
       <AnimatePresence>
-        {hint && (
+        {speechBubble.visible && (
           <motion.div
-            initial={{ opacity: 0, y: 10, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -5, scale: 0.9 }}
-            className="fixed top-4 left-1/2 -translate-x-1/2 z-[10000] pointer-events-none"
+            initial={{ opacity: 0, scale: 0, y: 10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0, y: -10 }}
+            transition={{ type: 'spring', stiffness: 500, damping: 25 }}
+            style={{
+              position: 'fixed',
+              left: positionRef.current.x,
+              top: positionRef.current.y - 60,
+              transform: 'translateX(-50%)',
+              zIndex: 10000,
+              pointerEvents: 'none',
+            }}
+            className="whitespace-nowrap"
           >
-            <div className="bg-navy-dark/90 backdrop-blur-sm text-cream px-4 py-2 rounded-full text-sm border border-cream/10 shadow-lg">
-              {hint}
+            <div className="relative">
+              <div className="bg-cream/95 dark:bg-navy-dark/95 backdrop-blur-sm text-navy-dark dark:text-cream px-3 py-1.5 rounded-2xl text-sm font-medium border border-foreground/10 shadow-lg">
+                {speechBubble.text}
+              </div>
+              {/* Bubble tail pointing to bee */}
+              <div 
+                className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-cream/95 dark:border-t-navy-dark/95"
+              />
             </div>
           </motion.div>
         )}
@@ -1071,15 +1277,15 @@ export function InteractiveBumblebee({
             style={{
               left: positionRef.current.x,
               top: positionRef.current.y,
-              width: 56 * beeScale,
-              height: 56 * beeScale,
-              x: -28 * beeScale,
-              y: -28 * beeScale,
+              width: 56,
+              height: 56,
             }}
             onClick={handleClick}
             onMouseEnter={handleMouseEnter}
             initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0 }}
+            transition={{ duration: 1.5, ease: 'easeOut' }}
             whileHover={{ scale: 1.15 }}
             whileTap={{ scale: 0.85 }}
           >
@@ -1096,10 +1302,13 @@ interface InteractiveBumblebeeWrapperProps {
 }
 
 export function InteractiveBumblebeeWrapper({ children }: InteractiveBumblebeeWrapperProps) {
+  const location = useLocation();
+  const disableGlobalBee = location.pathname === '/case-studies/buzz-hq';
+
   return (
     <div className="relative">
       {children}
-      <InteractiveBumblebee enabled={true} />
+      {!disableGlobalBee && <InteractiveBumblebee enabled={true} />}
     </div>
   );
 }

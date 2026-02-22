@@ -1,9 +1,10 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import { Hero } from './components/sections/Hero';
 import { Stats } from './components/sections/Stats';
 import { Features } from './components/sections/Features';
 import { CTASection } from './components/sections/CTASection';
-import { Header } from './components/layout/header';
+import { LeftRailNav } from './components/layout/left-rail-nav';
 import { Footer } from './components/layout/footer';
 import { SkipLink } from './components/ui/SkipLink';
 import { RaccoonWrapper, InteractiveBumblebeeWrapper } from './components/animations';
@@ -13,19 +14,14 @@ import ErgoWorkPage from './pages/ErgoWorkPage';
 import DermatikPage from './pages/DermatikPage';
 import AboutMePage from './pages/AboutMePage';
 import PimcorePage from './pages/PimcorePage';
-import FlutterPage from './pages/FlutterPage';
-import BuzzPage from './pages/BuzzPage';
 import BuzzHQPage from './pages/BuzzHQPage';
-import FlutterFieldsPage from './pages/FlutterFieldsPage';
 import SDZRNPage from './pages/SDZRNPage';
 
-// About page with header/footer (not case study layout)
+// About page with footer
 function AboutPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-background text-foreground font-sans">
-      <SkipLink />
-      <Header />
-      <main id="main-content" className="flex-1 pt-16 md:pt-20">
+    <div className="min-h-screen flex flex-col">
+      <main id="main-content" className="flex-1">
         <AboutMePage />
       </main>
       <Footer showCTA={false} />
@@ -36,10 +32,8 @@ function AboutPage() {
 // Homepage component
 function HomePage() {
   return (
-    <div className="min-h-screen flex flex-col bg-background text-foreground font-sans">
-      <SkipLink />
-      <Header />
-      <main id="main-content" className="flex-1 pt-16 md:pt-20">
+    <div className="min-h-screen flex flex-col">
+      <main id="main-content" className="flex-1">
         <Hero />
         <Stats />
         <Features />
@@ -63,11 +57,8 @@ function AppContent() {
       <Route path="/case-studies/pimcore" element={<PimcorePage />} />
       <Route path="/case-studies/ergowork" element={<ErgoWorkPage />} />
       <Route path="/case-studies/dermatik" element={<DermatikPage />} />
-      <Route path="/case-studies/flutter" element={<FlutterPage />} />
-      <Route path="/case-studies/buzz" element={<BuzzPage />} />
       {/* Experimental project pages */}
       <Route path="/case-studies/buzz-hq" element={<BuzzHQPage />} />
-      <Route path="/case-studies/flutter-fields" element={<FlutterFieldsPage />} />
       <Route path="/case-studies/sdzrn" element={<SDZRNPage />} />
       
       {/* Legacy route redirects */}
@@ -80,16 +71,34 @@ function AppContent() {
   );
 }
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   return (
     <BrowserRouter>
       <ThemeProvider>
         <LanguageProvider>
-          <InteractiveBumblebeeWrapper>
-            <RaccoonWrapper>
-              <AppContent />
-            </RaccoonWrapper>
-          </InteractiveBumblebeeWrapper>
+          <div className="min-h-screen bg-background text-foreground font-sans">
+            <SkipLink />
+            <ScrollToTop />
+            <LeftRailNav />
+
+            <div className="pb-20 md:pb-0 md:pl-[220px] lg:pl-[238px] xl:pl-[252px] 2xl:pl-[264px]">
+              <InteractiveBumblebeeWrapper>
+                <RaccoonWrapper>
+                  <AppContent />
+                </RaccoonWrapper>
+              </InteractiveBumblebeeWrapper>
+            </div>
+          </div>
         </LanguageProvider>
       </ThemeProvider>
     </BrowserRouter>

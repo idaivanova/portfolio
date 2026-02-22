@@ -14,7 +14,7 @@ import {
   microInteractionsData,
   visualData,
   lessonsData,
-} from '@/data/bumblebee-app';
+} from '@/dev/templates/data/bumblebee-app';
 
 export default function BuzzPage() {
   return (

@@ -14,7 +14,7 @@ import {
   motionData,
   colorData,
   lessonsData,
-} from '@/data/butterfly-garden';
+} from '@/dev/templates/data/butterfly-garden';
 
 export default function FlutterPage() {
   return (

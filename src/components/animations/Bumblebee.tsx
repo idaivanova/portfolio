@@ -271,7 +271,8 @@ function BumblebeeIcon({ className, style }: { className?: string; style?: React
         stroke="#1F2937"
         strokeWidth="2"
         fill="none"
-        animate={{ d: ['M28 18 Q24 12 26 8', 'M28 18 Q24 14 25 10', 'M28 18 Q24 12 26 8'] }}
+        style={{ transformOrigin: '28px 18px' }}
+        animate={{ rotate: [0, -8, 6, 0] }}
         transition={{ duration: 0.5, repeat: Infinity }}
       />
       <motion.path
@@ -279,7 +280,8 @@ function BumblebeeIcon({ className, style }: { className?: string; style?: React
         stroke="#1F2937"
         strokeWidth="2"
         fill="none"
-        animate={{ d: ['M36 18 Q40 12 38 8', 'M36 18 Q40 14 39 10', 'M36 18 Q40 12 38 8'] }}
+        style={{ transformOrigin: '36px 18px' }}
+        animate={{ rotate: [0, 8, -6, 0] }}
         transition={{ duration: 0.5, repeat: Infinity }}
       />
       
