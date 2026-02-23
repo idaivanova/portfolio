@@ -51,7 +51,7 @@ export function ImageCollage({
       {images.map((image, index) => (
         <div
           key={index}
-          className="absolute overflow-hidden shadow-[4px_4px_20.8px_0px_rgba(8,36,42,0.43)]"
+          className="absolute overflow-hidden shadow-lg"
           style={{
             left: image.position.left,
             top: image.position.top,
@@ -74,11 +74,11 @@ export function ImageCollage({
       {tags.map((tag, index) => {
         const variantClasses = {
           default:
-            'backdrop-blur-[2.25px] bg-[rgba(180,131,114,0.1)] text-cream',
+            'border border-border/60 bg-card/60 text-foreground backdrop-blur-sm',
           bordered:
-            'backdrop-blur-[2.25px] bg-[#0c1d27] border border-[#173748] text-cream',
+            'border border-border bg-card text-foreground backdrop-blur-sm',
           accent:
-            'backdrop-blur-[2.25px] bg-[rgba(255,134,92,0.1)] text-cream',
+            'border border-accent/30 bg-accent/15 text-foreground backdrop-blur-sm',
         };
 
         return (

@@ -30,7 +30,7 @@ export function PersonaCard({
   return (
     <div
       className={cn(
-        'flex gap-5 items-center p-[30px] border border-[#122836] rounded-sm',
+        'flex items-center gap-5 rounded-sm border border-border p-[30px]',
         className
       )}
     >
@@ -45,11 +45,11 @@ export function PersonaCard({
 
       {/* Details */}
       <div className="flex-1 flex flex-col gap-2.5 min-w-0">
-        <div className="font-body text-xl text-cream">
+        <div className="font-body text-xl text-foreground">
           <p className="font-bold">{name}</p>
           <p>{role}</p>
         </div>
-        <div className="font-body text-sm text-cream/90 space-y-3">
+        <div className="space-y-3 font-body text-sm text-muted-foreground">
           {details.map((detail, index) => (
             <p key={index}>
               <span className="font-bold">{detail.label}:</span>{' '}

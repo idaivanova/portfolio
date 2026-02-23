@@ -20,7 +20,7 @@ export function FourColumnGrid({ items, className }: FourColumnGridProps) {
     <div className={cn('grid grid-cols-4 gap-5', className)}>
       {items.map((item, index) => (
         <div key={index} className="flex flex-col justify-center">
-          <div className="font-body text-xl leading-normal text-cream">
+          <div className="font-body text-xl leading-normal text-foreground">
             {item.content}
           </div>
         </div>
@@ -52,7 +52,7 @@ export function FourColumnFeatureGrid({
     <div className={cn('grid grid-cols-4 gap-5', className)}>
       {features.map((feature, index) => (
         <div key={index} className="flex flex-col">
-          <p className="font-body text-xl leading-normal text-cream whitespace-pre-wrap">
+          <p className="font-body text-xl leading-normal text-foreground whitespace-pre-wrap">
             {feature.title}
           </p>
         </div>

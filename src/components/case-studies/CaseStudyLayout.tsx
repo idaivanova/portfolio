@@ -20,7 +20,7 @@ export function CaseStudyLayout({
   return (
     <div
       className={cn(
-        'min-h-screen bg-background',
+        'min-h-screen bg-background text-foreground',
         className
       )}
     >
@@ -28,7 +28,7 @@ export function CaseStudyLayout({
         <div className="px-4 py-8 md:px-[50px] md:py-[50px]">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors mb-8"
+            className="mb-8 inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-accent"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Home

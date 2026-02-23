@@ -44,8 +44,8 @@ export function LanguageToggle({
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
           'flex items-center gap-2 px-3 py-2 rounded-lg transition-colors duration-200',
-          'text-sm font-medium text-cream/80 hover:text-cream hover:bg-cream/5',
-          isOpen && 'bg-cream/10'
+          'text-sm font-medium text-foreground/80 hover:text-foreground hover:bg-muted',
+          isOpen && 'bg-muted'
         )}
         aria-label="Select language"
         aria-expanded={isOpen}
@@ -69,7 +69,7 @@ export function LanguageToggle({
             exit={{ opacity: 0, y: 8, scale: 0.95 }}
             transition={{ duration: 0.15 }}
             className={cn(
-              'absolute w-48 bg-navy-dark border border-cream/10 rounded-lg shadow-xl overflow-hidden z-[10080]',
+              'absolute w-48 bg-popover text-popover-foreground border border-border rounded-lg shadow-xl overflow-hidden z-[10080]',
               menuAlign === 'left' ? 'left-0' : 'right-0',
               menuPlacement === 'up' ? 'bottom-full mb-2' : 'top-full mt-2'
             )}
@@ -81,17 +81,17 @@ export function LanguageToggle({
                 onClick={() => handleLanguageSelect(lang.code)}
                 className={cn(
                   'w-full flex items-center gap-3 px-4 py-3 text-left transition-colors duration-150',
-                  'hover:bg-cream/5',
+                  'hover:bg-muted',
                   language === lang.code
-                    ? 'bg-accent/20 text-accent'
-                    : 'text-cream/80'
+                    ? 'bg-accent/12 text-accent'
+                    : 'text-foreground/80'
                 )}
                 role="option"
                 aria-selected={language === lang.code}
               >
                 <span className="text-base">{lang.flag}</span>
                 <span className="flex-1">{lang.name}</span>
-                <span className="text-xs text-cream/40 uppercase">{lang.code}</span>
+                <span className="text-xs text-muted-foreground uppercase">{lang.code}</span>
               </button>
             ))}
           </motion.div>

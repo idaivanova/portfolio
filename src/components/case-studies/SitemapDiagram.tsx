@@ -80,7 +80,7 @@ export function SitemapDiagram({
 
       {/* Footer Text */}
       {footerText && (
-        <div className="font-body text-sm leading-normal text-cream/90">
+        <div className="font-body text-sm leading-normal text-muted-foreground">
           {footerText}
         </div>
       )}
@@ -120,11 +120,11 @@ export function SitemapSection({
       {/* Header */}
       <div className="flex flex-col gap-2.5">
         <span className="font-body text-sm text-accent h-[17px]">{label}</span>
-        <h2 className="font-body text-[32px] font-extrabold leading-tight text-cream">
+        <h2 className="font-body text-[32px] font-extrabold leading-tight text-foreground">
           {title}
         </h2>
         {description && (
-          <div className="font-body text-sm leading-normal text-cream/90">
+          <div className="font-body text-sm leading-normal text-muted-foreground">
             {description}
           </div>
         )}

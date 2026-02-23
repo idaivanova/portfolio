@@ -19,10 +19,10 @@ export function FeatureCard({
 }: FeatureCardProps) {
   return (
     <div className={cn('flex flex-col gap-2.5 min-w-0', className)}>
-      <h3 className="font-body text-xl font-bold text-cream leading-normal">
+      <h3 className="font-body text-xl font-bold leading-normal text-foreground">
         {title}
       </h3>
-      <p className="font-body text-sm leading-normal text-cream/90">
+      <p className="font-body text-sm leading-normal text-muted-foreground">
         {description}
       </p>
     </div>

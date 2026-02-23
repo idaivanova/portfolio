@@ -75,10 +75,10 @@ export function EducationList({ entries, className }: EducationListProps) {
     <div className={cn('flex flex-col gap-5', className)}>
       {entries.map((entry, index) => (
         <div key={index} className="flex flex-col gap-1">
-          <p className="font-body text-xl font-bold text-cream">
+          <p className="font-body text-xl font-bold text-foreground">
             {entry.degree}
           </p>
-          <p className="font-body text-sm text-cream/80">{entry.school}</p>
+          <p className="font-body text-sm text-muted-foreground">{entry.school}</p>
         </div>
       ))}
     </div>

@@ -57,10 +57,10 @@ export function PageFlowSection({
 
       {/* Content */}
       <div className="flex-1 min-w-0 flex flex-col gap-2.5">
-        <h3 className="font-body text-2xl font-extrabold text-cream">
+        <h3 className="font-body text-2xl font-extrabold text-foreground">
           {title}
         </h3>
-        <div className="font-body text-sm leading-normal text-cream/90 space-y-1">
+        <div className="space-y-1 font-body text-sm leading-normal text-muted-foreground">
           <p>
             <span className="font-bold">Intent:</span>{' '}
             <span className="font-normal">{intent}</span>
@@ -119,10 +119,10 @@ export function PageFlowSplit({
       {/* Split Content Row */}
       <div className="flex items-center justify-between py-5">
         <div className="flex-1 flex flex-col gap-2.5 pr-8">
-          <h3 className="font-body text-2xl font-extrabold text-cream">
+          <h3 className="font-body text-2xl font-extrabold text-foreground">
             {leftContent.title}
           </h3>
-          <div className="font-body text-sm leading-normal text-cream/90 space-y-1">
+          <div className="space-y-1 font-body text-sm leading-normal text-muted-foreground">
             <p>
               <span className="font-bold">Intent:</span>{' '}
               <span className="font-normal">{leftContent.intent}</span>
@@ -143,8 +143,8 @@ export function PageFlowSplit({
         </div>
 
         {/* Right Box */}
-        <div className="w-[538px] border border-[#122836] rounded-sm p-[30px]">
-          <div className="font-body text-sm leading-normal text-cream/90">
+        <div className="w-[538px] rounded-sm border border-border bg-card/40 p-[30px]">
+          <div className="font-body text-sm leading-normal text-muted-foreground">
             {rightContent}
           </div>
         </div>

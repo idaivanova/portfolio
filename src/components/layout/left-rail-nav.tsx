@@ -230,7 +230,7 @@ function DesktopRailNav({ className }: LeftRailNavProps) {
             href="https://linkedin.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-xs lg:text-sm text-foreground/65 hover:text-accent transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-accent transition-colors"
           >
             <LinkedInIcon size="sm" />
             <span>{t.common.linkedIn}</span>
@@ -359,7 +359,7 @@ function MobilePortfolioNav() {
                 })}
               </div>
 
-              <div className="mt-3 flex items-center justify-between border-t border-border pt-2.5">
+              <div className="mt-3 flex flex-col gap-2 border-t border-border pt-2.5 sm:flex-row sm:items-center sm:justify-between">
                 <div className="flex items-center gap-2">
                   <LanguageToggle menuPlacement="up" menuAlign="left" />
                   <ThemeToggle />
@@ -368,7 +368,7 @@ function MobilePortfolioNav() {
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs text-foreground/65 hover:text-accent"
+                  className="inline-flex w-fit items-center gap-1.5 text-sm text-foreground/70 hover:text-accent"
                 >
                   <LinkedInIcon size="sm" />
                   <span>{t.common.linkedIn}</span>

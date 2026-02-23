@@ -11,11 +11,11 @@ export interface DividerProps {
   color?: string;
 }
 
-export function Divider({ className, color = '#122836' }: DividerProps) {
+export function Divider({ className, color }: DividerProps) {
   return (
     <div
-      className={cn('h-px w-full', className)}
-      style={{ backgroundColor: color }}
+      className={cn('h-px w-full bg-border', className)}
+      style={color ? { backgroundColor: color } : undefined}
     />
   );
 }

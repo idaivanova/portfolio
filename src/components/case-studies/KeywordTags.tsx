@@ -53,15 +53,10 @@ export function KeywordTags({ categories, className }: KeywordTagsProps) {
               <div
                 key={tagIndex}
                 className={cn(
-                  'relative px-[15px] py-2 rounded-sm',
-                  'backdrop-blur-[42px] bg-[rgba(255,255,255,0.04)]',
-                  'shadow-[4px_4px_116px_0px_rgba(97,120,201,0.16)]',
-                  'before:absolute before:inset-0 before:rounded-[inherit]',
-                  'before:shadow-[inset_2px_2px_16px_0px_rgba(255,255,255,0.03)]',
-                  'before:pointer-events-none'
+                  'rounded-sm border border-border/70 bg-card/60 px-[15px] py-2 shadow-sm backdrop-blur-sm'
                 )}
               >
-                <span className="relative font-body text-sm font-bold text-cream whitespace-nowrap">
+                <span className="font-body text-sm font-bold whitespace-nowrap text-foreground">
                   {tag}
                 </span>
               </div>
@@ -86,16 +81,11 @@ export function NeomorphismTag({ label, className }: NeomorphismTagProps) {
   return (
     <div
       className={cn(
-        'relative px-[15px] py-2 rounded-sm inline-flex',
-        'backdrop-blur-[42px] bg-[rgba(255,255,255,0.04)]',
-        'shadow-[4px_4px_116px_0px_rgba(97,120,201,0.16)]',
-        'before:absolute before:inset-0 before:rounded-[inherit]',
-        'before:shadow-[inset_2px_2px_16px_0px_rgba(255,255,255,0.03)]',
-        'before:pointer-events-none',
+        'inline-flex rounded-sm border border-border/70 bg-card/60 px-[15px] py-2 shadow-sm backdrop-blur-sm',
         className
       )}
     >
-      <span className="relative font-body text-sm font-bold text-cream whitespace-nowrap">
+      <span className="font-body text-sm font-bold whitespace-nowrap text-foreground">
         {label}
       </span>
     </div>

@@ -22,11 +22,11 @@ export function SectionHeader({
   return (
     <div className={cn('flex flex-col gap-2.5', className)}>
       <span className="font-body text-sm text-accent h-[17px]">{label}</span>
-      <h2 className="font-body text-[32px] font-extrabold leading-tight text-cream">
+      <h2 className="font-body text-[32px] font-extrabold leading-tight text-foreground">
         {title}
       </h2>
       {description && (
-        <div className="font-body text-sm leading-normal text-cream/90">
+        <div className="font-body text-sm leading-normal text-muted-foreground">
           {description}
         </div>
       )}

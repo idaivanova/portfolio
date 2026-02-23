@@ -40,11 +40,11 @@ export function PatientFlow({ steps, className }: PatientFlowProps) {
               <span className="font-body text-[54px] font-extrabold text-accent leading-none">
                 {step.number}
               </span>
-              <h3 className="font-body text-2xl font-extrabold text-cream">
+              <h3 className="font-body text-2xl font-extrabold text-foreground">
                 {step.title}
               </h3>
             </div>
-            <div className="font-body text-sm leading-normal text-cream/90">
+            <div className="font-body text-sm leading-normal text-muted-foreground">
               {step.description}
             </div>
           </div>
@@ -52,7 +52,7 @@ export function PatientFlow({ steps, className }: PatientFlowProps) {
           {/* Phone Mockup */}
           {step.image && (
             <div
-              className="shrink-0 overflow-hidden rounded-lg border border-[#122836] bg-[#0C1D27]"
+              className="shrink-0 overflow-hidden rounded-lg border border-border bg-card"
               style={{
                 width: step.image.width || 246,
                 height: step.image.height || 438,
@@ -100,14 +100,14 @@ export function Timeline({ items, image, className }: TimelineProps) {
         {items.map((item, index) => (
           <div key={index} className="flex flex-col items-center gap-2">
             <div className="flex items-center">
-              <span className="font-body text-sm font-bold text-cream">
+              <span className="font-body text-sm font-bold text-foreground">
                 {item.label}
               </span>
               {index < items.length - 1 && (
-                <div className="w-8 h-px bg-[#122836] mx-2" />
+                <div className="mx-2 h-px w-8 bg-border" />
               )}
             </div>
-            <span className="font-body text-xs text-cream/70 text-center max-w-[100px]">
+            <span className="max-w-[100px] text-center font-body text-xs text-muted-foreground">
               {item.value}
             </span>
           </div>
@@ -160,7 +160,7 @@ export function PhoneMockup({
   return (
     <div
       className={cn(
-        'shrink-0 overflow-hidden rounded-lg border border-[#122836] bg-[#0C1D27]',
+        'shrink-0 overflow-hidden rounded-lg border border-border bg-card',
         className
       )}
       style={{ width, height }}

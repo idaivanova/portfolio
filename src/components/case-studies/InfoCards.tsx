@@ -22,12 +22,12 @@ function InfoCard({ title, items, children, className }: InfoCardProps) {
   return (
     <div
       className={cn(
-        'flex-1 flex flex-col gap-2.5 p-[30px] border border-[#122836] rounded-sm min-w-0',
+        'flex min-w-0 flex-1 flex-col gap-2.5 rounded-sm border border-border p-[30px]',
         className
       )}
     >
-      <h3 className="font-body text-2xl font-extrabold text-cream">{title}</h3>
-      <div className="font-body text-sm leading-normal text-cream/90">
+      <h3 className="font-body text-2xl font-extrabold text-foreground">{title}</h3>
+      <div className="font-body text-sm leading-normal text-muted-foreground">
         {items ? (
           <div className="space-y-1">
             {items.map((item, index) => (

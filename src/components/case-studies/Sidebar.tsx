@@ -63,11 +63,11 @@ export function Sidebar({
               <React.Fragment key={item.label}>
                 {/* Divider before each section */}
                 {index > 0 && (
-                  <div className="h-px w-full bg-[#173748] my-1" />
+                  <div className="my-1 h-px w-full bg-border" />
                 )}
                 <span className={cn(
                   "font-body text-sm font-semibold uppercase tracking-wider",
-                  item.category === 'playground' ? "text-cream/50" : "text-cream/70"
+                  item.category === 'playground' ? 'text-muted-foreground' : 'text-foreground/70'
                 )}>
                   {item.label}
                 </span>
@@ -86,7 +86,7 @@ export function Sidebar({
               {index > 0 &&
                 navItems[index - 1].label === 'Selected work' &&
                 item.isIndented && (
-                  <div className="h-px w-full bg-[#173748] my-1" />
+                  <div className="my-1 h-px w-full bg-border" />
                 )}
 
               {external ? (
@@ -97,8 +97,8 @@ export function Sidebar({
                   className={cn(
                     'font-body text-xl leading-normal transition-colors duration-200',
                     item.isActive
-                      ? 'text-cream font-bold'
-                      : 'text-cream/80 hover:text-cream',
+                      ? 'text-foreground font-bold'
+                      : 'text-foreground/80 hover:text-foreground',
                     item.isIndented && 'pl-2.5'
                   )}
                 >
@@ -123,8 +123,8 @@ export function Sidebar({
                   className={cn(
                     'font-body text-xl leading-normal transition-colors duration-200',
                     item.isActive
-                      ? 'text-cream font-bold'
-                      : 'text-cream/80 hover:text-cream',
+                      ? 'text-foreground font-bold'
+                      : 'text-foreground/80 hover:text-foreground',
                     item.isIndented && 'pl-2.5'
                   )}
                 >
@@ -147,7 +147,7 @@ export function Sidebar({
 
               {/* Divider after "Intro" */}
               {item.label === 'Intro' && (
-                <div className="h-px w-full bg-[#173748] my-1" />
+                <div className="my-1 h-px w-full bg-border" />
               )}
             </React.Fragment>
           );
@@ -155,10 +155,10 @@ export function Sidebar({
       </nav>
 
       {/* Contact Info */}
-      <div className="flex flex-col gap-4 font-body text-sm text-cream/80 whitespace-pre-wrap">
+      <div className="flex flex-col gap-4 whitespace-pre-wrap font-body text-sm text-muted-foreground">
         <a
           href={`mailto:${contactInfo.email}`}
-          className="underline decoration-solid hover:text-cream transition-colors"
+          className="underline decoration-solid transition-colors hover:text-foreground"
         >
           {contactInfo.email}
         </a>
@@ -167,7 +167,7 @@ export function Sidebar({
           href={contactInfo.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-cream transition-colors"
+          className="transition-colors hover:text-foreground"
         >
           LinkedIn
         </a>

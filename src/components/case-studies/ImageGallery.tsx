@@ -106,7 +106,7 @@ export function ImageMosaic({
   images,
   containerHeight,
   className,
-  backgroundColor = '#081827',
+  backgroundColor = 'var(--card)',
 }: ImageMosaicProps) {
   return (
     <div
