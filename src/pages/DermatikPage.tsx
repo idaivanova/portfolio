@@ -95,10 +95,10 @@ export default function DermatikPage() {
           imageHeight={profileData.image.height}
         >
           <div className="flex flex-col gap-2.5">
-            <h3 className="font-body text-2xl font-extrabold text-cream">
+            <h3 className="font-body text-2xl font-extrabold text-foreground">
               {profileData.content.title}
             </h3>
-            <div className="font-body text-sm leading-normal text-cream/90">
+            <div className="font-body text-sm leading-normal text-foreground/90">
               {profileData.content.description}
             </div>
           </div>

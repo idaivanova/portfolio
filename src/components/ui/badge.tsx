@@ -18,17 +18,17 @@ const badgeVariants = cva(
         // Default - accent background
         default: 'bg-accent/10 text-accent border border-accent/20',
         
-        // Secondary - navy background
-        secondary: 'bg-navy-mid/50 text-cream/80 border border-cream/10',
+        // Secondary - muted background
+        secondary: 'bg-muted/50 text-foreground/80 border border-border',
         
         // Accent - accent color background
-        accent: 'bg-accent text-cream border-0',
+        accent: 'bg-accent text-primary-foreground border-0',
         
         // Outlined - transparent with border
-        outline: 'bg-transparent text-cream/80 border border-cream/20',
+        outline: 'bg-transparent text-foreground/80 border border-border',
         
         // Ghost - subtle hover
-        ghost: 'bg-transparent text-cream/60 hover:text-cream hover:bg-cream/5',
+        ghost: 'bg-transparent text-muted-foreground hover:text-foreground hover:bg-foreground/5',
         
         // Success - green
         success: 'bg-green-500/10 text-green-400 border border-green-500/20',

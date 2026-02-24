@@ -1262,7 +1262,7 @@ export function InteractiveBumblebee({
               </div>
               {/* Bubble tail pointing to bee */}
               <div 
-                className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-cream/95 dark:border-t-navy-dark/95"
+                className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-background/95 dark:border-t-card/95"
               />
             </div>
           </motion.div>
@@ -1279,6 +1279,7 @@ export function InteractiveBumblebee({
               top: positionRef.current.y,
               width: 56,
               height: 56,
+              filter: 'drop-shadow(0 0 0px transparent)',
             }}
             onClick={handleClick}
             onMouseEnter={handleMouseEnter}
@@ -1287,7 +1288,7 @@ export function InteractiveBumblebee({
             exit={{ opacity: 0, scale: 0 }}
             transition={{ duration: 1.5, ease: 'easeOut' }}
             whileHover={{ scale: 1.15 }}
-            whileTap={{ scale: 0.85 }}
+            whileTap={{ scale: 0.85, rotate: [0, -5, 5, 0] }}
           >
             <BumblebeeIcon emotion={emotion} scale={beeScale} movementMode={movementMode} rotation={rotation} />
           </motion.div>

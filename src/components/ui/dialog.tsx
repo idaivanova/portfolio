@@ -69,7 +69,7 @@ function DialogContent({
         exit={{ opacity: 0 }}
         transition={{ duration: 0.2 }}
         className={cn(
-          'absolute inset-0 bg-navy-darkest/90 backdrop-blur-sm',
+          'absolute inset-0 bg-background/90 backdrop-blur-sm',
           overlayClassName
         )}
         onClick={onClose}
@@ -93,7 +93,7 @@ function DialogContent({
             size="icon"
             onClick={onClose}
             aria-label="Close dialog"
-            className="absolute top-4 right-4 bg-navy-dark/50 text-cream hover:bg-navy-mid hover:text-cream z-20"
+            className="absolute top-4 right-4 bg-card/50 text-foreground hover:bg-muted hover:text-foreground z-20"
           />
         )}
         {children}
@@ -129,7 +129,7 @@ interface DialogCaptionProps {
 function DialogCaption({ children, className }: DialogCaptionProps) {
   return (
     <div className={cn(
-      'mt-4 text-center text-cream/80',
+      'mt-4 text-center text-muted-foreground',
       className
     )}>
       {children}
@@ -203,7 +203,7 @@ function ImageLightbox({ images, defaultIndex = 0 }: ImageLightboxProps) {
               alt={image.alt}
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-navy-darkest/0 group-hover:bg-navy-darkest/30 transition-colors" />
+            <div className="absolute inset-0 bg-background/0 group-hover:bg-background/30 transition-colors" />
           </button>
         ))}
       </div>
@@ -218,7 +218,7 @@ function ImageLightbox({ images, defaultIndex = 0 }: ImageLightboxProps) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="absolute inset-0 bg-navy-darkest/95 backdrop-blur-md"
+              className="absolute inset-0 bg-background/95 backdrop-blur-md"
               onClick={() => setIsOpen(false)}
             />
 
@@ -238,7 +238,7 @@ function ImageLightbox({ images, defaultIndex = 0 }: ImageLightboxProps) {
                 size="icon"
                 onClick={() => setIsOpen(false)}
                 aria-label="Close lightbox"
-                className="absolute -top-12 right-0 text-cream hover:bg-cream/10"
+                className="absolute -top-12 right-0 text-foreground hover:bg-foreground/10"
               >
                 Close
               </IconButton>
@@ -259,21 +259,21 @@ function ImageLightbox({ images, defaultIndex = 0 }: ImageLightboxProps) {
                 <>
                   <button
                     onClick={goToPrevious}
-                    className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 w-12 h-12 flex items-center justify-center text-cream/70 hover:text-cream hover:bg-cream/10 rounded-full transition-colors"
+                    className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 w-12 h-12 flex items-center justify-center text-cream/70 hover:text-foreground hover:bg-foreground/10 rounded-full transition-colors"
                     aria-label="Previous image"
                   >
                     ←
                   </button>
                   <button
                     onClick={goToNext}
-                    className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 w-12 h-12 flex items-center justify-center text-cream/70 hover:text-cream hover:bg-cream/10 rounded-full transition-colors"
+                    className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 w-12 h-12 flex items-center justify-center text-cream/70 hover:text-foreground hover:bg-foreground/10 rounded-full transition-colors"
                     aria-label="Next image"
                   >
                     →
                   </button>
 
                   {/* Counter */}
-                  <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 text-cream/60 text-sm">
+                  <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 text-muted-foreground text-sm">
                     {currentIndex + 1} / {images.length}
                   </div>
                 </>

@@ -225,7 +225,7 @@ function Raccoon({ position, onRemove, onLogoClick }: RaccoonProps) {
         </span>
       </div>
       
-      <RaccoonIcon className="w-full h-full drop-shadow-lg" />
+      <RaccoonIcon className="w-full h-full drop-shadow-lg transition-transform duration-150" style={{ filter: 'drop-shadow(0 0 0px transparent)' }} />
     </motion.div>
   );
 }

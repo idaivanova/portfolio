@@ -80,7 +80,7 @@ function DesktopNav({ currentPath }: DesktopNavProps) {
               'hover:text-accent',
               isActive
                 ? 'text-accent'
-                : 'text-slate-600 dark:text-cream/70'
+                : 'text-muted-foreground'
             )}
           >
             {item.label}
@@ -125,11 +125,11 @@ function DesktopNav({ currentPath }: DesktopNavProps) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
               transition={{ duration: 0.15 }}
-              className="absolute top-full left-0 mt-2 w-72 bg-navy-dark border border-cream/10 rounded-lg shadow-xl overflow-hidden z-50"
+              className="absolute top-full left-0 mt-2 w-72 bg-card border border-border rounded-lg shadow-xl overflow-hidden z-50"
             >
               {/* Real Case Studies Section */}
-              <div className="px-3 py-2 bg-navy-mid/30">
-                <span className="text-xs font-semibold uppercase tracking-wider text-cream/50">
+              <div className="px-3 py-2 bg-muted/30">
+                <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                   Case Studies
                 </span>
               </div>
@@ -143,21 +143,21 @@ function DesktopNav({ currentPath }: DesktopNavProps) {
                       'block px-4 py-3 transition-colors duration-150',
                       isActive
                         ? 'bg-accent/20 text-accent'
-                        : 'text-cream/80 hover:bg-cream/5 hover:text-cream'
+                        : 'text-foreground/80 hover:bg-foreground/5 hover:text-foreground'
                     )}
                   >
                     <span className="font-medium text-sm">{project.label}</span>
-                    <p className="text-xs text-cream/50 mt-0.5">{project.description}</p>
+                    <p className="text-xs text-muted-foreground mt-0.5">{project.description}</p>
                   </Link>
                 );
               })}
 
               {/* Divider */}
-              <div className="border-t border-cream/10 my-1" />
+              <div className="border-t border-border my-1" />
 
               {/* Playground Section */}
-              <div className="px-3 py-2 bg-navy-mid/30">
-                <span className="text-xs font-semibold uppercase tracking-wider text-cream/50">
+              <div className="px-3 py-2 bg-muted/30">
+                <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                   Playground
                 </span>
               </div>
@@ -171,11 +171,11 @@ function DesktopNav({ currentPath }: DesktopNavProps) {
                       'block px-4 py-3 transition-colors duration-150',
                       isActive
                         ? 'bg-accent/20 text-accent'
-                        : 'text-cream/80 hover:bg-cream/5 hover:text-cream'
+                        : 'text-foreground/80 hover:bg-foreground/5 hover:text-foreground'
                     )}
                   >
                     <span className="font-medium text-sm">{project.label}</span>
-                    <p className="text-xs text-cream/50 mt-0.5">{project.description}</p>
+                    <p className="text-xs text-muted-foreground mt-0.5">{project.description}</p>
                   </Link>
                 );
               })}
@@ -210,7 +210,7 @@ function MobileNav({ isOpen, onClose, currentPath }: MobileNavProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-navy-darkest/80 backdrop-blur-sm z-40 md:hidden"
+            className="fixed inset-0 bg-background/80 backdrop-blur-sm z-40 md:hidden"
             onClick={onClose}
           />
 
@@ -220,18 +220,18 @@ function MobileNav({ isOpen, onClose, currentPath }: MobileNavProps) {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            className="fixed top-0 right-0 bottom-0 w-[300px] bg-navy-dark z-50 md:hidden shadow-2xl border-l border-cream/10 overflow-y-auto"
+            className="fixed top-0 right-0 bottom-0 w-[300px] bg-card z-50 md:hidden shadow-2xl border-l border-border overflow-y-auto"
           >
             <div className="flex flex-col h-full">
               {/* Close button */}
-              <div className="flex items-center justify-end p-4 border-b border-cream/10">
+              <div className="flex items-center justify-end p-4 border-b border-border">
                 <IconButton
                   iconName="X"
                   variant="ghost"
                   size="icon"
                   onClick={onClose}
                   aria-label="Close menu"
-                  className="text-cream hover:bg-cream/10"
+                  className="text-foreground hover:bg-foreground/10"
                 />
               </div>
 
@@ -256,7 +256,7 @@ function MobileNav({ isOpen, onClose, currentPath }: MobileNavProps) {
                           'block py-3 px-4 text-lg font-medium tracking-wider uppercase rounded-lg transition-colors',
                           isActive
                             ? 'bg-accent/20 text-accent'
-                            : 'text-cream/80 hover:bg-cream/5'
+                            : 'text-foreground/80 hover:bg-foreground/5'
                         )}
                       >
                         {item.label}
@@ -266,10 +266,10 @@ function MobileNav({ isOpen, onClose, currentPath }: MobileNavProps) {
                 })}
 
                 {/* Projects Section (expandable) */}
-                <div className="mt-2 pt-2 border-t border-cream/10">
+                <div className="mt-2 pt-2 border-t border-border">
                   <button
                     onClick={() => setIsProjectsExpanded(!isProjectsExpanded)}
-                    className="flex items-center justify-between w-full py-3 px-4 text-lg font-medium tracking-wider uppercase rounded-lg transition-colors text-cream/80 hover:bg-cream/5"
+                    className="flex items-center justify-between w-full py-3 px-4 text-lg font-medium tracking-wider uppercase rounded-lg transition-colors text-foreground/80 hover:bg-foreground/5"
                   >
                     <span>PROJECTS</span>
                     <ChevronDown className={cn(
@@ -298,7 +298,7 @@ function MobileNav({ isOpen, onClose, currentPath }: MobileNavProps) {
                                 'block py-2.5 pl-8 pr-4 text-base font-medium tracking-wider transition-colors rounded-lg',
                                 isActive
                                   ? 'bg-accent/20 text-accent'
-                                  : 'text-cream/60 hover:bg-cream/5 hover:text-cream/80'
+                                  : 'text-muted-foreground hover:bg-foreground/5 hover:text-foreground/80'
                               )}
                             >
                               {project.label}
@@ -312,8 +312,8 @@ function MobileNav({ isOpen, onClose, currentPath }: MobileNavProps) {
               </nav>
 
               {/* Contact info at bottom */}
-              <div className="mt-auto p-4 border-t border-cream/10">
-                <p className="text-sm text-cream/50 mb-2">
+              <div className="mt-auto p-4 border-t border-border">
+                <p className="text-sm text-muted-foreground mb-2">
                   Get in touch
                 </p>
                 <a

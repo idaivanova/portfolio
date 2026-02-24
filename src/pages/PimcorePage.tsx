@@ -50,10 +50,10 @@ export default function PimcorePage() {
           {contributionData.directionPoints.map((point, index) => (
             <div
               key={index}
-              className="flex items-start gap-3 p-4 bg-navy-dark/50 rounded-sm border border-cream/10"
+              className="flex items-start gap-3 p-4 bg-navy-dark/50 rounded-sm border border-border"
             >
               <span className="text-accent font-bold">{index + 1}</span>
-              <span className="text-cream/80">{point}</span>
+              <span className="text-foreground/80">{point}</span>
             </div>
           ))}
         </div>
@@ -81,7 +81,7 @@ export default function PimcorePage() {
           label={reflectionData.label}
           title={reflectionData.title}
         />
-        <div className="mt-6 text-cream/80 leading-relaxed">
+        <div className="mt-6 text-foreground/80 leading-relaxed">
           {reflectionData.content}
         </div>
       </section>

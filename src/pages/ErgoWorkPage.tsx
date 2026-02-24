@@ -3,7 +3,6 @@
 // Complete case study page using all reusable components
 // ============================================
 
-import * as React from 'react';
 import {
   CaseStudyLayout,
   CaseStudyHeader,
@@ -134,11 +133,11 @@ export default function ErgoWorkPage() {
       <section id="homepage-flow">
         <PageFlowSection
           direction="right"
-          image={pageFlowsData.flows[0].image}
-          title={pageFlowsData.flows[0].title}
-          intent={pageFlowsData.flows[0].intent}
-          objective={pageFlowsData.flows[0].objective}
-          keyActions={pageFlowsData.flows[0].keyActions}
+          image={pageFlowsData.flows[0]!.image}
+          title={pageFlowsData.flows[0]!.title!}
+          intent={pageFlowsData.flows[0]!.intent!}
+          objective={pageFlowsData.flows[0]!.objective!}
+          keyActions={pageFlowsData.flows[0]!.keyActions!}
         />
         <div className="mt-5">
           <ImagePair images={fullWidthImages.homepagePair as [any, any]} aspectRatio="auto" />
@@ -151,12 +150,12 @@ export default function ErgoWorkPage() {
       <section id="business-flow">
         <PageFlowSection
           direction="left"
-          image={pageFlowsData.flows[1].image}
-          title={pageFlowsData.flows[1].title}
-          intent={pageFlowsData.flows[1].intent}
-          objective={pageFlowsData.flows[1].objective}
-          keyActions={pageFlowsData.flows[1].keyActions}
-          additionalContent={pageFlowsData.flows[1].additionalContent}
+          image={pageFlowsData.flows[1]!.image}
+          title={pageFlowsData.flows[1]!.title!}
+          intent={pageFlowsData.flows[1]!.intent!}
+          objective={pageFlowsData.flows[1]!.objective!}
+          keyActions={pageFlowsData.flows[1]!.keyActions!}
+          additionalContent={pageFlowsData.flows[1]!.additionalContent}
         />
         <div className="mt-5 flex items-center justify-between">
           <div className="h-[128px] w-[443px] overflow-hidden">
@@ -182,13 +181,13 @@ export default function ErgoWorkPage() {
       <section id="adjustable-tables-flow">
         <PageFlowSplit
           image={{
-            src: pageFlowsData.flows[2].image.src,
-            alt: pageFlowsData.flows[2].image.alt,
+            src: pageFlowsData.flows[2]!.image.src,
+            alt: pageFlowsData.flows[2]!.image.alt,
             width: '100%',
             height: 'auto',
           }}
-          leftContent={pageFlowsData.flows[2].leftContent}
-          rightContent={pageFlowsData.flows[2].rightContent}
+          leftContent={pageFlowsData.flows[2]!.leftContent!}
+          rightContent={pageFlowsData.flows[2]!.rightContent!}
         />
       </section>
 
@@ -198,12 +197,12 @@ export default function ErgoWorkPage() {
       <section id="product-detail-flow">
         <PageFlowSection
           direction="left"
-          image={pageFlowsData.flows[3].image}
-          title={pageFlowsData.flows[3].title}
-          intent={pageFlowsData.flows[3].intent}
-          objective={pageFlowsData.flows[3].objective}
-          keyActions={pageFlowsData.flows[3].keyActions}
-          additionalContent={pageFlowsData.flows[3].additionalContent}
+          image={pageFlowsData.flows[3]!.image}
+          title={pageFlowsData.flows[3]!.title!}
+          intent={pageFlowsData.flows[3]!.intent!}
+          objective={pageFlowsData.flows[3]!.objective!}
+          keyActions={pageFlowsData.flows[3]!.keyActions!}
+          additionalContent={pageFlowsData.flows[3]!.additionalContent}
         />
         <div className="mt-5">
           <img
@@ -220,11 +219,11 @@ export default function ErgoWorkPage() {
       <section id="request-offer-flow">
         <PageFlowSection
           direction="right"
-          image={pageFlowsData.flows[4].image}
-          title={pageFlowsData.flows[4].title}
-          intent={pageFlowsData.flows[4].intent}
-          objective={pageFlowsData.flows[4].objective}
-          keyActions={pageFlowsData.flows[4].keyActions}
+          image={pageFlowsData.flows[4]!.image}
+          title={pageFlowsData.flows[4]!.title!}
+          intent={pageFlowsData.flows[4]!.intent!}
+          objective={pageFlowsData.flows[4]!.objective!}
+          keyActions={pageFlowsData.flows[4]!.keyActions!}
         />
       </section>
 

@@ -140,9 +140,9 @@ export function Section({
 
   const backgroundClasses = {
     default: 'bg-transparent',
-    muted: 'bg-navy-dark/30',
-    dark: 'bg-navy-dark text-cream',
-    orange: 'bg-accent text-cream',
+    muted: 'bg-muted/30',
+    dark: 'bg-card text-foreground',
+    orange: 'bg-accent text-primary-foreground',
   };
 
   return (

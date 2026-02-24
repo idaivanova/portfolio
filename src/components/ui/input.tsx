@@ -10,12 +10,12 @@ import { cn } from '../../lib/utils';
 // Input variants
 const inputVariants = cva(
   // Base styles
-  'flex w-full rounded-md border bg-navy-dark text-cream placeholder:text-cream/40 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-navy-darkest disabled:cursor-not-allowed disabled:opacity-50 transition-colors duration-200',
+  'flex w-full rounded-md border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 transition-colors duration-200',
   {
     variants: {
       variant: {
         // Default - navy border
-        default: 'border-navy-mid hover:border-cream/30',
+        default: 'border-border hover:border-border',
         
         // Error state
         error: 'border-red-500 focus:ring-red-500',
@@ -24,7 +24,7 @@ const inputVariants = cva(
         success: 'border-green-500 focus:ring-green-500',
         
         // Ghost - no border
-        ghost: 'border-transparent bg-transparent focus:bg-navy-dark/50',
+        ghost: 'border-transparent bg-transparent focus:bg-card/50',
       },
       inputSize: {
         sm: 'h-9 px-3 py-1 text-sm',
@@ -41,7 +41,7 @@ const inputVariants = cva(
 
 // Label styles
 const labelVariants = cva(
-  'text-sm font-medium text-cream/80 mb-1.5 block',
+  'text-sm font-medium text-muted-foreground mb-1.5 block',
   {
     variants: {
       size: {
@@ -105,7 +105,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         
         <div className="relative">
           {leftElement && (
-            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-cream/50">
+            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
               {leftElement}
             </div>
           )}
@@ -124,7 +124,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           />
           
           {rightElement && (
-            <div className="absolute right-3 top-1/2 -translate-y-1/2 text-cream/50">
+            <div className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground">
               {rightElement}
             </div>
           )}
@@ -143,7 +143,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         {helperText && !hasError && (
           <p
             id={`${inputId}-helper`}
-            className="mt-1.5 text-sm text-cream/50"
+            className="mt-1.5 text-sm text-muted-foreground"
           >
             {helperText}
           </p>
@@ -187,7 +187,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         {label && (
           <label
             htmlFor={textareaId}
-            className="text-sm font-medium text-cream/80 mb-1.5 block"
+            className="text-sm font-medium text-muted-foreground mb-1.5 block"
           >
             {label}
           </label>
@@ -196,10 +196,10 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         <textarea
           id={textareaId}
           className={cn(
-            'flex min-h-[120px] w-full rounded-md border bg-navy-dark text-cream placeholder:text-cream/40 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-navy-darkest disabled:cursor-not-allowed disabled:opacity-50 transition-colors duration-200',
+            'flex min-h-[120px] w-full rounded-md border bg-card text-foreground placeholder:text-muted-foreground px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 transition-colors duration-200',
             hasError
               ? 'border-red-500 focus:ring-red-500'
-              : 'border-navy-mid hover:border-cream/30',
+              : 'border-border hover:border-border',
             className
           )}
           ref={ref}
@@ -221,7 +221,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         {helperText && !hasError && (
           <p
             id={`${textareaId}-helper`}
-            className="mt-1.5 text-sm text-cream/50"
+            className="mt-1.5 text-sm text-muted-foreground"
           >
             {helperText}
           </p>

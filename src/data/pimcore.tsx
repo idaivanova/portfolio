@@ -43,11 +43,15 @@ export const projectScopeData = {
       { label: 'Time frame', value: '2 years' },
     ],
   },
-  results: [
-    'Translated complex legacy structures into a scalable, user-centered design system',
-    'Grounded design decisions in real-world user research and long-term mental models',
-    'Delivered a seamless user transition without breaking existing workflows',
-  ],
+  results: {
+    content: (
+      <div className="space-y-4">
+        <p>Translated complex legacy structures into a scalable, user-centered design system</p>
+        <p>Grounded design decisions in real-world user research and long-term mental models</p>
+        <p>Delivered a seamless user transition without breaking existing workflows</p>
+      </div>
+    ),
+  },
 };
 
 // Contribution Section

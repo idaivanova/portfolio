@@ -3,7 +3,6 @@
 // Personal portfolio page with image collage and experience
 // ============================================
 
-import * as React from 'react';
 import {
   CaseStudyLayout,
   ImageCollage,
@@ -28,10 +27,10 @@ export default function AboutMePage() {
 
         {/* Introduction */}
         <div className="flex flex-col gap-5 items-center px-20 py-2.5 w-full">
-          <p className="font-body text-xl text-cream text-center">
+          <p className="font-body text-xl text-foreground text-center">
             {heroData.intro.title}
           </p>
-          <p className="font-body text-xl text-cream text-center">
+          <p className="font-body text-xl text-foreground text-center">
             {heroData.intro.subtitle}
           </p>
 
@@ -52,32 +51,32 @@ export default function AboutMePage() {
 
       {/* Experience Section */}
       <section id="experience" className="flex flex-col gap-10">
-        <h2 className="font-body text-[32px] font-extrabold text-cream">
+        <h2 className="font-body text-[32px] font-extrabold text-foreground">
           {experienceData.title}
         </h2>
 
         {/* Companies */}
         <div className="flex flex-col gap-2.5">
           <h3 className="font-body text-2xl font-extrabold text-accent">
-            {experienceData.sections[0].title}
+            {experienceData.sections[0]!.title}
           </h3>
-          <LogoGrid logos={experienceData.sections[0].logos} />
+          <LogoGrid logos={experienceData.sections[0]!.logos!} />
         </div>
 
         {/* Freelance Clients */}
         <div className="flex flex-col gap-2.5">
           <h3 className="font-body text-2xl font-extrabold text-accent">
-            {experienceData.sections[1].title}
+            {experienceData.sections[1]!.title}
           </h3>
-          <LogoGrid logos={experienceData.sections[1].logos} />
+          <LogoGrid logos={experienceData.sections[1]!.logos!} />
         </div>
 
         {/* Education */}
         <div className="flex flex-col gap-5">
           <h3 className="font-body text-2xl font-extrabold text-accent">
-            {experienceData.sections[2].title}
+            {experienceData.sections[2]!.title}
           </h3>
-          <EducationList entries={experienceData.sections[2].entries} />
+          <EducationList entries={experienceData.sections[2]!.entries!} />
         </div>
       </section>
 
@@ -85,7 +84,7 @@ export default function AboutMePage() {
 
       {/* Keywords Section */}
       <section id="keywords" className="flex flex-col gap-10 py-10">
-        <h2 className="font-body text-[32px] font-extrabold text-cream">
+        <h2 className="font-body text-[32px] font-extrabold text-foreground">
           {keywordsData.title}
         </h2>
         <KeywordTags categories={keywordsData.categories} />
