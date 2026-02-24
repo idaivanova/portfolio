@@ -26,14 +26,7 @@ const SCENARIOS: RaccoonScenario[] = [
   { id: 4, position: 'bottom-right', name: 'Bottom Right Raccoon', description: 'Appears from bottom-right corner' },
 ];
 
-// Raccoon mood messages
-const RACCOON_MOOD_MESSAGES: Record<RaccoonMood, string[]> = {
-  calm: ['Cool.', 'Chill.', 'Peace.', 'Relax.'],
-  curious: ['Hmm?', 'What?', 'See you!', 'Hiding.'],
-  startled: ['Yikes!', 'Whoa!', 'Sneaky!', 'Found me!'],
-  silly: ['Boing!', 'Wobble!', 'Silly!', 'Haha!'],
-  drunk: ['Spinning...', 'Whoops...', 'Zzz...', 'Wheee!'],
-};
+
 
 // Get position styles based on corner
 const getPositionStyles = (position: RaccoonPosition) => {
@@ -253,8 +246,7 @@ export function RaccoonManager({
   maxInterval = 90000,
 }: RaccoonManagerProps) {
   const [raccoons, setRaccoons] = useState<RaccoonScenario[]>([]);
-  const controls = useAnimation();
-  
+  // Calculate next appearance time
   // Calculate next appearance time
   const getNextAppearanceTime = useCallback(() => {
     return Math.random() * (maxInterval - minInterval) + minInterval;

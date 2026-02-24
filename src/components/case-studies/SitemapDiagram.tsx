@@ -103,6 +103,7 @@ interface SitemapSectionProps {
   };
   overlayImages?: SitemapImage[];
   footerText?: React.ReactNode;
+  containerHeight?: number | string;
   className?: string;
 }
 
@@ -113,6 +114,7 @@ export function SitemapSection({
   mainImage,
   overlayImages,
   footerText,
+  containerHeight,
   className,
 }: SitemapSectionProps) {
   return (
@@ -135,6 +137,7 @@ export function SitemapSection({
         mainImage={mainImage}
         overlayImages={overlayImages}
         footerText={footerText}
+        containerHeight={containerHeight}
       />
     </div>
   );

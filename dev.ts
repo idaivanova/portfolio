@@ -8,7 +8,6 @@ import { join } from 'path';
 const BASE_DIR = import.meta.dir;
 
 // CSS cache for processed files
-const cssCache = new Map<string, { content: string; timestamp: number }>();
 
 async function processCSS(filePath: string): Promise<string> {
   const file = Bun.file(filePath);

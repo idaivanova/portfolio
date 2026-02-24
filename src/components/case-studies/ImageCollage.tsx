@@ -3,7 +3,6 @@
 // Floating image collage with positioned tags
 // ============================================
 
-import * as React from 'react';
 import { cn } from '@/lib/utils';
 
 interface CollageImage {

@@ -3,7 +3,6 @@
 // Enterprise PIM platform UX redesign case study
 // ============================================
 
-import * as React from 'react';
 import {
   CaseStudyLayout,
   CaseStudyHeader,

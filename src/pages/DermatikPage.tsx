@@ -3,7 +3,6 @@
 // Complete case study page using all reusable components
 // ============================================
 
-import * as React from 'react';
 import {
   CaseStudyLayout,
   CaseStudyHeader,
