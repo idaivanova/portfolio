@@ -149,7 +149,10 @@ function DesktopRailNav({ className }: LeftRailNavProps) {
         <nav className="mt-5 flex-1 overflow-y-auto pr-1">
           <div className="space-y-1">
             {mainLinks.map((item) => {
-              const active = location.pathname === item.href;
+              // Use exact match for home/about, startsWith for case study pages to handle sub-routes
+              const active = item.href === '/' 
+                ? location.pathname === '/' 
+                : location.pathname.startsWith(item.href);
               const localized = localizeRailLink(item, t, language);
               return (
                 <Link
@@ -173,7 +176,8 @@ function DesktopRailNav({ className }: LeftRailNavProps) {
           </p>
           <div className="space-y-0.5">
             {realLinks.map((item) => {
-              const active = location.pathname === item.href;
+              // Use startsWith to handle case study pages with sub-routes
+              const active = location.pathname.startsWith(item.href);
               const localized = localizeRailLink(item, t, language);
               return (
                 <Link
@@ -200,7 +204,8 @@ function DesktopRailNav({ className }: LeftRailNavProps) {
           </p>
           <div className="space-y-0.5">
             {playgroundLinks.map((item) => {
-              const active = location.pathname === item.href;
+              // Use startsWith to handle case study pages with sub-routes
+              const active = location.pathname.startsWith(item.href);
               const localized = localizeRailLink(item, t, language);
               return (
                 <Link
@@ -322,6 +327,8 @@ function MobilePortfolioNav() {
               <div className="grid grid-cols-1 gap-1.5">
                 {realLinks.map((item) => {
                   const localized = localizeRailLink(item, t, language);
+                  // Use startsWith to handle case study pages with sub-routes
+                  const active = location.pathname.startsWith(item.href);
                   return (
                     <Link
                       key={item.href}
@@ -329,7 +336,7 @@ function MobilePortfolioNav() {
                       onClick={() => setIsProjectsOpen(false)}
                       className={cn(
                         'rounded-lg px-3 py-2',
-                        location.pathname === item.href ? 'bg-accent/12 text-accent' : 'text-foreground/78 hover:bg-muted hover:text-foreground'
+                        active ? 'bg-accent/12 text-accent' : 'text-foreground/78 hover:bg-muted hover:text-foreground'
                       )}
                     >
                       <span className="block text-sm font-medium">{localized.label}</span>
@@ -342,6 +349,8 @@ function MobilePortfolioNav() {
 
                 {playgroundLinks.map((item) => {
                   const localized = localizeRailLink(item, t, language);
+                  // Use startsWith to handle case study pages with sub-routes
+                  const active = location.pathname.startsWith(item.href);
                   return (
                     <Link
                       key={item.href}
@@ -349,7 +358,7 @@ function MobilePortfolioNav() {
                       onClick={() => setIsProjectsOpen(false)}
                       className={cn(
                         'rounded-lg px-3 py-2',
-                        location.pathname === item.href ? 'bg-accent/12 text-accent' : 'text-foreground/78 hover:bg-muted hover:text-foreground'
+                        active ? 'bg-accent/12 text-accent' : 'text-foreground/78 hover:bg-muted hover:text-foreground'
                       )}
                     >
                       <span className="block text-sm font-medium">{localized.label}</span>

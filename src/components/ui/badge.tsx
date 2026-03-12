@@ -57,12 +57,12 @@ const badgeVariants = cva(
 export interface BadgeProps
   extends React.HTMLAttributes<HTMLSpanElement>,
     VariantProps<typeof badgeVariants> {
-  asChild?: boolean;
+  _asChild?: boolean;
 }
 
 // Badge component
 const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
-  ({ className, variant, size, asChild = false, children, ...props }, ref) => {
+  ({ className, variant, size, _asChild = false, children, ...props }, ref) => {
     // If asChild is true, we'd use Slot from radix-ui
     // For now, just render a span
     return (

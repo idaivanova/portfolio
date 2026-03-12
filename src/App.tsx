@@ -4,6 +4,7 @@ import { Hero } from './components/sections/Hero';
 import { Stats } from './components/sections/Stats';
 import { Features } from './components/sections/Features';
 import { CTASection } from './components/sections/CTASection';
+import { Header } from './components/layout/header';
 import { LeftRailNav } from './components/layout/left-rail-nav';
 import { Footer } from './components/layout/footer';
 import { SkipLink } from './components/ui/SkipLink';
@@ -72,35 +73,11 @@ function AppContent() {
 }
 
 function ScrollToTop() {
-  const { pathname, search } = useLocation();
+  const { pathname } = useLocation();
 
   useLayoutEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
-
-    const frame = window.requestAnimationFrame(() => {
-      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-    });
-
-    const t1 = window.setTimeout(() => {
-      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-      document.documentElement.scrollTop = 0;
-      document.body.scrollTop = 0;
-    }, 0);
-
-    const t2 = window.setTimeout(() => {
-      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-      document.documentElement.scrollTop = 0;
-      document.body.scrollTop = 0;
-    }, 180);
-
-    return () => {
-      window.cancelAnimationFrame(frame);
-      window.clearTimeout(t1);
-      window.clearTimeout(t2);
-    };
-  }, [pathname, search]);
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return null;
 }
@@ -113,6 +90,7 @@ function App() {
           <div className="min-h-screen bg-background text-foreground font-sans">
             <SkipLink />
             <ScrollToTop />
+            <Header />
             <LeftRailNav />
 
             <div className="pb-20 md:pb-0 md:pl-[220px] lg:pl-[238px] xl:pl-[252px] 2xl:pl-[264px]">

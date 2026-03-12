@@ -380,7 +380,7 @@ export default function SDZRNPage() {
               {messagingData.pillars.map((pillar, index) => (
                 <div key={index} className="p-4 bg-muted/50 rounded-lg border border-border">
                   <p className="text-cyan-300 text-sm font-medium mb-1">{pillar.pillar}</p>
-                  <p className="text-foreground text-lg mb-2">"{pillar.statement}"</p>
+                  <p className="text-foreground text-lg mb-2">&quot;{pillar.statement}&quot;</p>
                   <p className="text-foreground/50 text-sm">{pillar.proof}</p>
                 </div>
               ))}

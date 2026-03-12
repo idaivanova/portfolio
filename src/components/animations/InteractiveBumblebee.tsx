@@ -424,71 +424,6 @@ export function InteractiveBumblebee({
     }
   }, []);
 
-  const walkAlongEdge = useCallback(async (startEdge: 'top' | 'right' | 'bottom' | 'left') => {
-    if (isWalkingEdge.current) return;
-    isWalkingEdge.current = true;
-    setMovementMode('walking');
-    setEmotion('curious');
-
-    const w = window.innerWidth;
-    const h = window.innerHeight;
-    const beeSize = 28;
-    
-    let currentPos = { ...positionRef.current };
-    let walkDistance = 0;
-    const maxWalkDistance = Math.random() * 300 + 100;
-    
-    const getEdgePosition = (edge: 'top' | 'right' | 'bottom' | 'left', progress: number) => {
-      switch (edge) {
-        case 'top': return { x: progress * w, y: beeSize };
-        case 'right': return { x: w - beeSize, y: progress * h };
-        case 'bottom': return { x: w - progress * w, y: h - beeSize };
-        case 'left': return { x: beeSize, y: h - progress * h };
-      }
-    };
-
-    const startProgress = (() => {
-      switch (startEdge) {
-        case 'top': return currentPos.x / w;
-        case 'right': return currentPos.y / h;
-        case 'bottom': return 1 - currentPos.x / w;
-        case 'left': return 1 - currentPos.y / h;
-      }
-    })();
-
-    const direction = Math.random() > 0.5 ? 1 : -1;
-    const directionMap: Record<string, 'up' | 'down' | 'left' | 'right'> = {
-      'top': direction > 0 ? 'right' : 'left',
-      'right': direction > 0 ? 'down' : 'up',
-      'bottom': direction > 0 ? 'left' : 'right',
-      'left': direction > 0 ? 'up' : 'down',
-    };
-    
-    setRotation(getWalkingRotation(directionMap[startEdge]));
-
-    for (let i = 0; i < 40 && walkDistance < maxWalkDistance; i++) {
-      const progress = startProgress + (direction * walkDistance) / (startEdge === 'top' || startEdge === 'bottom' ? w : h);
-      const newPos = getEdgePosition(startEdge, Math.max(0, Math.min(1, progress)));
-      
-      targetRef.current = newPos;
-      
-      walkDistance += 8;
-      
-      await new Promise(resolve => setTimeout(resolve, 50));
-      
-      const corner = detectCorner(newPos.x, newPos.y);
-      if (corner) {
-        await handleCornerTurn(corner, startEdge);
-        break;
-      }
-    }
-
-    isWalkingEdge.current = false;
-    setMovementMode('flying');
-    setEmotion('flying');
-    setRotation(0);
-  }, [getViewportEdges, detectCorner, getWalkingRotation]);
-
   const handleCornerTurn = useCallback(async (
     corner: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right',
     fromEdge: 'top' | 'right' | 'bottom' | 'left'
@@ -541,6 +476,71 @@ export function InteractiveBumblebee({
     
     return nextEdge;
   }, [hideSpeechBubble, showSpeechBubble]);
+
+  const walkAlongEdge = useCallback(async (startEdge: 'top' | 'right' | 'bottom' | 'left') => {
+    if (isWalkingEdge.current) return;
+    isWalkingEdge.current = true;
+    setMovementMode('walking');
+    setEmotion('curious');
+
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    const beeSize = 28;
+    
+    const currentPos = { ...positionRef.current };
+    let walkDistance = 0;
+    const maxWalkDistance = Math.random() * 300 + 100;
+    
+    const getEdgePosition = (edge: 'top' | 'right' | 'bottom' | 'left', progress: number) => {
+      switch (edge) {
+        case 'top': return { x: progress * w, y: beeSize };
+        case 'right': return { x: w - beeSize, y: progress * h };
+        case 'bottom': return { x: w - progress * w, y: h - beeSize };
+        case 'left': return { x: beeSize, y: h - progress * h };
+      }
+    };
+
+    const startProgress = (() => {
+      switch (startEdge) {
+        case 'top': return currentPos.x / w;
+        case 'right': return currentPos.y / h;
+        case 'bottom': return 1 - currentPos.x / w;
+        case 'left': return 1 - currentPos.y / h;
+      }
+    })();
+
+    const direction = Math.random() > 0.5 ? 1 : -1;
+    const directionMap: Record<string, 'up' | 'down' | 'left' | 'right'> = {
+      'top': direction > 0 ? 'right' : 'left',
+      'right': direction > 0 ? 'down' : 'up',
+      'bottom': direction > 0 ? 'left' : 'right',
+      'left': direction > 0 ? 'up' : 'down',
+    };
+    
+    setRotation(getWalkingRotation(directionMap[startEdge]));
+
+    for (let i = 0; i < 40 && walkDistance < maxWalkDistance; i++) {
+      const progress = startProgress + (direction * walkDistance) / (startEdge === 'top' || startEdge === 'bottom' ? w : h);
+      const newPos = getEdgePosition(startEdge, Math.max(0, Math.min(1, progress)));
+      
+      targetRef.current = newPos;
+      
+      walkDistance += 8;
+      
+      await new Promise(resolve => setTimeout(resolve, 50));
+      
+      const corner = detectCorner(newPos.x, newPos.y);
+      if (corner) {
+        await handleCornerTurn(corner, startEdge);
+        break;
+      }
+    }
+
+    isWalkingEdge.current = false;
+    setMovementMode('flying');
+    setEmotion('flying');
+    setRotation(0);
+  }, [detectCorner, getWalkingRotation, handleCornerTurn]);
 
   const investigateUIElement = useCallback(async (uiElement: UIElement) => {
     if (isInvestigatingUI.current) return;
@@ -750,7 +750,30 @@ export function InteractiveBumblebee({
       hideSpeechBubble();
       setEmotion('flying');
     }
-  }, [wakeUp, getUIElements, investigateUIElement, startResting, hideSpeechBubble, showSpeechBubble]);
+  }, [wakeUp, getUIElements, investigateUIElement, hideSpeechBubble, showSpeechBubble]);
+
+  const handleIdle = useCallback(async () => {
+    if (hasLanded.current) return;
+    
+    isIdle.current = true;
+    hasLanded.current = true;
+    
+    const corners = [
+      { x: 80, y: 80 },
+      { x: window.innerWidth - 80, y: 80 },
+      { x: 80, y: window.innerHeight - 80 },
+      { x: window.innerWidth - 80, y: window.innerHeight - 80 },
+    ];
+    
+    const corner = corners[Math.floor(Math.random() * corners.length)];
+    targetRef.current = corner;
+    
+    setEmotion('sleeping');
+
+    await new Promise(resolve => setTimeout(resolve, 1500));
+
+    showSpeechBubble('💤', 1200, 900);
+  }, [showSpeechBubble]);
 
   const animateBee = useCallback(() => {
     if (!isBeeActive.current) return;
@@ -830,7 +853,7 @@ export function InteractiveBumblebee({
     }
 
     animationFrameRef.current = requestAnimationFrame(animateBee);
-  }, [movementMode, detectCurrentEdge, walkAlongEdge, startResting, emotion]);
+  }, [movementMode, detectCurrentEdge, walkAlongEdge, startResting, emotion, handleIdle]);
 
   const handleMouseMove = useCallback((e: MouseEvent) => {
     mouseRef.current = { x: e.clientX, y: e.clientY };
@@ -921,29 +944,6 @@ export function InteractiveBumblebee({
       showSpeechBubble('👋', 900, 500);
     }, 1500);
   }, [emotion, hideSpeechBubble, showSpeechBubble, wakeUp]);
-
-  const handleIdle = useCallback(async () => {
-    if (hasLanded.current) return;
-    
-    isIdle.current = true;
-    hasLanded.current = true;
-    
-    const corners = [
-      { x: 80, y: 80 },
-      { x: window.innerWidth - 80, y: 80 },
-      { x: 80, y: window.innerHeight - 80 },
-      { x: window.innerWidth - 80, y: window.innerHeight - 80 },
-    ];
-    
-    const corner = corners[Math.floor(Math.random() * corners.length)];
-    targetRef.current = corner;
-    
-    setEmotion('sleeping');
-
-    await new Promise(resolve => setTimeout(resolve, 1500));
-
-    showSpeechBubble('💤', 1200, 900);
-  }, [showSpeechBubble]);
 
   const startFlyAcrossSequence = useCallback(async () => {
     if (isFlyingAcross.current || hasLanded.current || isIdle.current || isResting.current) return;

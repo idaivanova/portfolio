@@ -6,8 +6,14 @@
 import * as React from 'react';
 import { cn } from '../../lib/utils';
 
-// Import all Lucide icons
-import * as LucideIcons from 'lucide-react';
+// Tree-shakeable imports - only import icons that are actually used
+import { X, Menu } from 'lucide-react';
+
+// Icon mapping for tree-shaking (only includes used icons)
+const lucideIcons = {
+  X,
+  Menu,
+} as const;
 
 // Icon size tokens (matching design system)
 export const iconSizes = {
@@ -21,8 +27,8 @@ export const iconSizes = {
 
 export type IconSize = keyof typeof iconSizes;
 
-// Icon names from Lucide
-export type IconName = keyof typeof LucideIcons;
+// Icon names from Lucide (only includes used icons)
+export type IconName = keyof typeof lucideIcons;
 
 // Icon props
 interface IconProps extends React.SVGAttributes<SVGSVGElement> {
@@ -36,8 +42,8 @@ interface IconProps extends React.SVGAttributes<SVGSVGElement> {
 // Icon component
 const Icon = React.forwardRef<SVGSVGElement, IconProps>(
   ({ name, size = 'md', color, strokeWidth = 2, className, ...props }, _ref) => {
-    // Get the icon component from Lucide
-    const LucideIcon = LucideIcons[name] as React.ComponentType<{
+    // Get the icon component from the mapping
+    const LucideIcon = lucideIcons[name] as React.ComponentType<{
       size?: number;
       color?: string;
       strokeWidth?: number;

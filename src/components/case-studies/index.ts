@@ -15,6 +15,7 @@ export {
   ImageMosaic,
   PageFlow,
 } from './ImageGallery';
+export type { GalleryImage } from './ImageGallery';
 export { Divider } from './Divider';
 
 // New exports

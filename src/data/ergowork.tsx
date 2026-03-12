@@ -448,7 +448,7 @@ export const pageFlowsData = {
           </p>
           <p className="mt-4">
             Personas are guided through a relevant journey - e.g., gamers, office workers -
-            toward key actions like "See X desk" or "Get a custom offer", reducing friction
+            toward key actions like &quot;See X desk&quot; or &quot;Get a custom offer&quot;, reducing friction
             and aligning with value-driven exploration.
           </p>
         </>

@@ -17,6 +17,7 @@ import {
   SitemapSection,
   PageFlowSection,
   PageFlowSplit,
+  GalleryImage,
 } from '@/components/case-studies';
 import {
   heroData,
@@ -140,7 +141,7 @@ export default function ErgoWorkPage() {
           keyActions={pageFlowsData.flows[0]!.keyActions!}
         />
         <div className="mt-5">
-          <ImagePair images={fullWidthImages.homepagePair as [any, any]} aspectRatio="auto" />
+          <ImagePair images={fullWidthImages.homepagePair as [GalleryImage, GalleryImage]} aspectRatio="auto" />
         </div>
       </section>
 
