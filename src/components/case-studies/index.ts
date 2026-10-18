@@ -5,6 +5,11 @@
 export { Sidebar, Logo } from './Sidebar';
 export { CaseStudyLayout } from './CaseStudyLayout';
 export { CaseStudyHeader } from './CaseStudyHeader';
+export { CaseStudySeriesNav } from './CaseStudySeriesNav';
+export type {
+  SeriesPart,
+  CaseStudySeriesNavProps,
+} from './CaseStudySeriesNav';
 export { InfoCards } from './InfoCards';
 export { SectionHeader } from './SectionHeader';
 export { FeatureCard, FeatureCardsGrid } from './FeatureCard';

@@ -3,6 +3,31 @@
 // All content data for the Pimcore case study page
 // ============================================
 
+// ============================================
+// Pimcore Studio — series definition
+// One client, two distinct bodies of work. The hub page
+// (/case-studies/pimcore) lists the parts; each part page
+// renders this strip at the top so the reader can move sideways.
+// `id` here is the value each part page passes as `activePartId`.
+// ============================================
+
+export const pimcoreSeries = {
+  title: 'Pimcore Studio',
+  hubHref: '/case-studies/pimcore',
+  parts: [
+    {
+      id: 'frontend-transition',
+      label: 'Front-end transition',
+      href: '/case-studies/pimcore/frontend-transition',
+    },
+    {
+      id: 'studio-extensions',
+      label: 'Native extensions',
+      href: '/case-studies/pimcore/studio-extensions',
+    },
+  ],
+};
+
 // Hero Section
 export const heroData = {
   image: {
@@ -173,3 +198,79 @@ export const reflectionData = {
     </>
   ),
 };
+
+// ============================================
+// Hub page — /case-studies/pimcore
+// An index, not a case study. Scope facts below are copied from
+// projectScopeData above rather than restated, so the two can't
+// drift apart silently.
+// ============================================
+
+export const hubHeroData = {
+  title: (
+    <>
+      <span className="font-extrabold">Pimcore Studio</span>
+    </>
+  ),
+  description: (
+    <>
+      <p>
+        One client, more than one body of work. Pimcore is the open-source platform where
+        product data, assets and content live, and the Studio team builds the interface
+        people extend it with. This page indexes the parts. Each one stands on its own.
+      </p>
+    </>
+  ),
+  tags: [
+    { label: 'UX / UI Design' },
+    { label: 'Design System' },
+    { label: '2023 — Present' },
+  ],
+};
+
+export const hubScopeData = {
+  scope: {
+    items: [
+      { label: 'Client', value: 'Pimcore' },
+      { label: 'My role', value: projectScopeData.scope.items[0].value },
+      { label: 'Team', value: projectScopeData.scope.items[3].value },
+      { label: 'Time frame', value: projectScopeData.scope.items[4].value },
+      { label: 'Body of work', value: 'Several parts, written up one at a time' },
+    ],
+  },
+  results: {
+    content: (
+      <div className="space-y-4">
+        <p>
+          Each part covers one piece of the engagement on its own terms: what the problem
+          was, what I made, and what it changed for the people using it.
+        </p>
+        <p>
+          Nothing here is split across parts to make a number look better. If a part has no
+          measured result, it says so.
+        </p>
+      </div>
+    ),
+  },
+};
+
+export const hubPartsData = [
+  {
+    id: 'frontend-transition',
+    title: 'Front-end transition',
+    summary:
+      'Pimcore moved the admin interface to a new platform version while people who had used the old one for years kept working around its rough edges. I ran the research first, then built the design system and layout the team now extends.',
+    tags: ['UX Research', 'Design System', 'Layout', 'Accessibility'],
+    href: '/case-studies/pimcore/frontend-transition',
+    annotation: 'the part most people mean when they say "the Pimcore work"',
+  },
+  {
+    id: 'studio-extensions',
+    title: 'Bridging Dev and UX for native extensions',
+    summary:
+      "Developers and product managers build their own widgets inside Pimcore Studio. Without shared rules those add-ons read as foreign bodies on the core product, so I wrote the design system down in a Storybook and published the same rules as AI skills on Pimcore's GitHub.",
+    tags: ['Design System', 'Storybook', 'Microcopy', 'AI-assisted Dev'],
+    href: '/case-studies/pimcore/studio-extensions',
+    annotation: 'the rules, written down where developers actually work',
+  },
+];

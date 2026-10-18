@@ -14,6 +14,8 @@ import ErgoWorkPage from './pages/ErgoWorkPage';
 import DermatikPage from './pages/DermatikPage';
 import AboutMePage from './pages/AboutMePage';
 import PimcorePage from './pages/PimcorePage';
+import PimcoreFrontendTransitionPage from './pages/PimcoreFrontendTransitionPage';
+import PimcoreStudioExtensionsPage from './pages/PimcoreStudioExtensionsPage';
 import SDZRNPage from './pages/SDZRNPage';
 import ThemeBuilderPage from './pages/ThemeBuilderPage';
 
@@ -54,7 +56,17 @@ function AppContent() {
       <Route path="/about" element={<AboutPage />} />
       
       {/* Case study pages - use CaseStudyLayout with sidebar */}
+      {/* Pimcore is a multi-part series: the hub stays at /case-studies/pimcore
+          because the left rail links there, each part gets its own route. */}
       <Route path="/case-studies/pimcore" element={<PimcorePage />} />
+      <Route
+        path="/case-studies/pimcore/frontend-transition"
+        element={<PimcoreFrontendTransitionPage />}
+      />
+      <Route
+        path="/case-studies/pimcore/studio-extensions"
+        element={<PimcoreStudioExtensionsPage />}
+      />
       <Route path="/case-studies/ergowork" element={<ErgoWorkPage />} />
       <Route path="/case-studies/dermatik" element={<DermatikPage />} />
       <Route path="/case-studies/sdzrn" element={<SDZRNPage />} />

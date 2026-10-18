@@ -1,0 +1,131 @@
+// ============================================
+// Pimcore Studio — Part 1 of 2
+// Front-end transition and upgrade of the PIM platform.
+// Body carried over unchanged from the former single-page case study.
+// ============================================
+
+import {
+  CaseStudyLayout,
+  CaseStudyHeader,
+  SectionHeader,
+  InfoCards,
+  Divider,
+  FeatureCardsGrid,
+  OffcutsStrip,
+  CaseStudySeriesNav,
+} from '@/components/case-studies';
+import {
+  pimcoreSeries,
+  heroData,
+  projectScopeData,
+  contributionData,
+  keyFeaturesData,
+  videoData,
+  reflectionData,
+} from '@/data/pimcore';
+import { pimcoreOffcuts } from '@/data/offcuts';
+
+export default function PimcoreFrontendTransitionPage() {
+  return (
+    <CaseStudyLayout>
+      {/* Series breadcrumb */}
+      <CaseStudySeriesNav
+        seriesTitle={pimcoreSeries.title}
+        seriesHref={pimcoreSeries.hubHref}
+        parts={pimcoreSeries.parts}
+        activePartId="frontend-transition"
+      />
+
+      {/* Hero Section */}
+      <section id="hero">
+        <CaseStudyHeader
+          image={heroData.image}
+          title={heroData.title}
+          description={heroData.description}
+          tags={heroData.tags}
+        />
+      </section>
+
+      <Divider />
+
+      {/* Project Scope & Results */}
+      <section id="scope">
+        <InfoCards scope={projectScopeData.scope} results={projectScopeData.results} />
+      </section>
+
+      {/* Contribution Section */}
+      <section id="contribution">
+        <SectionHeader
+          label={contributionData.label}
+          title={contributionData.title}
+          description={contributionData.description}
+        />
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+          {contributionData.directionPoints.map((point, index) => (
+            <div
+              key={index}
+              className="flex items-start gap-3 p-4 bg-navy-dark/50 rounded-sm border border-border"
+            >
+              <span className="text-[var(--color-accent-text)] font-bold">{index + 1}</span>
+              <span className="text-foreground/80">{point}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <Divider />
+
+      {/* Key Features Section */}
+      <section id="features">
+        <SectionHeader
+          label={keyFeaturesData.label}
+          title={keyFeaturesData.title}
+          description={keyFeaturesData.description}
+        />
+        <div className="mt-8">
+          <FeatureCardsGrid features={keyFeaturesData.features} />
+        </div>
+      </section>
+
+      <Divider />
+
+      {/* Offcuts — the tries that didn't survive */}
+      <section id="offcuts">
+        <OffcutsStrip data={pimcoreOffcuts} />
+      </section>
+
+      <Divider />
+
+      {/* Video Walkthrough */}
+      <section id="video">
+        <SectionHeader
+          label={videoData.label}
+          title={videoData.title}
+          description={videoData.description}
+        />
+        <div className="mt-8 aspect-video rounded-xl overflow-hidden border border-border">
+          <iframe
+            src="https://www.youtube.com/embed/jC58hL2cR4w"
+            title={videoData.title}
+            className="w-full h-full"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+      </section>
+
+      <Divider />
+
+      {/* Reflection Section */}
+      <section id="reflection">
+        <SectionHeader
+          label={reflectionData.label}
+          title={reflectionData.title}
+        />
+        <div className="mt-6 text-foreground/80 leading-relaxed">
+          {reflectionData.content}
+        </div>
+      </section>
+    </CaseStudyLayout>
+  );
+}
