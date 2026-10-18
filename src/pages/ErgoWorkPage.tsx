@@ -18,6 +18,7 @@ import {
   PageFlowSection,
   PageFlowSplit,
   GalleryImage,
+  OffcutsStrip,
 } from '@/components/case-studies';
 import {
   heroData,
@@ -31,6 +32,7 @@ import {
   reflectionData,
   fullWidthImages,
 } from '@/data/ergowork';
+import { ergoworkOffcuts } from '@/data/offcuts';
 
 export default function ErgoWorkPage() {
   return (
@@ -226,6 +228,13 @@ export default function ErgoWorkPage() {
           objective={pageFlowsData.flows[4]!.objective!}
           keyActions={pageFlowsData.flows[4]!.keyActions!}
         />
+      </section>
+
+      <Divider />
+
+      {/* Offcuts — the tries that didn't survive */}
+      <section id="offcuts">
+        <OffcutsStrip data={ergoworkOffcuts} />
       </section>
 
       <Divider />

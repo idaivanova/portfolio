@@ -140,7 +140,7 @@ const en: Translations = {
   },
   features: {
     heading: 'Featured work',
-    subheading: 'Real client projects — plus a few experiments I made just because I wanted to.',
+    subheading: 'Real client projects. Plus a few experiments I made just because I wanted to.',
     caseStudies: {
       pimcore: {
         title: 'Pimcore Platform',
@@ -259,7 +259,7 @@ const de: Translations = {
   },
   features: {
     heading: 'Ausgewählte Arbeiten',
-    subheading: 'Echte Kundenprojekte — und ein paar Experimente, die es nur aus Spaß gibt.',
+    subheading: 'Echte Kundenprojekte. Dazu ein paar Experimente, die ich aus purem Spaß gebaut habe.',
     caseStudies: {
       pimcore: {
         title: 'Pimcore Platform',
@@ -381,7 +381,7 @@ const bg: Translations = {
   features: {
     heading: 'Избрани работи',
     subheading:
-      'Реални клиентски проекти — плюс няколко експеримента, които направих просто защото ми се искаше.',
+      'Реални клиентски проекти. Плюс няколко експеримента, които направих просто защото ми се искаше.',
     caseStudies: {
       pimcore: {
         title: 'Pimcore Platform',
@@ -503,7 +503,7 @@ const da: Translations = {
   features: {
     heading: 'Udvalgte projekter',
     subheading:
-      'Rigtige kundeprojekter — plus nogle eksperiments, jeg lavede, fordi jeg havde lyst.',
+      'Rigtige kundeprojekter. Plus nogle eksperiments, jeg lavede, fordi jeg havde lyst.',
     caseStudies: {
       pimcore: {
         title: 'Pimcore Platform',

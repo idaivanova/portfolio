@@ -28,7 +28,7 @@ export function CaseStudyLayout({
         <div className="px-4 py-8 md:px-[50px] md:py-[50px]">
           <Link
             to="/"
-            className="mb-8 inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-accent"
+            className="mb-8 inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-[var(--color-accent)]"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Home

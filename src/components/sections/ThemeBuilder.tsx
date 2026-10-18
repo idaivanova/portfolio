@@ -479,7 +479,7 @@ export function ThemeBuilder({ className }: { className?: string }) {
           <button
             type="button"
             onClick={handleCopy}
-            className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground transition-opacity duration-300 hover:opacity-85"
+            className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-opacity duration-300 hover:opacity-85"
           >
             {copied ? <Check className="h-4 w-4" aria-hidden="true" /> : <Copy className="h-4 w-4" aria-hidden="true" />}
             {copy.exportButton}
@@ -495,7 +495,7 @@ export function ThemeBuilder({ className }: { className?: string }) {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -6 }}
                 transition={{ duration: 0.25 }}
-                className="inline-flex items-center gap-1.5 rounded-full bg-accent/15 px-3 py-1.5 text-sm font-medium text-accent"
+                className="inline-flex items-center gap-1.5 rounded-full bg-accent/15 px-3 py-1.5 text-sm font-medium text-foreground"
               >
                 <Sprout className="h-4 w-4" aria-hidden="true" />
                 {copy.exportedToast}

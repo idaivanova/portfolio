@@ -60,7 +60,7 @@ export function CaseStudyHeader({
           {tags.map((tag) => (
             <span
               key={tag.label}
-              className="inline-flex h-[34px] items-center justify-center rounded-sm border border-border bg-secondary/70 px-4 font-body text-sm font-bold text-accent"
+              className="inline-flex h-[34px] items-center justify-center rounded-sm border border-border bg-secondary/70 px-4 font-body text-sm font-bold text-[var(--color-accent)]"
             >
               {tag.label}
             </span>

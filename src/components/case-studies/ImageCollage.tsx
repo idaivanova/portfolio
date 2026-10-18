@@ -77,7 +77,7 @@ export function ImageCollage({
           bordered:
             'border border-border bg-card text-foreground backdrop-blur-sm',
           accent:
-            'border border-accent/30 bg-accent/15 text-foreground backdrop-blur-sm',
+            'border border-[var(--color-accent)]/30 bg-[var(--color-accent)]/15 text-foreground backdrop-blur-sm',
         };
 
         return (

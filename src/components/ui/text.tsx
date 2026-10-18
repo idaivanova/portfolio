@@ -93,7 +93,7 @@ const textVariants = cva('text-zinc-700 dark:text-zinc-300', {
     variant: {
       default: 'text-zinc-700 dark:text-zinc-300',
       muted: 'text-zinc-500 dark:text-zinc-400',
-      primary: 'text-orange-600 dark:text-orange-400',
+      primary: 'text-[var(--color-accent)] dark:text-[var(--color-accent-light)]',
       inverse: 'text-white dark:text-zinc-900',
     },
     align: {
@@ -148,7 +148,7 @@ const labelVariants = cva(
       },
       variant: {
         default: 'text-zinc-600 dark:text-zinc-400',
-        primary: 'text-orange-600 dark:text-orange-400',
+        primary: 'text-[var(--color-accent)] dark:text-[var(--color-accent-light)]',
         muted: 'text-zinc-400 dark:text-zinc-500',
         inverse: 'text-white dark:text-zinc-900',
       },
@@ -202,7 +202,7 @@ const displayVariants = cva(
       },
       variant: {
         default: 'text-zinc-900 dark:text-white',
-        gradient: 'bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent',
+        gradient: 'bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-dark)] bg-clip-text text-transparent',
         inverse: 'text-white',
       },
       align: {
@@ -251,7 +251,7 @@ const overlineVariants = cva(
     variants: {
       variant: {
         default: 'text-zinc-500 dark:text-zinc-400',
-        primary: 'text-orange-500 dark:text-orange-400',
+        primary: 'text-[var(--color-accent)] dark:text-[var(--color-accent-light)]',
         inverse: 'text-white',
       },
     },
@@ -333,7 +333,7 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
     const variantClasses = {
       default: 'text-zinc-900 dark:text-zinc-100',
       muted: 'text-zinc-500 dark:text-zinc-400',
-      primary: 'text-orange-600 dark:text-orange-400',
+      primary: 'text-[var(--color-accent)] dark:text-[var(--color-accent-light)]',
     };
 
     const underlineClasses = {

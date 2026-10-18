@@ -61,7 +61,7 @@ export function Header({ className }: HeaderProps) {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo with easter egg trigger */}
           <motion.div
-            className="md:hidden flex items-center gap-2 text-xl font-bold text-foreground hover:text-accent transition-colors font-display cursor-pointer"
+            className="md:hidden flex items-center gap-2 text-xl font-bold text-foreground hover:text-[var(--color-accent)] transition-colors font-display cursor-pointer"
             animate={isLogoAnimating ? {
               scale: [1, 1.15, 0.95, 1.05, 1],
               rotate: [0, -3, 3, -2, 0],
@@ -69,7 +69,7 @@ export function Header({ className }: HeaderProps) {
             transition={{ duration: 0.3 }}
           >
             <Link to="/" onClick={handleLogoClick} className="flex items-center gap-2">
-              <span className="text-accent">I</span>
+              <span className="text-[var(--color-accent)]">I</span>
               <span>da</span>
             </Link>
             {/* Click count indicator */}
@@ -78,7 +78,7 @@ export function Header({ className }: HeaderProps) {
                 initial={{ scale: 0, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0, opacity: 0 }}
-                className="text-xs bg-accent/20 text-accent px-2 py-0.5 rounded-full"
+                className="text-xs bg-[var(--color-accent)]/20 text-[var(--color-accent)] px-2 py-0.5 rounded-full"
               >
                 {logoClickCount}×
               </motion.span>

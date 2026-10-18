@@ -83,7 +83,7 @@ export function LanguageToggle({
                   'w-full flex items-center gap-3 px-4 py-3 text-left transition-colors duration-150',
                   'hover:bg-muted',
                   language === lang.code
-                    ? 'bg-accent/12 text-accent'
+                    ? 'bg-[var(--color-accent)]/12 text-[var(--color-accent)]'
                     : 'text-foreground/80'
                 )}
                 role="option"

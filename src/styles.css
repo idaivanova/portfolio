@@ -1,5 +1,5 @@
-/* Import Montserrat and Krona One fonts - MUST be first */
-@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;500;600;700&display=swap');
+/* Import Krona One, Montserrat and Caveat fonts - MUST be first */
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap');
 
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -19,16 +19,20 @@
   --font-sans: var(--font-montserrat);
   --font-display: var(--font-krona);
 
-  /* Brand Colors - Warmer orange from Figma */
-  --color-accent: #FF6647;
-  --color-accent-light: #FF8A70;
-  --color-accent-dark: #E55A3D;
+  /* Brand Colors - refined coral (deep-blue concept) */
+  --color-accent: #EE7B54;
+  --color-accent-light: #F4A07F;
+  --color-accent-dark: #CE6339;
 
-  /* Dark Navy Theme from Figma */
-  --color-navy-darkest: #051321;
-  --color-navy-dark: #0C1D27;
-  --color-navy-mid: #173748;
-  --color-cream: #FFFEFD;
+  /* Structural Blue - grid, glows, tags. Never decorative. */
+  --color-blue: #5B84C4;
+  --color-blue-soft: #3B5488;
+
+  /* Dark Navy Theme - deep blue */
+  --color-navy-darkest: #08152C;
+  --color-navy-dark: #0C1D3B;
+  --color-navy-mid: #1A2E54;
+  --color-cream: #FCFBF7;
 
   /* Orange Brand Palette (kept for compatibility) */
   --color-orange-50: #FFF7ED;
@@ -94,114 +98,143 @@
 
   /* Gradients */
   --gradient-orange: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
-  --gradient-accent: linear-gradient(135deg, #FF6647 0%, #FF8A70 100%);
+  --gradient-accent: linear-gradient(135deg, #EE7B54 0%, #F4A07F 100%);
   --gradient-dark: linear-gradient(180deg, #0A0A0A 0%, #141414 100%);
-  --gradient-navy: linear-gradient(180deg, #0C1D27 0%, #051321 100%);
+  --gradient-navy: linear-gradient(180deg, #0C1D3B 0%, #08152C 100%);
+
+  /* Glows / texture */
+  --shadow-glow: 0 0 38px -10px rgba(238, 123, 84, 0.45);
+  --shadow-glow-blue: 0 0 60px -8px rgba(91, 132, 196, 0.42);
 }
 
 :root {
   --radius: 0.625rem;
   --font-montserrat: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
   --font-krona: 'Krona One', ui-sans-serif, system-ui, sans-serif;
+  --font-hand: 'Caveat', 'Comic Sans MS', cursive;
 
   /* Dark Navy Theme (default) */
-  --background: #051321;
-  --foreground: #FFFEFD;
+  --background: #08152C;
+  --foreground: #FCFBF7;
+
+  /* Accent - refined coral (the one expressive hue) */
+  --color-accent: #EE7B54;
+  --color-accent-light: #F4A07F;
+  --color-accent-dark: #CE6339;
+
+  /* Structural Blue - grid, glows, tags. Never decorative. */
+  --color-blue: #5B84C4;
+  --color-blue-soft: #3B5488;
 
   /* Navy colors */
-  --navy-darkest: #051321;
-  --navy-dark: #0C1D27;
-  --navy-mid: #173748;
-  --cream: #FFFEFD;
-
-  /* Card/Surface colors */
-  --card: #0C1D27;
-  --card-foreground: #FFFEFD;
-  --popover: #0C1D27;
-  --popover-foreground: #FFFEFD;
-
-  /* Primary - Warm Orange from Figma */
-  --primary: #FF6647;
-  --primary-foreground: #FFFEFD;
-
-  /* Secondary */
-  --secondary: #173748;
-  --secondary-foreground: #FFFEFD;
+  --navy-darkest: #08152C;
+  --navy-dark: #0C1D3B;
+  --navy-mid: #1A2E54;
+  --cream: #FCFBF7;
 
   /* Muted */
-  --muted: #173748;
-  --muted-foreground: #A0AEC0;
+  --muted-fg: #93A3C4;
+
+  /* Glow / texture tokens */
+  --glow: 0 0 38px -10px rgba(238, 123, 84, 0.45);
+  --glow-blue: 0 0 60px -8px rgba(91, 132, 196, 0.42);
+  --grid-line: rgba(123, 151, 205, 0.075);
+  --grid-dot: rgba(123, 151, 205, 0.15);
+
+  /* Card/Surface colors */
+  --card: #0D1E3C;
+  --card-foreground: #FCFBF7;
+  --popover: #0D1E3C;
+  --popover-foreground: #FCFBF7;
+
+  /* Primary - refined coral */
+  --primary: #EE7B54;
+  --primary-foreground: #FCFBF7;
+
+  /* Secondary */
+  --secondary: #1A2E54;
+  --secondary-foreground: #FCFBF7;
+
+  /* Muted */
+  --muted: #1A2E54;
+  --muted-foreground: #93A3C4;
 
   /* Accent */
-  --accent: #173748;
-  --accent-foreground: #FF6647;
+  --accent: #1A2E54;
+  --accent-foreground: #EE7B54;
 
   /* Destructive */
   --destructive: #EF4444;
-  --destructive-foreground: #FFFEFD;
+  --destructive-foreground: #FCFBF7;
 
   /* Border and Input */
-  --border: #173748;
-  --input: #173748;
-  --ring: #FF6647;
+  --border: #1A2E54;
+  --input: #1A2E54;
+  --ring: #EE7B54;
 
   /* Sidebar */
-  --sidebar: #051321;
-  --sidebar-foreground: #FFFEFD;
-  --sidebar-primary: #FF6647;
-  --sidebar-primary-foreground: #FFFEFD;
-  --sidebar-accent: #173748;
-  --sidebar-accent-foreground: #FFFEFD;
-  --sidebar-border: #173748;
+  --sidebar: #08152C;
+  --sidebar-foreground: #FCFBF7;
+  --sidebar-primary: #EE7B54;
+  --sidebar-primary-foreground: #FCFBF7;
+  --sidebar-accent: #1A2E54;
+  --sidebar-accent-foreground: #FCFBF7;
+  --sidebar-border: #1A2E54;
 }
 
 /* Light mode override */
 .light,
 :root:has(#theme-toggle:checked) {
   --background: #FFFFFF;
-  --foreground: #0F172A;
+  --foreground: #0D1E3C;
   
   /* Card/Surface colors - warmer white */
   --card: #FFFFFF;
-  --card-foreground: #0F172A;
+  --card-foreground: #0D1E3C;
   --popover: #FFFFFF;
-  --popover-foreground: #0F172A;
+  --popover-foreground: #0D1E3C;
   
-  /* Primary - Warm Orange from Figma */
-  --primary: #FF6647;
+  /* Primary - refined coral */
+  --primary: #EE7B54;
   --primary-foreground: #FFFFFF;
   
   /* Secondary - Light gray tones */
-  --secondary: #F1F5F9;
-  --secondary-foreground: #0F172A;
+  --secondary: #F1F5FB;
+  --secondary-foreground: #0D1E3C;
   
   /* Muted - Subtle backgrounds */
   --muted: #F8FAFC;
-  --muted-foreground: #64748B;
+  --muted-foreground: #5A6B8C;
   
   /* Accent - Light cream tint */
   --accent: #FFF7ED;
-  --accent-foreground: #FF6647;
+  --accent-foreground: #EE7B54;
   
   /* Border and Input - Light borders */
   --border: #E2E8F0;
   --input: #E2E8F0;
-  --ring: #FF6647;
+  --ring: #EE7B54;
   
   /* Sidebar */
   --sidebar: #FFFFFF;
-  --sidebar-foreground: #0F172A;
-  --sidebar-primary: #FF6647;
+  --sidebar-foreground: #0D1E3C;
+  --sidebar-primary: #EE7B54;
   --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #F1F5F9;
-  --sidebar-accent-foreground: #0F172A;
+  --sidebar-accent: #F1F5FB;
+  --sidebar-accent-foreground: #0D1E3C;
   --sidebar-border: #E2E8F0;
 
   /* Light mode navy equivalents */
-  --navy-darkest: #0F172A;
+  --navy-darkest: #0D1E3C;
   --navy-dark: #1E293B;
   --navy-mid: #334155;
   --cream: #FFFFFF;
+
+  /* Light mode glow / texture - softer */
+  --glow: 0 0 34px -12px rgba(238, 123, 84, 0.32);
+  --glow-blue: 0 0 50px -12px rgba(91, 132, 196, 0.3);
+  --grid-line: rgba(30, 45, 90, 0.05);
+  --grid-dot: rgba(30, 45, 90, 0.1);
 }
 
 @layer base {
@@ -211,8 +244,36 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-montserrat);
+    position: relative;
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   }
+
+  /* Structural grid: dot lattice + major grid lines */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background-image:
+      radial-gradient(var(--grid-dot) 1px, transparent 1px),
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 28px 28px, 112px 112px, 112px 112px;
+  }
+
+  /* Film-grain noise overlay */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.55;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/></svg>");
+  }
+
   html {
     scroll-behavior: smooth;
   }
@@ -229,6 +290,33 @@
   .font-body {
     font-family: var(--font-montserrat);
   }
+  .font-hand {
+    font-family: var(--font-hand);
+  }
+
+  /* Hand-drawn annotation label (scribbles, tags, arrows-as-text) */
+  .scribble {
+    position: absolute;
+    font-family: var(--font-hand);
+    color: var(--color-accent);
+    white-space: nowrap;
+    pointer-events: none;
+    transform: rotate(-4deg);
+  }
+}
+
+/* Scroll cue dot — falling accent line */
+@keyframes drop {
+  0% { opacity: 0; transform: translateY(-8px); }
+  40% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(8px); }
+}
+
+/* Availability tag — pulsing "available" indicator ring */
+@keyframes tagpulse {
+  0% { box-shadow: 0 0 0 0 rgba(57, 181, 74, 0.45); }
+  70% { box-shadow: 0 0 0 7px rgba(57, 181, 74, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(57, 181, 74, 0); }
 }
 
 /* Gradient blob animation */

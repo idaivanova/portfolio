@@ -92,7 +92,7 @@ function DesktopRailNav({ className }: LeftRailNavProps) {
     >
       <div className="flex h-full w-full flex-col md:p-3 lg:p-4 xl:p-5">
         <motion.div
-          className="flex items-center gap-2 font-bold text-foreground hover:text-accent transition-colors font-display md:text-lg xl:text-xl"
+          className="flex items-center gap-2 font-bold text-foreground hover:text-[var(--color-accent)] transition-colors font-display md:text-lg xl:text-xl"
           animate={isLogoAnimating ? {
             scale: [1, 1.12, 0.96, 1.03, 1],
             rotate: [0, -2.5, 2.5, -1.5, 0],
@@ -100,14 +100,14 @@ function DesktopRailNav({ className }: LeftRailNavProps) {
           transition={{ duration: 0.26 }}
         >
           <Link to="/" onClick={handleLogoClick} className="flex items-center gap-2">
-            <span className="text-accent">I</span>
+            <span className="text-[var(--color-accent)]">I</span>
             <span>da</span>
           </Link>
           {logoClickCount > 0 && (
             <motion.span
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              className="rounded-full bg-accent/20 px-2 py-0.5 text-[10px] text-accent"
+              className="rounded-full bg-[var(--color-accent)]/20 px-2 py-0.5 text-[10px] text-[var(--color-accent)]"
             >
               {logoClickCount}x
             </motion.span>
@@ -128,7 +128,7 @@ function DesktopRailNav({ className }: LeftRailNavProps) {
                   to={item.href}
                   className={cn(
                     'block rounded-md px-2.5 py-1.5 text-[12px] lg:text-[13px] font-semibold tracking-[0.04em] transition-colors',
-                    active ? 'bg-accent/15 text-accent' : 'text-foreground/70 hover:bg-muted hover:text-foreground'
+                    active ? 'bg-[var(--color-accent)]/15 text-[var(--color-accent)]' : 'text-foreground/70 hover:bg-muted hover:text-foreground'
                   )}
                 >
                   {localized.label}
@@ -153,7 +153,7 @@ function DesktopRailNav({ className }: LeftRailNavProps) {
                   to={item.href}
                   className={cn(
                     'block rounded-md px-2.5 py-1.5 transition-colors',
-                    active ? 'bg-accent/12 text-accent' : 'text-foreground/70 hover:bg-muted hover:text-foreground'
+                    active ? 'bg-[var(--color-accent)]/12 text-[var(--color-accent)]' : 'text-foreground/70 hover:bg-muted hover:text-foreground'
                   )}
                 >
                   <span className="block text-[12px] lg:text-[13px] font-medium leading-tight">{localized.label}</span>
@@ -178,7 +178,7 @@ function DesktopRailNav({ className }: LeftRailNavProps) {
                   to={item.href}
                   className={cn(
                     'block rounded-md px-2.5 py-1.5 transition-colors',
-                    active ? 'bg-accent/12 text-accent' : 'text-foreground/70 hover:bg-muted hover:text-foreground'
+                    active ? 'bg-[var(--color-accent)]/12 text-[var(--color-accent)]' : 'text-foreground/70 hover:bg-muted hover:text-foreground'
                   )}
                 >
                   <span className="block text-[12px] lg:text-[13px] font-medium leading-tight">{localized.label}</span>
@@ -283,7 +283,7 @@ function MobilePortfolioNav() {
                   onClick={() => setIsProjectsOpen(false)}
                   className={cn(
                     'rounded-lg px-3 py-2',
-                    active ? 'bg-accent/12 text-accent' : 'text-foreground/78 hover:bg-muted hover:text-foreground'
+                    active ? 'bg-[var(--color-accent)]/12 text-[var(--color-accent)]' : 'text-foreground/78 hover:bg-muted hover:text-foreground'
                   )}
                 >
                   <span className="block text-sm font-medium">{localized.label}</span>
@@ -304,7 +304,7 @@ function MobilePortfolioNav() {
                       onClick={() => setIsProjectsOpen(false)}
                       className={cn(
                         'rounded-lg px-3 py-2',
-                        active ? 'bg-accent/12 text-accent' : 'text-foreground/78 hover:bg-muted hover:text-foreground'
+                        active ? 'bg-[var(--color-accent)]/12 text-[var(--color-accent)]' : 'text-foreground/78 hover:bg-muted hover:text-foreground'
                       )}
                     >
                       <span className="block text-sm font-medium">{localized.label}</span>
@@ -331,7 +331,7 @@ function MobilePortfolioNav() {
             to="/"
             className={cn(
               'flex flex-col items-center justify-center rounded-xl py-1.5 text-[11px] font-medium',
-              location.pathname === '/' ? 'text-accent bg-accent/10' : 'text-foreground/70'
+              location.pathname === '/' ? 'text-[var(--color-accent)] bg-[var(--color-accent)]/10' : 'text-foreground/70'
             )}
           >
             <Home className="mb-0.5 h-4 w-4" />
@@ -342,7 +342,7 @@ function MobilePortfolioNav() {
             to="/about"
             className={cn(
               'flex flex-col items-center justify-center rounded-xl py-1.5 text-[11px] font-medium',
-              location.pathname === '/about' ? 'text-accent bg-accent/10' : 'text-foreground/70'
+              location.pathname === '/about' ? 'text-[var(--color-accent)] bg-[var(--color-accent)]/10' : 'text-foreground/70'
             )}
           >
             <UserRound className="mb-0.5 h-4 w-4" />
@@ -365,10 +365,10 @@ function MobilePortfolioNav() {
             to="/playground/theme-builder"
             className={cn(
               'flex flex-col items-center justify-center rounded-xl py-1.5 text-[11px] font-medium',
-              location.pathname === '/playground/theme-builder' ? 'text-accent bg-accent/10' : 'text-foreground/70'
+              location.pathname === '/playground/theme-builder' ? 'text-[var(--color-accent)] bg-[var(--color-accent)]/10' : 'text-foreground/70'
             )}
           >
-            <Sparkles className="mb-0.5 h-4 w-4 text-accent" />
+            <Sparkles className="mb-0.5 h-4 w-4 text-[var(--color-accent)]" />
             <span>Themes</span>
           </Link>
         </div>

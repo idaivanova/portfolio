@@ -37,7 +37,7 @@ export function PatientFlow({ steps, className }: PatientFlowProps) {
           {/* Content */}
           <div className="flex-1 flex flex-col gap-2.5">
             <div className="flex items-baseline gap-4">
-              <span className="font-body text-[54px] font-extrabold text-accent leading-none">
+              <span className="font-body text-[54px] font-extrabold text-[var(--color-accent)] leading-none">
                 {step.number}
               </span>
               <h3 className="font-body text-2xl font-extrabold text-foreground">

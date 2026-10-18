@@ -142,7 +142,7 @@ export function Section({
     default: 'bg-transparent',
     muted: 'bg-muted/30',
     dark: 'bg-card text-foreground',
-    orange: 'bg-accent text-primary-foreground',
+    orange: 'bg-[var(--color-accent)] text-white',
   };
 
   return (

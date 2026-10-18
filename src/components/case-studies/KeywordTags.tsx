@@ -31,7 +31,7 @@ export function KeywordTags({ categories, className }: KeywordTagsProps) {
                     height="10"
                     viewBox="0 0 16 10"
                     fill="none"
-                    className="text-accent"
+                    className="text-[var(--color-accent)]"
                   >
                     <path
                       d="M8 10L0 0H16L8 10Z"
@@ -41,7 +41,7 @@ export function KeywordTags({ categories, className }: KeywordTagsProps) {
                 </div>
               </div>
             )}
-            <h3 className="font-body text-2xl font-extrabold text-accent">
+            <h3 className="font-body text-2xl font-extrabold text-[var(--color-accent)]">
               {category.title}
             </h3>
           </div>

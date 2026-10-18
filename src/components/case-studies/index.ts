@@ -26,3 +26,5 @@ export { PatientFlow, Timeline, PhoneMockup } from './PatientFlow';
 export { ImageCollage } from './ImageCollage';
 export { LogoGrid, EducationList } from './LogoGrid';
 export { KeywordTags, NeomorphismTag } from './KeywordTags';
+export { OffcutsStrip } from './OffcutsStrip';
+export type { OffcutsStripProps } from './OffcutsStrip';

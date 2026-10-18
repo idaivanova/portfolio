@@ -4,7 +4,7 @@
 // - Master (Primary CTA)
 // - Secondary (Outlined)
 // - Link (Text with underline)
-// Each with Orange and White color schemes
+// Each with Coral and White color schemes
 // ============================================
 
 import * as React from 'react';
@@ -20,14 +20,14 @@ const buttonVariants = cva(
     variants: {
       // Variant styles from Figma (Master, Secondary, Link)
       variant: {
-        // Master/Primary button - Filled orange background
-        master: 'bg-orange-500 text-white hover:bg-orange-600 active:bg-orange-700 shadow-sm hover:shadow-md',
+        // Master/Primary button - Filled coral background
+        master: 'bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-dark)] active:bg-[var(--color-accent-dark)] shadow-sm hover:shadow-md',
 
-        // Secondary button - Outlined with orange border
-        secondary: 'border-2 border-orange-500 text-orange-500 bg-transparent hover:bg-orange-50 active:bg-orange-100',
+        // Secondary button - Outlined with coral border
+        secondary: 'border-2 border-[var(--color-accent)] text-[var(--color-accent)] bg-transparent hover:bg-[var(--color-accent)]/10 active:bg-[var(--color-accent)]/15',
 
         // Link button - Text only with underline on hover
-        link: 'text-orange-500 underline-offset-4 hover:underline active:text-orange-700 bg-transparent',
+        link: 'text-[var(--color-accent)] underline-offset-4 hover:underline active:text-[var(--color-accent-dark)] bg-transparent',
 
         // White variants for dark backgrounds
         'master-white': 'bg-white text-zinc-900 hover:bg-zinc-100 active:bg-zinc-200 shadow-sm',
