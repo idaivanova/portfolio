@@ -142,6 +142,15 @@ export const designProcessData = {
   ],
 };
 
+// Video walkthrough
+export const videoData = {
+  label: 'VIDEO WALKTHROUGH',
+  title: 'Ida talks through the Pimcore redesign',
+  description: 'A walkthrough of the design process, the research behind the decisions, and the lessons learned. Recorded for a design community talk.',
+  url: 'https://www.youtube.com/watch?v=jC58hL2cR4w',
+  thumbnail: 'https://i.ytimg.com/vi/jC58hL2cR4w/maxresdefault.jpg',
+};
+
 // Reflection
 export const reflectionData = {
   label: 'REFLECTION & OUTLOOK',

@@ -49,8 +49,6 @@ export interface Translations {
     playground: {
       heading: string;
       subheading: string;
-      buzzHQ: { title: string; description: string; cta: string; category: string };
-      flutterFields: { title: string; description: string; cta: string; category: string };
     };
   };
   cta: {
@@ -119,7 +117,7 @@ const en: Translations = {
     contact: 'CONTACT',
   },
   hero: {
-    heading: "Hi, I'm Ida — I design things people enjoy using",
+    heading: "Hi, I'm Ida. I design things people enjoy using",
     subheading: 'UX/UI Designer',
     expertiseLabel: 'Areas of expertise',
     expertise: {
@@ -169,20 +167,6 @@ const en: Translations = {
     playground: {
       heading: 'UX Playground',
       subheading: 'Side quests. No client, no deadline — just curiosity doing overtime.',
-      buzzHQ: {
-        title: 'Buzz HQ',
-        description:
-          'Bella the bumblebee follows your cursor and leaves a trail of golden pollen. Go quiet for a few seconds and she gets curious. Hover states with a personality.',
-        cta: 'Meet Bella',
-        category: 'UX Lab',
-      },
-      flutterFields: {
-        title: 'Flutter Fields',
-        description:
-          'Butterfly-inspired motion. Springy micro-interactions, flights that obey physics. Nothing ever lands the exact same way twice.',
-        cta: 'Explore Motion',
-        category: 'UX Lab',
-      },
     },
   },
   cta: {
@@ -251,7 +235,7 @@ const de: Translations = {
     contact: 'KONTAKT',
   },
   hero: {
-    heading: "Hi, ich bin Ida — ich gestalte Dinge, die Menschen gerne benutzen",
+    heading: "Hi, ich bin Ida. Ich gestalte Dinge, die Menschen gerne benutzen",
     subheading: 'UX/UI-Designerin',
     expertiseLabel: 'Expertise-Bereiche',
     expertise: {
@@ -302,20 +286,6 @@ const de: Translations = {
     playground: {
       heading: 'UX Playground',
       subheading: 'Nebenquests. Kein Kunde, keine Deadline — nur Neugier im Überstundeneinsatz.',
-      buzzHQ: {
-        title: 'Buzz HQ',
-        description:
-          'Bella, die Biene, folgt deinem Cursor und hinterlässt eine Spur aus goldenem Pollen. Wird es still, wird sie neugierig. Hover States mit Charakter.',
-        cta: 'Bella kennenlernen',
-        category: 'UX Lab',
-      },
-      flutterFields: {
-        title: 'Flutter Fields',
-        description:
-          'Schmetterlingsinspirierte Motion. Federnde Mikrointeraktionen, Flatterbewegungen nach Physik. Und nichts landet zweimal genau gleich.',
-        cta: 'Motion erkunden',
-        category: 'UX Lab',
-      },
     },
   },
   cta: {
@@ -386,7 +356,7 @@ const bg: Translations = {
     contact: 'КОНТАКТ',
   },
   hero: {
-    heading: 'Здравейте, аз съм Ида — правя неща, които хората обичат да ползват',
+    heading: 'Здравейте, аз съм Ида. Правя неща, които хората обичат да ползват',
     subheading: 'UX/UI дизайнер',
     expertiseLabel: 'Области на експертиза',
     expertise: {
@@ -439,20 +409,6 @@ const bg: Translations = {
       heading: 'UX Playground',
       subheading:
         'Странични мисии. Без клиент, без срок — просто любопитство в извънработно време.',
-      buzzHQ: {
-        title: 'Buzz HQ',
-        description:
-          'Пчелата Бела следва курсора ти и оставя следа от златен прашец. Когато замълчиш, тя се разпичава от любопитство. Състояния при hover с характер.',
-        cta: 'Запознай се с Бела',
-        category: 'UX Lab',
-      },
-      flutterFields: {
-        title: 'Flutter Fields',
-        description:
-          'Motion, вдъхновен от пеперуди. Пружиниращи микроинтеракции и полети, които следват физиката. И нищо никога не каца дваж еднакво.',
-        cta: 'Разгледай Motion',
-        category: 'UX Lab',
-      },
     },
   },
   cta: {
@@ -522,7 +478,7 @@ const da: Translations = {
     contact: 'KONTAKT',
   },
   hero: {
-    heading: 'Hi, jeg er Ida — jeg designer ting, folk gerne bruger',
+    heading: 'Hi, jeg er Ida. Jeg designer ting, folk gerne bruger',
     subheading: 'UX/UI Designer',
     expertiseLabel: 'Områder for ekspertise',
     expertise: {
@@ -574,20 +530,6 @@ const da: Translations = {
     playground: {
       heading: 'UX Playground',
       subheading: 'Side quests. Ingen kunde, ingen deadline — kun nysgerrighed i overtid.',
-      buzzHQ: {
-        title: 'Buzz HQ',
-        description:
-          'Bella, bien, følger din markør og efterlader en sti af guldstøv. Bliver du stille, bliver hun nysgerrig. Hover states med personlighed.',
-        cta: 'Mød Bella',
-        category: 'UX Lab',
-      },
-      flutterFields: {
-        title: 'Flutter Fields',
-        description:
-          'Sommerfugleinspireret motion. Fjedrende mikrointeraktioner og flugter, der følger fysikkens love. Intet lander helt ens to gange.',
-        cta: 'Udforsk Motion',
-        category: 'UX Lab',
-      },
     },
   },
   cta: {

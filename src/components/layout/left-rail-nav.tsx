@@ -13,7 +13,7 @@ interface LeftRailNavProps {
 }
 
 interface RailLink {
-  id: 'home' | 'about' | 'pimcore' | 'ergowork' | 'dermatik' | 'sdzrn' | 'buzz-hq' | 'theme-builder';
+  id: 'home' | 'about' | 'pimcore' | 'ergowork' | 'dermatik' | 'sdzrn' | 'theme-builder';
   href: string;
   section: 'main' | 'real' | 'playground';
 }
@@ -25,7 +25,6 @@ const railLinks: RailLink[] = [
   { id: 'ergowork', href: '/case-studies/ergowork', section: 'real' },
   { id: 'dermatik', href: '/case-studies/dermatik', section: 'real' },
   { id: 'sdzrn', href: '/case-studies/sdzrn', section: 'playground' },
-  { id: 'buzz-hq', href: '/case-studies/buzz-hq', section: 'playground' },
   { id: 'theme-builder', href: '/playground/theme-builder', section: 'playground' },
 ];
 
@@ -50,8 +49,6 @@ function localizeRailLink(item: RailLink, t: Translations) {
       return { label: t.features.caseStudies.dermatik.title };
     case 'sdzrn':
       return { label: 'SDZRN' };
-    case 'buzz-hq':
-      return { label: t.features.playground.buzzHQ.title };
     case 'theme-builder':
       return { label: t.themeBuilder.heading };
     default:
@@ -207,19 +204,12 @@ function MobilePortfolioNav() {
   const location = useLocation();
   const { t, language } = useLanguage();
   const [isProjectsOpen, setIsProjectsOpen] = React.useState(false);
-  const [beeTapCount, setBeeTapCount] = React.useState(0);
   const closeButtonRef = React.useRef<HTMLButtonElement | null>(null);
   const mobileDialogId = 'mobile-projects-dialog';
 
   const realLinks = railLinks.filter((item) => item.section === 'real');
   const playgroundLinks = railLinks.filter((item) => item.section === 'playground');
   const sectionLabels = navSectionLabels[language];
-
-  const handleBeeTap = () => {
-    const nextClickCount = beeTapCount >= 5 ? 1 : beeTapCount + 1;
-    setBeeTapCount(nextClickCount);
-    triggerLogoClicked(nextClickCount);
-  };
 
   React.useEffect(() => {
     if (!isProjectsOpen) return;
@@ -371,21 +361,16 @@ function MobilePortfolioNav() {
             <span>{sectionLabels.projects}</span>
           </button>
 
-          <button
-            type="button"
-            onClick={handleBeeTap}
-            aria-label="Easter egg: tap to summon Bella"
-            title="Easter egg"
-            className="flex flex-col items-center justify-center rounded-xl border border-dashed border-accent/40 py-1.5 text-[11px] font-medium text-foreground/60 transition-colors hover:border-accent/70 hover:text-foreground/80"
+          <Link
+            to="/playground/theme-builder"
+            className={cn(
+              'flex flex-col items-center justify-center rounded-xl py-1.5 text-[11px] font-medium',
+              location.pathname === '/playground/theme-builder' ? 'text-accent bg-accent/10' : 'text-foreground/70'
+            )}
           >
             <Sparkles className="mb-0.5 h-4 w-4 text-accent" />
-            <span>Bella</span>
-            {beeTapCount > 0 && (
-              <span className="absolute -right-0.5 -top-0.5 rounded-full bg-accent/20 px-1.5 py-0.5 text-[10px] text-accent">
-                {beeTapCount}x
-              </span>
-            )}
-          </button>
+            <span>Themes</span>
+          </Link>
         </div>
       </div>
     </>

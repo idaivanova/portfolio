@@ -16,6 +16,7 @@ import {
   projectScopeData,
   contributionData,
   keyFeaturesData,
+  videoData,
   reflectionData,
 } from '@/data/pimcore';
 
@@ -70,6 +71,26 @@ export default function PimcorePage() {
         />
         <div className="mt-8">
           <FeatureCardsGrid features={keyFeaturesData.features} />
+        </div>
+      </section>
+
+      <Divider />
+
+      {/* Video Walkthrough */}
+      <section id="video">
+        <SectionHeader
+          label={videoData.label}
+          title={videoData.title}
+          description={videoData.description}
+        />
+        <div className="mt-8 aspect-video rounded-xl overflow-hidden border border-border">
+          <iframe
+            src="https://www.youtube.com/embed/jC58hL2cR4w"
+            title={videoData.title}
+            className="w-full h-full"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
         </div>
       </section>
 
