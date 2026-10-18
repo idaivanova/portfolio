@@ -54,7 +54,9 @@ export function FourColumnFeatureGrid({
     <div className={cn('grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4', className)}>
       {features.map((feature, index) => (
         <div key={index} className="flex min-w-0 flex-col">
-          <p className="font-body text-xl leading-normal text-foreground whitespace-pre-wrap">
+          {/* `whitespace-pre-wrap` still wraps at spaces only, so a single long
+              word overflowed its grid track by up to 240px at 768. */}
+          <p className="font-body text-xl leading-normal text-foreground whitespace-pre-wrap break-words">
             {feature.title}
           </p>
         </div>

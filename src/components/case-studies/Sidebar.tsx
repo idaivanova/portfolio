@@ -42,7 +42,9 @@ export function Sidebar({
   return (
     <aside
       className={cn(
-        'flex flex-col h-full pb-10 pt-12 sticky top-0 w-[215px] shrink-0',
+        // The rail is a fixed 215px column above lg. Below that it must be allowed to
+// shrink — a bare w-[215px] with shrink-0 escaped its parent at every width.
+        'flex flex-col h-full pb-10 pt-12 sticky top-0 w-full max-w-full min-w-0 lg:w-[215px] lg:shrink-0',
         className
       )}
     >
@@ -177,11 +179,13 @@ export interface LogoProps {
 
 export function Logo({ name, icon, className }: LogoProps) {
   return (
-    <div className={cn('flex items-center gap-2', className)}>
+    <div className={cn('flex items-center gap-2 min-w-0 max-w-full', className)}>
       {icon || (
         <div className="w-[23px] h-[23px] rounded-full bg-accent shrink-0" />
       )}
-      <span className="font-display text-xl text-[var(--color-accent-text)]">{name}</span>
+      <span className="font-display text-xl text-[var(--color-accent-text)] min-w-0 break-words">
+        {name}
+      </span>
     </div>
   );
 }

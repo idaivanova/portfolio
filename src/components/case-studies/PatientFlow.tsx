@@ -165,13 +165,22 @@ export function PhoneMockup({
   height = 438,
   className,
 }: PhoneMockupProps) {
+  // Same bug class as PageFlowSection/PageFlow: `style={{ width, height }}` gave
+  // the box a hard 246x438 that cannot shrink, so it escaped any parent narrower
+  // than 246px by exactly 66px at every viewport. Cap the width instead and let
+  // an aspect ratio carry the declared proportions.
+  const hasFixedSize = typeof width === 'number' && typeof height === 'number';
+
   return (
     <div
       className={cn(
-        'shrink-0 overflow-hidden rounded-lg border border-border bg-card',
+        'w-full max-w-full overflow-hidden rounded-lg border border-border bg-card lg:shrink-0',
         className
       )}
-      style={{ width, height }}
+      style={{
+        maxWidth: width,
+        aspectRatio: hasFixedSize ? `${width} / ${height}` : undefined,
+      }}
     >
       <img
         src={image.src}

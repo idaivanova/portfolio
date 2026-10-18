@@ -77,14 +77,18 @@ interface NeomorphismTagProps {
 }
 
 export function NeomorphismTag({ label, className }: NeomorphismTagProps) {
+  // An `inline-flex` box sizes to its longest unbreakable word and has no cap,
+  // so a long label pushed the page 35px sideways at 375. `max-w-full` caps the
+  // chip at its parent; `min-w-0` on the span lets the flex item shrink below
+  // min-content so `break-words` can actually engage.
   return (
     <div
       className={cn(
-        'inline-flex rounded-sm border border-border/70 bg-card/60 px-[15px] py-2 shadow-sm backdrop-blur-sm',
+        'inline-flex max-w-full rounded-sm border border-border/70 bg-card/60 px-[15px] py-2 shadow-sm backdrop-blur-sm',
         className
       )}
     >
-      <span className="font-body text-sm font-bold break-words text-foreground">
+      <span className="min-w-0 font-body text-sm font-bold break-words text-foreground">
         {label}
       </span>
     </div>
