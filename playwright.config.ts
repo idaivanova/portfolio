@@ -53,15 +53,28 @@ export default defineConfig({
       },
     },
     {
+      // Viewport + touch emulation on Chromium. These used to spread
+      // devices['iPhone 13'] / devices['iPad Mini'], but those descriptors
+      // carry defaultBrowserType: 'webkit', so projects NAMED chromium were
+      // silently launching WebKit and failing whenever that browser was not
+      // installed. Names now match what actually runs.
       name: 'chromium-mobile',
-      use: { 
-        ...devices['iPhone 13'],
+      use: {
+        ...devices['Desktop Chrome'],
+        viewport: { width: 390, height: 844 },
+        deviceScaleFactor: 3,
+        isMobile: true,
+        hasTouch: true,
       },
     },
     {
       name: 'chromium-tablet',
-      use: { 
-        ...devices['iPad Mini'],
+      use: {
+        ...devices['Desktop Chrome'],
+        viewport: { width: 768, height: 1024 },
+        deviceScaleFactor: 2,
+        isMobile: true,
+        hasTouch: true,
       },
     },
   ],
