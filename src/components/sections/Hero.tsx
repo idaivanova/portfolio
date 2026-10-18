@@ -29,7 +29,10 @@ export function Hero() {
       {/* Ambient depth blobs: structural blue bottom-left, coral spark top-right */}
       <AmbientBlobs />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      {/* pb-36, not py-20: the absolute scroll cue needs 96px of gutter
+          (28px offset + a 68px box), so the old 80px overlapped the
+          expertise labels on every short viewport. */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-36">
         <div className="max-w-4xl">
           {/* Hand-scrawled intro — the concept's workshop voice, sits above the H1 */}
           <p className="font-note text-lg text-[var(--color-accent-text)] -rotate-2 inline-block mb-3">

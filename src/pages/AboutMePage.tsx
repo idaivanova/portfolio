@@ -21,9 +21,7 @@ export default function AboutMePage() {
         <ImageCollage
           images={heroData.images}
           tags={heroData.floatingTags}
-          containerHeight={567}
-          containerWidth={926}
-        />
+          />
 
         {/* Introduction */}
         <div className="flex flex-col gap-5 items-center px-20 py-2.5 w-full">

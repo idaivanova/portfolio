@@ -29,22 +29,22 @@ interface FloatingTag {
 interface ImageCollageProps {
   images: CollageImage[];
   tags?: FloatingTag[];
-  containerHeight?: number;
-  containerWidth?: number;
   className?: string;
 }
+
+// Reference dimensions the pixel positions in the data were authored against.
+// The container scales from these, so children are positioned in percentages.
+const REF_WIDTH = 926;
+const REF_HEIGHT = 567;
 
 export function ImageCollage({
   images,
   tags = [],
-  containerHeight = 567,
-  containerWidth = 926,
   className,
 }: ImageCollageProps) {
   return (
     <div
-      className={cn('relative', className)}
-      style={{ width: containerWidth, height: containerHeight }}
+      className={cn('relative w-full aspect-[926/567] max-w-[926px]', className)}
     >
       {/* Images */}
       {images.map((image, index) => (
@@ -52,10 +52,12 @@ export function ImageCollage({
           key={index}
           className="absolute overflow-hidden shadow-lg"
           style={{
-            left: image.position.left,
-            top: image.position.top,
-            width: image.position.width,
-            height: image.position.height,
+            // Percentages of the container, not raw pixels: the container now
+            // scales with its aspect box, so fixed offsets would drift.
+            left: `${((image.position.left ?? 0) / REF_WIDTH) * 100}%`,
+            top: `${((image.position.top ?? 0) / REF_HEIGHT) * 100}%`,
+            width: `${((image.position.width ?? 0) / REF_WIDTH) * 100}%`,
+            height: `${((image.position.height ?? 0) / REF_HEIGHT) * 100}%`,
             transform: image.position.rotate
               ? `rotate(${image.position.rotate}deg)`
               : undefined,
@@ -88,8 +90,8 @@ export function ImageCollage({
               variantClasses[tag.variant || 'default']
             )}
             style={{
-              left: tag.position.left,
-              top: tag.position.top,
+              left: `${((tag.position.left ?? 0) / REF_WIDTH) * 100}%`,
+              top: `${((tag.position.top ?? 0) / REF_HEIGHT) * 100}%`,
             }}
           >
             <span className="font-body text-sm font-bold whitespace-nowrap">

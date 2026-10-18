@@ -92,7 +92,6 @@ export default function DermatikPage() {
           direction="right"
           image={profileData.image}
           imageWidth={profileData.image.width}
-          imageHeight={profileData.image.height}
         >
           <div className="flex flex-col gap-2.5">
             <h3 className="font-body text-2xl font-extrabold text-foreground">

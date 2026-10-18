@@ -31,10 +31,11 @@ export function CaseStudyHeader({
   className,
 }: CaseStudyHeaderProps) {
   return (
-    <div className={cn('flex gap-10 items-start', className)}>
-      {/* Image */}
+    <div className={cn('flex flex-col gap-10 items-start lg:flex-row', className)}>
+      {/* Image — stacks above the copy below lg. A fixed 350px column plus a
+          40px gap is non-shrinkable and blew out the viewport on tablet. */}
       {image && (
-        <div className="shrink-0 w-[350px] h-[212px] overflow-hidden rounded">
+        <div className="w-full aspect-[350/212] overflow-hidden rounded lg:shrink-0 lg:w-[350px] lg:aspect-auto lg:h-[212px]">
           <img
             src={image.src}
             alt={image.alt}

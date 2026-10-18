@@ -145,7 +145,6 @@ export interface PageFlowProps {
   direction: 'left' | 'right';
   image: GalleryImage;
   imageWidth?: number | string;
-  imageHeight?: number | string;
   children: React.ReactNode;
   className?: string;
 }
@@ -154,21 +153,22 @@ export function PageFlow({
   direction,
   image,
   imageWidth = 493,
-  imageHeight = 298,
   children,
   className,
 }: PageFlowProps) {
   return (
     <div
       className={cn(
-        'flex gap-10 items-center',
-        direction === 'right' && 'flex-row-reverse',
+        'flex flex-col gap-8 items-center lg:flex-row lg:gap-10',
+        direction === 'right' && 'lg:flex-row-reverse',
         className
       )}
     >
+      {/* Fixed pixel widths (493px default) overflowed below lg, where the
+          rail padding leaves very little content column. */}
       <div
-        className="shrink-0 overflow-hidden"
-        style={{ width: imageWidth, height: imageHeight }}
+        className="w-full max-w-full overflow-hidden lg:shrink-0"
+        style={{ maxWidth: imageWidth }}
       >
         <img
           src={image.src}
