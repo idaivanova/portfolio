@@ -55,7 +55,7 @@ export function KeywordTags({ categories, className }: KeywordTagsProps) {
                   'rounded-sm border border-border/70 bg-card/60 px-[15px] py-2 shadow-sm backdrop-blur-sm'
                 )}
               >
-                <span className="font-body text-sm font-bold whitespace-nowrap text-foreground">
+                <span className="font-body text-sm font-bold break-words text-foreground">
                   {tag}
                 </span>
               </div>
@@ -84,7 +84,7 @@ export function NeomorphismTag({ label, className }: NeomorphismTagProps) {
         className
       )}
     >
-      <span className="font-body text-sm font-bold whitespace-nowrap text-foreground">
+      <span className="font-body text-sm font-bold break-words text-foreground">
         {label}
       </span>
     </div>

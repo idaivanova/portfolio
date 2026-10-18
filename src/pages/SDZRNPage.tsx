@@ -598,8 +598,15 @@ export default function SDZRNPage() {
             {statsData.metrics.map((metric, index) => (
               <StaggerItem key={index}>
                 <div className="text-center p-6 bg-muted/30 rounded-xl">
-                  <div className="text-4xl md:text-5xl font-bold text-cyan-300 mb-2">
-                    {metric.value}{metric.suffix}
+                  <div className="text-4xl md:text-5xl font-bold text-cyan-300 mb-2 leading-none">
+                    {metric.value}
+                    {metric.suffix && (
+                      // Suffix set small: "4 weeks" at 48px is ~193px wide and
+                      // overflowed its grid column, pushing the page sideways.
+                      <span className="text-base md:text-lg font-medium ml-1.5 align-baseline">
+                        {metric.suffix}
+                      </span>
+                    )}
                   </div>
                   <div className="text-foreground/60 text-sm">{metric.label}</div>
                 </div>

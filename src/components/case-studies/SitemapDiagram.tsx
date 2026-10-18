@@ -39,12 +39,15 @@ export function SitemapDiagram({
   containerHeight = 351,
   className,
 }: SitemapDiagramProps) {
+  // Overlay positions are authored against this reference width; percentages
+  // keep them inside the container instead of pushing the page sideways.
+  const REF_WIDTH = 1000;
+  const refHeight = typeof containerHeight === 'number' ? containerHeight : 351;
   return (
     <div className={cn('flex flex-col gap-4', className)}>
       {/* Diagram Container */}
       <div
-        className="relative w-full"
-        style={{ height: containerHeight }}
+        className="relative w-full aspect-[1000/351]"
       >
         {/* Main Image */}
         <div className="absolute inset-0">
@@ -61,12 +64,12 @@ export function SitemapDiagram({
             key={index}
             className="absolute overflow-hidden"
             style={{
-              top: image.position?.top,
-              left: image.position?.left,
-              right: image.position?.right,
-              bottom: image.position?.bottom,
-              width: image.position?.width,
-              height: image.position?.height,
+              top: image.position?.top != null ? `${((image.position.top as number) / refHeight) * 100}%` : undefined,
+              left: image.position?.left != null ? `${((image.position.left as number) / REF_WIDTH) * 100}%` : undefined,
+              right: image.position?.right != null ? `${((image.position.right as number) / REF_WIDTH) * 100}%` : undefined,
+              bottom: image.position?.bottom != null ? `${((image.position.bottom as number) / refHeight) * 100}%` : undefined,
+              width: image.position?.width != null ? `${((image.position.width as number) / REF_WIDTH) * 100}%` : undefined,
+              height: image.position?.height != null ? `${((image.position.height as number) / refHeight) * 100}%` : undefined,
             }}
           >
             <img

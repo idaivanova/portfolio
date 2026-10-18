@@ -160,15 +160,15 @@ export default function ErgoWorkPage() {
           keyActions={pageFlowsData.flows[1]!.keyActions!}
           additionalContent={pageFlowsData.flows[1]!.additionalContent}
         />
-        <div className="mt-5 flex items-center justify-between">
-          <div className="h-[128px] w-[443px] overflow-hidden">
+        <div className="mt-5 flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+          <div className="aspect-[443/128] w-full max-w-[443px] min-w-0 overflow-hidden">
             <img
               src={fullWidthImages.businessPair[0].src}
               alt={fullWidthImages.businessPair[0].alt}
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="h-[276px] w-[518px] overflow-hidden">
+          <div className="aspect-[518/276] w-full max-w-[518px] min-w-0 overflow-hidden">
             <img
               src={fullWidthImages.businessPair[1].src}
               alt={fullWidthImages.businessPair[1].alt}

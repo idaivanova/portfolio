@@ -17,9 +17,11 @@ interface FourColumnGridProps {
 
 export function FourColumnGrid({ items, className }: FourColumnGridProps) {
   return (
-    <div className={cn('grid grid-cols-4 gap-5', className)}>
+    // A bare `grid-cols-4` left 67px columns at 375 while the text needed ~113px;
+    // the items are overflow:visible, so the text spilled past the viewport.
+    <div className={cn('grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4', className)}>
       {items.map((item, index) => (
-        <div key={index} className="flex flex-col justify-center">
+        <div key={index} className="flex min-w-0 flex-col justify-center">
           <div className="font-body text-xl leading-normal text-foreground">
             {item.content}
           </div>
@@ -49,9 +51,9 @@ export function FourColumnFeatureGrid({
   className,
 }: FourColumnFeatureGridProps) {
   return (
-    <div className={cn('grid grid-cols-4 gap-5', className)}>
+    <div className={cn('grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4', className)}>
       {features.map((feature, index) => (
-        <div key={index} className="flex flex-col">
+        <div key={index} className="flex min-w-0 flex-col">
           <p className="font-body text-xl leading-normal text-foreground whitespace-pre-wrap">
             {feature.title}
           </p>

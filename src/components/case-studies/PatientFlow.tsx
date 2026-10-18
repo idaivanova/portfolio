@@ -30,12 +30,12 @@ export function PatientFlow({ steps, className }: PatientFlowProps) {
         <div
           key={index}
           className={cn(
-            'flex gap-10 items-start',
-            index % 2 === 1 ? 'flex-row-reverse' : ''
+            'flex flex-col gap-10 lg:flex-row lg:items-start',
+            index % 2 === 1 ? 'lg:flex-row-reverse' : ''
           )}
         >
           {/* Content */}
-          <div className="flex-1 flex flex-col gap-2.5">
+          <div className="flex-1 min-w-0 flex flex-col gap-2.5">
             <div className="flex items-baseline gap-4">
               <span className="font-body text-[54px] font-extrabold text-[var(--color-accent-text)] leading-none">
                 {step.number}
@@ -52,10 +52,14 @@ export function PatientFlow({ steps, className }: PatientFlowProps) {
           {/* Phone Mockup */}
           {step.image && (
             <div
-              className="shrink-0 overflow-hidden rounded-lg border border-border bg-card"
+              className="w-full max-w-full overflow-hidden rounded-lg border border-border bg-card lg:shrink-0"
               style={{
-                width: step.image.width || 246,
-                height: step.image.height || 438,
+                maxWidth: step.image.width ?? 246,
+                aspectRatio:
+                  typeof step.image.width === 'number' &&
+                  typeof step.image.height === 'number'
+                    ? `${step.image.width} / ${step.image.height}`
+                    : undefined,
               }}
             >
               <img
@@ -96,15 +100,15 @@ export function Timeline({ items, image, className }: TimelineProps) {
   return (
     <div className={cn('flex flex-col gap-5', className)}>
       {/* Timeline Items */}
-      <div className="flex justify-between items-start">
+      <div className="flex flex-wrap items-start justify-between gap-x-6 gap-y-4">
         {items.map((item, index) => (
-          <div key={index} className="flex flex-col items-center gap-2">
+          <div key={index} className="flex min-w-0 flex-col items-center gap-2">
             <div className="flex items-center">
               <span className="font-body text-sm font-bold text-foreground">
                 {item.label}
               </span>
               {index < items.length - 1 && (
-                <div className="mx-2 h-px w-8 bg-border" />
+                <div className="mx-2 h-px w-8 bg-border max-lg:hidden" />
               )}
             </div>
             <span className="max-w-[100px] text-center font-body text-xs text-muted-foreground">
@@ -118,10 +122,14 @@ export function Timeline({ items, image, className }: TimelineProps) {
       {image && (
         <div className="mt-5 flex justify-center">
           <div
-            className="overflow-hidden rounded"
+            className="w-full max-w-full overflow-hidden rounded"
             style={{
-              width: image.width || 500,
-              height: image.height || 96,
+              maxWidth: image.width ?? 500,
+              aspectRatio:
+                typeof image.width === 'number' &&
+                typeof image.height === 'number'
+                  ? `${image.width} / ${image.height}`
+                  : undefined,
             }}
           >
             <img

@@ -86,7 +86,7 @@ export function ImageCollage({
           <div
             key={index}
             className={cn(
-              'absolute px-[18px] h-[46px] flex items-center justify-center rounded-sm',
+              'absolute max-w-[42%] px-[10px] h-[46px] flex items-center justify-center rounded-sm',
               variantClasses[tag.variant || 'default']
             )}
             style={{
@@ -94,7 +94,7 @@ export function ImageCollage({
               top: `${((tag.position.top ?? 0) / REF_HEIGHT) * 100}%`,
             }}
           >
-            <span className="font-body text-sm font-bold whitespace-nowrap">
+            <span className="font-body text-sm font-bold break-words text-center leading-tight px-1">
               {tag.label}
             </span>
           </div>

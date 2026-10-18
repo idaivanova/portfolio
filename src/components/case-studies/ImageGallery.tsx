@@ -102,28 +102,35 @@ export interface ImageMosaicProps {
   backgroundColor?: string;
 }
 
+// Mosaic positions are authored against a ~1000px reference width. They are
+// expressed as percentages so the mosaic scales with its container; raw pixel
+// left/width values pushed the page 608px sideways at 375.
+const REF_WIDTH = 1000;
+
 export function ImageMosaic({
   images,
-  containerHeight,
+  containerHeight = 518,
   className,
   backgroundColor = 'var(--card)',
 }: ImageMosaicProps) {
+  const refHeight = typeof containerHeight === 'number' ? containerHeight : 518;
   return (
     <div
-      className={cn('relative w-full', className)}
-      style={{ height: containerHeight, backgroundColor }}
+      className={cn('relative w-full aspect-[1000/518] max-h-none', className)}
+      style={{ backgroundColor }}
+      aria-label="Selected brand and system pieces"
     >
       {images.map((image, index) => (
         <div
           key={index}
           className="absolute overflow-hidden"
           style={{
-            top: image.position.top,
-            left: image.position.left,
-            right: image.position.right,
-            bottom: image.position.bottom,
-            width: image.position.width,
-            height: image.position.height,
+            top: image.position.top != null ? `${((image.position.top as number) / refHeight) * 100}%` : undefined,
+            left: image.position.left != null ? `${((image.position.left as number) / REF_WIDTH) * 100}%` : undefined,
+            right: image.position.right != null ? `${((image.position.right as number) / REF_WIDTH) * 100}%` : undefined,
+            bottom: image.position.bottom != null ? `${((image.position.bottom as number) / refHeight) * 100}%` : undefined,
+            width: image.position.width != null ? `${((image.position.width as number) / REF_WIDTH) * 100}%` : undefined,
+            height: image.position.height != null ? `${((image.position.height as number) / refHeight) * 100}%` : undefined,
           }}
         >
           <img

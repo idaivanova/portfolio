@@ -32,21 +32,31 @@ export function PageFlowSection({
   additionalContent,
   className,
 }: PageFlowSectionProps) {
-  const imageWidth = image.width || 493;
-  const imageHeight = image.height || 298;
+  const imageWidth = image.width ?? 493;
+  const imageHeight = image.height ?? 298;
+  // Data-driven aspect ratio keeps the declared 493x298 proportions on desktop
+  // while the width stays fluid below lg. A fixed pixel width here pushed the
+  // row 314px sideways at 375 because the image was `shrink-0`.
+  const hasFixedSize =
+    typeof imageWidth === 'number' && typeof imageHeight === 'number';
 
   return (
     <div
       className={cn(
-        'flex gap-10 items-center',
-        direction === 'right' && 'flex-row-reverse',
+        'flex flex-col gap-10 lg:flex-row lg:items-center',
+        direction === 'right' && 'lg:flex-row-reverse',
         className
       )}
     >
       {/* Image */}
       <div
-        className="shrink-0 overflow-hidden"
-        style={{ width: imageWidth, height: imageHeight }}
+        className="w-full max-w-full overflow-hidden lg:shrink-0"
+        style={{
+          maxWidth: imageWidth,
+          aspectRatio: hasFixedSize
+            ? `${imageWidth} / ${imageHeight}`
+            : undefined,
+        }}
       >
         <img
           src={image.src}
@@ -117,8 +127,8 @@ export function PageFlowSplit({
   return (
     <div className={cn('flex flex-col gap-5', className)}>
       {/* Split Content Row */}
-      <div className="flex items-center justify-between py-5">
-        <div className="flex-1 flex flex-col gap-2.5 pr-8">
+      <div className="flex flex-col gap-5 py-5 lg:flex-row lg:items-center lg:justify-between">
+        <div className="flex-1 min-w-0 flex flex-col gap-2.5 lg:pr-8">
           <h3 className="font-body text-2xl font-extrabold text-foreground">
             {leftContent.title}
           </h3>
@@ -143,7 +153,7 @@ export function PageFlowSplit({
         </div>
 
         {/* Right Box */}
-        <div className="w-[538px] rounded-sm border border-border bg-card/40 p-[30px]">
+        <div className="w-full max-w-full overflow-hidden rounded-sm border border-border bg-card/40 p-[30px] lg:w-[538px] lg:shrink-0">
           <div className="font-body text-sm leading-normal text-muted-foreground">
             {rightContent}
           </div>
@@ -151,15 +161,14 @@ export function PageFlowSplit({
       </div>
 
       {/* Full Width Image */}
-      <div className="w-full">
+      <div
+        className="w-full max-w-full overflow-hidden"
+        style={{ maxWidth: image.width ?? '100%' }}
+      >
         <img
           src={image.src}
           alt={image.alt}
           className="w-full h-auto object-cover"
-          style={{
-            width: image.width || '100%',
-            height: image.height || 'auto',
-          }}
         />
       </div>
     </div>
