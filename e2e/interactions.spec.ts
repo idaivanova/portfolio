@@ -3,7 +3,6 @@ import { test, expect } from '@playwright/test';
 /**
  * Interaction and Animation Tests
  * 
- * Tests for interactive elements like the bumblebee, navigation, and animations.
  */
 
 test.describe('Interactive Elements', () => {
@@ -97,44 +96,4 @@ test.describe('Interactive Elements', () => {
     });
   });
 
-  test.describe('Bumblebee Animation', () => {
-    test('bumblebee can be triggered manually for testing', async ({ page }) => {
-      await page.goto('/');
-      await page.waitForLoadState('networkidle');
-      
-      // Inject bumblebee manually for testing
-      await page.evaluate(() => {
-        // Create a test bumblebee element
-        const bee = document.createElement('div');
-        bee.setAttribute('data-testid', 'test-bumblebee');
-        bee.style.cssText = `
-          position: fixed;
-          width: 64px;
-          height: 64px;
-          background: #FCD34D;
-          border-radius: 50%;
-          z-index: 9999;
-          left: -100px;
-          top: 30%;
-          transition: left 2s linear;
-        `;
-        document.body.appendChild(bee);
-        
-        // Animate it
-        setTimeout(() => {
-          bee.style.left = '110%';
-        }, 100);
-      });
-      
-      // Wait for animation
-      await page.waitForTimeout(500);
-      
-      // Verify bumblebee exists
-      const bee = page.locator('[data-testid="test-bumblebee"]');
-      await expect(bee).toBeVisible();
-      
-      // Screenshot with bumblebee
-      await expect(page).toHaveScreenshot('homepage-with-bumblebee.png');
-    });
-  });
 });

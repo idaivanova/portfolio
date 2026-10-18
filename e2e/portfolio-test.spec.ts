@@ -7,9 +7,7 @@ import * as path from 'path';
  * 
  * Tests:
  * 1. Homepage screenshot
- * 2. Case study pages (flutter, buzz)
  * 3. About page
- * 4. Bumblebee visibility check
  * 5. Project card navigation
  * 6. Console error checking
  */
@@ -82,54 +80,6 @@ test.describe('Portfolio Website Tests', () => {
     expect(navExists).toBeTruthy();
   });
 
-  test('2. Flutter case study page', async ({ page }) => {
-    console.log('\n📸 Taking Flutter case study screenshot...');
-    
-    await page.goto('/case-studies/flutter');
-    await page.waitForLoadState('networkidle');
-    
-    const screenshotPath = path.join(screenshotsDir, 'flutter-case-study.png');
-    await page.screenshot({ 
-      path: screenshotPath, 
-      fullPage: true 
-    });
-    
-    console.log(`✅ Flutter case study screenshot saved to: ${screenshotPath}`);
-    
-    // Check URL
-    const url = page.url();
-    console.log(`📄 Current URL: ${url}`);
-    expect(url).toContain('/case-studies/flutter');
-    
-    // Check for case study content
-    const contentExists = await page.locator('h1, article, main').first().isVisible().catch(() => false);
-    console.log(`   Content visible: ${contentExists ? '✅' : '❌'}`);
-  });
-
-  test('3. Buzz case study page', async ({ page }) => {
-    console.log('\n📸 Taking Buzz case study screenshot...');
-    
-    await page.goto('/case-studies/buzz');
-    await page.waitForLoadState('networkidle');
-    
-    const screenshotPath = path.join(screenshotsDir, 'buzz-case-study.png');
-    await page.screenshot({ 
-      path: screenshotPath, 
-      fullPage: true 
-    });
-    
-    console.log(`✅ Buzz case study screenshot saved to: ${screenshotPath}`);
-    
-    // Check URL
-    const url = page.url();
-    console.log(`📄 Current URL: ${url}`);
-    expect(url).toContain('/case-studies/buzz');
-    
-    // Check for case study content
-    const contentExists = await page.locator('h1, article, main').first().isVisible().catch(() => false);
-    console.log(`   Content visible: ${contentExists ? '✅' : '❌'}`);
-  });
-
   test('4. About page', async ({ page }) => {
     console.log('\n📸 Taking About page screenshot...');
     
@@ -152,61 +102,6 @@ test.describe('Portfolio Website Tests', () => {
     // Check for about page content
     const contentExists = await page.locator('h1, .about, [class*="about"]').first().isVisible().catch(() => false);
     console.log(`   About content visible: ${contentExists ? '✅' : '❌'}`);
-  });
-
-  test('5. Bumblebee visibility check', async ({ page }) => {
-    console.log('\n🐝 Checking for bumblebee (appears after 8-20 seconds)...');
-    
-    await page.goto('/');
-    await page.waitForLoadState('networkidle');
-    
-    // Wait up to 25 seconds for bumblebee
-    const bumblebeeSelectors = [
-      '[class*="bumblebee"]',
-      '[class*="bee"]',
-      'img[alt*="bee" i]',
-      'img[alt*="bumblebee" i]',
-      '[data-testid*="bee"]',
-      'svg[class*="bee"]',
-      'svg[class*="bumblebee"]'
-    ];
-    
-    let bumblebeeFound = false;
-    let foundSelector = '';
-    
-    for (let i = 0; i < 25; i++) {
-      await page.waitForTimeout(1000);
-      
-      for (const selector of bumblebeeSelectors) {
-        const visible = await page.locator(selector).first().isVisible().catch(() => false);
-        if (visible) {
-          bumblebeeFound = true;
-          foundSelector = selector;
-          break;
-        }
-      }
-      
-      if (bumblebeeFound) {
-        console.log(`   🐝 Bumblebee found after ${i + 1} seconds using selector: ${foundSelector}`);
-        break;
-      }
-      
-      if ((i + 1) % 5 === 0) {
-        console.log(`   ⏱️  Checked for ${i + 1} seconds...`);
-      }
-    }
-    
-    if (bumblebeeFound) {
-      // Take screenshot with bumblebee
-      const screenshotPath = path.join(screenshotsDir, 'homepage-with-bumblebee.png');
-      await page.screenshot({ path: screenshotPath, fullPage: true });
-      console.log(`✅ Screenshot with bumblebee saved to: ${screenshotPath}`);
-    } else {
-      console.log('   ℹ️  Bumblebee not visible (may appear later or on different page)');
-    }
-    
-    // Don't fail the test if bumblebee isn't found - it's random timing
-    console.log(`   Bumblebee visibility: ${bumblebeeFound ? '✅ FOUND' : '⚪ NOT VISIBLE'}`);
   });
 
   test('6. Project card navigation test', async ({ page }) => {
@@ -277,7 +172,7 @@ test.describe('Portfolio Website Tests', () => {
     console.log('\n🔍 Checking for console errors...');
     
     // Navigate through all main pages to collect errors
-    const pages = ['/', '/about', '/case-studies/flutter', '/case-studies/buzz'];
+    const pages = ['/', '/about', '/case-studies/pimcore', '/case-studies/pimcore/studio-extensions'];
     
     for (const pageUrl of pages) {
       await page.goto(pageUrl);

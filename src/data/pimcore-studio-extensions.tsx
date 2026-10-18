@@ -174,12 +174,12 @@ export const microcopyData = {
     {
       title: 'Verb first',
       description:
-        'Labels lead with the action. &quot;Save product&quot; tells you what happens when you press it. &quot;Product&quot; tells you nothing.',
+        "Labels lead with the action. 'Save product' tells you what happens when you press it. 'Product' tells you nothing.",
     },
     {
       title: 'New or Add',
       description:
-        'Word choice carries the structure. &quot;New&quot; starts something at the top level. &quot;Add&quot; brings something into what already exists. Picking the wrong one makes the two feel identical when they are not.',
+        "Word choice carries the structure. 'New' starts something at the top level. 'Add' brings something into what already exists. Picking the wrong one makes the two feel identical when they are not.",
     },
     {
       title: 'Icon-only buttons',

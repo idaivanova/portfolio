@@ -35,29 +35,4 @@ test.describe('Manual Screenshots', () => {
     console.log('✓ About page screenshot saved');
   });
 
-  test('flutter case study screenshot', async ({ page }) => {
-    await page.goto('/case-studies/flutter');
-    await page.waitForLoadState('networkidle');
-    await page.waitForTimeout(2000);
-    
-    await page.screenshot({ 
-      path: 'public/screenshots/test/flutter.png',
-      fullPage: true 
-    });
-    
-    console.log('✓ Flutter case study screenshot saved');
-  });
-
-  test('buzz case study screenshot', async ({ page }) => {
-    await page.goto('/case-studies/buzz');
-    await page.waitForLoadState('networkidle');
-    await page.waitForTimeout(2000);
-    
-    await page.screenshot({ 
-      path: 'public/screenshots/test/buzz.png',
-      fullPage: true 
-    });
-    
-    console.log('✓ Buzz case study screenshot saved');
-  });
 });

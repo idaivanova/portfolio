@@ -17,11 +17,11 @@ export function FeatureCard({
   className,
 }: FeatureCardProps) {
   return (
-    <div className={cn('flex flex-col gap-2.5 min-w-0 p-5 rounded-lg bg-zinc-900 border border-zinc-800', className)}>
-      <h3 className="font-body text-xl font-bold leading-normal text-white">
+    <div className={cn('flex flex-col gap-2.5 min-w-0 p-5 rounded-lg bg-card border-border', className)}>
+      <h3 className="font-body text-xl font-bold leading-normal text-foreground">
         {title}
       </h3>
-      <p className="font-body text-sm leading-normal text-zinc-300">
+      <p className="font-body text-sm leading-normal text-muted-foreground">
         {description}
       </p>
     </div>
@@ -47,10 +47,12 @@ export function FeatureCardsGrid({
   className,
   columns = 3,
 }: FeatureCardsGridProps) {
+  // Responsive prefixes matter here: a bare grid-cols-3 gives 154px columns
+  // at 375px, which breaks titles mid-word and stacks them 5 lines tall.
   const gridCols = {
-    2: 'grid-cols-2',
-    3: 'grid-cols-3',
-    4: 'grid-cols-4',
+    2: 'grid-cols-1 sm:grid-cols-2',
+    3: 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3',
+    4: 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4',
   };
 
   return (

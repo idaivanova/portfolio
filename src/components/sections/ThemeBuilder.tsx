@@ -174,7 +174,7 @@ function Swatch({ hex, index }: { hex: string; index: number }) {
   return (
     <motion.li
       variants={swatchItem}
-      className="flex flex-col overflow-hidden rounded-xl border border-border shadow-md"
+      className="flex min-w-0 flex-col overflow-hidden rounded-xl border border-border shadow-md"
     >
       <motion.div
         className="h-16 w-full md:h-20"
@@ -183,9 +183,14 @@ function Swatch({ hex, index }: { hex: string; index: number }) {
         transition={{ duration: 0.45, ease: 'easeOut' }}
         aria-hidden="true"
       />
-      <div className="flex items-center justify-between gap-2 bg-card px-3 py-2">
-        <span className="text-xs font-medium text-foreground">{hex.toUpperCase()}</span>
-        <span className="text-[10px] uppercase tracking-[0.12em] text-foreground/40">
+      {/* Hex + index need ~65px side by side. In the old 3-across grid the
+          chips were 52-63px wide, so overflow-hidden silently cut the tail
+          of the hex and all of the index. Stacked labels fit every width. */}
+      <div className="flex min-w-0 flex-col items-center gap-0.5 bg-card px-2 py-1.5">
+        <span className="text-[11px] font-medium leading-tight text-foreground">
+          {hex.toUpperCase()}
+        </span>
+        <span className="text-[9px] uppercase leading-none tracking-[0.12em] text-foreground/40">
           {String(index + 1).padStart(2, '0')}
         </span>
       </div>

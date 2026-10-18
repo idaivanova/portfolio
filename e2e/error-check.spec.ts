@@ -4,8 +4,8 @@ test.describe('Error Checking', () => {
   const pages = [
     { name: 'Homepage', path: '/' },
     { name: 'About', path: '/about' },
-    { name: 'Flutter', path: '/case-studies/flutter' },
-    { name: 'Buzz', path: '/case-studies/buzz' }
+    { name: 'Pimcore hub', path: '/case-studies/pimcore' },
+    { name: 'Pimcore extensions', path: '/case-studies/pimcore/studio-extensions' }
   ];
 
   for (const { name, path } of pages) {

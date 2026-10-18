@@ -107,15 +107,15 @@ export default function PimcoreStudioExtensionsPage() {
           {libraryData.points.map((point, index) => (
             <div
               key={point.title}
-              className="flex flex-col gap-2.5 min-w-0 p-5 rounded-lg bg-zinc-900 border border-zinc-800"
+              className="flex flex-col gap-2.5 min-w-0 p-5 rounded-lg bg-card border-border"
             >
               <span className="font-body text-sm font-bold text-[var(--color-accent-text)]">
                 {String(index + 1).padStart(2, '0')}
               </span>
-              <h3 className="font-body text-xl font-bold leading-normal text-white">
+              <h3 className="font-body text-xl font-bold leading-normal text-foreground">
                 {point.title}
               </h3>
-              <p className="font-body text-sm leading-normal text-zinc-300">
+              <p className="font-body text-sm leading-normal text-muted-foreground">
                 {point.description}
               </p>
             </div>
@@ -136,7 +136,7 @@ export default function PimcoreStudioExtensionsPage() {
           {microcopyData.rules.map((rule) => (
             <li
               key={rule.title}
-              className="flex flex-col gap-1.5 min-w-0 p-4 bg-navy-dark/50 rounded-sm border border-border"
+              className="flex flex-col gap-1.5 min-w-0 p-4 bg-card rounded-sm border border-border"
             >
               <h3 className="font-body text-base font-bold leading-snug text-foreground">
                 {rule.title}

@@ -11,9 +11,7 @@ test.describe('Page Load Tests', () => {
     { url: '/case-studies/pimcore', name: 'Pimcore' },
     { url: '/case-studies/ergowork', name: 'ErgoWork' },
     { url: '/case-studies/dermatik', name: 'Dermatik' },
-    { url: '/case-studies/flutter', name: 'Flutter' },
-    { url: '/case-studies/buzz', name: 'Buzz' },
-  ];
+    ];
 
   pages.forEach(({ url, name }) => {
     test(`${name} loads without errors`, async ({ page }) => {
