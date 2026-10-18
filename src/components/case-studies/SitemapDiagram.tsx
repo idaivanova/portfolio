@@ -121,7 +121,7 @@ export function SitemapSection({
     <div className={cn('flex flex-col gap-5', className)}>
       {/* Header */}
       <div className="flex flex-col gap-2.5">
-        <span className="font-body text-sm text-[var(--color-accent)] h-[17px]">{label}</span>
+        <span className="font-body text-sm text-[var(--color-accent-text)] h-[17px]">{label}</span>
         <h2 className="font-body text-[32px] font-extrabold leading-tight text-foreground">
           {title}
         </h2>

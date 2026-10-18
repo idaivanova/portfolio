@@ -181,7 +181,7 @@ export function Logo({ name, icon, className }: LogoProps) {
       {icon || (
         <div className="w-[23px] h-[23px] rounded-full bg-accent shrink-0" />
       )}
-      <span className="font-display text-xl text-[var(--color-accent)]">{name}</span>
+      <span className="font-display text-xl text-[var(--color-accent-text)]">{name}</span>
     </div>
   );
 }

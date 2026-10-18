@@ -18,7 +18,7 @@ export default function ThemeBuilderPage() {
       <ScrollReveal>
         <section id="intro" className="flex flex-col gap-6">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="rounded-full bg-[var(--color-accent)]/10 px-3 py-1 text-sm text-[var(--color-accent)]">
+            <span className="rounded-full bg-[var(--color-accent)]/10 px-3 py-1 text-sm text-[var(--color-accent-text)]">
               {copy.badge}
             </span>
           </div>

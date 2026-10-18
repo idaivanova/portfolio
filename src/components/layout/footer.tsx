@@ -77,7 +77,7 @@ interface FooterLinkProps {
 
 function FooterLink({ href, children, external }: FooterLinkProps) {
   const className =
-    'text-muted-foreground hover:text-[var(--color-accent)] transition-colors duration-200';
+    'text-muted-foreground hover:text-[var(--color-accent-text)] transition-colors duration-200';
 
   // External links (http, mailto, tel)
   if (external || href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:')) {
@@ -166,7 +166,7 @@ export function Footer({ className, showCTA = true }: FooterProps) {
                 <a
                   href="#projects"
                   onClick={(event) => scrollToSection(event, 'projects')}
-                  className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-[var(--color-accent)] border-2 border-[var(--color-accent)] rounded-lg hover:bg-[var(--color-accent)]/10 transition-colors"
+                  className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-[var(--color-accent-text)] border-2 border-[var(--color-accent)] rounded-lg hover:bg-[var(--color-accent)]/10 transition-colors"
                 >
                   {t.footer.ctaViewProjects}
                 </a>
@@ -186,7 +186,7 @@ export function Footer({ className, showCTA = true }: FooterProps) {
                 <li>
                   <a
                     href={`mailto:${contactInfo.email}`}
-                    className="text-muted-foreground hover:text-[var(--color-accent)] transition-colors"
+                    className="text-muted-foreground hover:text-[var(--color-accent-text)] transition-colors"
                   >
                     {contactInfo.email}
                   </a>

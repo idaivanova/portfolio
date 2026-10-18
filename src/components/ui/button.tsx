@@ -21,13 +21,13 @@ const buttonVariants = cva(
       // Variant styles from Figma (Master, Secondary, Link)
       variant: {
         // Master/Primary button - Filled coral background
-        master: 'bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-dark)] active:bg-[var(--color-accent-dark)] shadow-sm hover:shadow-md',
+        master: 'bg-[var(--color-accent)] text-[var(--color-navy-darkest)] hover:bg-[var(--color-accent-light)] active:bg-[var(--color-accent-dark)] active:text-white shadow-sm hover:shadow-md',
 
         // Secondary button - Outlined with coral border
-        secondary: 'border-2 border-[var(--color-accent)] text-[var(--color-accent)] bg-transparent hover:bg-[var(--color-accent)]/10 active:bg-[var(--color-accent)]/15',
+        secondary: 'border-2 border-[var(--color-accent)] text-[var(--color-accent-text)] bg-transparent hover:bg-[var(--color-accent)]/10 active:bg-[var(--color-accent)]/15',
 
         // Link button - Text only with underline on hover
-        link: 'text-[var(--color-accent)] underline-offset-4 hover:underline active:text-[var(--color-accent-dark)] bg-transparent',
+        link: 'text-[var(--color-accent-text)] underline-offset-4 hover:underline active:text-[var(--color-accent-ink)] bg-transparent',
 
         // White variants for dark backgrounds
         'master-white': 'bg-white text-zinc-900 hover:bg-zinc-100 active:bg-zinc-200 shadow-sm',

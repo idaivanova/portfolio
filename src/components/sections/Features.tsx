@@ -61,11 +61,11 @@ function FeatureCard({ feature, index }: { feature: Feature; index: number }) {
         <CardContent className="p-6 lg:p-8 flex flex-col h-full">
           <div className="flex items-start justify-between mb-4">
             <div className="w-12 h-12 rounded-xl bg-[var(--color-accent)]/10 flex items-center justify-center group-hover:bg-[var(--color-accent)]/20 transition-colors">
-              <feature.icon className="w-6 h-6 text-[var(--color-accent)]" />
+              <feature.icon className="w-6 h-6 text-[var(--color-accent-text)]" />
             </div>
             <div className="flex gap-2">
               {'isNew' in feature && feature.isNew && (
-                <span className="px-3 py-1 text-xs font-medium bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-light)] text-white rounded-full">
+                <span className="px-3 py-1 text-xs font-medium bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-light)] text-[var(--color-navy-darkest)] rounded-full">
                   NEW
                 </span>
               )}
@@ -79,7 +79,7 @@ function FeatureCard({ feature, index }: { feature: Feature; index: number }) {
           <h3 className="text-xl lg:text-2xl font-bold text-foreground mb-1">
             {feature.title}
           </h3>
-          <span className="font-hand text-lg text-[var(--color-accent)] -mt-1 mb-2 block rotate-[-1.5deg]">
+          <span className="font-hand text-lg text-[var(--color-accent-text)] -mt-1 mb-2 block rotate-[-1.5deg]">
             {feature.annotation}
           </span>
           <p className="text-muted-foreground leading-relaxed mb-6 flex-1">
@@ -87,7 +87,7 @@ function FeatureCard({ feature, index }: { feature: Feature; index: number }) {
           </p>
           <a
             href={feature.href}
-            className="group/btn inline-flex items-center p-0 h-auto font-semibold text-[var(--color-accent)] hover:text-[var(--color-accent-light)]"
+            className="group/btn inline-flex items-center p-0 h-auto font-semibold text-[var(--color-accent-text)] hover:text-[var(--color-accent-text-light)]"
           >
             {feature.cta}
             <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
@@ -125,7 +125,7 @@ export function Features() {
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               {t.features.subheading}
             </p>
-            <p className="font-hand text-xl text-[var(--color-accent)] -rotate-1 inline-block mt-4">
+            <p className="font-hand text-xl text-[var(--color-accent-text)] -rotate-1 inline-block mt-4">
               psst — they straighten up when you point
             </p>
           </div>

@@ -33,7 +33,7 @@ export function CTASection() {
                   href="mailto:ivanova.contact@gmail.com"
                   className={cn(
                     buttonVariants({ variant: 'master-white', size: 'lg' }),
-                    'w-full sm:w-auto group bg-white text-[var(--color-accent-dark)] shadow-[var(--glow)] hover:bg-white/90 active:bg-white/80 hover:text-[var(--color-accent-dark)]'
+                    'w-full sm:w-auto group bg-white text-[var(--color-accent-ink)] shadow-[var(--glow)] hover:bg-white/90 active:bg-white/80 hover:text-[var(--color-accent-ink)]'
                   )}
                 >
                   {t.cta.getInTouch}

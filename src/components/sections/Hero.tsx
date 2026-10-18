@@ -32,7 +32,7 @@ export function Hero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="max-w-4xl">
           {/* Hand-scrawled intro — the concept's workshop voice, sits above the H1 */}
-          <p className="font-hand text-2xl text-[var(--color-accent)] -rotate-2 inline-block mb-3">
+          <p className="font-hand text-2xl text-[var(--color-accent-text)] -rotate-2 inline-block mb-3">
             Hi, I&apos;m Ida — come see how the work gets made ✎
           </p>
 
@@ -57,7 +57,7 @@ export function Hero() {
             <div className="flex flex-col sm:flex-row items-start gap-4 mb-16">
               <a
                 href="/#projects"
-                className="inline-flex items-center justify-center gap-2 h-12 px-8 py-3 bg-[var(--color-accent)] text-white shadow-[var(--glow)] hover:bg-[var(--color-accent-light)] font-medium rounded-md transition-colors group"
+                className="inline-flex items-center justify-center gap-2 h-12 px-8 py-3 bg-[var(--color-accent)] text-[var(--color-navy-darkest)] shadow-[var(--glow)] hover:bg-[var(--color-accent-light)] font-medium rounded-md transition-colors group"
                 onClick={(e) => {
                   // Smooth scroll to projects section
                   const projectsSection = document.getElementById('projects');
@@ -72,7 +72,7 @@ export function Hero() {
               </a>
               <a
                 href="mailto:ivanova.contact@gmail.com"
-                className="inline-flex items-center justify-center gap-2 h-12 px-8 py-3 border-[1.5px] border-[var(--color-accent)] text-foreground hover:bg-[var(--color-accent)]/10 hover:text-[var(--color-accent)] font-medium rounded-md transition-colors"
+                className="inline-flex items-center justify-center gap-2 h-12 px-8 py-3 border-[1.5px] border-[var(--color-accent)] text-foreground hover:bg-[var(--color-accent)]/10 hover:text-[var(--color-accent-text)] font-medium rounded-md transition-colors"
               >
                 {t.hero.getInTouch}
               </a>
@@ -93,7 +93,7 @@ export function Hero() {
                   <StaggerItem key={item.key}>
                     <div className="flex flex-col items-center gap-2 group cursor-default">
                       <div className="w-12 h-12 rounded-xl bg-[var(--color-accent)]/10 flex items-center justify-center group-hover:bg-[var(--color-accent)]/20 transition-colors">
-                        <item.icon className="w-6 h-6 text-[var(--color-accent)]" />
+                        <item.icon className="w-6 h-6 text-[var(--color-accent-text)]" />
                       </div>
                       <span className="text-sm font-medium text-muted-foreground/60 group-hover:text-muted-foreground/80 transition-colors">
                         {t.hero.expertise[item.key]}

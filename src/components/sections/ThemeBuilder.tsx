@@ -344,7 +344,7 @@ export function ThemeBuilder({ className }: { className?: string }) {
               className="h-24 w-24 cursor-pointer rounded-full border-2 border-border bg-transparent p-0 shadow-md transition-transform duration-300 hover:scale-105 [&::-webkit-color-swatch]:rounded-full [&::-webkit-color-swatch]:border-0 [&::-webkit-color-swatch-wrapper]:p-0"
             />
             <Sprout
-              className="pointer-events-none absolute -right-1 -top-1 h-6 w-6 text-accent"
+              className="pointer-events-none absolute -right-1 -top-1 h-6 w-6 text-[var(--color-accent-text)]"
               aria-hidden="true"
             />
           </div>
@@ -435,7 +435,7 @@ export function ThemeBuilder({ className }: { className?: string }) {
                 )}
               >
                 <span className="flex items-center gap-2">
-                  <Icon className="h-4 w-4 text-accent" aria-hidden="true" />
+                  <Icon className="h-4 w-4 text-[var(--color-accent-text)]" aria-hidden="true" />
                   <span className="text-sm font-semibold text-foreground">{garden.name}</span>
                 </span>
                 <span className="text-xs leading-snug text-foreground/55">{garden.note}</span>
@@ -479,7 +479,7 @@ export function ThemeBuilder({ className }: { className?: string }) {
           <button
             type="button"
             onClick={handleCopy}
-            className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-opacity duration-300 hover:opacity-85"
+            className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-[var(--color-navy-darkest)] transition-opacity duration-300 hover:opacity-85"
           >
             {copied ? <Check className="h-4 w-4" aria-hidden="true" /> : <Copy className="h-4 w-4" aria-hidden="true" />}
             {copy.exportButton}

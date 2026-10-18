@@ -33,14 +33,14 @@ const STATE_STYLES: Record<OffcutState, StateStyle> = {
   },
   revised: {
     card: 'border-[var(--color-blue)]/45 bg-[var(--color-blue)]/[0.04]',
-    chip: 'border-[var(--color-blue)]/50 text-[var(--color-blue)]',
-    stateWord: 'text-[var(--color-blue)]/80',
+    chip: 'border-[var(--color-blue)]/50 text-[var(--color-blue-text)]',
+    stateWord: 'text-[var(--color-blue-text)]/80',
     title: 'text-foreground',
   },
   shipped: {
     card: 'border-[var(--color-accent)] bg-[var(--color-accent)]/[0.06]',
-    chip: 'border-[var(--color-accent)] bg-[var(--color-accent)]/15 text-[var(--color-accent)]',
-    stateWord: 'text-[var(--color-accent)]',
+    chip: 'border-[var(--color-accent)] bg-[var(--color-accent)]/15 text-[var(--color-accent-text)]',
+    stateWord: 'text-[var(--color-accent-text)]',
     title: 'text-foreground',
   },
 };
@@ -102,7 +102,7 @@ function Connector({ horizontal }: { horizontal: boolean }) {
     return (
       <span aria-hidden="true" className="hidden shrink-0 items-center px-2 md:flex">
         <span className="h-px w-4 bg-[var(--color-blue)]/35" />
-        <ChevronRight className="h-3.5 w-3.5 -ml-1 text-[var(--color-blue)]/70" />
+        <ChevronRight className="h-3.5 w-3.5 -ml-1 text-[var(--color-blue-text)]/70" />
       </span>
     );
   }
@@ -110,7 +110,7 @@ function Connector({ horizontal }: { horizontal: boolean }) {
   return (
     <span aria-hidden="true" className="flex shrink-0 flex-col items-center md:hidden">
       <span className="h-4 w-px bg-[var(--color-blue)]/35" />
-      <ChevronDown className="h-3.5 w-3.5 -mt-1 text-[var(--color-blue)]/70" />
+      <ChevronDown className="h-3.5 w-3.5 -mt-1 text-[var(--color-blue-text)]/70" />
     </span>
   );
 }
@@ -124,7 +124,7 @@ export function OffcutsStrip({
   return (
     <div className={cn('flex flex-col gap-6', className)}>
       <ScrollReveal>
-        <span className="font-hand text-lg text-[var(--color-accent)] motion-safe:-rotate-1 inline-block">
+        <span className="font-hand text-lg text-[var(--color-accent-text)] motion-safe:-rotate-1 inline-block">
           {annotation}
         </span>
       </ScrollReveal>

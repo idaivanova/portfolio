@@ -16,13 +16,13 @@ const badgeVariants = cva(
       // Variant styles
       variant: {
         // Default - accent background
-        default: 'bg-[var(--color-accent)]/10 text-[var(--color-accent)] border border-[var(--color-accent)]/20',
+        default: 'bg-[var(--color-accent)]/10 text-[var(--color-accent-text)] border border-[var(--color-accent)]/20',
         
         // Secondary - muted background
         secondary: 'bg-muted/50 text-foreground/80 border border-border',
         
         // Accent - accent color background
-        accent: 'bg-[var(--color-accent)] text-white border-0',
+        accent: 'bg-[var(--color-accent)] text-[var(--color-navy-darkest)] border-0',
         
         // Outlined - transparent with border
         outline: 'bg-transparent text-foreground/80 border border-border',

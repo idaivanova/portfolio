@@ -55,7 +55,7 @@ export default function PimcorePage() {
               key={index}
               className="flex items-start gap-3 p-4 bg-navy-dark/50 rounded-sm border border-border"
             >
-              <span className="text-[var(--color-accent)] font-bold">{index + 1}</span>
+              <span className="text-[var(--color-accent-text)] font-bold">{index + 1}</span>
               <span className="text-foreground/80">{point}</span>
             </div>
           ))}

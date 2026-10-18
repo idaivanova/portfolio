@@ -10,7 +10,7 @@ import { cn } from '../../lib/utils';
 // Input variants
 const inputVariants = cva(
   // Base styles
-  'flex w-full rounded-md border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] focus:ring-offset-2 focus:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 transition-colors duration-200',
+  'flex w-full rounded-md border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-text)] focus:ring-offset-2 focus:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 transition-colors duration-200',
   {
     variants: {
       variant: {
@@ -196,7 +196,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         <textarea
           id={textareaId}
           className={cn(
-            'flex min-h-[120px] w-full rounded-md border bg-card text-foreground placeholder:text-muted-foreground px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] focus:ring-offset-2 focus:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 transition-colors duration-200',
+            'flex min-h-[120px] w-full rounded-md border bg-card text-foreground placeholder:text-muted-foreground px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-text)] focus:ring-offset-2 focus:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 transition-colors duration-200',
             hasError
               ? 'border-red-500 focus:ring-red-500'
               : 'border-border hover:border-border',

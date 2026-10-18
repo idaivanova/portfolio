@@ -8,6 +8,22 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ============================================
+   CONTRAST NOTE
+   --color-accent (brand fill)  #EE7B54 — decorative fills, borders, glows
+   --color-accent-text          #EE7B54 dark / #A84A26 light — TEXT ONLY.
+   Bright coral on white is 2.76:1, under the 3:1 large-text floor, so text
+   uses a darkened variant in light mode (5.72:1). Darkening coral globally
+   would drop dark mode to 3.58:1, which is why the split exists.
+   Same story for the structural blue: #5B84C4 is 3.79:1 on white, so text
+   uses #3A6099 (6.34:1) in light mode.
+
+   These -text tokens are plain custom properties in :root / .light, NOT in
+   `@theme inline`. A hardcoded @theme value cannot be overridden by the
+   theme selector, so consuming components must use arbitrary-value classes
+   such as text-[var(--color-accent-text)], not text-accent-text.
+   ============================================ */
+
+/* ============================================
    Portfolio Design System Tokens
    Merged Figma design + Modern patterns
    ============================================ */
@@ -126,6 +142,18 @@
   --color-blue: #5B84C4;
   --color-blue-soft: #3B5488;
 
+  /* Text-role accents. Same hue as the brand fills, but darkened in light
+     mode so text clears 4.5:1 on white. Fills stay bright — see
+     --color-accent for those. */
+  --color-accent-text: #EE7B54;
+  --color-accent-text-light: #F4A07F;
+  /* Always-dark coral, for text sitting on a white surface regardless of
+     theme. --color-accent-dark is mode-invariant at 3.60:1 on white, which
+     fails body text; this is 5.72:1 and safe in both modes. */
+  --color-accent-ink: #A84A26;
+  --color-blue-text: #5B84C4;
+  --color-blue-soft-text: #3B5488;
+
   /* Navy colors */
   --navy-darkest: #08152C;
   --navy-dark: #0C1D3B;
@@ -187,6 +215,12 @@
 :root:has(#theme-toggle:checked) {
   --background: #FFFFFF;
   --foreground: #0D1E3C;
+
+  /* Text-role accents — darkened for AA on white. See CONTRAST NOTE above. */
+  --color-accent-text: #A84A26;
+  --color-accent-text-light: #B04A2A;
+  --color-blue-text: #3A6099;
+  --color-blue-soft-text: #33456E;
   
   /* Card/Surface colors - warmer white */
   --card: #FFFFFF;

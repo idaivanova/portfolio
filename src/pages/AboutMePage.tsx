@@ -40,7 +40,7 @@ export default function AboutMePage() {
           {/* Download CV Button */}
           <a
             href={heroData.cvButton.href}
-            className="inline-flex items-center justify-center h-[34px] px-[15px] bg-white/10 rounded-sm font-body text-sm font-bold text-[var(--color-accent)] hover:bg-white/20 transition-colors"
+            className="inline-flex items-center justify-center h-[34px] px-[15px] bg-white/10 rounded-sm font-body text-sm font-bold text-[var(--color-accent-text)] hover:bg-white/20 transition-colors"
           >
             {heroData.cvButton.label}
           </a>
@@ -57,7 +57,7 @@ export default function AboutMePage() {
 
         {/* Companies */}
         <div className="flex flex-col gap-2.5">
-          <h3 className="font-body text-2xl font-extrabold text-[var(--color-accent)]">
+          <h3 className="font-body text-2xl font-extrabold text-[var(--color-accent-text)]">
             {experienceData.sections[0]!.title}
           </h3>
           <LogoGrid logos={experienceData.sections[0]!.logos!} />
@@ -65,7 +65,7 @@ export default function AboutMePage() {
 
         {/* Freelance Clients */}
         <div className="flex flex-col gap-2.5">
-          <h3 className="font-body text-2xl font-extrabold text-[var(--color-accent)]">
+          <h3 className="font-body text-2xl font-extrabold text-[var(--color-accent-text)]">
             {experienceData.sections[1]!.title}
           </h3>
           <LogoGrid logos={experienceData.sections[1]!.logos!} />
@@ -73,7 +73,7 @@ export default function AboutMePage() {
 
         {/* Education */}
         <div className="flex flex-col gap-5">
-          <h3 className="font-body text-2xl font-extrabold text-[var(--color-accent)]">
+          <h3 className="font-body text-2xl font-extrabold text-[var(--color-accent-text)]">
             {experienceData.sections[2]!.title}
           </h3>
           <EducationList entries={experienceData.sections[2]!.entries!} />

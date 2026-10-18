@@ -19,9 +19,9 @@ export function SkipLink({
         'sr-only focus:not-sr-only',
         'focus:fixed focus:top-4 focus:left-4 focus:z-[9999]',
         'focus:px-4 focus:py-2',
-        'focus:bg-[var(--color-accent)] focus:text-white',
+        'focus:bg-[var(--color-accent)] focus:text-[var(--color-navy-darkest)]',
         'focus:rounded-md',
-        'focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-light)] focus:ring-offset-2 focus:ring-offset-[var(--color-accent)]',
+        'focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-text-light)] focus:ring-offset-2 focus:ring-offset-[var(--color-accent)]',
         'focus:font-medium focus:text-sm',
         'transition-all duration-150',
         className
