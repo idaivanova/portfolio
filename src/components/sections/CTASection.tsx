@@ -33,7 +33,7 @@ export function CTASection() {
                   href="mailto:ivanova.contact@gmail.com"
                   className={cn(
                     buttonVariants({ variant: 'master-white', size: 'lg' }),
-                    'w-full sm:w-auto group bg-white text-[var(--color-accent-ink)] shadow-[var(--glow)] hover:bg-white/90 active:bg-white/80 hover:text-[var(--color-accent-ink)]'
+                    'w-full sm:w-auto group bg-white text-[var(--color-accent-ink)] shadow-[var(--glow)] hover:bg-white/90 active:bg-white/80 hover:text-[var(--color-accent-ink)] focus-visible:outline-white focus-visible:ring-white'
                   )}
                 >
                   {t.cta.getInTouch}
@@ -44,7 +44,7 @@ export function CTASection() {
                   variant="secondary-white"
                   type="button"
                   onClick={() => setIsResumeNoticeVisible(true)}
-                  className="w-full sm:w-auto border-white/40 text-white hover:bg-white/10 hover:text-white"
+                  className="w-full sm:w-auto border-white/40 text-white hover:bg-white/10 hover:text-white focus-visible:outline-white focus-visible:ring-white"
                 >
                   {t.cta.viewResume}
                 </Button>

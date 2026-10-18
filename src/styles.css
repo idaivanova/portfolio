@@ -1,5 +1,5 @@
-/* Import Krona One, Montserrat and Caveat fonts - MUST be first */
-@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap');
+/* Import Krona One and Montserrat fonts - MUST be first */
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
 
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -127,7 +127,7 @@
   --radius: 0.625rem;
   --font-montserrat: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
   --font-krona: 'Krona One', ui-sans-serif, system-ui, sans-serif;
-  --font-hand: 'Caveat', 'Comic Sans MS', cursive;
+  
 
   /* Dark Navy Theme (default) */
   --background: #08152C;
@@ -247,7 +247,7 @@
   /* Border and Input - Light borders */
   --border: #E2E8F0;
   --input: #E2E8F0;
-  --ring: #EE7B54;
+  --ring: #A84A26;
   
   /* Sidebar */
   --sidebar: #FFFFFF;
@@ -324,14 +324,22 @@
   .font-body {
     font-family: var(--font-montserrat);
   }
-  .font-hand {
-    font-family: var(--font-hand);
+  /* Marginalia: the aside voice. Distinguish it by weight and slant inside the
+     body family rather than with a novelty handwriting face — a third face
+     bought personality at the cost of legibility and load time. */
+  .font-note {
+    font-family: var(--font-montserrat);
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: 0.005em;
   }
 
-  /* Hand-drawn annotation label (scribbles, tags, arrows-as-text) */
+  /* Marginalia label (tags, arrows-as-text) */
   .scribble {
     position: absolute;
-    font-family: var(--font-hand);
+    font-family: var(--font-montserrat);
+    font-style: italic;
+    font-weight: 500;
     color: var(--color-accent);
     white-space: nowrap;
     pointer-events: none;
@@ -387,25 +395,31 @@
   transform: none;
 }
 
-/* Focus-visible styles for keyboard navigation */
-:focus-visible {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
-}
+/* Focus-visible styles for keyboard navigation.
+   These live inside @layer base on purpose. Unlayered rules outrank Tailwind's
+   layered utilities, which used to make every `focus-visible:outline-none` in a
+   component a silent no-op and left each control drawing two focus indicators
+   (the global outline plus its Tailwind ring). */
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
 
-/* Remove focus outline for mouse users */
-:focus:not(:focus-visible) {
-  outline: none;
-}
+  /* Remove focus outline for mouse users */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
 
-/* Ensure buttons and interactive elements have visible focus */
-button:focus-visible,
-a:focus-visible,
-[role="button"]:focus-visible,
-input:focus-visible,
-textarea:focus-visible,
-select:focus-visible {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
-  border-radius: 0.25rem;
+  /* Ensure buttons and interactive elements have visible focus */
+  button:focus-visible,
+  a:focus-visible,
+  [role="button"]:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: 0.25rem;
+  }
 }

@@ -89,7 +89,7 @@ function OffcutCard({ offcut, index }: { offcut: Offcut; index: number }) {
           {offcut.title}
         </h3>
 
-        <p className="font-hand text-[15px] leading-snug text-muted-foreground">
+        <p className="font-note text-[14px] leading-snug text-muted-foreground">
           {offcut.note}
         </p>
       </article>
@@ -124,7 +124,7 @@ export function OffcutsStrip({
   return (
     <div className={cn('flex flex-col gap-6', className)}>
       <ScrollReveal>
-        <span className="font-hand text-lg text-[var(--color-accent-text)] motion-safe:-rotate-1 inline-block">
+        <span className="font-note text-base text-[var(--color-accent-text)] motion-safe:-rotate-1 inline-block">
           {annotation}
         </span>
       </ScrollReveal>

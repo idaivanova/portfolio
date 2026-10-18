@@ -48,7 +48,10 @@ function FeatureCard({ feature, index }: { feature: Feature; index: number }) {
           'relative h-full group bg-card border-border',
           CARD_TILT[index % CARD_TILT.length],
           'shadow-[18px_26px_48px_-22px_rgba(0,0,0,.7)]',
-          'transition-[transform,box-shadow,border-color] duration-300 ease-[cubic-bezier(.2,.8,.2,1)]',
+          // Tailwind v4 emits rotate/translate/scale as standalone properties, so
+          // they must be named here explicitly — `transform` alone leaves the
+          // card snapping while only the colour eases.
+          'transition-[rotate,translate,scale,box-shadow,border-color] duration-300 ease-[cubic-bezier(.2,.8,.2,1)]',
           'hover:border-[var(--color-accent)]',
           'hover:shadow-[26px_36px_66px_-22px_rgba(0,0,0,.82)]',
           'motion-safe:hover:-translate-y-1.5 motion-safe:hover:rotate-0 motion-safe:hover:scale-[1.015]',
@@ -79,7 +82,7 @@ function FeatureCard({ feature, index }: { feature: Feature; index: number }) {
           <h3 className="text-xl lg:text-2xl font-bold text-foreground mb-1">
             {feature.title}
           </h3>
-          <span className="font-hand text-lg text-[var(--color-accent-text)] -mt-1 mb-2 block rotate-[-1.5deg]">
+          <span className="font-note text-[15px] text-[var(--color-accent-text)] -mt-1 mb-2 block rotate-[-1.5deg]">
             {feature.annotation}
           </span>
           <p className="text-muted-foreground leading-relaxed mb-6 flex-1">
@@ -125,7 +128,7 @@ export function Features() {
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               {t.features.subheading}
             </p>
-            <p className="font-hand text-xl text-[var(--color-accent-text)] -rotate-1 inline-block mt-4">
+            <p className="font-note mt-4 inline-block -rotate-1 text-[15px] text-[var(--color-accent-text)]">
               psst — they straighten up when you point
             </p>
           </div>

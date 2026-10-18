@@ -32,7 +32,7 @@ export function Hero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="max-w-4xl">
           {/* Hand-scrawled intro — the concept's workshop voice, sits above the H1 */}
-          <p className="font-hand text-2xl text-[var(--color-accent-text)] -rotate-2 inline-block mb-3">
+          <p className="font-note text-lg text-[var(--color-accent-text)] -rotate-2 inline-block mb-3">
             Hi, I&apos;m Ida — come see how the work gets made ✎
           </p>
 
@@ -109,7 +109,7 @@ export function Hero() {
 
       {/* Scroll cue — md+ only so it never sits under the CTA row on small screens */}
       <div className="pointer-events-none absolute inset-x-0 bottom-7 hidden text-center md:block">
-        <p className="font-hand text-xl text-muted-foreground">
+        <p className="font-note text-base text-muted-foreground">
           roll up your sleeves
           <span
             aria-hidden="true"
