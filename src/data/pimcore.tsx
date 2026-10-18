@@ -19,16 +19,16 @@ export const heroData = {
   description: (
     <>
       <p>
-        Pimcore is an open-source enterprise platform that combines PIM, DAM, CMS, and
-        eCommerce to manage data and content—enabling businesses to deliver consistent,
-        personalized, and omnichannel digital experiences.
+        Pimcore is an open-source enterprise platform. PIM, DAM, CMS and eCommerce sit
+        under one roof, so businesses can keep product data and content consistent across
+        every channel they sell on.
       </p>
     </>
   ),
   tags: [
     { label: 'UX / UI Design' },
     { label: 'Design System' },
-    { label: '2+ years full time' },
+    { label: '2023 — Present' },
   ],
 };
 
@@ -40,15 +40,23 @@ export const projectScopeData = {
       { label: 'Tools', value: 'Figma, FigJam, Github' },
       { label: 'Skills involved', value: 'user research, design systems, accessibility, JTBD, mental models, cross-functional collaboration, affinity diagram, usability testing, prototyping' },
       { label: 'Team', value: '10+ developers, 2 Project Managers, CPO, CTO, DevOps' },
-      { label: 'Time frame', value: '2 years' },
+      { label: 'Time frame', value: '2023 — Present' },
     ],
   },
   results: {
     content: (
       <div className="space-y-4">
-        <p>Translated complex legacy structures into a scalable, user-centered design system</p>
-        <p>Grounded design decisions in real-world user research and long-term mental models</p>
-        <p>Delivered a seamless user transition without breaking existing workflows</p>
+        <p>
+          The front-end designer since 2023, on my own: 10+ developers, 2 project managers, a
+          CPO, a CTO and DevOps around me
+        </p>
+        <p>
+          A design system that grew out of real user research, not a component library nobody
+          asked for
+        </p>
+        <p>
+          Accessibility was in the first wireframe, not bolted on at the end
+        </p>
       </div>
     ),
   },
@@ -59,12 +67,12 @@ export const contributionData = {
   label: 'CONTRIBUTION',
   title: 'Transition and upgrade of the front end',
   description:
-    'My main responsibility was to ensure we are building an intuitive and future proof user experience during a major upgrade of the existing platform. Used by over 118,000 companies, one of the biggest challenges was addressing the long-standing mental models of the users who have adapted to non-intuitive workflows over the years. My approach combined deep UX research, strong system thinking, and a scalable design foundation.',
+    'My main job was to keep the experience intuitive while the platform moved to a major new version. Pimcore is used by over 118,000 companies, and the hard part was the mental models: people had spent years working around awkward workflows, so they expected awkwardness. I ran real research first, then built a foundation the team could keep extending.',
   directionPoints: [
-    'UX Research & Analysis: Conducted surveys, interviews, and group discussions with implementation partners, end users, and community members',
-    'Design System Strategy: Selected and extended a third-party design system matching our tech stack',
-    'Scalable & Modular Layout Design: Multiple iterations led to a modern, flexible layout with widget zones and drag-and-drop flexibility',
-    'Tested Interactions & Accessibility: No feature was removed—less-critical elements were made collapsible or relocated for clarity',
+    'UX Research & Analysis: Surveys, interviews and group sessions with implementation partners, end users and community members',
+    'Design System Strategy: Picked a third-party design system that matched our tech stack, then extended it',
+    'Scalable & Modular Layout Design: After several rounds, the layout got flexible enough for widget zones and drag-and-drop without falling apart',
+    'Tested Interactions & Accessibility: I removed nothing. Less-critical elements became collapsible or moved somewhere clearer',
   ],
 };
 
@@ -73,7 +81,7 @@ export const keyFeaturesData = {
   label: 'KEY FEATURES',
   title: 'Core platform capabilities',
   description:
-    'The redesigned platform focuses on making complex data management intuitive and efficient for enterprise users.',
+    'The redesign is mostly about making complex data management feel ordinary for the people who live in it every day.',
   features: [
     {
       title: 'UX Research & Analysis',
@@ -88,22 +96,22 @@ export const keyFeaturesData = {
     {
       title: 'Scalable & Modular Layout Design',
       description:
-        'Multiple iterations led to a modern, flexible layout capable of supporting Pimcore\'s diverse use cases. With widget zones, expandable tab areas, and drag-and-drop flexibility, we struck a balance between structure and personalisation.',
+        'Multiple iterations led to a layout flexible enough for Pimcore\'s many use cases. Widget zones, expandable tab areas and drag-and-drop gave people room to make it theirs without losing the structure.',
     },
     {
       title: 'Tested Interactions & Accessibility',
       description:
-        'No feature was removed — instead, less-critical elements were made collapsible, hover-based, or relocated for clarity. Testing methods like A/B tests and think-aloud protocols validated improvements and ensured WCAG alignment.',
+        'Nothing got removed. Less-critical elements became collapsible, hover-based, or moved somewhere clearer, and A/B tests plus think-aloud sessions told me whether any of it actually helped. WCAG alignment came out of that.',
     },
     {
       title: 'User Guidelines & Consistency Rules',
       description:
-        'We defined key interaction standards — from naming buttons ("Add" vs. "New") to keybindings and casing — to ensure system-wide coherence. Navigation elements like the toolbar and sidebar remained visually and functionally consistent across screens.',
+        'We wrote down the key interaction standards, from naming buttons ("Add" vs. "New") to keybindings and casing, so the product feels like one product. Toolbar and sidebar stayed visually and functionally the same across screens.',
     },
     {
       title: 'Existing vs. Anticipated Experience',
       description:
-        'We selected and extended an existing system that matched our tech stack and supported themes, tokens, accessibility, and UI scalability. It was developed for internal use and external collaboration via a shared component library.',
+        'Everything had to work for the admin who logs in once a quarter and for the implementation partner who lives in the platform all day. One system, different depth of detail.',
     },
   ],
 };
@@ -113,7 +121,7 @@ export const designProcessData = {
   label: 'DESIGN PROCESS',
   title: 'From research to implementation',
   description:
-    'A structured approach to tackling enterprise UX challenges, balancing technical constraints with user needs.',
+    'Four phases. Research decided what to build, and the technical limits decided how it could look.',
   steps: [
     {
       phase: 'Discovery',
@@ -141,19 +149,17 @@ export const reflectionData = {
   content: (
     <>
       <p>
-        This project taught me the importance of balancing power with simplicity in
-        enterprise software. By focusing on progressive disclosure and role-based
-        customization, we were able to serve both power users and occasional users
-        within the same interface. The Pimcore platform upgrade was a significant
-        undertaking that required deep understanding of user mental models formed over
-        years of using the legacy system.
+        The biggest lesson was that power and simplicity pull against each other. Progressive
+        disclosure and role-based customisation let one interface serve an admin who logs in
+        once a quarter and a power user who never closes the tab. Upgrading a platform
+        people had used for years meant understanding the mental models they had built
+        around the old one first.
       </p>
       <p className="mt-4">
-        The success of this redesign has led to a company-wide initiative to apply
-        these UX principles across all Pimcore products, establishing a consistent
-        design language for the entire ecosystem. The design system we created continues
-        to evolve and support new features while maintaining the accessibility and
-        usability standards we established.
+        The redesign turned into a company-wide effort. The same UX principles are now being
+        applied across Pimcore&apos;s products so everything shares one design language. The
+        design system keeps growing with new features, and it still holds to the
+        accessibility bar we set at the start.
       </p>
     </>
   ),

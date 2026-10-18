@@ -10,17 +10,16 @@ export const heroData = {
   title: 'SDZRN',
   tagline: 'Pure Austrian Refreshment',
   subtitle: 'Water + Lemon. Nothing else.',
-  description: `SDZRN (Soda Zitrone) is a conceptual Austrian sparkling water brand 
-    designed to capture the essence of Alpine freshness. The brand identity combines 
-    Austria's pristine water heritage with the vibrant energy of fresh lemons, creating 
-    a visual language that feels both authentic and contemporary.`,
+  description: `SDZRN (Soda Zitrone) is a conceptual Austrian sparkling water brand,
+    built to see what a local water brand looks like without the sugar: alpine water, a
+    squeeze of real lemon, and nothing else to explain.`,
   year: '2024',
   category: 'Branding / Packaging Design',
 };
 
 // Project Scope Data
 export const scopeData = {
-  role: 'Lead Brand Designer',
+  role: 'Brand Designer',
   team: 'Solo Project',
   timeframe: '4 weeks',
   tools: ['Figma', 'Illustrator', 'Photoshop', 'Protopie'],
@@ -37,11 +36,11 @@ export const scopeData = {
 // Brand Concept Data
 export const conceptData = {
   tagline: 'Water + Lemon. Nothing else.',
-  philosophy: `SDZRN was born from a simple observation: the Austrian market lacked a premium 
-    sparkling water option that felt authentically local while delivering exceptional taste. 
-    Unlike mass-market alternatives loaded with sugar or artificial flavors, SDZRN represents 
-    a return to purity - just water and natural lemon essence, carbonated to perfection.`,
-  positioning: 'Healthy alternative to sugary soft drinks',
+  philosophy: `SDZRN started with a walk down the supermarket shelf. You can buy premium sparkling water
+    in Austria, but rarely anything that tastes like it belongs here. The mass-market stuff is
+    either sugary or as plain as tap water, so I wanted the boring middle: real lemon essence,
+    alpine water, no sweetener.`,
+  positioning: 'A sugar-free swap for sugary soft drinks',
   heritage: 'Inspired by Austrian Alpine water purity',
   keyMessages: [
     {
@@ -56,8 +55,8 @@ export const conceptData = {
     },
     {
       icon: Heart,
-      title: 'Healthy Alternative',
-      description: 'Better for you than soda or lemonade',
+      title: 'The Better Choice',
+      description: 'A lighter swap than soda or sugary lemonade',
     },
     {
       icon: Zap,
@@ -125,32 +124,32 @@ export const typographyData = {
 
 // Logo Concepts Data
 export const logoData = {
-  description: 'Three logo concepts were explored, each capturing different aspects of the brand personality.',
+  description: 'I explored three logos. Each one leaned on a different part of what the brand is about.',
   concepts: [
     {
       name: 'Bubbly Minimal',
-      description: 'Simplified letterform with integrated bubble elements. The "Z" transforms into a rising bubble, creating dynamic movement.',
+      description: 'A simplified wordmark where the "Z" turns into a bubble on its way up.',
       style: 'Minimalist, modern',
     },
     {
       name: 'Lemon Drop',
-      description: 'Playful integration of a lemon silhouette within the letter "S". Fresh, approachable, and memorable.',
+      description: 'A lemon shape tucked into the "S". Simple enough to remember after one look.',
       style: 'Playful, organic',
     },
     {
       name: 'Alpine Crest',
-      description: 'Mountain-inspired "A" shape combined with water wave patterns. Heritage-focused, premium positioning.',
+      description: 'An "A" built from a mountain line and a wave. This one leans hard on the Austrian story.',
       style: 'Premium, heritage',
     },
   ],
   primary: 'Bubbly Minimal',
-  rationale: 'Selected for its versatility across applications and its ability to animate beautifully in digital contexts.',
+  rationale: 'It works small on a can and big on a billboard, and it moves nicely on a screen.',
 };
 
 // Messaging Framework Data
 export const messagingData = {
   tagline: 'Water + Lemon. Nothing else.',
-  brandVoice: 'Fresh, Pure, Authentic',
+  brandVoice: 'Fresh and plain-spoken',
   pillars: [
     {
       pillar: 'Purity',
@@ -159,18 +158,18 @@ export const messagingData = {
     },
     {
       pillar: 'Refreshment',
-      statement: 'The taste of Austrian Alpine freshness',
+      statement: 'Alpine water with a squeeze of lemon',
       proof: 'Premium carbonation, subtle citrus notes',
     },
     {
       pillar: 'Health',
-      statement: 'A better choice for you and the planet',
+      statement: 'Lighter than soda, kinder to the bin',
       proof: 'Zero sugar, recyclable packaging',
     },
   ],
   taglineVariations: [
-    'Pure. Simple. Refreshing.',
-    'The Natural Choice',
+    'Pure and simple.',
+    'The local one',
     'Straight from the Alps',
     'Refreshment, Reinvented',
   ],
@@ -223,34 +222,34 @@ export const comparisonData = {
     },
   ],
   benefits: [
-    'Better hydration than sugary drinks',
-    'Natural energy boost from lemon',
+    'Zero sugar, so no crash an hour later',
+    'Real lemon rather than lemon flavouring',
     'No artificial sweeteners',
-    'Supports healthy lifestyle choices',
-    'Environmentally conscious packaging',
+    'Aluminium and glass, and both recycle',
+    'Bottled in Austria, so a short trip to the shelf',
   ],
 };
 
 // Packaging Concepts Data
 export const packagingData = {
   title: 'Packaging Vision',
-  description: 'The packaging design reflects the brand values of purity and simplicity while standing out on shelf.',
+  description: 'Purity and simplicity, and it still has to win the shelf.',
   concepts: [
     {
       name: 'The Classic Can',
-      description: 'Sleek aluminum can with matte finish, minimal label design showcasing the logo and key benefits.',
+      description: 'Matte aluminium can with a quiet label: the logo, the flavour, done.',
       materials: 'Recyclable aluminum',
       sizes: '330ml, 500ml',
     },
     {
       name: 'The Premium Bottle',
-      description: 'Glass bottle with embossed logo, premium positioning for retail and hospitality.',
+      description: 'Glass bottle with the logo embossed into it. Aimed at restaurant tables and hotel minibars.',
       materials: 'Recyclable glass',
       sizes: '250ml, 750ml',
     },
     {
       name: 'The Eco Pack',
-      description: 'Carton-based packaging for multi-packs, emphasizing sustainability and reduced plastic.',
+      description: 'Cardboard multipack, printed in plant-based ink. No plastic film around the cans.',
       materials: 'Cardboard, plant-based ink',
       sizes: '6-pack, 12-pack',
     },
@@ -269,27 +268,31 @@ export const insightsData = {
   title: 'Design Insights',
   learnings: [
     {
-      title: 'Color Psychology Matters',
-      detail: 'The blue-yellow combination immediately communicates "water" and "citrus" without explicit labeling, making the product instantly understandable at shelf.',
+      title: 'The colour did the labelling',
+      detail:
+        'On the shelf mock-ups, the blue and yellow split reads as water and lemon before you get close enough to read a word. That is most of why the palette stayed this plain.',
     },
     {
-      title: 'Less is More',
-      detail: 'In the wellness space, minimalism signals purity. The restrained design approach reinforces the "nothing else" brand promise.',
+      title: 'Empty space did the selling',
+      detail:
+        'Fewer elements on the can meant zero sugar was visible from across the aisle, and the variants took minutes instead of a redesign.',
     },
     {
-      title: 'Heritage Sells',
-      detail: 'Austrian consumers respond well to local provenance. The Alpine connection adds authenticity and justifies premium pricing.',
+      title: 'The Alpine story is an assumption',
+      detail:
+        'I never tested whether people here pay more for something bottled in their own country. I used it because it is a good story, and I would still flag it as the first thing to check.',
     },
     {
-      title: 'Sustainability is Expected',
-      detail: 'Modern consumers assume eco-friendly packaging. Going beyond with clear messaging about recyclability becomes a competitive advantage.',
+      title: 'Recyclable is table stakes',
+      detail:
+        'Half the drinks in that aisle already say it, so repeating the word buys nothing. Showing the material itself was more useful.',
     },
   ],
   results: [
-    'Strong shelf presence through distinctive color blocking',
-    'Clear product positioning in a crowded market',
-    'Versatile brand system for multiple formats',
-    'Premium perception without premium complexity',
+    'Readable from a distance, before any copy',
+    'One palette, three pack sizes, no redrawing per format',
+    'The lemon motif carries from the can to the social tiles',
+    'Looks like a small-batch drink without the small-batch price',
   ],
 };
 
@@ -307,46 +310,49 @@ export const statsData = {
 // Feature cards for the case study
 export const featuresData = {
   title: 'Deliverables',
-  subtitle: 'Comprehensive brand identity system',
+  subtitle: 'Logo, palette, packaging and copy',
   features: [
     {
       title: 'Brand Guidelines',
-      description: 'Complete style guide covering logo usage, color system, typography, and brand voice.',
+      description: 'A style guide covering logo usage, colours, typography and brand voice.',
       highlight: 'Foundation',
     },
     {
       title: 'Logo System',
-      description: 'Primary logo, variations for different contexts, and animation guidelines.',
+      description: 'The primary mark, the lock-ups that go with it, and a note on when not to use it.',
       highlight: 'Identity',
     },
     {
       title: 'Packaging Design',
-      description: 'Cans, bottles, and multi-pack concepts with production-ready specifications.',
+      description: 'Cans, bottles and a multipack, drawn to print specs including dielines.',
       highlight: '3D Mockups',
     },
     {
       title: 'Messaging Framework',
-      description: 'Taglines, key messages, and copy guidelines for all brand touchpoints.',
+      description: 'Taglines, key messages and copy rules for every place the brand shows up.',
       highlight: 'Voice',
     },
   ],
 };
 
 // Additional data for extended sections
+// NOTE: Nobody tested this brand. The audience below is who I pictured while
+// designing it, and the market claims are positioning, not measured results.
 export const additionalData = {
   targetAudience: [
     'Health-conscious millennials (25-40)',
-    'Fitness enthusiasts',
+    'People who buy fitness gear',
     'Austrian urban professionals',
-    'Eco-aware consumers',
+    'Shoppers who check the recycling label',
   ],
-  marketPosition: 'Premium sparkling water with natural flavors',
-  competitiveAdvantage: 'Austrian heritage + 100% natural ingredients + distinctive visual identity',
+  marketPosition: 'Between flat water and soda: sparkling, sweetened with lemon only',
+  competitiveAdvantage:
+    'Local water, two ingredients, and a shelf look nothing else in that aisle has',
   nextSteps: [
-    'Consumer research and testing',
-    'Focus groups for packaging validation',
-    'Production partner identification',
-    'Launch timeline development',
+    'Shelf test against the real competitors',
+    'Packaging feedback from actual shoppers',
+    'Find a production partner',
+    'Set a launch date',
   ],
 };
 

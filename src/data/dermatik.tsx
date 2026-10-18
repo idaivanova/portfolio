@@ -20,13 +20,13 @@ export const heroData = {
   description: (
     <>
       <p>
-        Dermatik is a digital healthcare platform connecting patients with dermatologists
-        through AI-powered preliminary diagnosis and seamless telemedicine consultations.
+        Dermatik is a digital healthcare platform where patients meet dermatologists. An AI
+        looks at your photos first, then a real person picks up the conversation.
       </p>
       <p className="mt-4">
-        The challenge was to design an intuitive patient journey—from booking appointments
-        to receiving AI-assisted preliminary analysis and communicating with healthcare
-        providers—all while maintaining medical accuracy and patient trust.
+        I spent two weeks on it as a concept: what a patient journey could look like from
+        booking an appointment, through the AI-assisted first look, to talking with a
+        provider. The part I cared about most was keeping the patient calm throughout.
       </p>
     </>
   ),
@@ -55,10 +55,16 @@ export const projectScopeData = {
   results: {
     content: (
       <div className="space-y-4">
-        <p>A validated patient journey from symptom check to specialist consultation</p>
-        <p>AI-powered preliminary diagnosis interface with 89% user satisfaction</p>
-        <p>Seamless appointment booking reducing no-shows by 35%</p>
-        <p>HIPAA-compliant chat system with integrated medical history</p>
+        <p>
+          A structured patient journey concept from symptom check to specialist consultation
+        </p>
+        <p>
+          Designed in collaboration with medical experts and developers over two weeks
+        </p>
+        <p>
+          A concept, not a shipped product — built to explore how AI-assisted triage could
+          sit inside a telemedicine flow
+        </p>
       </div>
     ),
   },
@@ -69,7 +75,7 @@ export const designProcessData = {
   label: 'DESIGN PROCESS',
   title: 'From problem to solution',
   description:
-    'A structured approach to healthcare UX, balancing medical requirements with patient needs.',
+    'Healthcare UX has its own constraints. The medical side sets some of them, and everything else has to earn its place by making people feel calmer.',
   timeline: [
     { label: 'Research', value: 'User interviews, competitor analysis' },
     { label: 'Define', value: 'Patient journey mapping' },
@@ -90,37 +96,37 @@ export const keyFeaturesData = {
   label: 'KEY FEATURES',
   title: 'Core functionality for patient care',
   description:
-    'The platform combines AI technology with human expertise to provide comprehensive dermatology care.',
+    'AI does the sorting, dermatologists do the thinking. My job was to make both halves feel like one calm experience.',
   features: [
     {
       title: 'Smart Appointment Booking',
       description:
-        'Calendar integration with real-time availability, automated reminders, and easy rescheduling.',
+        'A calendar with live availability, reminders sent automatically, and rescheduling in two taps.',
     },
     {
       title: 'AI-Powered Preliminary Analysis',
       description:
-        'Image recognition for skin conditions with confidence scoring and severity assessment.',
+        'Photo analysis for skin conditions, with a confidence score and a severity read so patients know how urgent they are.',
     },
     {
       title: 'Secure Medical Chat',
       description:
-        'HIPAA-compliant messaging with file sharing for images and medical documents.',
+        'A messaging concept where patients can attach images and documents, built with privacy requirements in mind.',
     },
     {
       title: 'Personal Health Records',
       description:
-        'Centralized history of appointments, diagnoses, and treatment plans.',
+        'One place for appointments, diagnoses and treatment plans.',
     },
     {
       title: 'Doctor Matching',
       description:
-        'Intelligent matching based on condition type, language, and availability.',
+        'Matching on condition, language and when people are actually free.',
     },
     {
       title: 'Treatment Tracking',
       description:
-        'Progress monitoring with photo timelines and medication reminders.',
+        'Photo timelines and medication reminders, so progress is visible.',
     },
   ],
 };
@@ -130,7 +136,7 @@ export const patientFlowData = {
   label: 'PATIENT FLOW',
   title: 'End-to-end patient journey',
   description:
-    'A streamlined three-step process from booking to consultation, designed to reduce anxiety and build trust.',
+    'Three steps from booking to consultation. Nobody should feel rushed while they wait for a doctor to answer.',
   steps: [
     {
       number: '01',
@@ -138,16 +144,15 @@ export const patientFlowData = {
       description: (
         <>
           <p>
-            Patients can easily view available time slots in a calendar interface. The system
-            shows doctor availability in real-time and allows filtering by specialty,
-            language, and preferred time.
+            Patients see real availability in a calendar, filtered by specialty, language and
+            the time of day that actually suits them.
           </p>
           <p className="mt-2">
             Key design decisions:
           </p>
           <ul className="list-disc ml-5 space-y-1 mt-1">
-            <li>Visual calendar with clear availability indicators</li>
-            <li>One-tap appointment selection</li>
+            <li>A calendar that shows open slots at a glance</li>
+            <li>One tap to pick a time</li>
             <li>Automatic timezone detection</li>
             <li>Push notification reminders</li>
           </ul>
@@ -166,18 +171,18 @@ export const patientFlowData = {
       description: (
         <>
           <p>
-            Before the consultation, patients can upload photos of their skin condition for
-            AI analysis. The system provides a preliminary assessment with confidence scores,
-            helping patients understand the urgency of their condition.
+            Before the consultation, patients upload photos and get a first assessment with a
+            confidence score. It tells them how urgent this is, without pretending to be a
+            diagnosis.
           </p>
           <p className="mt-2">
             Key design decisions:
           </p>
           <ul className="list-disc ml-5 space-y-1 mt-1">
-            <li>Clear photo capture guidance</li>
-            <li>Progressive disclosure of AI results</li>
-            <li>Confidence indicators to set expectations</li>
-            <li>Clear disclaimer about AI limitations</li>
+            <li>Guidance while taking the photo, since bad photos give bad answers</li>
+            <li>Results revealed a layer at a time</li>
+            <li>Confidence shown up front, not buried</li>
+            <li>A clear disclaimer about what the AI can&rsquo;t do</li>
           </ul>
         </>
       ),
@@ -194,18 +199,18 @@ export const patientFlowData = {
       description: (
         <>
           <p>
-            The chat interface enables secure communication between patients and doctors.
-            Medical history is accessible during the conversation, and doctors can provide
-            prescriptions and follow-up recommendations.
+            The chat is where the human part happens. Medical history sits right there in
+            the conversation, so the doctor doesn&rsquo;t have to ask again, and they can send
+            prescriptions and follow-up notes through the same thread.
           </p>
           <p className="mt-2">
             Key design decisions:
           </p>
           <ul className="list-disc ml-5 space-y-1 mt-1">
-            <li>Familiar chat interface (WhatsApp-like)</li>
-            <li>In-context medical history access</li>
-            <li>Image sharing for visual references</li>
-            <li>Read receipts for message confirmation</li>
+            <li>A familiar chat layout, WhatsApp-style</li>
+            <li>Medical history in reach, not behind a menu</li>
+            <li>Image sharing when a photo says more than a paragraph</li>
+            <li>Read receipts, because waiting in silence is worse than waiting</li>
           </ul>
         </>
       ),
@@ -226,19 +231,18 @@ export const reflectionData = {
   description: (
     <>
       <p>
-        The Dermatik platform successfully bridges the gap between patients and dermatologists,
-        reducing wait times and improving access to specialized care. The AI-powered
-        preliminary analysis helps prioritize urgent cases while providing peace of mind
-        for patients with minor concerns.
+        Dermatik was a two-week concept, not a shipped product. The goal was to sketch a
+        patient journey that feels calm under stress — from noticing something on your skin
+        to sitting in front of an actual specialist — and to figure out where AI-assisted
+        triage could help without getting in the way.
       </p>
       <p className="mt-4">
-        Key metrics achieved:
+        What I took away from it:
       </p>
       <ul className="list-disc ml-5 space-y-1 mt-2">
-        <li>89% user satisfaction rate</li>
-        <li>35% reduction in appointment no-shows</li>
-        <li>2.5x faster patient onboarding</li>
-        <li>95% of patients successfully completed AI analysis</li>
+        <li>Healthcare UX is mostly about lowering anxiety, not adding features</li>
+        <li>Working with medical experts early saved me from some very confident mistakes</li>
+        <li>Two weeks is short, and honestly, the concept shows it — that&rsquo;s part of the point</li>
       </ul>
     </>
   ),
@@ -257,18 +261,17 @@ export const profileData = {
     description: (
       <>
         <p>
-          The profile section serves as a comprehensive health record, giving both patients
-          and doctors quick access to medical history, previous appointments, and treatment
-          outcomes.
+          One health record for both sides. Patients can find their own history, and a
+          doctor opening a file sees the whole story in a second.
         </p>
         <p className="mt-4">
-          Design considerations for medical records:
+          What I had to design for:
         </p>
         <ul className="list-disc ml-5 space-y-1 mt-2">
-          <li>Chronological timeline of appointments</li>
-          <li>Visual treatment progress tracking</li>
-          <li>Searchable medical history</li>
-          <li>Secure document storage</li>
+          <li>Appointments on a chronological timeline</li>
+          <li>Treatment progress you can see at a glance</li>
+          <li>A history you can actually search</li>
+          <li>Documents stored where only the patient and their doctor can get them</li>
         </ul>
       </>
     ),

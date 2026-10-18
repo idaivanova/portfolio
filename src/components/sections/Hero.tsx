@@ -3,12 +3,12 @@ import { ArrowRight, Palette, Layout, Code, Sparkles, Users } from 'lucide-react
 import { useLanguage } from '../../lib/LanguageContext';
 
 const expertise = [
-  { icon: Palette, label: 'UI Design' },
-  { icon: Layout, label: 'UX Research' },
-  { icon: Code, label: 'Prototyping' },
-  { icon: Sparkles, label: 'Design Systems' },
-  { icon: Users, label: 'User Testing' },
-];
+  { icon: Palette, key: 'uiDesign' },
+  { icon: Layout, key: 'uxResearch' },
+  { icon: Code, key: 'prototyping' },
+  { icon: Sparkles, key: 'designSystems' },
+  { icon: Users, key: 'userTesting' },
+] as const;
 
 export function Hero() {
   const { t } = useLanguage();
@@ -38,22 +38,8 @@ export function Hero() {
             </h1>
           </ScrollReveal>
 
-          {/* Tag buttons - Figma style */}
-          <ScrollReveal delay={0.2}>
-            <div className="flex flex-wrap gap-3 mb-10">
-              {t.hero.skills.map((skill) => (
-                <span
-                  key={skill}
-                  className="px-4 py-2 rounded-full bg-muted/60 text-muted-foreground text-sm border border-border"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </ScrollReveal>
-
           {/* CTA Buttons - merged style */}
-          <ScrollReveal delay={0.3}>
+          <ScrollReveal delay={0.2}>
             <div className="flex flex-col sm:flex-row items-start gap-4 mb-16">
               <a
                 href="/#projects"
@@ -80,23 +66,23 @@ export function Hero() {
           </ScrollReveal>
 
           {/* Expertise row - keeping from existing design */}
-          <ScrollReveal delay={0.4}>
+          <ScrollReveal delay={0.3}>
             <div className="border-t border-border pt-8">
-              <p className="text-sm text-muted-foreground/40 mb-6">
-                Areas of expertise
+              <p className="text-sm text-muted-foreground/60 mb-6">
+                {t.hero.expertiseLabel}
               </p>
               <StaggerContainer
                 className="flex flex-wrap items-center gap-8 sm:gap-12"
                 staggerDelay={0.1}
               >
                 {expertise.map((item) => (
-                  <StaggerItem key={item.label}>
+                  <StaggerItem key={item.key}>
                     <div className="flex flex-col items-center gap-2 group cursor-default">
                       <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
                         <item.icon className="w-6 h-6 text-accent" />
                       </div>
                       <span className="text-sm font-medium text-muted-foreground/60 group-hover:text-muted-foreground/80 transition-colors">
-                        {item.label}
+                        {t.hero.expertise[item.key]}
                       </span>
                     </div>
                   </StaggerItem>

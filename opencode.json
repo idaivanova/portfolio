@@ -6,7 +6,7 @@
   "mcp": {
     "filesystem": {
       "type": "local",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-filesystem", "/Users/dinz/Coding Projects/ida portfolio/idas-portfolio"]
+      "command": ["npx", "-y", "@modelcontextprotocol/server-filesystem", "/Users/dinz/Developer/fun stuff/ida portfolio/idas-portfolio"]
     },
     "playwright": {
       "type": "local",
@@ -14,17 +14,14 @@
       "enabled": true
     }
   },
-  "permissions": {
-    "allow": [
-      "Bash(*)",
-      "mcp__filesystem__*",
-      "mcp__playwright-mcp__*",
-      "Read(*)",
-      "Write(*)",
-      "Glob(*)",
-      "Grep(*)",
-      "Edit(*)",
-      "WebFetch(*)"
-    ]
-  }
+  "permissions": [
+    { "action": "shell", "resource": "*", "effect": "allow" },
+    { "action": "filesystem_*", "resource": "*", "effect": "allow" },
+    { "action": "playwright_*", "resource": "*", "effect": "allow" },
+    { "action": "read", "resource": "*", "effect": "allow" },
+    { "action": "edit", "resource": "*", "effect": "allow" },
+    { "action": "glob", "resource": "*", "effect": "allow" },
+    { "action": "grep", "resource": "*", "effect": "allow" },
+    { "action": "webfetch", "resource": "*", "effect": "allow" }
+  ]
 }

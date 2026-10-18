@@ -1,11 +1,14 @@
 import { useLanguage } from '../../lib/LanguageContext';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '../animations/ScrollReveal';
 
+// Keep these honest — no invented percentages. Numbers reflect the real
+// scope of the work: 3+ years designing (2023 — Present), 6+ shipped or
+// conceptual projects, 5 industries touched, 2 paying clients so far.
 const statsData = [
-  { value: '5+', key: 'yearsExperience' },
-  { value: '50+', key: 'projectsCompleted' },
-  { value: '4', key: 'industriesServed' },
-  { value: '100%', key: 'clientSatisfaction' },
+  { value: '3+', key: 'yearsExperience' },
+  { value: '6+', key: 'projectsCompleted' },
+  { value: '5', key: 'industriesServed' },
+  { value: '2', key: 'clientSatisfaction' },
 ];
 
 export function Stats() {

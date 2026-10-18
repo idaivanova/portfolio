@@ -35,7 +35,7 @@ export const heroData = {
 // Bee Behaviors Showcase
 export const behaviorsData = {
   title: 'Bumblebee Behaviors',
-  subtitle: 'Inspired by real bumblebee research for innovative UX patterns',
+  subtitle: 'Patterns I borrowed from actual bumblebees',
   behaviors: [
     {
       name: 'Cursor Investigation',
@@ -45,7 +45,7 @@ export const behaviorsData = {
     },
     {
       name: 'Pollination Trail',
-      description: 'As Bella flies, she leaves a trail of golden "pollen" dots - a visual metaphor for user journey tracking.',
+      description: 'She leaves a trail of golden "pollen" dots as she flies, which is my excuse to draw the user&rsquo;s path across the page.',
       icon: '✨',
       interaction: 'Move your cursor around the page',
     },
@@ -64,26 +64,26 @@ export const behaviorsData = {
   ],
 };
 
-// Stats Section - Conservation Impact
+// Stats Section - Experiment Facts
 export const statsData = {
-  title: 'Conservation Impact',
-  subtitle: 'Making a difference, one pollinator at a time',
+  title: 'Experiment Facts',
+  subtitle: 'A UX playground, not a real product — here is what actually happened',
   metrics: [
-    { value: 15000, suffix: '+', label: 'Gardens Registered' },
-    { value: 250000, suffix: '+', label: 'Plants Planted' },
-    { value: 89, suffix: '%', label: 'User Engagement' },
-    { value: 4.9, suffix: '★', label: 'App Store Rating' },
+    { value: 1, suffix: '', label: 'Bee character' },
+    { value: 4, suffix: '', label: 'Interaction behaviors' },
+    { value: 3, suffix: 's', label: 'Idle time before she investigates' },
+    { value: 0, suffix: '', label: 'Real gardens impacted' },
   ],
 };
 
 // Features Section - Spotlight Cards
 export const featuresData = {
   title: 'UX Experiments',
-  subtitle: 'Innovative interaction patterns inspired by nature',
+  subtitle: 'Interaction patterns lifted straight from nature',
   features: [
     {
       title: 'Curiosity-Driven UI',
-      description: 'Elements that respond to user curiosity rather than explicit actions. The bee investigates when users pause - a pattern for attention-grabbing without interruption.',
+      description: 'Elements that react when you pause instead of when you click. Attention without another popup asking for it.',
       highlight: 'Idle → Curiosity → Engagement',
     },
     {
@@ -109,12 +109,12 @@ export const insightsData = {
   title: 'Design Insights',
   insights: [
     {
-      title: 'Nature Informs Technology',
-      detail: 'Bumblebees have evolved efficient navigation and curiosity behaviors over millions of years. We can learn from these patterns for more intuitive interfaces.',
+      title: 'Nature Sets the Rules',
+      detail: 'Bumblebees worked out efficient navigation and curiosity long before we had interfaces to copy. I just watched what they do.',
     },
     {
-      title: 'Playfulness Increases Engagement',
-      detail: 'Users spend 40% more time on interfaces with interactive characters and micro-delights like the pollination trail.',
+      title: 'Playfulness Earns Attention',
+      detail: 'Interfaces with a character in them tend to hold attention longer. The pollen trail gives people a small reason to keep moving.',
     },
     {
       title: 'Permission-Based Delight',

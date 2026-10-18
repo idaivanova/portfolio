@@ -21,8 +21,6 @@ export interface SidebarProps {
   navItems: NavItem[];
   contactInfo: {
     email: string;
-    phone: string;
-    linkedin: string;
   };
   className?: string;
 }
@@ -154,22 +152,13 @@ export function Sidebar({
         })}
       </nav>
 
-      {/* Contact Info */}
+      {/* Contact Info — email only for privacy */}
       <div className="flex flex-col gap-4 whitespace-pre-wrap font-body text-sm text-muted-foreground">
         <a
           href={`mailto:${contactInfo.email}`}
           className="underline decoration-solid transition-colors hover:text-foreground"
         >
           {contactInfo.email}
-        </a>
-        <span>{contactInfo.phone}</span>
-        <a
-          href={contactInfo.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="transition-colors hover:text-foreground"
-        >
-          LinkedIn
         </a>
       </div>
     </aside>

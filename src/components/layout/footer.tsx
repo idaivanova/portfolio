@@ -7,30 +7,12 @@ import * as React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { cn } from '../../lib/utils';
-import { LinkedInIcon, GithubIcon } from '../ui/icon';
 import { useLanguage } from '../../lib/LanguageContext';
 
-// Contact information
+// Contact information — email only for privacy
 const contactInfo = {
   email: 'ivanova.contact@gmail.com',
-  phone: '+43 678 79 169',
-  website: 'https://p5aholic.me/',
-  experiments: 'https://experiments.p5aholic.me/',
 };
-
-// Social links
-const socialLinks = [
-  {
-    name: 'LinkedIn',
-    href: 'https://linkedin.com',
-    icon: LinkedInIcon,
-  },
-  {
-    name: 'GitHub',
-    href: 'https://github.com',
-    icon: GithubIcon,
-  },
-];
 
 // Quick navigation links
 const quickLinksData = [
@@ -73,6 +55,17 @@ function FooterSection({ title, children, delay = 0 }: FooterSectionProps) {
 }
 
 // ============================================
+// Smooth-scroll helper
+// ============================================
+
+function scrollToSection(event: React.MouseEvent<HTMLAnchorElement>, hash: string) {
+  const target = document.getElementById(hash);
+  if (!target) return;
+  event.preventDefault();
+  target.scrollIntoView({ behavior: 'smooth' });
+}
+
+// ============================================
 // Footer Link Component
 // ============================================
 
@@ -94,6 +87,20 @@ function FooterLink({ href, children, external }: FooterLinkProps) {
         target="_blank"
         rel="noopener noreferrer"
         className={className}
+      >
+        {children}
+      </a>
+    );
+  }
+
+  // Hash links (e.g. /#projects) — smooth scroll when the section exists
+  if (href.includes('#')) {
+    const hash = href.slice(href.indexOf('#') + 1);
+    return (
+      <a
+        href={href}
+        className={className}
+        onClick={(event) => scrollToSection(event, hash)}
       >
         {children}
       </a>
@@ -158,6 +165,7 @@ export function Footer({ className, showCTA = true }: FooterProps) {
                 </a>
                 <a
                   href="#projects"
+                  onClick={(event) => scrollToSection(event, 'projects')}
                   className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-accent border-2 border-accent rounded-lg hover:bg-accent/10 transition-colors"
                 >
                   {t.footer.ctaViewProjects}
@@ -171,7 +179,7 @@ export function Footer({ className, showCTA = true }: FooterProps) {
       {/* Main Footer Content */}
       <div className="border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
             {/* Brand & Contact */}
             <FooterSection title={t.footer.contactHeading} delay={0}>
               <ul className="space-y-3">
@@ -182,30 +190,6 @@ export function Footer({ className, showCTA = true }: FooterProps) {
                   >
                     {contactInfo.email}
                   </a>
-                </li>
-                <li>
-                  <a
-                    href={`tel:${contactInfo.phone.replace(/\s/g, '')}`}
-                    className="text-muted-foreground hover:text-accent transition-colors"
-                  >
-                    {contactInfo.phone}
-                  </a>
-                </li>
-                <li className="pt-2">
-                  <div className="flex items-center gap-4">
-                    {socialLinks.map((social) => (
-                      <a
-                        key={social.name}
-                        href={social.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-accent transition-colors"
-                        aria-label={social.name}
-                      >
-                        <social.icon size="md" />
-                      </a>
-                    ))}
-                  </div>
                 </li>
               </ul>
             </FooterSection>
@@ -229,22 +213,6 @@ export function Footer({ className, showCTA = true }: FooterProps) {
                     <FooterLink href={link.href}>{link.label}</FooterLink>
                   </li>
                 ))}
-              </ul>
-            </FooterSection>
-
-            {/* Personal Links */}
-            <FooterSection title={t.footer.linksHeading} delay={0.3}>
-              <ul className="space-y-3">
-                <li>
-                  <FooterLink href={contactInfo.website} external>
-                    {t.footer.personalWebsite}
-                  </FooterLink>
-                </li>
-                <li>
-                  <FooterLink href={contactInfo.experiments} external>
-                    {t.footer.experiments}
-                  </FooterLink>
-                </li>
               </ul>
             </FooterSection>
           </div>

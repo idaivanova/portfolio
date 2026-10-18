@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { useLanguage } from '../../lib/LanguageContext';
 import { Button } from '../ui/button';
 import { ScrollReveal } from '../animations/ScrollReveal';
@@ -5,16 +6,17 @@ import { ArrowRight } from 'lucide-react';
 
 export function CTASection() {
   const { t } = useLanguage();
+  const [isResumeNoticeVisible, setIsResumeNoticeVisible] = React.useState(false);
 
   return (
     <section className="py-20 lg:py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-orange-600 p-8 sm:p-12 lg:p-16 text-center">
+          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-accent to-orange-600 p-8 sm:p-12 lg:p-16 text-center">
             {/* Background decoration */}
             <div className="absolute inset-0 overflow-hidden">
-              <div className="absolute -top-24 -right-24 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
-              <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
+              <div className="absolute -top-24 -right-24 w-64 h-64 bg-accent/10 rounded-full blur-3xl" />
+              <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-accent/10 rounded-full blur-3xl" />
             </div>
 
             <div className="relative z-10">
@@ -27,19 +29,32 @@ export function CTASection() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button
                   size="lg"
-                  className="w-full sm:w-auto bg-primary-foreground text-primary hover:bg-primary-foreground/90 group"
+                  asChild
+                  className="w-full sm:w-auto bg-primary-foreground text-accent hover:bg-primary-foreground/90 group"
                 >
-                  {t.cta.getInTouch}
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <a href="mailto:ivanova.contact@gmail.com">
+                    {t.cta.getInTouch}
+                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </a>
                 </Button>
                 <Button
                   size="lg"
                   variant="secondary-white"
+                  type="button"
+                  onClick={() => setIsResumeNoticeVisible(true)}
                   className="w-full sm:w-auto border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
                 >
                   {t.cta.viewResume}
                 </Button>
               </div>
+              {isResumeNoticeVisible && (
+                <p
+                  role="status"
+                  className="mt-6 inline-block rounded-full bg-primary-foreground/15 px-4 py-2 text-sm text-primary-foreground"
+                >
+                  {t.cta.cvAvailableNote}
+                </p>
+              )}
             </div>
           </div>
         </ScrollReveal>

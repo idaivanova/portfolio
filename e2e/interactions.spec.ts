@@ -14,24 +14,22 @@ test.describe('Interactive Elements', () => {
       await page.waitForLoadState('networkidle');
     });
 
-    test('header navigation is visible', async ({ page }) => {
-      const header = page.locator('header');
-      await expect(header).toBeVisible();
-      
-      // Check for navigation links
-      const navLinks = header.locator('a, button').filter({ hasText: /HOME|ABOUT|PROJECTS/i });
+    test('left rail navigation is visible', async ({ page }) => {
+      const rail = page.locator('aside').first();
+      await expect(rail).toBeVisible();
+
+      // Check for navigation links in the rail (sole nav system)
+      const navLinks = rail.locator('a').filter({ hasText: /HOME|ABOUT/i });
       await expect(navLinks.first()).toBeVisible();
     });
 
-    test('mobile menu button is visible on small screens', async ({ page }) => {
+    test('mobile bottom navigation is visible on small screens', async ({ page }) => {
       // Set mobile viewport
       await page.setViewportSize({ width: 375, height: 667 });
       await page.waitForTimeout(500);
-      
-      const menuButton = page.locator('button[aria-label*="menu" i], button[aria-label*="Menu" i]').first();
-      if (await menuButton.isVisible().catch(() => false)) {
-        await expect(menuButton).toBeVisible();
-      }
+
+      const homeLink = page.locator('a').filter({ hasText: /HOME/i }).last();
+      await expect(homeLink).toBeVisible();
     });
 
     test('navigation links work', async ({ page }) => {
@@ -52,12 +50,12 @@ test.describe('Interactive Elements', () => {
     });
 
     test('primary CTA button is visible', async ({ page }) => {
-      const ctaButton = page.locator('button, a').filter({ hasText: /View My Projects|Get in touch/i }).first();
+      const ctaButton = page.locator('button, a').filter({ hasText: /See my projects|Say hi/i }).first();
       await expect(ctaButton).toBeVisible();
     });
 
     test('buttons have hover states', async ({ page }) => {
-      const button = page.locator('button, a').filter({ hasText: /View My Projects/i }).first();
+      const button = page.locator('button, a').filter({ hasText: /See my projects/i }).first();
       await button.hover();
       await page.waitForTimeout(300);
       

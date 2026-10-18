@@ -17,6 +17,7 @@ import AboutMePage from './pages/AboutMePage';
 import PimcorePage from './pages/PimcorePage';
 import BuzzHQPage from './pages/BuzzHQPage';
 import SDZRNPage from './pages/SDZRNPage';
+import ThemeBuilderPage from './pages/ThemeBuilderPage';
 
 // About page with footer
 function AboutPage() {
@@ -61,10 +62,12 @@ function AppContent() {
       {/* Experimental project pages */}
       <Route path="/case-studies/buzz-hq" element={<BuzzHQPage />} />
       <Route path="/case-studies/sdzrn" element={<SDZRNPage />} />
+
+      {/* Playgrounds */}
+      <Route path="/playground/theme-builder" element={<ThemeBuilderPage />} />
       
       {/* Legacy route redirects */}
       <Route path="/case-studies/about" element={<Navigate replace to="/about" />} />
-      <Route path="/case-study/:project" element={<Navigate replace to="/case-studies" />} />
       
       {/* Catch all - redirect to home */}
       <Route path="*" element={<Navigate replace to="/" />} />

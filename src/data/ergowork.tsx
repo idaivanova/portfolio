@@ -20,14 +20,14 @@ export const heroData = {
   description: (
     <>
       <p>
-        ErgoWork is an Austrian brand aiming to bridge quality craftsmanship with scalable
-        ergonomic solutions for both private and business users.
+        ErgoWork is an Austrian brand. They make ergonomic furniture properly,
+        and they sell it to both homes and offices.
       </p>
       <p className="mt-4">
         While demand for standing desks and hybrid workspace solutions is growing, ErgoWork
-        faced a challenge: their online presence lacked structure, clarity, and user
-        segmentation - making it difficult for potential customers to understand the offer
-        or navigate toward a purchase.
+        faced a problem: nothing on the site told visitors whether it was written for
+        private buyers or business buyers, or what the offer really was. People landed,
+        looked around and left.
       </p>
     </>
   ),
@@ -57,11 +57,11 @@ export const projectScopeData = {
     content: (
       <div className="space-y-4">
         <p>
-          A validated UX architecture that balances exploration and conversion for both B2B
-          and B2C audiences
+          A UX architecture that lets B2B and B2C visitors browse first, or skip straight to
+          the thing they came for
         </p>
-        <p>Clear decision paths mapped to core personas and user intents</p>
-        <p>A modular sitemap and interface structure, ready for phased rollout for development</p>
+        <p>Decision paths mapped to the four personas and what each of them came to do</p>
+        <p>A modular sitemap and page structure, ready for a phased handover to development</p>
       </div>
     ),
   },
@@ -74,20 +74,19 @@ export const contributionData = {
   description: (
     <>
       <p>
-        Through an in-depth UX research and analysis process, I identified critical gaps in
-        the user journey and touch points. B2B users hesitated due to unclear pricing and
-        fragmented value communication. B2C users struggled to differentiate between models
-        and often preferred direct support (via phone calls and less often via mail) instead
-        of exploring the catalog independently. Analytics revealed high mobile traffic but
-        low engagement, signaling an urgent need to support both quick entry and deeper
-        desktop research.
+        Research turned up the gaps in the journey and the touchpoints. B2B visitors
+        hesitated because pricing was unclear and the value story was scattered across
+        pages. B2C visitors couldn&apos;t tell the models apart, and plenty of them preferred to
+        call instead of digging through the catalogue. On top of that, analytics showed lots
+        of mobile traffic and very little engagement: the site needed to work for a quick
+        look on a phone and for slower research on a laptop.
       </p>
       <p className="mt-4">The design direction was set as follows:</p>
     </>
   ),
   directionItems: [
     { content: 'Clarify product value and positioning' },
-    { content: 'Streamline the decision-making process' },
+    { content: 'Simplify the decision-making process' },
     { content: 'Support mobile-first discovery and desktop-first research' },
     { content: 'Bridge the gap between marketing and product structure' },
   ],
@@ -98,37 +97,37 @@ export const researchData = {
   label: 'RESEARCH',
   title: 'Key insights',
   description:
-    'The UX redesign was shaped by competitor analysis (8 competitors have been reviewed) and strategic insights, leading to the following six key experience goals:',
+    'I reviewed 8 competitors and looked at where ErgoWork could win. Six experience goals came out of that, and the redesign followed them:',
   features: [
     {
-      title: 'Guided Exploration to Boost Conversion',
+      title: 'Guided Exploration, Fewer Drop-offs',
       description:
-        'Structured layouts, consistent tabs, and comparison tools reduce cognitive load and guide users confidently through the catalog.',
+        'A clear page structure, tabs that behave the same everywhere and comparison tools, so picking a desk takes minutes instead of an afternoon.',
     },
     {
-      title: 'Self-Qualification & Confidence-Building Tools',
+      title: 'Helping People Qualify Themselves',
       description:
-        'A quiz-based selection process, overview pages, and comparison features help users find the right desk without friction.',
+        'A short quiz, one page per model and side-by-side comparisons, so people can narrow the range down on their own instead of emailing someone.',
     },
     {
-      title: 'Trust Signals Integrated Across Flows',
+      title: 'Trust Signals Where It Matters',
       description:
-        'Testimonials, service guarantees, and quality badges are embedded into key content areas to build long-term trust and reduce bounce.',
+        'Testimonials, service guarantees and quality badges sit next to the products they belong to, not buried in the footer where nobody scrolls.',
     },
     {
-      title: 'UI Simplicity Paired with Communicated Value',
+      title: 'Simple UI, Value Spelled Out',
       description:
-        'The clean UI is leveraged to highlight customizability, local production, quality, and service—making benefits instantly recognizable.',
+        'The interface stays quiet so the useful things can be loud: local production, custom sizes and the service around the desk.',
     },
     {
-      title: 'Mobile Touchpoint, Desktop Research Logic',
+      title: 'Mobile First, Desktop Does the Comparing',
       description:
-        'Mobile users are led with highlights and visuals. Desktop experience is structured for comparison, exploration, and quote generation.',
+        'On a phone, people get highlights and pictures. On a desktop, the same page opens up for comparison and for starting a quote.',
     },
     {
-      title: 'B2B Value Needs Early & Clear Communication',
+      title: 'B2B Value Has to Arrive Early',
       description:
-        'A dedicated B2B overview page and embedded CTAs ensure business users are clearly guided toward fast quoting and contact.',
+        'A dedicated B2B page plus CTAs that lead straight to a quote or a phone call, so nobody has to hunt for the contact form.',
     },
   ],
 };
@@ -140,14 +139,12 @@ export const brandIdentityData = {
   description: (
     <>
       <p>
-        While my initial focus was on the sitemap and product page flows, it became clear
-        that the brand identity and overall interface design needed significant attention.
-        For users to confidently explore, compare, and select the right desk - without
-        resorting to direct contact - the interface had to provide clarity, guidance, and
-        visual credibility. At the same time, the brand needed to convey trust and stability
-        to match the quality of the offering.
+        My brief was the sitemap and the product page flows. Then I looked at the brand and
+        the interface and realised both needed work first. If people are going to explore
+        and compare a desk without picking up the phone, the interface has to feel solid
+        and the brand has to look like it will still be there in five years.
       </p>
-      <p className="mt-4">Selected pieces overview of brand and system kit that was delivered:</p>
+      <p className="mt-4">Here is a selection from the brand and system kit I delivered:</p>
     </>
   ),
   mosaicImages: [
@@ -210,7 +207,7 @@ export const sitemapData = {
   label: 'SITEMAP',
   title: 'Information architecture for dual audiences',
   description:
-    'Taking the current navigation and transforming it into a sitemap gave more clarity for the whole team - the marketing expert contributed with knowledge on conversion, the CEO on the other hand with product and market knowledge and all that lead to a new clean navigation serving the user needs.',
+    'I rebuilt the existing navigation as a proper sitemap, which gave the whole team something to argue with. The marketing expert pushed me on conversion, the CEO on product and market. Out of that came a new navigation that finally matches what people are trying to do.',
   mainImage: {
     src: '/assets/ergowork/placeholder.svg',
     alt: 'Sitemap Diagram',
@@ -232,20 +229,15 @@ export const sitemapData = {
   footerText: (
     <>
       <p>
-        Following established conventions and well known demands from user perspective, the
-        footer structure is supportive to the main navigation and relevant for the
-        experience in each page.
+        The footer follows what people expect and quietly repeats the main navigation on
+        every page.
       </p>
       <p className="mt-4">
-        The landing pages seen on a side are supplementary page meaning that the user will
-        be exposed to them only in a context specific situation. For example, if the user
-        is looking for a bundle order to set up an office environment of 10 desk, then
-        service such as assembling is not only nice to have option but even a necessity in
-        most of the cases. Same goes for making an order with the incentive on making more
-        purchases in future. In B2B world that appears to be quite common - a company
-        purchases 10 ergonomic desks and when there is demand for more to be upgraded from
-        normal to ergonomic desks in future, a loyalty or bonus program becomes quite
-        relevant.
+        The landing pages shown on the side only show up when they make sense. Nobody
+        needs assembly service before they know which desk they want, but if you are fitting
+        out an office with 10 desks, someone will be putting them together. The same goes for
+        a bonus programme: a company that buys 10 ergonomic desks today usually needs 10 more
+        in two years, so a loyalty offer is worth putting in front of them.
       </p>
     </>
   ),
@@ -259,14 +251,15 @@ export const personasData = {
   description: (
     <>
       <p>
-        YouGrow, an independent collaborator for Growth Analysis has uncovered four key
-        persona types. The competitor analysis together with the strategic points and the
-        provided personas built the design logic. The four personas informed the hierarchy,
-        page logic, and tone of content throughout the site.
+        YouGrow, an independent collaborator doing the growth analysis, mapped four persona
+        types. Combined with the competitor work and the strategic points from the CEO and
+        the marketing expert, those four became the logic behind the design: they set the
+        page hierarchy and the tone of the copy.
       </p>
       <p className="mt-4">
-        The personas below helped validate our decision to provide both structured
-        exploration and fast-track paths toward contact or checkout.
+        They also settled a question we kept going back and forth on. Both paths stay: the
+        slow one for browsing, the fast one for people who already know what they want and
+        just want to reach contact or checkout.
       </p>
     </>
   ),
@@ -369,9 +362,9 @@ export const pageFlowsData = {
   description: (
     <>
       <p>
-        Each core page was structured to reflect a specific user intent and interaction
-        depth, mapped to persona behavior and conversion triggers. Below shown you can see
-        examples of sections with relative important for the pages.
+        Every core page was built around one clear intent and one amount of depth, matched to
+        what the personas actually do. Below are a few examples of the sections that mattered
+        most on each page.
       </p>
     </>
   ),
@@ -385,11 +378,11 @@ export const pageFlowsData = {
         height: 298,
       },
       title: 'Homepage',
-      intent: 'Offer visual guidance and self-segmentation (B2B vs B2C)',
-      objective: 'Eva and Florian land here - one wants to explore, the other needs fast validation.',
+      intent: 'Let people work out whether ErgoWork is for them or their company',
+      objective: 'Eva wants to explore, Florian wants to be reassured fast.',
       keyActions: [
-        'First impression matters - quick overview, trustworthy visuals and copy',
-        'Scan featured products, understand what is the value of the products',
+        'First impression matters: quick overview, trustworthy visuals and copy',
+        'Scan the featured products and get what the offer is about',
         'Enter the comparison hub or request an offer',
         'Contact a desk expert if needed',
       ],
@@ -403,20 +396,20 @@ export const pageFlowsData = {
         height: 364,
       },
       title: 'Business Customers Page',
-      intent: 'Provide clear, credible B2B value without delay',
-      objective: "Julia and Florian don't browse - they validate and act",
+      intent: 'Make the B2B case quickly and credibly',
+      objective: "Julia and Florian don't browse. They check, then they act.",
       keyActions: [
         'Generate offer instantly or download spec sheet',
         'View testimonials and use cases',
-        'Discover scalable pricing models',
-        'Imagine purchase process - amount, steps, delivery, services',
+        'See how pricing scales with the order',
+        'Imagine the purchase: how many, how long, delivery, services',
       ],
       additionalContent: (
         <>
           <p>
-            The possibility to get in touch on this page is very prominent - the potential
-            customer get a custom offer as the first CTA on the page and further down when
-            he has seen more - he can see the products in real life in one of the showrooms.
+            Getting in touch is the loudest thing on this page. A custom offer is the first
+            CTA, and further down, once someone has read enough to be interested, they can
+            see the desks in real life in one of the showrooms.
           </p>
         </>
       ),
@@ -442,14 +435,13 @@ export const pageFlowsData = {
       rightContent: (
         <>
           <p>
-            This page is delivered as a strategic section flow with clear CTAs - presented
-            in mockup form without finalized content. Each block targets specific user
-            needs: quick filtering, easy comparison, social proof, and customization.
+            This page exists as a flow in mockup form, with the content still open. Each
+            block does one job: filter quickly, compare easily, keep the social proof close,
+            make customisation obvious.
           </p>
           <p className="mt-4">
-            Personas are guided through a relevant journey - e.g., gamers, office workers -
-            toward key actions like &quot;See X desk&quot; or &quot;Get a custom offer&quot;, reducing friction
-            and aligning with value-driven exploration.
+            The idea is to walk each persona down the path that suits them, from gamers to
+            office workers, ending on things like &quot;See X desk&quot; or &quot;Get a custom offer&quot; instead of a wall of options.
           </p>
         </>
       ),
@@ -463,8 +455,8 @@ export const pageFlowsData = {
         height: 320,
       },
       title: 'Product Detail Page',
-      intent: 'Offer detailed reassurance and close the decision gap',
-      objective: 'Eva and James need more information or support',
+      intent: 'Answer the last doubts and close the gap',
+      objective: 'Eva and James want more detail, or someone to ask.',
       keyActions: [
         'View gallery, specs, badges, and how-to video',
         'Start configurator or CTA toward quote',
@@ -476,8 +468,8 @@ export const pageFlowsData = {
           <ul className="list-disc ml-5 space-y-1 mt-2">
             <li>3 variants of the product customization for the main product types</li>
             <li>
-              Additional suggestions for the future expansion of the page (currently the
-              testimonials and customer images are limited)
+              Suggestions for what the page could grow into later (testimonials and customer
+              photos are thin right now)
             </li>
           </ul>
         </>
@@ -492,8 +484,8 @@ export const pageFlowsData = {
         height: 239,
       },
       title: 'Request an offer (form)',
-      intent: 'Provide a low-barrier entry for high-intent users',
-      objective: 'Julia and Florian are ready to act but want clarity',
+      intent: 'Low-barrier way in for people who are ready',
+      objective: 'Julia and Florian are ready to act and want the details first.',
       keyActions: [
         'Submit project form or book a call',
         'Jump back into B2B content or explore desks',
@@ -506,19 +498,18 @@ export const pageFlowsData = {
 // Reflection Section
 export const reflectionData = {
   label: 'REFLECTION & OUTLOOK',
-  title: 'Uncovering UX gaps & setting the course',
+  title: 'What I would do next',
   description: (
     <>
       <p>
-        Beyond individual screens, this project focused on building a cohesive UX system
-        that connects user behavior, product structure, and brand messaging. With defined
-        journeys and decision flows mapped to real personas, ErgoWork now has a strategic
-        foundation to grow from - supporting future improvements in SEO, campaign-specific
-        landing pages, and scalable customization tools.
+        This went past individual screens. What ErgoWork has now is a system: how people
+        behave, how the products are structured and what the brand says all line up, with
+        the journeys mapped to real personas. That gives them something to build on for
+        SEO, campaign landing pages and more customisation later.
       </p>
       <p className="mt-4">
-        The groundwork is set for consistent, user-centered digital expansion. This project
-        is still in development and therefore results can not be estimated as for now.
+        The groundwork is in place. The site is still in development, so there are no
+        results to report yet. I&apos;ll add them once there are.
       </p>
     </>
   ),

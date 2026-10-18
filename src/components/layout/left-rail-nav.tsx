@@ -5,7 +5,6 @@ import { Home, Layers3, Sparkles, UserRound, X } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import { LanguageToggle } from '../ui/LanguageToggle';
 import { ThemeToggle } from '../ui/ThemeToggle';
-import { LinkedInIcon } from '../ui/icon';
 import { useLanguage } from '../../lib/LanguageContext';
 import type { Language, Translations } from '../../lib/i18n';
 
@@ -14,7 +13,7 @@ interface LeftRailNavProps {
 }
 
 interface RailLink {
-  id: 'home' | 'about' | 'pimcore' | 'ergowork' | 'dermatik' | 'sdzrn' | 'buzz-hq';
+  id: 'home' | 'about' | 'pimcore' | 'ergowork' | 'dermatik' | 'sdzrn' | 'buzz-hq' | 'theme-builder';
   href: string;
   section: 'main' | 'real' | 'playground';
 }
@@ -27,6 +26,7 @@ const railLinks: RailLink[] = [
   { id: 'dermatik', href: '/case-studies/dermatik', section: 'real' },
   { id: 'sdzrn', href: '/case-studies/sdzrn', section: 'playground' },
   { id: 'buzz-hq', href: '/case-studies/buzz-hq', section: 'playground' },
+  { id: 'theme-builder', href: '/playground/theme-builder', section: 'playground' },
 ];
 
 const navSectionLabels: Record<Language, { caseStudies: string; playground: string; projects: string }> = {
@@ -36,53 +36,24 @@ const navSectionLabels: Record<Language, { caseStudies: string; playground: stri
   da: { caseStudies: 'Case studies', playground: 'Legeplads', projects: 'Projekter' },
 };
 
-const projectDescriptions: Record<Language, Record<'pimcore' | 'ergowork' | 'dermatik' | 'sdzrn' | 'buzz-hq', string>> = {
-  en: {
-    pimcore: 'Enterprise PIM redesign',
-    ergowork: 'Ergonomics platform',
-    dermatik: 'Healthcare app',
-    sdzrn: 'Brand identity concept',
-    'buzz-hq': 'Interactive bee',
-  },
-  de: {
-    pimcore: 'Enterprise-PIM Redesign',
-    ergowork: 'Ergonomie-Plattform',
-    dermatik: 'Healthcare-App',
-    sdzrn: 'Markenidentitätskonzept',
-    'buzz-hq': 'Interaktive Biene',
-  },
-  bg: {
-    pimcore: 'Редизайн на Enterprise PIM',
-    ergowork: 'Ергономична платформа',
-    dermatik: 'Здравно приложение',
-    sdzrn: 'Концепция за бранд идентичност',
-    'buzz-hq': 'Интерактивна пчела',
-  },
-  da: {
-    pimcore: 'Enterprise PIM-redesign',
-    ergowork: 'Ergonomisk platform',
-    dermatik: 'Sundhedsapp',
-    sdzrn: 'Brandidentitetskoncept',
-    'buzz-hq': 'Interaktiv bi',
-  },
-};
-
-function localizeRailLink(item: RailLink, t: Translations, language: Language) {
+function localizeRailLink(item: RailLink, t: Translations) {
   switch (item.id) {
     case 'home':
       return { label: t.nav.home };
     case 'about':
       return { label: t.nav.about };
     case 'pimcore':
-      return { label: t.features.caseStudies.pimcore.title, description: projectDescriptions[language].pimcore };
+      return { label: t.features.caseStudies.pimcore.title };
     case 'ergowork':
-      return { label: t.features.caseStudies.ergowork.title, description: projectDescriptions[language].ergowork };
+      return { label: t.features.caseStudies.ergowork.title };
     case 'dermatik':
-      return { label: t.features.caseStudies.dermatik.title, description: projectDescriptions[language].dermatik };
+      return { label: t.features.caseStudies.dermatik.title };
     case 'sdzrn':
-      return { label: 'SDZRN', description: projectDescriptions[language].sdzrn };
+      return { label: 'SDZRN' };
     case 'buzz-hq':
-      return { label: t.features.playground.buzzHQ.title, description: projectDescriptions[language]['buzz-hq'] };
+      return { label: t.features.playground.buzzHQ.title };
+    case 'theme-builder':
+      return { label: t.themeBuilder.heading };
     default:
       return { label: item.id };
   }
@@ -153,7 +124,7 @@ function DesktopRailNav({ className }: LeftRailNavProps) {
               const active = item.href === '/' 
                 ? location.pathname === '/' 
                 : location.pathname.startsWith(item.href);
-              const localized = localizeRailLink(item, t, language);
+              const localized = localizeRailLink(item, t);
               return (
                 <Link
                   key={item.href}
@@ -171,14 +142,14 @@ function DesktopRailNav({ className }: LeftRailNavProps) {
 
           <div className="my-3 h-px bg-border" />
 
-          <p className="px-2.5 pb-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-foreground/45">
+          <p className="px-2.5 pb-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-foreground/60">
             {sectionLabels.caseStudies}
           </p>
           <div className="space-y-0.5">
             {realLinks.map((item) => {
               // Use startsWith to handle case study pages with sub-routes
               const active = location.pathname.startsWith(item.href);
-              const localized = localizeRailLink(item, t, language);
+              const localized = localizeRailLink(item, t);
               return (
                 <Link
                   key={item.href}
@@ -189,9 +160,6 @@ function DesktopRailNav({ className }: LeftRailNavProps) {
                   )}
                 >
                   <span className="block text-[12px] lg:text-[13px] font-medium leading-tight">{localized.label}</span>
-                  {localized.description && (
-                    <span className="mt-0.5 hidden lg:block text-[11px] text-foreground/45 leading-tight">{localized.description}</span>
-                  )}
                 </Link>
               );
             })}
@@ -199,14 +167,14 @@ function DesktopRailNav({ className }: LeftRailNavProps) {
 
           <div className="my-3 h-px bg-border" />
 
-          <p className="px-2.5 pb-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-foreground/45">
+          <p className="px-2.5 pb-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-foreground/60">
             {sectionLabels.playground}
           </p>
           <div className="space-y-0.5">
             {playgroundLinks.map((item) => {
               // Use startsWith to handle case study pages with sub-routes
               const active = location.pathname.startsWith(item.href);
-              const localized = localizeRailLink(item, t, language);
+              const localized = localizeRailLink(item, t);
               return (
                 <Link
                   key={item.href}
@@ -217,9 +185,6 @@ function DesktopRailNav({ className }: LeftRailNavProps) {
                   )}
                 >
                   <span className="block text-[12px] lg:text-[13px] font-medium leading-tight">{localized.label}</span>
-                  {localized.description && (
-                    <span className="mt-0.5 hidden lg:block text-[11px] text-foreground/45 leading-tight">{localized.description}</span>
-                  )}
                 </Link>
               );
             })}
@@ -231,15 +196,7 @@ function DesktopRailNav({ className }: LeftRailNavProps) {
             <LanguageToggle menuPlacement="up" menuAlign="left" />
             <ThemeToggle />
           </div>
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-accent transition-colors"
-          >
-            <LinkedInIcon size="sm" />
-            <span>{t.common.linkedIn}</span>
-          </a>
+
         </div>
       </div>
     </aside>
@@ -326,29 +283,28 @@ function MobilePortfolioNav() {
 
               <div className="grid grid-cols-1 gap-1.5">
                 {realLinks.map((item) => {
-                  const localized = localizeRailLink(item, t, language);
+                  const localized = localizeRailLink(item, t);
                   // Use startsWith to handle case study pages with sub-routes
                   const active = location.pathname.startsWith(item.href);
                   return (
-                    <Link
-                      key={item.href}
-                      to={item.href}
-                      onClick={() => setIsProjectsOpen(false)}
-                      className={cn(
-                        'rounded-lg px-3 py-2',
-                        active ? 'bg-accent/12 text-accent' : 'text-foreground/78 hover:bg-muted hover:text-foreground'
-                      )}
-                    >
-                      <span className="block text-sm font-medium">{localized.label}</span>
-                      {localized.description && <span className="block text-[11px] text-foreground/45">{localized.description}</span>}
-                    </Link>
-                  );
-                })}
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  onClick={() => setIsProjectsOpen(false)}
+                  className={cn(
+                    'rounded-lg px-3 py-2',
+                    active ? 'bg-accent/12 text-accent' : 'text-foreground/78 hover:bg-muted hover:text-foreground'
+                  )}
+                >
+                  <span className="block text-sm font-medium">{localized.label}</span>
+                </Link>
+              );
+            })}
 
                 <div className="my-1 h-px bg-border" />
 
                 {playgroundLinks.map((item) => {
-                  const localized = localizeRailLink(item, t, language);
+                  const localized = localizeRailLink(item, t);
                   // Use startsWith to handle case study pages with sub-routes
                   const active = location.pathname.startsWith(item.href);
                   return (
@@ -362,7 +318,6 @@ function MobilePortfolioNav() {
                       )}
                     >
                       <span className="block text-sm font-medium">{localized.label}</span>
-                      {localized.description && <span className="block text-[11px] text-foreground/45">{localized.description}</span>}
                     </Link>
                   );
                 })}
@@ -373,15 +328,7 @@ function MobilePortfolioNav() {
                   <LanguageToggle menuPlacement="up" menuAlign="left" />
                   <ThemeToggle />
                 </div>
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex w-fit items-center gap-1.5 text-sm text-foreground/70 hover:text-accent"
-                >
-                  <LinkedInIcon size="sm" />
-                  <span>{t.common.linkedIn}</span>
-                </a>
+
               </div>
             </motion.div>
           </>
@@ -427,8 +374,9 @@ function MobilePortfolioNav() {
           <button
             type="button"
             onClick={handleBeeTap}
-            aria-label={`Trigger Bella easter egg, level ${beeTapCount > 0 ? beeTapCount : 0}`}
-            className="relative flex flex-col items-center justify-center rounded-xl py-1.5 text-[11px] font-medium text-foreground/80"
+            aria-label="Easter egg: tap to summon Bella"
+            title="Easter egg"
+            className="flex flex-col items-center justify-center rounded-xl border border-dashed border-accent/40 py-1.5 text-[11px] font-medium text-foreground/60 transition-colors hover:border-accent/70 hover:text-foreground/80"
           >
             <Sparkles className="mb-0.5 h-4 w-4 text-accent" />
             <span>Bella</span>
