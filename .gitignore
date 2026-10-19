@@ -13,6 +13,12 @@
 # testing
 /coverage
 
+# Playwright generated output — regenerate locally, never commit.
+/test-results/
+/playwright-report/
+/blob-report/
+/artifacts/
+
 # next.js
 /.next/
 /out/
