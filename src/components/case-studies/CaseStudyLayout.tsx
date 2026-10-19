@@ -25,7 +25,10 @@ export function CaseStudyLayout({
       )}
     >
       <div className="w-full bg-card min-h-screen">
-        <div className="px-4 py-8 md:px-[50px] md:py-[50px]">
+        {/* pt clears the fixed header (h-16 = 64px, md:h-20 = 80px). Without it
+            the back link sat at y=50 underneath the header and
+            elementFromPoint returned the header, so it could not be clicked. */}
+        <div className="px-4 pt-24 pb-8 md:px-[50px] md:pt-28 md:pb-[50px]">
           <Link
             to="/"
             className="mb-8 inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-[var(--color-accent-text)]"
