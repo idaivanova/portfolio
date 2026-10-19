@@ -93,6 +93,33 @@ function ScrollToTop() {
   return null;
 }
 
+// index.html hardcodes <title>Idas Portfolio</title> and nothing rewrote it, so
+// every route reported the same title to the browser, to search engines, and to
+// screen-reader users navigating by tab. Longest matching prefix wins, so the
+// Pimcore series routes can name their part rather than falling back to the hub.
+const ROUTE_TITLES: Array<[string, string]> = [
+  ['/case-studies/pimcore/frontend-transition', 'Front-end transition · Pimcore Studio'],
+  ['/case-studies/pimcore/studio-extensions', 'Native extensions · Pimcore Studio'],
+  ['/case-studies/pimcore', 'Pimcore Studio · Case Study'],
+  ['/case-studies/ergowork', 'ErgoWork · Case Study'],
+  ['/case-studies/dermatik', 'Dermatik · Case Study'],
+  ['/case-studies/sdzrn', 'SDZRN · Case Study'],
+  ['/playground/theme-builder', 'Theme Builder · Playground'],
+  ['/about', 'About · Ida Ivanova'],
+  ['/', 'Ida Ivanova · UX/UI Designer'],
+];
+
+function DocumentTitle() {
+  const { pathname } = useLocation();
+
+  useLayoutEffect(() => {
+    const match = ROUTE_TITLES.find(([prefix]) => pathname === prefix || pathname.startsWith(prefix + '/'));
+    document.title = (match ? match[1] : ROUTE_TITLES[ROUTE_TITLES.length - 1][1]);
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   return (
     <BrowserRouter>
@@ -101,6 +128,7 @@ function App() {
           <div className="min-h-screen bg-background text-foreground font-sans">
             <SkipLink />
             <ScrollToTop />
+            <DocumentTitle />
             <Header />
             <LeftRailNav />
 

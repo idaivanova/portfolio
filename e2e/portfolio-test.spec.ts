@@ -18,6 +18,21 @@ if (!fs.existsSync(screenshotsDir)) {
   fs.mkdirSync(screenshotsDir, { recursive: true });
 }
 
+const APP_ORIGIN = 'http://localhost:3000';
+
+// Only errors the app itself authored should fail the console check.
+// `msg.location().url` carries a console error's source, so a cross-origin entry
+// came from something the page *embedded* — today the YouTube player on
+// /case-studies/pimcore/studio-extensions, which reaches out to
+// googleads.g.doubleclick.net and static.doubleclick.net/instream. That is
+// environmental third-party noise, not an app defect.
+// Not a blanket "ignore console errors" filter: errors from the app origin still
+// fail, and so do uncaught exceptions, which carry no source URL at all.
+function isAppAuthored(sourceUrl: string | undefined): boolean {
+  if (!sourceUrl) return true; // no source -> an exception in app code
+  return sourceUrl.startsWith(APP_ORIGIN);
+}
+
 test.describe('Portfolio Website Tests', () => {
   const consoleErrors: string[] = [];
   const consoleWarnings: string[] = [];
@@ -31,10 +46,15 @@ test.describe('Portfolio Website Tests', () => {
     page.on('console', (msg) => {
       const type = msg.type();
       const text = msg.text();
-      
+
       if (type === 'error') {
-        consoleErrors.push(text);
-        console.log(`❌ Console Error: ${text}`);
+        // See isAppAuthored — third-party embeds are logged, not failed on.
+        if (isAppAuthored(msg.location().url)) {
+          consoleErrors.push(text);
+          console.log(`❌ Console Error: ${text}`);
+        } else {
+          console.log(`⚠️ Ignored third-party error (${msg.location().url}): ${text}`);
+        }
       } else if (type === 'warning') {
         consoleWarnings.push(text);
         console.log(`⚠️ Console Warning: ${text}`);
@@ -106,66 +126,42 @@ test.describe('Portfolio Website Tests', () => {
 
   test('6. Project card navigation test', async ({ page }) => {
     console.log('\n🔗 Testing project card navigation...');
-    
+
     await page.goto('/');
     await page.waitForLoadState('networkidle');
-    
-    // Find project cards - common selectors
-    const cardSelectors = [
-      '[class*="project"]',
-      '[class*="case"]',
-      '[class*="card"]',
-      'article',
-      'a[href*="/case-studies/"]'
-    ];
-    
-    let cardsFound = false;
-    let testedCards = 0;
-    
-    for (const selector of cardSelectors) {
-      const cards = page.locator(selector);
-      const count = await cards.count();
-      
-      if (count > 0) {
-        console.log(`   Found ${count} elements with selector: ${selector}`);
-        cardsFound = true;
-        
-        // Test clicking first 2 cards
-        for (let i = 0; i < Math.min(2, count); i++) {
-          const card = cards.nth(i);
-          
-          // Check if it's clickable (has href or is a link)
-          const isLink = await card.evaluate(el => el.tagName === 'A').catch(() => false);
-          const hasHref = await card.getAttribute('href').catch(() => null);
-          
-          if (isLink || hasHref) {
-            const href = hasHref || await card.getAttribute('href');
-            console.log(`   Testing card ${i + 1}: href=${href}`);
-            
-            // Click and verify navigation
-            await card.click();
-            await page.waitForLoadState('networkidle');
-            
-            const newUrl = page.url();
-            console.log(`   ✅ Navigation successful to: ${newUrl}`);
-            testedCards++;
-            
-            // Go back to homepage
-            await page.goto('/');
-            await page.waitForLoadState('networkidle');
-          }
-        }
-        
-        if (testedCards > 0) break;
-      }
+
+    // Target the real project cards in the #projects section. A bare
+    // `a[href*="/case-studies/"]` also matches the left-rail nav links, and
+    // below `md` the rail is hidden — so index 0 was an invisible link on
+    // mobile and the click hung.
+    const cards = page.locator('#projects a[href^="/case-studies/"]');
+    const cardCount = await cards.count();
+    console.log(`   Found ${cardCount} project cards in #projects`);
+    expect(cardCount).toBeGreaterThanOrEqual(3);
+
+    for (let i = 0; i < cardCount; i++) {
+      await page.goto('/');
+      await page.waitForLoadState('networkidle');
+
+      const card = cards.nth(i);
+      const href = await card.getAttribute('href');
+      console.log(`   Testing card ${i + 1}: href=${href}`);
+
+      // Card is reachable and not covered by anything
+      await expect(card).toBeVisible();
+      await card.click();
+      await page.waitForURL((url) => url.pathname.startsWith('/case-studies/'));
+      await page.waitForLoadState('networkidle');
+
+      const newUrl = page.url();
+      console.log(`   ✅ Navigation successful to: ${newUrl}`);
+      // Landed on the route the card advertised, with real content
+      expect(newUrl).toContain(href!);
+      await expect(page.locator('h1').first()).toBeVisible();
     }
-    
-    if (!cardsFound) {
-      console.log('   ⚠️  No project cards found with standard selectors');
-    }
-    
-    console.log(`   Total cards tested: ${testedCards}`);
-    expect(cardsFound).toBeTruthy();
+
+    expect(cardCount).toBeGreaterThanOrEqual(3);
+    console.log(`   Total cards tested: ${cardCount}`);
   });
 
   test('7. Console error check', async ({ page }) => {

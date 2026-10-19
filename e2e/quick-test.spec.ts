@@ -34,11 +34,15 @@ test.describe('Navigation Tests', () => {
   test('Homepage → About', async ({ page }) => {
     await page.goto('http://localhost:3000/');
     await page.waitForLoadState('networkidle');
-    
-    const aboutLink = page.locator('header a').filter({ hasText: /about/i }).first();
+
+    // The header is brand-only now — navigation lives in the left rail at
+    // >=768px and in the bottom bar below it. Both render the ABOUT link, and
+    // the hidden surface comes first in DOM order, so match on a visible one.
+    const aboutLink = page.locator('a[href="/about"]:visible').first();
+    await expect(aboutLink).toBeVisible();
     await aboutLink.click();
     await page.waitForURL('**/about');
-    
+
     expect(page.url()).toContain('/about');
     console.log('✅ Navigation to About works');
   });
@@ -46,25 +50,27 @@ test.describe('Navigation Tests', () => {
   test('View My Projects smooth scroll', async ({ page }) => {
     await page.goto('http://localhost:3000/');
     await page.waitForLoadState('networkidle');
-    
-    const projectsBtn = page.locator('a').filter({ hasText: /View My Projects/i }).first();
+
+    // Copy is "See my projects" (the hero CTA), not "View My Projects".
+    // It anchors to /#projects and scrolls the section into view.
+    const projectsBtn = page.locator('a[href="/#projects"]').first();
+    await expect(projectsBtn).toHaveText(/See my projects/i);
     await projectsBtn.click();
-    await page.waitForTimeout(1000);
-    
-    const projectsSection = page.locator('#projects');
-    await expect(projectsSection).toBeVisible();
-    
+
+    // Smooth scroll — wait for the section to actually reach the viewport
+    await expect(page.locator('#projects')).toBeInViewport({ timeout: 5000 });
     console.log('✅ Smooth scroll works');
   });
 
   test('Back to Home from case study', async ({ page }) => {
     await page.goto('http://localhost:3000/case-studies/pimcore');
     await page.waitForLoadState('networkidle');
-    
-    const backBtn = page.locator('a').filter({ hasText: /Back to Home/i }).first();
+
+    const backBtn = page.getByRole('link', { name: /Back to Home/i }).first();
     await backBtn.click();
     await page.waitForURL('**/');
-    
+
+    expect(page.url()).toMatch(/\/$/);
     console.log('✅ Back navigation works');
   });
 });

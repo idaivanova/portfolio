@@ -1,9 +1,11 @@
 import { test, expect } from '@playwright/test';
 
 /**
- * Interaction and Animation Tests
- * 
+ * Navigation is consolidated into one left-rail system: an <aside> rail at
+ * >=768px (`md:`) and a fixed bottom bar below it. Tests naming a single
+ * surface end up asserting against hidden DOM on the other breakpoint.
  */
+const DESKTOP_NAV_MIN_WIDTH = 768;
 
 test.describe('Interactive Elements', () => {
   
@@ -13,13 +15,31 @@ test.describe('Interactive Elements', () => {
       await page.waitForLoadState('networkidle');
     });
 
-    test('left rail navigation is visible', async ({ page }) => {
-      const rail = page.locator('aside').first();
-      await expect(rail).toBeVisible();
+    test('primary navigation is visible (rail on desktop, bottom bar on mobile)', async ({ page }) => {
+      const width = page.viewportSize()?.width ?? 0;
 
-      // Check for navigation links in the rail (sole nav system)
-      const navLinks = rail.locator('a').filter({ hasText: /HOME|ABOUT/i });
-      await expect(navLinks.first()).toBeVisible();
+      if (width >= DESKTOP_NAV_MIN_WIDTH) {
+        const rail = page.locator('aside').first();
+        await expect(rail).toBeVisible();
+
+        // Check for navigation links in the rail (sole nav system)
+        const navLinks = rail.locator('a').filter({ hasText: /HOME|ABOUT/i });
+        await expect(navLinks.first()).toBeVisible();
+
+        // The rail owns the project routes
+        await expect(rail.locator('a[href="/case-studies/pimcore"]')).toBeVisible();
+        await expect(rail.locator('a[href^="/playground/"]')).toBeVisible();
+      } else {
+        // Below md the rail is display:none and the bottom bar is the nav
+        await expect(page.locator('aside').first()).toBeHidden();
+
+        const bottomBar = page.locator('div.fixed.bottom-0').first();
+        await expect(bottomBar).toBeVisible();
+        await expect(bottomBar.locator('a[href="/"]')).toBeVisible();
+        await expect(bottomBar.locator('a[href="/about"]')).toBeVisible();
+        await expect(bottomBar.locator('a[href="/playground/theme-builder"]')).toBeVisible();
+        await expect(bottomBar.locator('button[aria-haspopup="dialog"]')).toBeVisible();
+      }
     });
 
     test('mobile bottom navigation is visible on small screens', async ({ page }) => {
