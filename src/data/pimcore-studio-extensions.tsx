@@ -4,9 +4,10 @@
 // ============================================
 //
 // EDITING NOTES (grep for "TODO" before publishing):
-//   Items marked "TODO — confirm with Ida" are unknown to me and were left
-//   blank rather than guessed. Everything else here is either stated in the
-//   brief or copied from src/data/pimcore.tsx.
+//   Nothing is marked TODO any more. Team and time frame were previously
+//   placeholders and are now omitted from scopeData.items entirely, so the
+//   live page cannot display an internal note. Everything remaining here is
+//   either stated in the brief or copied from src/data/pimcore.tsx.
 //
 //   Deliberately NOT claimed, because none of it could be verified:
 //     - that extensions caused no visual or functional disruption
@@ -54,8 +55,8 @@ export const scopeData = {
       { label: 'Client', value: 'Pimcore' },
       { label: 'My role', value: 'UX Design and Research, UI Design' },
       { label: 'Tools', value: 'Figma, Storybook, GitHub' },
-      { label: 'Team', value: 'TODO — confirm with Ida' },
-      { label: 'Time frame', value: 'TODO — confirm with Ida' },
+      // Team and time frame are omitted rather than filled with a guess. If Ida
+      // confirms them later, re-add here as plain rows in the same shape.
     ],
   },
   results: {
